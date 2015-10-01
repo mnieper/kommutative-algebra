@@ -1,0 +1,235 @@
+\section{Kettenbedingungen I}
+
+\subsection{Kettenbedingungen}
+
+\begin{frame}{Stationäre Folgen}
+	\begin{proposition}<+->
+		Sei \(X\) eine teilweise geordnete Menge. Dann sind folgende beide
+		Bedingungen an \(X\) äquivalent:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Jede aufsteigende Folge \(x_1 \le x_2 \le \dotsb\) in \(X\) 
+			ist stationär, das heißt es existiert ein \(n\) mit
+			\(x_n = x_{n + 1} = \dotsb\).
+		\item
+			Jede nicht leere Teilmenge von \(X\) besitzt ein maximales Element.
+		\end{enumerate}
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Angenommen, es gibt eine nicht leere Teilmenge ohne maximales
+			Element. Dann können wir induktiv eine unendliche strikt
+			aufsteigende Folge von Elementen in \(X\) konstruieren.
+		\item
+			Besitzt jede nicht leere Teilmenge ein maximales Element, so
+			auch die Menge \((x_m)_{m \in \set N}\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Kettenbedingungen für Untermoduln}
+	Sei \(A\) ein Ring. Sei \(M\) ein \(A\)-Modul.
+	\begin{definition}<+->
+		Ist jede bezüglich der Inklusion aufsteigende Folge
+		\(N_1 \subset N_2 \subset \dotsb\)
+		von Untermoduln von \(M\) stationär, heißt \(M\) \emph{noethersch}.
+	\end{definition}
+	\begin{definition}<+->
+		Ist jede bezüglich der Inklusion absteigende Folge
+		\(N_1 \supset N_2 \supset \dotsb\) von Untermoduln von \(M\)
+		stationär, heißt \(N\) \emph{artinsch}.
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Beispiele für noethersche und artinsche Moduln}
+	\begin{example}<+->
+		Jede endliche abelsche Gruppe ist als \(\set Z\)-Modul sowohl
+		noethersch als auch artinsch.
+	\end{example}
+	\begin{example}<+->
+		Der Ring \(\set Z\) der ganzen Zahlen ist als \(\set Z\)-Modul
+		noethersch, aber nicht artinsch, denn wir haben
+		\((a) \supsetneq (a^2) \supsetneq \dotsb\) für \(a \in \set Z
+		\setminus \{0, \pm 1\}\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Weitere Beispiele für noethersche und artinsche Moduln}
+	Sei \(p\) eine Primzahl. Sei \(G\) die Gruppe der Elemente von
+	\(\set Q/\set Z\) mit \(p\)-Potenzordnung. 
+	\begin{example}<+->
+		Es besitzt \(G\) genau
+		eine Untergruppe \(G_n\) der Ordnung \(p^n\) für alle \(n \ge 0\)
+		und \(G_0 \subsetneq G_1 \subsetneq \dotsb\), so daß \(G\) nicht 
+		noethersch ist. Auf der anderen Seite sind die einzigen echten
+		Untergruppen von \(G\) die \(G_n\), so daß \(G\) artinsch ist.
+	\end{example}
+	\begin{example}<+->
+		Sei \(H\) die Gruppe aller rationalen Zahlen, in deren gekürzter
+		Bruchdarstellung der Nenner eine \(p\)-Potenz ist. Dann ist \(H\)
+		weder noethersch noch artinsch, denn es gibt eine exakte Sequenz
+		\(0 \to \set Z \to H \to G \to 0\) und \(\set Z\) ist nicht artinsch
+		und \(G\) ist nicht noethersch.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Beispiele mit Polynomringen}
+	Sei \(K\) ein Körper.
+	\begin{example}<+->
+		Der Polynomring \(K[x]\) ist als Modul über sich
+		selbst noethersch, das heißt, er erfüllt die Kettenbedingung für seine
+		Ideale. Auf der anderen Seite ist er nicht artinsch.
+	\end{example}
+	\begin{example}<+->
+		Der Polynomring \(K[x_1, x_2, \dotsc]\) in unendlich vielen Variablen
+		ist weder noethersch noch artinsch: Die Folgen
+		\((x_1) \subsetneq (x_1, x_2) \subsetneq \dotsb\) ist streng aufsteigend,
+		die Folge \((x_1) \supsetneq (x_1^2) \supsetneq \dotsb\) ist streng
+		absteigend.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Untermoduln noetherscher Moduln sind endlich erzeugt}
+	\begin{proposition}<+->
+		Sei \(A\) ein Ring. Ein \(A\)-Modul \(M\) ist genau dann noethersch,
+		wenn alle seine Untermoduln endlich erzeugt sind.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(N\) ein Untermodul eines noetherschen \(A\)-Moduls. Dann gibt es
+			einen maximalen endlich erzeugten Untermodul \(N_0\) von \(N\). Aus der
+			Maximalität folgt \(N_0 = N_0 + Ax\) für alle \(x \in N\), also \(N_0 = N\).
+		\item
+			Sei umgekehrt  jeder Untermodul von \(M\) endlich erzeugt, und sei
+			\(M_1 \subset M_2 \subset \dotsb\) eine aufsteigende Kette von Untermoduln von \(M\).
+			Dann ist \(N \coloneqq \bigcup\limits_{n = 1}^\infty M_i\) ein endlich erzeugter
+			Untermodul. Alle Erzeuger sind schon in einem \(M_n\) enthalten, also \(M_n = N\),
+			und damit ist die Kette stationär.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\mode<article>{Diese Proposition ist der Grund dafür, warum noethersche Moduln so wichtig sind.
+Es stellt sich heraus, daß dies in der Praxis häufig die richtige Endlichkeitsbedingung ist.}
+
+\begin{frame}{Noethersche und artinsche Moduln in exakten Sequenzen}
+	\begin{proposition}<+->
+		Sei \(A\) ein Ring. Sei \(0 \to M' \to M \to M'' \to 0\) eine exakte Sequenz
+		von \(A\)-Moduln. Dann ist \(M\) genau dann noethersch, wenn \(M'\) und \(M''\)
+		noethersch sind.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Jede Kette von Untermoduln in \(M'\) bzw.\ \(M''\) liefert eine Kette
+			von Untermoduln in \(M\). Ist sie dort stationär, so ist sie auch in
+			\(M'\) bzw.\ \(M''\) stationär.
+		\item
+			Ist \((M_n)\) eine Kette von Untermoduln in \(M\) und ist ihr Urbild in \(M'\) und
+			ihr Bild in \(M''\) stationär, so ist sie selbst stationär.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+	\begin{remark}<+->
+		Eine entsprechende Aussage gilt auch für artinsche anstelle noetherscher Moduln.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Endliche Summen noetherscher und artinscher Moduln}
+	\begin{corollary}<+->
+		Sei \(A\) ein Ring. Sind dann \(M_1, \dotsc, M_n\) noethersche \(A\)-Moduln,
+		so ist auch \(\bigoplus\limits_{i = 1}^n M_i\) ein noetherscher \(A\)-Modul.
+	\end{corollary}
+	\begin{proof}<+->
+		Wende Induktion und die Proposition auf die exakte Sequenz
+		\[
+			0 \to M_1 \to \bigoplus\limits_{i = 1}^n M_i \to \bigoplus_{i = 2}^n M_i \to 0
+		\]
+		an.
+	\end{proof}
+	\begin{remark}<+->
+		Eine entsprechende Aussage gilt auch für artinsche anstelle noetherscher Moduln.
+	\end{remark}
+\end{frame}
+
+\subsection{Noethersche und artinsche Ringe}
+
+\begin{frame}{Definition noetherscher und artinscher Ringe}
+	\begin{definition}<+->
+		Ein Ring \(A\) heißt \emph{noethersch}, falls \(A\) als Modul über sich selbst
+		noethersch ist.
+	\end{definition}
+	\begin{definition}<+->
+		Ein Ring \(A\) heißt \emph{artinsch}, falls \(A\) als Modul über sich selbst
+		artinsch ist.
+	\end{definition}
+	\begin{remark}<+->
+		Eine Ring \(A\) ist also genau dann noethersch bzw.~artinsch, wenn jede Kette aufsteigender
+		bzw.~absteigender Ideale in \(A\) stationär ist.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Beispiele zu noetherschen und artinschen Ringen}
+	\begin{example}<+->
+		Jeder Körper ist sowohl ein noetherscher und artinscher Ring. Dasselbe gilt für die
+		Ringe \(\set Z/(n)\) mit \(n > 0\).
+	\end{example}
+	\begin{example}<+->
+		Der Ring \(\set Z\) der ganzen Zahlen ist noethersch, aber nicht artinsch.
+	\end{example}
+	\begin{example}<+->
+		Jeder Hauptidealbereich ist noethersch, denn alle seine Ideale sind endlich erzeugt.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Beispiele nicht noetherscher Ringe}
+	\begin{example}<+->
+		Sei \(K\) ein Körper. Der Polynomring \(K[x_1, x_2, \dotsc]\) in unendlich vielen
+		Variablen ist nicht noethersch. Als Integritätsbereich ist er aber in einem Körper
+		enthalten. Damit sehen wir, daß ein Unterring eines noetherschen Ringes im allgemeinen
+		nicht wieder noethersch sein muß.
+	\end{example}
+	\begin{example}<+->
+		Sei \(X\) ein kompakter Hausdorffraum, und sei \(F_1 \supsetneq F_2 \supsetneq \dotsb\)
+		eine streng absteigende Folge abgeschlossener Teilmengen. Sei \(\Cont(X)\) der Ring
+		der stetigen reellwertigen Funktionen auf \(X\). Dann definieren die
+		\(\ideal a_n \coloneqq \{f \in \Cont(X) \mid f|_{F_n} = 0\}\) eine streng aufsteigende
+		Folge von Idealen in \(\Cont(X)\), es ist \(\Cont(X)\) also nicht noethersch.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Endlich erzeugte Moduln noetherscher und artinscher Ringe}
+	\begin{proposition}<+->
+		Sei \(A\) ein noetherscher Ring. Ist dann \(M\) ein endlich erzeugter
+		\(A\)-Modul, so ist \(M\) noethersch.
+	\end{proposition}
+	\begin{proof}<+->
+		Es ist \(M\) ein Quotient des \(A\)-Moduls \(A^n\), und Quotienten und Summen
+		noetherscher Moduln sind wieder noethersch.
+	\end{proof}
+	\begin{remark}<+->
+		Eine entsprechende Aussage gilt auch für artinsche anstelle von noetherschen
+		Ringen.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Quotienten noetherscher und artinscher Ringe}
+	\begin{proposition}<+->
+		Sei \(\ideal a\) ein Ideal eines noetherschen Ringes \(A\). Dann
+		ist auch \(A/\ideal a\) ein noetherscher Ring.
+	\end{proposition}
+	\begin{proof}<+->
+		Da Quotienten noetherscher Moduln noethersch sind, ist \(A/\ideal a\)
+		ein noetherscher \(A\)-Modul. Damit ist \(A/\ideal a\) aber auch
+		noethersch über sich selbst.
+	\end{proof}
+	\begin{remark}<+->
+		Eine entsprechende Aussage gilt auch für artinsche anstelle von noetherschen
+		Ringen.
+	\end{remark}
+\end{frame}
+

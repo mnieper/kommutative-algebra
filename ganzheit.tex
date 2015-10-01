@@ -1,0 +1,310 @@
+\section{Ganzheit}
+
+\subsection{Ganze Elemente}
+
+\begin{frame}{Definition ganzer Elemente}
+	\begin{definition}<+->
+		Sei \(B\) ein kommutativer Ring. Sei \(A \subset B\) ein Unterring.
+		Ein Element \(x \in B\) heißt \emph{ganz über \(A\)}, falls es
+		Nullstelle eines normierten Polynoms in \(A[x]\) ist, falls also
+		\(x\) eine Gleichung der Form \(x^n + a_1 x^{n - 1} + \dotsb + a_n = 0\)
+		mit \(a_i \in A\) erfüllt.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Insbesondere ist jedes Element aus \(A\) ganz über \(A\).
+	\end{visibleenv}
+	\begin{example}<+->
+		Betrachte die Ringerweiterung \(\set Z \subset \set Q\). Sei eine
+		rationale Zahl \(x = \frac r s\) mit \(r, s \in \set Z\) und
+		\((r, s) = (1)\) ganz über \(\set Z\). Dann existieren
+		\(a_i \in \set Z\) mit \(r^n + a_1 r^{n - 1} s + \dotsc + a_n s^n = 0\).
+		Damit ist \(s\) Teiler von \(r^n\), also \(s = \pm 1\), also \(x \in
+		\set Z\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Charakterisierung ganzer Elemente}
+	\begin{proposition}<+->
+		Sei \(A \subset B\) eine Erweiterung kommutativer Ringe. Für ein
+		Element \(x \in B\) sind folgende Aussagen äquivalent:
+		\begin{enumerate}[<+->]
+		\item
+			Das Element \(x\) ist ganz über \(A\).
+		\item
+			Es ist \(A[x] \subset B\) als \(A\)-Modul endlich erzeugt.
+		\item
+			Es existiert ein Unterring \(C\) von \(B\) mit \(A[x] \subset C\),
+			so daß \(C\) als \(A\)-Modul endlich erzeugt ist.
+		\item
+			Es existiert ein treuer \(A[x]\)-Modul \(M\), welcher als
+			\(A\)-Modul endlich erzeugt ist.
+		\end{enumerate}
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beweis zur Charakterisierung ganzer Elemente}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Erfüllt \(x\) die Gleichung \(x^n = - a_1 x^{n - 1} - \dotsb - 
+			a_n\) mit \(a_i \in A\), so ist \(A[x]\) als \(A\)-Modul von
+			\(1, x, \dotsc, x^{n - 1}\) erzeugt.
+		\item
+			Ist \(A[x]\) als \(A\)-Modul endlich erzeugt, so ist insbesondere
+			\(C = A[x]\) ein Unterring von \(B\), welcher \(A[x]\)
+			umfaßt und als \(A\)-Modul endlich erzeugt ist.
+		\item
+			Ist \(C \subset B\) ein \(A[x]\) umfassender Unterring, welcher
+			als \(A\)-Modul endlich erzeugt ist, so ist insbesondere \(M = C\)
+			ein treuer \(A[x]\)-Modul, denn aus \(y C = 0\) folgt
+			insbesondere \(y = y \cdot 1 = 0\), und \(M\) ist als \(A\)-Modul
+			endlich erzeugt.
+		\item
+			Sei \(M\) ein treuer \(A[x]\)-Modul, welcher als \(A\)-Modul
+			endlich erzeugt ist. Sei \(\phi\colon M \to M, m \mapsto x m\).
+			Da \(M\) als \(A\)-Modul endlich erzeugt ist, existieren
+			\(a_i \in A\) mit \(\phi^n + a_1 \phi^{n -1} + \dotsc + a_n = 0\).
+			Da \(M\) ein treuer \(A[x]\)-Modul ist, folgt daraus
+			\(x^n + a_1 x^{n - 1} + \dotsc + a_n = 0\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Von endlich vielen ganzen Elementen erzeugte Unterringe}
+	\begin{corollary}<+->
+		Sei \(A \subset B\) eine Erweiterung kommutativer Ringe. Seien
+		\(x_1, \dotsc, x_n \in B\), welche jeweils ganz über \(A\) sind. Dann
+		ist \(A[x_1, \dotsc, x_n]\) ein endlich erzeugter \(A\)-Modul.
+	\end{corollary}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Der Fall \(n = 1\) ist ein Spezialfall der Proposition.
+		\item
+			Sei also \(n > 1\). Wir setzen
+			\(A_r \coloneqq A[x_1, \dotsc, x_r]\). Nach Induktionsvoraussetzung
+			ist \(A_{n - 1}\) als \(A\)-Modul endlich erzeugt.
+		\item
+			Da \(x_n\) insbesondere ganz über \(A_{n - 1}\) ist, ist
+			\(A_n\) als \(A_{n - 1}\)-Modul endlich erzeugt.
+		\item
+			Es folgt, daß \(A_n\) auch als \(A\)-Modul endlich erzeugt ist.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Der Unterring der ganzen Elemente}
+	\begin{corollary}<+->
+		Sei \(A \subset B\) eine Erweiterung kommutativer Ringe. Dann ist
+		die Menge \(C\) der über \(A\) ganzen Elemente von \(B\) ein Unterring
+		von \(B\), welcher \(A\) enthält.
+	\end{corollary}
+	\begin{proof}<+->
+		Seien \(x, y \in C\). Dann ist nach der letzten Folgerung \(A[x, y]\)
+		ein endlich-erzeugter \(A\)-Modul. Damit sind auch
+		\(xy, x + y \in A[x, y]\) nach der dritten Aussage der Proposition
+		ganz über \(A\). 
+	\end{proof}
+\end{frame}
+
+\subsection{Ganzheit}
+
+\begin{frame}{Ganzer Abschluß}
+	\begin{definition}<+->
+		Sei \(A \subset B\) eine Erweiterung kommutativer Ringe.
+		\begin{enumerate}[<+->]
+		\item<.->
+			Der Unterring \(C\) aller über \(A\) ganzen Elemente von \(B\) heißt der
+			\emph{ganze Abschluß von \(A\) in \(B\)}.
+		\item
+			Ist \(C = A\), so heißt \(A\) \emph{ganz abgeschlossen in \(B\)}.
+		\item
+			Ist \(C = B\), so heißt \(B\) \emph{ganz über \(A\)}.
+		\end{enumerate}
+	\end{definition}
+	\begin{example}<+->
+		Der Ring \(\set Z\) ist in \(\set Q\) ganz abgeschlossen.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Ganze Ringhomomorphismen}
+	\begin{definition}<+->
+		Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe, so daß
+		\(B\) zu einer \(A\)-Algebra wird. Dann heißt \(\phi\) ganz und \(B\)
+		eine \emph{ganze \(A\)-Algebra}, falls \(B\) ganz über dem Unterring
+		\(\phi(A)\) ist.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Damit haben wir oben also gezeigt: Eine \(A\)-Algebra \(B\) ist genau
+		dann endlich über \(A\), wenn sie endlich erzeugt und ganz über \(A\)
+		ist.
+	\end{visibleenv}	
+\end{frame}
+
+\begin{frame}{Transitivität der ganzen Abhängigkeit}
+	\begin{corollary}<+->
+		Seien \(A \subset B \subset C\) Erweiterungen kommutativer Ringe. 
+		Ist dann \(B\) ganz über \(A\) und \(C\) ganz über \(B\), so ist
+		auch \(C\) ganz über \(A\).
+	\end{corollary}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(x \in C\), so existieren \(b_i \in B\) mit
+			\(x^n + b_1 x^{n - 1} + \dotsb + b_n = 0\). Da die
+			\(b_i\) ganz über \(A\) sind, ist \(B' = A[b_1, \dotsc, b_n]\)
+			ein endlich erzeugter \(A\)-Modul.
+		\item
+			Da \(x\) ganz über \(B'\) ist, ist \(B'[x]\) ein endlich erzeugter
+			\(B\)-Modul.
+		\item
+			Es folgt, daß \(B'[x]\) auch als \(A\)-Modul endlich erzeugt ist,
+			so daß \(x\) nach der dritten Charakterisierung der Proposition
+			endlich über \(A\) ist.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Ganze Abgeschlossenheit des ganzen Abschlusses}
+	\begin{corollary}<+->
+		Sei \(A \subset B\) eine Erweiterung kommutativer Ringe. Sei \(C\) der
+		ganze Abschluß von \(A\) in \(B\). Dann ist \(C\) in \(B\) ganz
+		abgeschlossen.
+	\end{corollary}
+	\begin{proof}<+->
+		Sei \(x \in B\) ganz über \(C\). Da ganze Abhängigkeit transitiv ist,
+		ist \(x\) damit auch ganz über \(A\). Damit ist \(x \in C\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Ganzheit in Quotienten und Lokalisierungen}
+	\begin{proposition}<+->
+		Sei \(A \subset B\) eine ganze Erweiterung kommutativer Ringe. Dann
+		gilt:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Für jedes Ideal \(\ideal b\) von \(B\) ist \(B/\ideal b\) ganz über
+			\(A/(A \cap \ideal b)\).
+		\item
+			Für jede multiplikativ abgeschlossene Teilmenge \(S \subset A\) ist
+			\(S^{-1} B\) ganz über \(S^{-1} A\).
+		\end{enumerate}
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Eine Gleichung \(x^n + a_1 x^{n - 1} + \dotsb + a_n = 0\) mit
+			\(a_i \in A\) für ein \(x \in B\) können wir modulo \(\ideal b\)
+			reduzieren.
+		\item
+			Sei \(\frac x s \in S^{-1} B\). Dann liefert die obige Gleichung
+			\((\frac x s)^n + \frac{a_i} s (\frac x s)^{n - 1} + \dotsb +
+			\frac{a_n} {s^n} = 0\)
+			eine Ganzheitsbedingung über \(S^{-1} A\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Noethersche Normalisierung}
+
+\begin{frame}{Ein schrecklicher Hilfssatz}
+	\begin{lemma}<+->
+		Sei \(M\) eine endliche Menge von Tupeln \(m = (m_1, \dotsc, m_n)
+		\in \set N_0^n\). Dann existieren natürliche Zahlen \(w_1, \dotsc,
+		w_n \in \set N\) mit \(w_n = 1\), so daß für alle
+		\(m, m' \in M\) gilt: \(m \neq m' \implies
+		w(m) \coloneqq
+		\sum\limits_{i = 1}^n w_i m_i \neq
+		w(m') = \sum\limits_{i = 1}^n w_i m_i\).
+	\end{lemma}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Wir führen den Beweis nach Induktion über \(n\). Wir können
+			\(n > 1\) annehmen. Ein \(m \in M\) schreiben wir als
+			\(m = (m_1, m_{\ge 2})\) mit \(m_{\ge 2} = (m_2, \dotsc, m_n)\).
+		\item
+			Wir wenden die Induktionsvoraussetzung auf die vorkommenden
+			\(m_{\ge 2}\) an und erhalten \(w_2, \dotsc, w_n \in \set N\) mit
+			\(w_n = 1\).
+		\item
+			Wir wählen \(w_1 \in \set N\) so, daß
+			\(w_1 > \sum\limits_{i = 2}^n w_i m_i\) für alle \(m \in M\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Hilfssatz zur Noetherschen Normalisierung}
+	\begin{lemma}<+->
+		Sei \(K\) ein Körper. Sei \(f \in A \coloneqq K[x_1, \dotsc, x_n]\) mit
+		\(f \neq 0\).
+		Dann existiert ein Ringautomorphismus \(\phi\colon A \to A\) mit
+		\(\phi(x_n) = x_n\), so daß
+		\(
+		\phi(f) = a_0 x_n^k + a_1 x_n^{k - 1} + \dotsb + a_k\)
+		mit \(a_0 \in K^\units\) und \(a_1, \dotsc, a_k \in K[x_1, \dotsc, x_{n - 1}]\).
+	\end{lemma}
+\end{frame}
+
+\begin{frame}{Beweis des Hilfssatzes}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es gibt eine endliche Menge \(M\) von Tupeln \(m = (m_1, \dotsc,
+			m_n) \in \set N_0^n\), so daß \(f = \sum\limits_{m \in M}
+			a_m x_1^{m_1} \dotsm x_n^{m_n}\) mit \(a_m \in K^\units\). Wir
+			wählen \(w_1, \dotsc, w_n \in \set N\) zu \(M\) wie im letzten
+			Hilfssatz.
+		\item
+			Definiere \(\phi\colon A \to A\) mit \(\phi(x_i) = x_i + x_n^{w_i}\)
+			für \(i < n\). Damit ist
+			\(\phi(f) = f(x_1 + x_n^{w_1},
+			\dotsc, x_{n - 1} + x_n^{w_{n - 1}}, x_n)\).
+		\item
+			Sei \(m \in M\) dasjenige Tupel, so daß \(\sum\limits_{i = 1}^n
+			w_i m_i\) maximal wird. Dann ist der Term maximalen Grades in
+			\(x_n\) in \(\phi(f)\) durch \(a_m x_n^{\sum w_i m_i}\) gegeben,
+			und es ist \(a_m \in K^\units\).
+		\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Noethersche Normalisierung}
+	\begin{proposition}<+->
+		\label{prop:noether_norm}
+		Seien \(K\) ein Körper und \(\ideal a \neq (1)\) ein Ideal in \(A \coloneqq K[x_1, \dotsc, x_n]\).
+		Dann existieren ein Polynomring \(B \coloneqq K[y_1, \dotsc, y_n]\) und ein endlicher, injektiver
+		Homomorphismus \(B \to A\) kommutativer \(K\)-Algebren und ein \(0 \leq r \leq n\), so daß
+		\(B \cap \ideal a = (y_{r + 1}, \dotsc, y_n)\).
+		\\
+		Insbesondere folgt, daß \(K[y_1, \dotsc, y_r] \to A/\ideal a\) ein endlicher, injektiver Homomorphismus
+		von \(K\)-Algebren ist.
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beweis der noetherschen Normalisierung}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Wir wenden Induktion über \(n\) an. Wir können \(n \ge 1\) und \(\ideal a \neq (0)\) annehmen.
+		\item
+			Sei \(f \in \ideal a \setminus \{0\}\). Nach dem Hilfssatz können wir
+			davon ausgehen, daß \(f = 0\) eine
+			Ganzheitsbedingung für \(x_n\) über \(A' \coloneqq K[x_1, \dotsc, x_{n - 1}]\) ist.
+		\item
+			Nach Induktionsvoraussetzung existiert ein endlicher, injektiver Homomorphismus \(B' \coloneqq K[y_1, \dotsc,
+			y_{n - 1}] \to A'\), so daß \(B' \cap \ideal a = (y_{r + 1}, \dotsc, y_n)\) für ein \(r\). 
+		\item
+			Schließlich setzen wir \(B = B'[y_n] \to A = A'[x_n], y_n \mapsto f\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+

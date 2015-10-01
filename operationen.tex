@@ -1,0 +1,445 @@
+\section{Operationen mit Idealen}
+
+\subsection{Summe, Schnitt und Produkt von Idealen}
+
+\begin{frame}{Summe und Schnitt von Idealen}
+    Sei \(A\) ein Ring.
+    \begin{definition}<+->
+        Sei \((\ideal a_i)_{i \in I}\) eine Familie von Idealen von \(A\). Dann ist
+        ihre \emph{Summe \(\sum\limits_{i \in I} \ideal a_i\)} das kleinste Ideal von
+        \(A\), welches die Ideale \(\ideal a_i\) umfaßt.
+    \end{definition}
+    \begin{visibleenv}<+->
+        Es ist \(\sum\limits_{i \in I} \ideal a_i = \left\{\sum\limits_{k = 1}^n x_k
+        \mid x_k \in \ideal a_{i(k)}, i_k \in I\right\}\).
+    \end{visibleenv}
+    \begin{remark}<+->
+        Da der Schnitt einer Familie von Idealen wieder ein Ideal ist, bilden die
+        Ideale von \(A\) damit einen vollständigen Verband bezüglich der
+        Inklusionsordnung.
+    \end{remark}
+    \begin{remark}<+->
+        Die Vereinigung zweier Ideale von \(A\) ist im allgemeinen kein Ideal.
+    \end{remark}
+\end{frame}
+
+\begin{frame}{Produkt von Idealen}
+    Seien \(A\) ein Ring und \(\ideal a, \ideal b\) zwei Ideale von \(A\).
+    \begin{definition}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Das \emph{Produkt \(\ideal a \ideal b\) der Ideale \(\ideal a\)
+            und \(\ideal b\)} ist das Ideal welches von allen Elementen der Form
+            \(x y\) mit \(x \in \ideal a\) und \(y \in \ideal b\) erzeugt wird.
+        \item
+            Sei \(n \in \set N_0\). Die \emph{\(n\)-te Potenz \(\ideal a^n\) des
+            Ideals \(\ideal a\)} ist
+            \(\underbrace{\ideal a \dotsm \ideal a}_{n}\). Hierbei setzen wir
+            \(\ideal a^0 = (1)\).
+        \end{enumerate}
+    \end{definition}
+    \begin{example}<+->
+    	Es ist \(\ideal a \ideal b \subset \ideal a \cap \ideal b\).
+    \end{example}
+    \begin{proposition}<+->
+        Seien \(m, n \in \set N_0\). Dann ist
+        \(\ideal a^m \ideal a^n = \ideal a^{m + n}\).
+        \qed
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Beispiele zu Summen, Schnitten und Produkten von Idealen}
+    \begin{example}<+->
+        Seien \(m, n \in \set Z\).
+        \begin{enumerate}[<+->]
+        \item<.->
+            Das Ideal \((m) + (n) = (m, n)\) ist das Ideal, welches
+            von einem größten gemeinsamen Teiler von \(m\) und \(n\) erzeugt wird.
+        \item
+            Das Ideal \((m) \cap (n)\) ist das Ideal, welches von einem kleinsten   
+            gemeinsamen Vielfachen von \(m\) und \(n\) erzeugt wird.
+        \item
+            Das Ideal \((m) \cdot (n)\) ist das Ideal, welches vom Produkt \(mn\)
+            erzeugt wird.
+        \end{enumerate}
+    \end{example}
+    \begin{example}<+->
+        Sei \(K\) ein Körper. Sei \(\ideal m\) das von \(x_1, \dotsc, x_s\) in
+        \(K[x_1, \dotsc, x_s]\) erzeugte Ideal. Dann ist \(\ideal m^n\) das Ideal
+        aller Polynome ohne Monome mit Grad kleiner als \(n\).
+    \end{example}
+\end{frame}
+
+\begin{frame}{Rechenregeln mit Idealen}
+    Sei \(A\) ein Ring und seien \(\ideal a, \ideal b, \ideal c\) drei Ideale
+    von \(A\).
+    \begin{proposition}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Summe, Schnitt und Produkt von Idealen sind
+            jeweils assoziative Operationen. Summe und Schnitt sind
+            außerdem kommutativ. Das Produkt ist kommutativ, wenn der Ring
+            kommutativ ist.
+        \item
+            Es gilt das Distributivgesetz: \(\ideal a (\ideal b + \ideal c)
+            = \ideal a \ideal b + \ideal a \ideal c\).
+        \item
+            Es gilt das Modularitätsgesetz: Ist \(\ideal a \supset \ideal b\)
+            oder \(\ideal a \supset \ideal c\), folgt
+            \(\ideal a \cap (\ideal b + \ideal c)
+            = \ideal a \cap \ideal b + \ideal a \cap \ideal c\).
+            \qed
+        \end{enumerate}
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Koprime Ideale}
+    Seien \(\ideal a, \ideal b\) zwei Ideale in einem kommutativen Ring \(A\).
+    \begin{definition}<+->
+        Die Ideale \(\ideal a\) und \(\ideal b\) heißen \emph{koprim}, wenn
+        \(\ideal a + \ideal b = (1)\).
+    \end{definition}
+    \begin{visibleenv}<+->
+        Die Ideale \(\ideal a\) und \(\ideal b\) sind also genau dann koprim,
+        wenn ein \(x \in \ideal a\) und ein \(y \in \ideal b\) mit \(x + y = 1\)
+        existieren.
+    \end{visibleenv}
+    \begin{lemma}<+->
+        Seien \(\ideal a\) und \(\ideal b\) koprim. Dann gilt \(\ideal a \cap
+        \ideal b = \ideal a \ideal b\).
+    \end{lemma}
+    \begin{proof}<+->
+        Es ist
+        \(\ideal a \cap \ideal b = (\ideal a + \ideal b)(\ideal a
+        \cap \ideal b) = \ideal a (\ideal a \cap \ideal b) + \ideal b (\ideal a
+        \cap \ideal b) \subset \ideal a \ideal b \subset \ideal a \cap \ideal b\).
+    \end{proof}
+    \begin{example}<+->
+        Im Ring der ganzen Zahlen sind \((m)\) und \((n)\) genau dann koprim,
+        wenn \(m\) und \(n\) teilerfremd sind.
+    \end{example}
+\end{frame}
+
+\begin{frame}{Der Schnitt paarweise koprimer Ideale}
+    \begin{proposition}<+->
+        Seien \(\ideal a_1, \dotsc, \ideal a_n\) paarweise koprime Ideale eines
+        kommutativen Ringes \(A\). Dann gilt \(\prod\limits_{i = 1}^n \ideal a_i
+        = \bigcap\limits_{i = 1}^n \ideal a_i\).
+    \end{proposition}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Der Fall \(n = 0\) ist trivial.
+        \item
+            Sei schon bewiesen, daß \(\ideal b \coloneqq
+            \prod\limits_{i = 1}^{n - 1} \ideal a_i
+            = \bigcap\limits_{i = 1}^{n - 1} \ideal a_i\). Da \(\ideal a_i\)
+            und \(\ideal a_n\) für \(i < n\) koprim sind, existieren \(x_i \in
+            \ideal a_i\) und \(y_i \in \ideal a_n\) mit \(x_i + y_i = 1\).
+            Damit ist \(\prod\limits_{i = 1}^{n - 1} x_i
+            = \prod\limits_{i = 1}^{n - 1} (1 - y_i) = 1\) modulo
+            \(\ideal a_n\). Es folgt, daß \(\ideal b\) und \(\ideal a_n\)
+            koprim sind, also ist
+            \(\prod\limits_{i = 1}^n \ideal a_i = \ideal b \ideal a_n = \ideal b
+            \cap \ideal a_n = \bigcap\limits_{i = 1}^n \ideal a_i\).
+            \qedhere
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\subsection{Direkte Produkte}
+
+\begin{frame}{Definiton des direkten Produktes von Ringen}
+    Sei \((A_i)_{i \in I}\) eine Familie von Ringen. Auf der Menge
+    \(A \coloneqq \prod\limits_{i \in I} A_i\) der Folgen
+    \(x \coloneqq (x_i)_{i \in I}\)
+    mit \(x_i \in A_i\) definieren wir eine Addition und Multiplikation durch
+    gliedweise Addition und Multiplikation. Dann wird \(A\) mit der Null
+    \((0)_{i \in I}\) und der Eins \((1)_{i \in I}\) zu einem Ring.
+    \begin{definition}<+->
+        Der Ring \(\prod\limits_{i \in I} A_i\) ist das \emph{direkte Produkt
+        über die Familie \((A_i)_{i \in I}\)}.
+    \end{definition}
+    \begin{proposition}<+->
+        Die Projektionen \(\pi_i\colon A \to A_i, x \mapsto x_i\) sind
+        Ringhomomorphismen.
+        \qed
+    \end{proposition}
+    \begin{visibleenv}<+->
+        Genauer ist die Ringstruktur auf \(A\) gerade so gewählt, daß die \(\pi_i\)
+        Ringhomomorphismen werden.
+    \end{visibleenv}
+\end{frame}
+
+\begin{frame}{Der Chinesische Restsatz}
+    \begin{proposition}<+->
+        Seien \(\ideal a_1, \dotsc, \ideal a_n\) Ideale in einem kommutativen
+        Ring \(A\). Dann ist \(\phi\colon A \to \prod\limits_{i = 1}^n
+        A/\ideal a_i, x \mapsto (x + \ideal a_1, \dotsc, x + \ideal a_n)\)
+        genau dann surjektiv, wenn die Ideale \(\ideal a_i\) paarweise
+        teilerfremd sind.
+    \end{proposition}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Sei zunächst \(\phi\) surjektiv. Wir zeigen, daß etwa \(\ideal a_1\)
+            und \(\ideal a_2\) koprim sind: Es existiert ein \(x \in A\)
+            mit \(\phi(x) = (1, 0, \dotsc, 0)\). Es folgt, daß \(1 = (1 - x) + x
+            \in \ideal a_1 + \ideal a_2\).
+        \item
+            Seien umgekehrt die \(\ideal a_i\) paarweise teilerfremd. Wir
+            zeigen, daß ein \(x \in A\) mit \(\phi(x) = (1, 0, \dotsc, 0)\)
+            existiert. Da \(\ideal a_1\) und \(\ideal a_i\) für \(i > 1\) koprim
+            sind, existieren \(u_i \in \ideal a_1\) und \(v_i \in \ideal a_i\)
+            mit \(u_i + v_i = 1\). Setze \(x \coloneqq \prod\limits_{i = 2}^n
+            v_i = \prod\limits_{i = 2}^n (1 - u_i)\). Dann ist \(x = 0\) modulo
+            \(\ideal a_i\) für \(i > 1\) und \(x = 1\) modulo \(\ideal a_1\).
+            \qedhere
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Injektivität beim Chinesischen Restsatz}
+    Seien \(\ideal a_1, \dotsc, \ideal a_n\) Ideale in einem kommutativen Ring
+    \(A\). Dann ist der Kern von \(\phi\colon A \to \prod\limits_{i = 1}^n
+    A/\ideal a_i, x \mapsto (x + \ideal a_1, \dotsc, x + \ideal a_n)\)
+    offensichtlich durch \(\bigcap\limits_{i = 1}^n \ideal a_i\) gegeben.
+    \\
+    Insbesondere ist \(\phi\) genau dann injektiv, wenn
+    \(\bigcap\limits_{i = 1}^n \ideal a_i = (0)\).
+\end{frame}
+
+\subsection{Ideale in Primidealen}
+
+\begin{frame}{Ideale in Vereinigungen von Primidealen}
+    \begin{proposition}<+->
+    	\label{prop:ideal_in_union_of_primes}
+        Seien \(\ideal p_1, \dotsc, \ideal p_n\) Primideale in einem kommutativen Ring
+        \(A\). Ist dann \(\ideal a\) ein Ideal von \(A\) mit \(\ideal a
+        \subset \bigcup\limits_{i = 1}^n \ideal p_i\), so ist \(\ideal a \subset
+        \ideal p_i\) für ein \(i\).
+    \end{proposition}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Wir zeigen \((\forall i\colon \ideal a \not\subset \ideal p_i)
+            \implies \ideal a \not\subset \bigcup\limits_{i = 1}^n \ideal p_i\).
+        \item
+            Der Fall \(n = 0\) ist trivial.
+        \item
+            Sei \(\ideal a \not\subset \ideal p_i\) für alle \(i\). Sei
+            schon bewiesen, daß daraus
+            \(\ideal a \not\subset \bigcup\limits_{i = 1, i \neq j}^n \ideal p_i\)
+            für alle \(j\) folgt. Damit existieren
+            \(x_j \in \ideal a\) mit \(x_j \notin \ideal p_i\) für \(i \neq j\).
+        \item
+            Ist dann \(x_j \notin \ideal p_j\) für ein \(j\) sind wir fertig.
+            Ansonsten ist \(x_j \in \ideal p_j\) für alle \(j\). Damit ist
+            \(y \coloneqq
+            \sum\limits_{j = 1}^n x_1 \dotsm \widehat{x_j} \dotsm x_n
+            \in \ideal a\), aber \(y \notin \ideal p_i\) für alle \(i\).
+            \qedhere
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Schnitte von Idealen in Primidealen}
+    \begin{proposition}<+->
+        Seien \(\ideal a_1, \dotsc, \ideal a_n\) Ideale in einem kommutativen
+        Ring \(A\) und \(\ideal p\) ein Primideal mit \(\ideal p \supset
+        \bigcap\limits_{i = 1}^n \ideal a_i\). Dann ist \(\ideal p \supset
+        \ideal a_i\) für ein \(i\).
+        
+        Ist \(\ideal p = \bigcap\limits_{i = 1}^n \ideal a_i\), folgt
+        \(\ideal p = \ideal a_i\) für ein \(i\).
+    \end{proposition}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Sei \(\ideal p \not\supset \ideal a_i\) für alle \(i\). Dann
+            existieren \(x_i \in \ideal a_i\) mit \(x_i \notin \ideal p\).
+            Dann ist \(x \coloneqq \prod\limits_{i = 1}^n x_i \subset
+            \bigcap\limits_{i = 1}^n \ideal a_i\), aber \(x \notin \ideal p\),
+            da \(\ideal p\) prim ist. Damit ist \(\ideal p \not\supset
+            \bigcap\limits_{i = 1}^n \ideal a_i\).
+        \item
+            Ist \(\ideal p = \bigcap\limits_{i = 1}^n \ideal a_i\), ist
+            \(\ideal p \subset \ideal a_i\) für alle \(i\) und damit \(\ideal p
+            = \ideal a_i\) für ein \(i\).
+            \qedhere
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\subsection{Der Idealquotient}
+
+\begin{frame}{Definition des Idealquotienten und des Annihilators}
+	Seien \(\ideal a, \ideal b\) zwei Ideale eines kommutativen Ringes \(A\).
+	Dann ist \((\ideal a : \ideal b) := \{x \in A \mid x \ideal b \subset \ideal a\}\)
+	ein Ideal von \(A\).
+	\begin{definition}<+->
+		Das Ideal \((\ideal a : \ideal b)\) ist der \emph{Idealquotient von
+		\(\ideal a\) nach \(\ideal b\)}.
+	\end{definition}
+	\begin{notation}<+->
+		Ist \(\ideal a\) ein Hauptideal \((x)\), schreiben wir \((x : \ideal b)\)
+		anstelle von \(((x) : \ideal b)\). Ist \(\ideal b\) ein Hauptideal \((y)\),
+		schreiben wir analog \((\ideal b : y)\) für \((\ideal b : (y))\).
+	\end{notation}	
+	\begin{definition}<+->
+		Das Ideal \((0 : \ideal b)\) ist der \emph{Annulator \(\ann \ideal b\) von
+		\(\ideal b\)}.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Es ist also \(\ann \ideal b = \{x \in A \mid x \ideal b = 0\}\).
+	\end{visibleenv}
+	\\
+	\begin{visibleenv}<+->
+		Die Menge der Nullteiler von \(A\) ist durch
+		\(\bigcup\limits_{x \in A \setminus \{0\}} \ann(x)\)
+		gegeben.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Der Idealquotient für Ideale im Ring der ganzen Zahlen}
+	\begin{example}<+->
+		Seien \((m), (n)\) zwei Ideale im Ring der ganzen Zahlen. Seien die
+		Primfaktorzerlegungen von \(m\) und \(n\) durch \(m = \prod\limits_p p^{e_p}\)
+		und \(n = \prod\limits_p p^{f_p}\) gegeben. Dann ist \((m : n) = (q)\) mit
+		\(q = \prod\limits_p p^{\max(e_p - f_p, 0)}\).
+		\\
+		Es folgt, daß \(q = m/(m, n)\), wobei \((m, n)\) hier für einen größten
+		gemeinsamen Teiler von \(m\) und \(n\) steht.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Rechenregeln für den Idealquotienten}
+	\begin{proposition}<+->
+		Seien \(\ideal a, \ideal b, \ideal c\) drei Ideale eines kommutativen
+		Ringes \(A\).
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(\ideal a \subset (\ideal a : \ideal b)\).
+		\item
+			\((\ideal a : \ideal b) \ideal b \subset \ideal a\).
+		\item
+			\(((\ideal a : \ideal b) : \ideal c) = (\ideal a : \ideal b \ideal c)\).
+		\item
+			Sei \((\ideal a_i)_{i \in I}\) eine Familie von Idealen in \(A\).
+			Dann ist \((\bigcap\limits_{i \in I} \ideal a_i \colon \ideal b)
+			= \bigcap\limits_{i \in I} (\ideal a_i \colon \ideal b)\).
+		\item
+			Sei \((\ideal b_i)_{i \in I}\) eine Familie von Idealen in \(A\).
+			Dann ist
+			\((\ideal a \colon \sum\limits_{i \in I} \ideal b_i)
+			= \bigcap\limits_{i \in I} (\ideal a : \ideal b_i)\).
+			\qed
+		\end{enumerate}
+	\end{proposition}
+\end{frame}
+
+\subsection{Das Wurzelideal}
+
+\begin{frame}{Definition des Wurzelideals zu einem Ideal}
+    Sei \(\ideal a\) ein Ideal eines kommutativen Ringes. Sei
+    \(\sqrt\ideal a \coloneqq \{x \in A \mid x^n \in \ideal a\ 
+     \text{für ein \(n \in \set N_0\)}\}\).
+    \begin{proposition}<+->
+        Sei \(\pi\colon A \to A/\ideal a\) der kanonische Homomorphismus und
+        \(\ideal n\) das Nilradikal von \(A/\ideal a\). Dann
+        ist \(\sqrt \ideal a = \pi^{-1}(\ideal n)\).
+        \qed
+    \end{proposition}
+    \begin{visibleenv}<+->
+        Insbesondere ist \(\sqrt\ideal a\) damit ein Ideal.
+    \end{visibleenv}
+    \begin{definition}<+->
+        Das Ideal \(\sqrt\ideal a\) ist das \emph{Wurzelideal zu \(\ideal a\)}.
+    \end{definition}
+    \begin{example}<+->
+        Das Nilradikal von \(A\) ist \(\sqrt{(0)}\).
+    \end{example}
+\end{frame}
+
+\begin{frame}{Rechenregeln für das Wurzelideal}
+    Seien \(\ideal a, \ideal b\) Ideale und \(\ideal p\) ein Primideal eines
+    kommutativen Ringes \(A\).
+    \begin{proposition}<+->
+    	\label{prop:radical}
+        \begin{enumerate}[<+->]
+        \item<.->
+            \(\sqrt{\ideal a} \supset \ideal a\).
+        \item
+            \(\sqrt{\sqrt{\ideal a}} = \sqrt{\ideal a}\).
+        \item
+            \(\sqrt{\ideal a \ideal b} = \sqrt{\ideal a \cap \ideal b}
+            = \sqrt{\ideal a} \cap \sqrt{\ideal b}\).
+        \item
+            \(\sqrt{\ideal a} = (1) \iff \ideal a = (1)\).
+        \item
+            \(\sqrt{\ideal a + \ideal b} = \sqrt{\sqrt{\ideal a}
+            + \sqrt{\ideal b}}\).
+        \item
+            \(\sqrt{\ideal p^n} = \ideal p\) für \(n > 0\).
+            \qed
+        \end{enumerate}
+    \end{proposition}
+    \begin{definition}<+->
+        Das Ideal \(\ideal a\) heißt \emph{Wurzelideal}, falls \(\sqrt{\ideal a}
+        = \ideal a\).
+    \end{definition}
+\end{frame}
+
+\begin{frame}{Das Wurzelideal als Schnitt von Primidealen}
+    \begin{proposition}<+->
+        Das Wurzelideal von \(\ideal a\) ist der Schnitt \(\bigcap\limits_{\ideal p \supset \ideal a} \ideal p\) aller Primideale
+        \(\ideal p\), welche \(\ideal a\) enthalten.
+    \end{proposition}
+    \begin{proof}<+->
+        Sei \(\pi\colon A \to A/\ideal a\) der kanonische Homomorphismus und
+        \(\ideal n\) das Nilradikal von \(A/\ideal a\).
+        Dann ist
+        \(\bigcap\limits_{\ideal p \supset \ideal a} \ideal p
+        = \pi^{-1}(\bigcap\limits_{\bar{\ideal p}} \bar{\ideal p})
+        = \pi^{-1}(\ideal n) = \sqrt{\ideal a}\),
+	    wobei \(\ideal p\) die Primideale von \(A\) und \(\bar{\ideal p}\) die
+	    Primideale von \(A/\ideal a\) durchläuft.
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Die Menge der Nullteiler als Vereinigung von Wurzelidealen zu
+Annulatoren}
+    Sei \(A\) ein kommutativer Ring. Analog zum Wurzelideal eines Ideals von
+    \(A\) können wir auch die Wurzelmenge \(\sqrt S\) zu einer Teilmenge \(S\)
+    von \(A\) definieren. Ist \((S_i)_{i \in I}\) eine Familie von Teilmengen,
+    gilt \(\sqrt{\bigcup\limits_{i \in I} S_i} = \bigcup\limits_{i \in I}
+    \sqrt{S_i}\).
+    \begin{proposition}<+->
+        Die Menge \(D\) der Nullteiler von \(A\) ist durch
+        \(\bigcup\limits_{x \in A \setminus \{0\}} \sqrt{\ann (x)}\)
+        gegeben.
+    \end{proposition}
+    \begin{proof}<+->
+        \(D = \sqrt{D} = \sqrt{\bigcup\limits_{x \in A \setminus \{0\}}
+        \ann (x)} = \bigcup\limits_{x \in A \setminus \{0\}} \sqrt{\ann (x)}\).
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Koprime Wurzelideale}
+    \begin{example}<+->
+        Sei \((m) \neq (0)\) ein Ideal im Ring der ganzen Zahlen und seien
+        \(p_1, \dotsc, p_r\) die verschiedenen Primteiler von \((m)\). Dann ist
+        \(\sqrt{(m)} = (p_1 \dotsm p_r) = \bigcap\limits_{i = 1}^r (p_i)\).
+    \end{example}
+    \begin{proposition}<+->
+        Seien \(\ideal a, \ideal b\) Ideale in einem Ring, so daß
+        \(\sqrt\ideal a\) und \(\sqrt \ideal b\) koprim sind. Dann sind auch
+        \(\ideal a\) und \(\ideal b\) koprim.
+    \end{proposition}
+    \begin{proof}<+->
+        Aus \(\sqrt{\ideal a + \ideal b} = \sqrt{\sqrt{\ideal a}
+        + \sqrt{\ideal b}} = \sqrt{(1)} = (1)\) folgt \(\ideal a + \ideal b
+        = (1)\).
+    \end{proof}
+\end{frame}
+

@@ -1,0 +1,242 @@
+\section{Ringe und Ringhomomorphismen}
+
+\subsection{Ringe}
+
+\begin{frame}{Definition eines Ringes}
+    \begin{definition}
+        Ein \emph{Ring \(A\)} ist eine Menge mit zwei ausgezeichneten Elementen,
+        \(0\) und \(1\), und zwei binären Operationen \(+\) und \(\cdot\), so daß
+        \pause
+        \begin{enumerate}[<+->]
+        \item
+            \((A, +, 0)\) eine abelsche Gruppe ist,
+        \item
+            \((A, \cdot, 1)\) ein Monoid ist und
+        \item
+            die Multiplikation distributiv über die Addition ist, also
+            \(x (y + z) = x y + x z\) und \((y + z) x = y x + z x\) für
+            alle \(x, y, z \in A\).
+        \end{enumerate}
+        \visible<+->{%
+            Der Ring heißt \emph{kommutativ}, falls \((A, \cdot, 1)\) ein
+            kommutatives Monoid ist.}
+    \end{definition}
+    \begin{visibleenv}<+->
+        Wir nennen \((A, +, 0)\) die \emph{abelsche Gruppe von \(A\)} und
+        \((A, \cdot, 1)\) das \emph{multiplikative Monoid von \(A\)}.
+    \end{visibleenv}
+\end{frame}
+
+\begin{frame}{Multiplikation mit Null}
+    Sei \(A\) ein Ring.
+    \begin{proposition}<+->
+        Sei \(x \in A\). Dann ist \(0 \cdot x = 0\).
+    \end{proposition}
+    \begin{proof}<+->
+        \(0 \cdot x = 0 \cdot x + 0 \cdot x - 0 \cdot x
+        = (0 + 0) \cdot x - 0 \cdot x = 0 \cdot x - 0 \cdot x = 0.\)
+    \end{proof}
+    \begin{corollary}<+->
+        Sei \(x \in A\). Dann ist \((-1) \cdot x = -x\).
+    \end{corollary}
+    \begin{proof}<+->
+        \(x + (-1) \cdot x = 1 \cdot x + (-1) \cdot x
+        = (1 - 1) \cdot x = 0 \cdot x = 0\).
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Explizite Beschreibung eines Ringes}
+    Eine Menge \(A\) mit zwei ausgezeichneten Elementen \(0\) und \(1\) und
+    zwei binären Operationen \(+\) und \(\cdot\) ist also genau dann ein Ring,
+    falls für alle \(x, y, z \in A\) gilt:
+    \begin{align*}
+        x + (y + z) & = (x + y) + z ; \\
+        y + x & = x + y; \\
+        0 + x & = x; \\
+        \exists (-x) \in A\colon -x + x & = 0; \\
+        x (y z) & = (x y) z; \\
+        1 \cdot x & = x; & x \cdot 1 & = x; \\
+        x (y + z) & = x y + x z; & (y + z) x & = y x + z x; \\
+        0 \cdot x & = 0; & x \cdot 0 & = 0.
+    \end{align*}
+\end{frame}
+
+\begin{frame}{Beispiele von Ringen}   
+    \begin{example}<+->
+        Die ganzen Zahlen \(\set Z\) bilden einen kommutativen Ring. Dieser Ring
+        ist grundlegend für die algebraische Zahlentheorie.
+    \end{example}
+    \begin{example}<+->
+        Der Polynomring \(K[x_1, \dotsc, x_n]\) in \(n\) Variablen über einem
+        Körper \(K\) ist ein kommutativer Ring. Diese Ringe sind grundlegend für
+        die algebraische Geometrie.
+    \end{example}
+    \begin{visibleenv}<+->
+        Bei der Definition eines Ringes ist \(0 = 1\) nicht ausgeschlossen worden:
+        \begin{example}<+(-1)->
+            Gilt \(0 = 1\) in einem Ring \(A\), folgt \(x = 1 \cdot x
+            = 0 \cdot x = 0\) für alle \(x \in A\).
+            Damit ist \(A = \{0\}\). Ein solcher Ring heißt der
+            \emph{Nullring} und wird mit \(0\) bezeichnet.
+        \end{example}
+    \end{visibleenv}
+\end{frame}
+
+\subsection{Unterringe}
+
+\begin{frame}{Definition eines Unterrings}
+    \begin{definition}<+->
+        Eine Teilmenge \(B\) eines Ringes \(A\) heißt \emph{Unterring von
+        \(A\)}, falls \(B\) eine Untergruppe der abelschen Gruppe von \(A\)
+        und ein Untermonoid des multiplikativen Monoides von \(A\) ist.
+    \end{definition}
+    Wir betrachten \(B\) auf offensichtliche Weise wieder als Ring.
+    \\
+    \begin{visibleenv}<+->
+        Eine Teilmenge \(B\) von \(A\) ist also genau dann ein Unterring,
+        falls für alle \(x, y \in B\) gilt:
+        \begin{align*}
+            x + y & \in B; \\
+            -x & \in B; \\
+            0 & \in B; \\
+            x y & \in B; \\
+            1 & \in B.
+        \end{align*}
+    \end{visibleenv}
+\end{frame}
+
+\begin{frame}{Beispiele für Unterringe}
+    \begin{example}<+->
+        Die ganzen Zahlen \(\set Z\) bilden einen Unterring der rationalen Zahlen
+        \(\set Q\).
+    \end{example}
+    \begin{example}<+->
+        Wir können einen Körper \(K\) als Unterring des Ringes \(K[x]\) der Polynome
+        in einer Variablen über \(K\) auffassen.
+    \end{example}
+    \begin{example}<+->
+        Der (bezüglich der Inklusionsordnung) größte Unterring eines Ringes \(A\)
+        ist der Ring \(A\) selbst.
+    \end{example}
+\end{frame}
+
+\begin{frame}{Der von einer Teilmenge erzeugte Unterring}
+    \begin{proposition}<+->
+        Ist \((B_i)_{i \in I}\) eine Familie von Unterringen eines
+        Ringes \(A\),
+        so ist der Schnitt \(\bigcap\limits_{i \in I} B_i\) ein Unterring von \(A\).
+    \end{proposition}
+    \begin{proof}<+->
+        Da die \(B_i\) jeweils \(0\) und \(1\) enthalten und jeweils abgeschlossen
+        unter Addition und Multiplikation sind, folgt, daß auch der Schnitt \(0\)
+        und \(1\) enthält und abgeschlossen unter Addition und Multiplikation ist.
+    \end{proof}
+    \begin{construction}<+->
+        Sei \(S\) eine Teilmenge eines Ringes \(A\). Dann ist der Schnitt
+        aller Unterringe von \(A\), welche \(S\) enthalten, der kleinste Unterring
+        von \(A\), welcher \(S\) enthält.
+        \qed
+    \end{construction}        
+\end{frame}
+
+\subsection{Ringhomomorphismen}
+
+\begin{frame}{Definition eines Ringhomomorphismus}
+    \begin{definition}<+->
+        Ein \emph{Ringhomomorphismus \(\phi\)} ist eine Abbildung
+        \(\phi\colon A \to B\) zwischen zwei Ringen, welche einen Homomorphismus
+        zwischen den abelschen Gruppen und einen Homomorphismus zwischen den
+        multiplikativen Monoiden von \(A\) und \(B\) induziert.
+    \end{definition}
+    \begin{visibleenv}<+->
+        Eine Abbildung \(\phi\colon A \to B\) ist also genau dann ein
+        Ringhomomorphismus, falls für alle \(x, y \in A\) gilt:
+        \begin{align*}
+        \phi(x + y) & = \phi(x) + \phi(y); \tag{$*$}
+        \\
+        \phi(0)     & = 0 && \text{(folgt schon aus ($*$))}; \\
+        \phi(x y)   & = \phi(x) \phi(y); \\
+        \phi(1)     & = 1.
+        \end{align*}
+    \end{visibleenv}
+\end{frame}
+
+\begin{frame}{Beispiele von Ringhomomorphismen}
+    \begin{example}<+->
+        Die Identität \(\id_A\) eines Ringes ist ein Ringhomomorphismus.
+    \end{example}
+    \begin{example}<+->
+        Die Inklusion \(B \injto A\) eines Unterrings ist ein Ringhomomorphismus.
+    \end{example}
+    \begin{proposition}<+->
+        Seien \(\phi\colon A \to B\) und \(\psi\colon B \to C\)
+        Ringhomomorphismen. Dann ist \(\psi \circ \phi\colon A \to C\) ein
+        Ringhomomorphismus.
+    \end{proposition}
+    \begin{proof}<+->
+        Die Verknüpfung zweier Gruppen- bzw. Monoidhomomorphismen ist wieder
+        ein Gruppen- bzw.~Monoidhomomorphismus.
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Abbildungen als Ringhomomorphismen}
+    \begin{visibleenv}<+->
+        Seien \(A\) und \(B\) zwei Ringe und \(\phi\colon A \to B\) eine Abbildung.
+    \end{visibleenv}
+    \begin{proposition}<+->
+        Sei \(\pi\colon C \surjto A\) ein surjektiver Ringhomomorphismus. Ist dann
+        \(\phi \circ \pi\colon C \to B\) ein Ringhomomorphismus, so auch \(\phi\colon A \to B\).
+    \end{proposition}
+    \begin{proof}<+->
+        Seien \(a, a' \in A\). Dann existieren \(c, c' \in C\) mit \(\pi(c) = a\)
+        und \(\pi(c') = a'\).
+        Es folgt \(\phi(a a') = \phi(\pi(c) \pi(c')) = \phi(\pi(c c')) = \phi(\pi(c))
+        \phi(\pi(c')) = \phi(a) \phi(a')\). Analog erhält \(\phi\) auch Addition,
+        \(0\) und \(1\).
+    \end{proof}
+    \begin{proposition}<+->
+        Sei \(\iota\colon B \injto C\) ein injektiver Ringhomomorphismus. Ist dann
+        \(\iota \circ \phi\colon A \to C\) ein Ringhomomorphismus, so auch \(\phi\colon A \to B\).
+        \qed
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Ringisomorphismen}
+    \begin{visibleenv}<+->
+        Sei \(\phi\colon A \to B\) ein Ringhomomorphismus.
+    \end{visibleenv}    
+    \begin{definition}<.->
+        Der Homomorphismus \(\phi\) heißt \emph{Isomorphismus}, falls
+        ein Ringhomomorphismus \(\check\phi\colon B \to A\) existiert, so daß
+        \(\check \phi \circ \phi = \id_A\) und \(\phi \circ \check \phi = \id_B\).
+    \end{definition}
+    \begin{proposition}<+->
+        Ist \(\phi\colon A \to B\) eine bijektive Abbildung, so ist \(\phi\) schon ein 
+        Isomorphismus.
+    \end{proposition}
+    \begin{proof}<+->
+        Da \(\id_B = \phi \circ \phi^{-1}\) ein Ringhomomorphismus ist und
+        \(\phi\) ein injektiver Ringhomomorphismus ist, ist auch \(\phi^{-1}\)
+        ein Ringhomomorphismus.
+    \end{proof}
+\end{frame}
+
+\subsection{Bezeichnungen}
+
+\begin{frame}{Bezeichnungen von Ringen, Ringelementen und Ringhomomorphismen}
+    \begin{convention}<+->
+        Ringe bezeichnen wir mit großen lateinischen Buchstaben
+        \(A, B, C, \dotsc\), Ringelemente mit kleinen lateinischen Buchstaben
+        \(a, b, c, f, g, h, x, y, z, \dotsc\).
+    \end{convention}
+    \begin{visibleenv}<+->
+        Betrachten wir einen Ring als Rechenbereich, nennen wir seine Elemente
+        auch \emph{Zahlen}. Betrachten wir einen Ring als Algebra von Funktionen auf
+        einem Raum, heißen die Ringelemente entsprechend \emph{Funktionen}.
+    \end{visibleenv}
+    \begin{convention}<+->
+        Ringhomomorphismen bezeichnen wir mit kleinen griechischen
+        Buchstaben \(\phi, \psi, \dotsc\).
+    \end{convention}
+\end{frame}
+

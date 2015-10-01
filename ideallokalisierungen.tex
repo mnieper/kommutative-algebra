@@ -1,0 +1,196 @@
+\section{Idealerweiterungen und -kontraktionen in Lokalisierungen}
+
+\subsection{Erweiterungen und Kontraktionen}
+
+\begin{frame}{Erweiterung in einer Lokalisierung}
+	Sei \(A\) ein kommutativer Ring. Sei \(S \subset A\) multiplikativ abgeschlossen.
+	\begin{example}<+->
+		Sei \(\ideal a\) ein Ideal in \(A\).
+		Dann gilt für die Erweiterung \((S^{-1} A) \ideal a = S^{-1} \ideal a\), denn jedes Element in \((S^{-1} A) \ideal a\) ist
+		von der Form \(\sum_i \frac {a_i}{s_i}\) mit \(a_i \in \ideal a\) und \(s_i \in S\), und Ausdrücke dieser Form
+		können wir auf einen gemeinsamen Nenner bringen.
+	\end{example}
+	\begin{proposition}<+->
+		Alle Ideale in \(S^{-1} A\) sind erweiterte Ideale, also von der Form \(S^{-1} \ideal a\).
+	\end{proposition}
+	\begin{proof}<+->
+		Sei \(\ideal b\) ein Ideal in \(S^{-1} A\). Sei \(\frac x s \in \ideal b\). Dann ist \(\frac x 1\) in \(\ideal b\),
+		also \(x \in A \cap \ideal b\). Damit folgt \(\frac x s \in S^{-1}(A \cap \ideal b)\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Kontraktionen von Erweiterungen in einer Lokalisierung}
+	Sei \(A\) ein kommutativer Ring. Seien \(S \subset A\) multiplikativ abgeschlossen und \(\ideal a\) ein Ideal in \(A\).
+	\begin{proposition}<+->
+		Es ist \(A \cap (S^{-1} \ideal a) = \bigcup\limits_{u \in S} (\ideal a : u)\). 
+	\end{proposition}
+	\begin{proof}<+->
+		\(x \in A \cap (S^{-1} \ideal a) \iff \exists a \in \ideal a \exists s \in S \colon \frac x 1 = \frac a s
+		\iff \exists a \in \ideal a \exists s, t \in S \colon (x s - a) t = 0 \iff \exists u \in S\colon
+		ux \in \ideal a \iff x \in \bigcup\limits_{u \in S} (\ideal a : u)\).
+	\end{proof}	
+	\begin{example}<+->
+		Es \(S^{-1} \ideal a = (1)\) genau dann, wenn \(\ideal a \cap S \neq \emptyset\).
+	\end{example}
+\end{frame}
+	
+\begin{frame}{Kontrahierte Ideale und Lokalisierungen}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Seien \(S \subset A\) multiplikativ abgeschlossen und \(\ideal a\) ein Ideal in \(A\).
+		Es ist \(\ideal a\) genau dann ein kontrahiertes Ideal bezüglich \(A \to S^{-1} A\), also ein Ideal der Form
+		\(A \cap \ideal b\), \(\ideal b \subset S^{-1} A\),
+		wenn kein Element von \(S\) ein Nullteiler in \(A/\ideal a\) ist.
+	\end{proposition}
+	\begin{proof}<+->
+		\(\ideal a\) ist genau dann kontrahiert, wenn \(A \cap (S^{-1} \ideal a) \subset \ideal a\), wenn also aus \(s x \in
+		\ideal a\) mit \(s \in S, x \in A\) schon \(x \in \ideal a\) folgt. Das ist wiederum gleichbedeutend damit, daß
+		kein \(s \in S\) ein Nullteiler in \(A/\ideal a\) ist.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Lokalisierungen und endliche Summen, Produkte und Schnitte und Wurzeln von Idealen}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Die Lokalisierung nach einer multiplikativ abgeschlossenen
+		Teilmenge \(S \subset A\) kommutiert mit folgenden Operationen auf Idealen: endliche Summen,
+		endliche Produkte, endliche Schnitte und Wurzeln.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Endliche Summen und Produkte vertauschen mit Idealerweiterungen, und die Lokalisierung
+			eines Ideals nach \(S\) entspricht der Idealerweiterung in \(S^{-1} A\).
+		\item
+			Endliche Schnitte von Idealen vertauschen mit Lokalisierung, denn dies gilt allgemeiner für Untermoduln.
+		\item
+			Sei \(\ideal a \subset A\) ein Ideal. Daß \(S^{-1} \sqrt{\ideal a} \subset \sqrt{S^{-1} \ideal a}\)
+			folgt aus allgemeinen Eigenschaften der Erweiterung von Idealen. Die andere Inklusion ist einfach.
+			\qedhere
+		\end{enumerate}		
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Nilradikal der Lokalisierung}
+	Sei \(A\) ein kommutativer Ring. Sei \(S \subset A\) multiplikativ abgeschlossen.
+	\begin{corollary}<+->
+		Ist \(\ideal n\) das Nilradikal von \(A\), so ist \(S^{-1} \ideal n\) das Nilradikal von \(S^{-1} A\).
+		\qed
+	\end{corollary}
+\end{frame}
+
+\subsection{Primideale und Lokalisierungen}
+
+\begin{frame}{Primideale in Lokalisierungen}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(S \subset A\) multiplikativ abgeschlossen.
+		Durch \(\ideal q = S^{-1} \ideal p\) ist eine bijektive,
+		ordnungserhaltende Korrespondenz zwischen den Primidealen
+		\(\ideal p\) von \(A\) mit \(\ideal p \cap S = \emptyset\) und den Primidealen \(\ideal q\) von \(S^{-1} A\) gegeben.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(\ideal q\) ein Primideal in \(S^{-1} A\), so ist \(\ideal p = A \cap \ideal q\) als Kontraktion eines
+			Primideals wieder ein Primideal.
+		\item
+			Ist \(\ideal p\) ein Primideal in \(A\), so ist \(A/\ideal p\) ein Integritätsbereich. Ist \(\bar S\) das Bild von
+			\(S\) in \(A/\ideal p\), so ist \(S^{-1} A/S^{-1} \ideal p \cong \bar S^{-1}(A/\ideal p)\) und damit entweder der Nullring
+			oder wieder ein Integritätsbereich.
+		\item
+			Der erste Fall tritt genau dann ein, wenn \(S^{-1} \ideal p = (1)\), also genau dann, wenn
+			\(\ideal p \cap S \neq \emptyset\).
+			Der zweite Fall tritt genau dann ein, wenn \(S^{-1} \ideal p\) ein Primideal ist.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Bemerkungen zu Lokalisierungen und Idealen}
+	\begin{remark}<+->
+		Sei \(A\) ein kommutativer Ring. Daß zu einem nicht nilpotenten Element \(f \in A\) ein Primideal \(\ideal p\) von
+		\(A\) mit \(f \notin \ideal p\) existiert, kann mittels Lokalisierung so bewiesen werden: Da \(f\) nicht nilpotent
+		ist, ist \(A[f^{-1}] \neq 0\). Damit besitzt \(A[f^{-1}]\) ein maximales Ideal \(\ideal m\). Es folgt, daß
+		\(\ideal p = A \cap \ideal m\) ein Primideal mit \(f \notin \ideal p\) ist.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Primideale in Halmen}
+	Sei \(\ideal p\) ein Primideal in einem kommutativen Ring \(A\).
+	\begin{corollary}<+->
+		Durch \(\ideal r = A_{\ideal p} \ideal q\) ist eine bijektive, ordnungserhaltende Korrespondenz zwischen den
+		Primidealen \(\ideal q\) von \(A\) mit \(\ideal q \subset \ideal p\) und den Primidealen \(\ideal r\) im Halm \(A_{\ideal p}\)
+		gegeben.
+		\qed
+	\end{corollary}
+	\begin{remark}<+->
+		Sei \(\ideal q \subset \ideal p\) ein weiteres Primideal.
+		Lokalisieren bei \(\ideal p\) schneidet also alle Primideale außer denen heraus, die in \(\ideal p\) enthalten sind.
+		\\
+		Auf der anderen Seite schneidet der Wechsel von \(A\) nach \(A/\ideal q\) alle Primideale außer denen heraus, die
+		\(\ideal q\) enthalten.
+		\\
+		Beim Übergang von \(A\) auf den Ring \(A_{\ideal p}/(A_{\ideal p} \ideal q) = (A/\ideal q)_{\bar{\ideal p}}\)
+		beschränken wir unsere Betrachtung also auf alle Primideale zwischen \(\ideal q\) und \(\ideal p\) beschränken.
+		Im Spezialfall \(\ideal p = \ideal q\) erhalten wir den \emph{Restklassenkörper \(A(\ideal p)\) von \(A\) an \(\ideal p\)},
+		also den Restklassenkörper des Halmes \(A_{\ideal p}\) beziehungsweise den Quotientenkörper des Quotienten \(A/\ideal p\).
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Kontraktionen von Primidealen in beliebigen Ringhomomorphismen}
+	\begin{proposition}<+->
+		Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe. Dann ist ein Primideal \(\ideal p\) in
+		\(A\) genau dann eine Kontraktion eines Primideals von \(B\), falls \(\ideal p = A \cap (B\ideal p)\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(\ideal p = A \cap \ideal q\) für ein Primideal \(\ideal q\) von \(B\), so ist \(A \cap (B \ideal p)
+			= A \cap (B (A \cap \ideal q)) = A \cap \ideal q = \ideal p\).
+		\item
+			Sei umgekehrt \(\ideal p = A \cap (B \ideal p)\).
+			Sei \(S\) das Bild von \(A \setminus \ideal p\) in \(B\).
+			Dann ist \(S \cap (B \ideal p) = \emptyset\), also ist \(S^{-1} (B \ideal p)\) in einem maximalen
+			Ideal \(\ideal m\) in \(S^{-1} B\) enthalten.
+		\item
+			Sei \(\ideal q \coloneqq B \cap \ideal m\). Es folgt, daß \(\ideal q\) ein Primideal ist. Weiter ist
+			\(\ideal q \supset B \ideal p\) und \(\ideal q \cap S = \emptyset\). Damit ist \(A \cap \ideal q = \ideal p\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Lokalisierungen und der Annulator}
+
+\begin{frame}{Lokalisierung des Annulators}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(M\) ein endlich erzeugter \(A\)-Modul. Sei \(S \subset A\) multiplikativ abgeschlossen.
+		Dann ist \(S^{-1} \ann(M) = \ann(S^{-1} M)\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei die Aussage wahr für zwei Untermoduln \(N\) und \(P\) von \(M\). Dann gilt sie auch für \(N + P\):
+			\(S^{-1} \ann(N + P) = S^{-1} (\ann N \cap \ann P) = S^{-1} \ann N \cap S^{-1} \ann P
+			= \ann(S^{-1} N) \cap \ann(S^{-1} P) = \ann(S^{-1} N + S^{-1} P) = \ann(S^{-1} (N + P))\).
+		\item
+			Damit reicht es die Aussage für einen Modul der Form \(M = A/\ideal a\), wobei \(\ideal a\) ein Ideal in \(A\) ist,
+			zu beweisen. Es ist \(\ideal a = \ann(M)\). Weiter ist \(S^{-1} M \cong (S^{-1} A)/(S^{-1} \ideal a)\), also
+			\(\ann(S^{-1} M) = S^{-1} \ideal a\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Lokalisierungen und Quotienten}
+	\begin{corollary}<+->
+		Sei \(A\) ein kommutativer Ring. Seien \(N, P\) zwei \(A\)-Moduln. Sei \(S \subset A\) multiplikativ abgeschlossen.
+		Ist \(P\) endlich erzeugt, so gilt \(S^{-1} (N : P) = (S^{-1} N : S^{-1} P)\).
+	\end{corollary}
+	\begin{proof}<+->
+		Es ist \((N : P) = \ann((N + P)/N)\).
+	\end{proof}
+	\begin{example}<+->
+		Seien \(\ideal a, \ideal b\) Ideale von \(A\). Ist \(\ideal b\) endlich erzeugt, so gilt
+		\(S^{-1} (\ideal a : \ideal b) = (S^{-1} \ideal a : S^{-1} \ideal b)\).
+	\end{example}
+\end{frame}
+

@@ -1,0 +1,248 @@
+\section{Ideale und Quotientenringe}
+
+\subsection{Ideale}
+
+\begin{frame}{Definition eines Ideals}
+    \begin{definition}<+->
+        Eine Teilmenge \(\ideal a\) eines Ringes \(A\) heißt
+        \emph{(beidseitiges) Ideal von \(A\)}, falls
+        \begin{enumerate}[<+->]
+        \item<.->
+            \(\ideal a\) eine Untergruppe der abelschen Gruppe von \(A\) ist und
+        \item
+            \(\ideal a\) abgeschlossen unter der Multiplikation mit
+            Elementen aus \(A\) ist, also \(x a \in \ideal a\) und
+            \(a x \in \ideal a\) für alle \(a \in \ideal a\) und \(x \in A\).
+        \end{enumerate}
+    \end{definition}
+    \begin{remark}<+->
+        Im allgemeinen ist ein Ideal kein Unterring und ein Unterring kein Ideal.
+    \end{remark}
+    \begin{visibleenv}<+->
+        Eine Teilmenge \(\ideal a\) von \(A\) ist genau dann ein Ideal,
+        falls für alle \(a, a' \in \ideal a\) und \(x \in A\) gilt:
+        \begin{align*}
+            a + a' & \in \ideal a; &
+            0 & \in \ideal a; \\
+            x a & \in \ideal a; &
+            a x & \in \ideal a.
+        \end{align*}
+    \end{visibleenv}
+\end{frame}
+
+\begin{frame}{Das von einer Teilmenge erzeugte Ideal}
+    \begin{proposition}<+->
+        Ist \((\ideal a_i)_{i \in I}\) eine Familie von Idealen eines
+        Ringes \(A\),
+        so ist der Schnitt \(\bigcap\limits_{i \in I} \ideal a_i\) ein Ideal
+        von \(A\).
+        \qed
+    \end{proposition}
+    \begin{definition}<+->
+        Sei \((f_i)_{i \in I}\) eine Familie von Elementen eines Ringes \(A\).
+        Dann heißt der Schnitt \((f_i \mid i \in I)\) aller Ideale
+        von \(A\), welche jedes \(f_i\) enthalten, das \emph{von
+        der Familie \((f_i)_{i \in I}\) erzeugte Ideal in \(A\)}.
+    \end{definition}
+    \begin{proposition}<+->
+        Das von einer Familie von Elementen in einem Ring \(A\) erzeugte Ideal
+        ist das kleinste Ideal in \(A\), welches jedes Element der Familie
+        enthält.
+        \qed
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Beispiele für Ideale}
+    \begin{example}<+->
+        Sei \((f_i)_{i \in I}\) eine Familie von Elementen in einem kommutativen
+        Ring \(A\). Dann ist
+        \((f_i \mid i \in I)
+        = \left\{\sum\limits_{k = 1}^n a_k f_{i_k} \mid a_k \in A,
+        i_k \in I\right\}\).
+    \end{example}
+    \begin{example}<+->
+        Sei \(n \in \set Z\) eine ganze Zahl. Dann ist das Ideal \((n)\) die Menge
+        der durch \(n\) teilbaren Zahlen.
+    \end{example}
+    \begin{example}<+->
+        Das \emph{Nullideal \((0)\)} ist das kleinste Ideal in einem Ring, denn
+        \((0) = \{0\}\).
+    \end{example}
+    \begin{example}<+->
+        Das \emph{Einsideal \((1)\)} ist das größte Ideal in einem Ring \(A\), denn
+        \((1) = A\).
+    \end{example}
+\end{frame}
+
+\subsection{Bild und Kern}
+
+\begin{frame}{Bilder und Urbilder unter Ringhomomorphismen}
+    Sei \(\phi\colon A \to B\) ein Ringhomomorphismus.
+    \begin{proposition}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Für jedes Ideal \(\ideal b\) von \(B\) ist \(\ideal a \coloneqq
+            \phi^{-1}(\ideal b)\) ein Ideal von \(A\).
+        \item
+            Für jeden Unterring \(A'\) von \(A\) ist \(\phi(A')\) ein Unterring von
+            \(B\).        
+        \end{enumerate}
+    \end{proposition}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Als Urbild einer Untergruppe unter einem Gruppenhomomorphismus ist
+            \(\ideal a\) eine Untergruppe der abelschen Gruppe von
+            \(A\).
+        \item
+            Für \(a \in \ideal a\) und \(x \in A\) ist \(\phi(x a) = \phi(x)
+            \phi(a) \in \ideal b\), also \(x a \in \ideal a\). Analog ist
+            \(a x \in \ideal a\).
+        \item
+            Bilder von Untergruppen bzw.~-monoiden unter
+            Gruppen- bzw.~Monoidhomomorphismen sind Untergruppen
+            bzw.~-monoide.
+            \qedhere
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Mengentheoretisches Bild und Kern eines Ringhomomorphismus}
+    \begin{visibleenv}<+->
+        Sei \(\phi\colon A \to B\) ein Ringhomomorphismus.
+    \end{visibleenv}
+    \begin{example}<.->
+        Das mengentheoretische Bild \(\phi(A)\) von \(\phi\) ist ein Unterring von
+        \(B\).
+    \end{example}
+    \begin{example}<+->
+        Das Urbild \(\phi^{-1}((0)) = \{x \in A \mid \phi(x) = 0\}\) des Nullideals
+        von \(B\) ist ein Ideal von \(A\).
+    \end{example}    
+    \begin{definition}<+->    
+        Das Ideal \(\phi^{-1}((0))\) heißt der \emph{Kern \(\ker \phi\) von \(\phi\)}.
+    \end{definition}   
+    \begin{proposition}<+->
+        Der Homomorphismus \(\phi\) ist genau dann injektiv, wenn
+        \(\ker \phi = (0)\).
+        \qed
+    \end{proposition}
+\end{frame}
+
+\subsection{Quotientenringe}
+
+\begin{frame}{Quotientenringe}
+    \begin{proposition}<+->
+        Sei \(\ideal a\) ein Ideal eines Ringes \(A\). Dann gibt es genau eine
+        Ringstruktur auf der Menge \(A/\ideal a\) der
+        \(\ideal a\)\nobreakdash-Nebenklassen,
+        so daß die kanonische Abbildung \(\pi\colon A \surjto
+        A/\ideal a, x \mapsto [x] := x + \ideal a\) ein Ringhomomorphismus ist.
+    \end{proposition}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Auf \(A/\ideal a\) existiert genau eine Struktur einer abelschen
+            Gruppe, so daß \(\pi\) ein Gruppenhomomorphismus abelscher Gruppen
+            wird.
+        \item
+            Da \(\pi((x + a) (y + a')) = \pi(x y + x a' + a y + a a')
+            = \pi(x y)\) für \(x, y \in A\) und
+            \(a, a' \in \ideal a\), gibt es auf \(A/\ideal a\) genau eine
+            Multiplikation, welche von \(\pi\) respektiert wird,
+            nämlich \((x + \ideal a) (y + \ideal a) = xy + \ideal a\).
+        \item
+            Schließlich muß die Eins in \(A/\ideal a\) das Bild von \(1 \in A\)
+            unter \(\pi\) sein.
+        \item
+            Da \(\pi\) surjektiv ist, folgen die Ringaxiome für \(A/\ideal a\)
+            aus denen für \(A\).
+            \qedhere
+        \end{enumerate} 
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Kern des kanonischen Homomorphismus}
+	Sei \(A\) ein Ring.
+	\begin{example}<+->
+		Seien \(\ideal a\) ein Ideal und \(\pi\colon
+		A \surjto A/\ideal a\) der kanonische Homomorphismus. Dann ist
+		\(\ker \pi = \ideal a\).
+	\end{example}
+	\begin{example}<+->
+		Ist \(x \in A\) ein Element, so ist \(x = 0\) genau dann, wenn der
+		kanonische Homomorphismus \(A \surjto A/(x)\) injektiv ist.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Ideale in Quotientenringen}
+    \begin{visibleenv}<+->
+        Seien \(\ideal a\) ein Ideal in einem Ring \(A\) und
+        \(\pi\colon A \surjto A/\ideal a\) der kanonische Homomorphismus.
+    \end{visibleenv}
+    \begin{definition}<.->
+        Der Ring \(A/\ideal a\) heißt der \emph{Quotientenring von \(A\) nach
+        \(\ideal a\)}.
+    \end{definition}
+    \begin{proposition}<+->
+        Durch \(\ideal x = \pi^{-1}(\bar{\ideal x})\) wird eine bijektive
+        ordnungserhaltende Korrespondenz zwischen den
+        Idealen \(\ideal x\) von \(A\) mit \(\ideal x \supset \ideal a\) und den
+        Idealen \(\bar{\ideal x}\) von \(A/\ideal a\) gegeben.
+    \end{proposition}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Ist \(\ideal y\) ein Ideal von \(A\), so ist
+            \(\bar{\ideal y} \coloneqq \pi(\ideal y)\) ein Ideal von
+            \(A/\ideal a\), da \(\pi\) surjektiv ist.
+        \item
+            Es ist \(\pi^{-1}(\bar {\ideal y}) = \ideal y + \ideal a\).
+        \qedhere
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Der Homomorphiesatz für Ringe}
+    \begin{proposition}<+->[Homomorphiesatz für Ringe]
+        Sei \(\phi\colon A \to B\) ein Homomorphismus von Ringen. Dann gibt es
+        einen Ringisomorphismus
+        \(\underline\phi\colon A/\ker \phi \to \phi(A),\ [x] \mapsto \phi(x)\).
+    \end{proposition}
+    \begin{proof}<+->
+        \begin{enumerate}
+        \item<.->
+            Nach dem Homomorphiesatz für abelsche Gruppen wird
+            durch \([x] \mapsto \phi(x)\) ein Gruppenisomorphismus definiert.
+        \item
+            Da die kanonische Abbildung \(\pi\colon A \to A/\ker \phi\) surjektiv ist
+            und \(\pi\) und \(\underline\phi \circ \pi = \phi\) Ringhomomorphismen sind,
+            ist auch \(\underline\phi\) ein Ringhomomorphismus.
+            \qedhere
+        \end{enumerate}
+    \end{proof}
+    \begin{remark}<+->
+        Ideale sind also genau diejenigen Teilmengen von Ringen, welche
+        Kerne von surjektiven Homomorphismen sind.
+    \end{remark}
+\end{frame}
+
+\subsection{Bezeichnungen}
+
+\begin{frame}{Bezeichnungen von Idealen und Konventionen für Quotientenringe}
+    \begin{convention}<+->
+        Ideale bezeichnen wir mit kleinen deutschen Buchstaben \(\ideal a, \ideal b,
+        \ideal c, \dots\).
+    \end{convention}
+    \begin{visibleenv}<+->
+        Sei \(\ideal a\) ein Ideal in einem Ring \(A\). Sei \(x \in A\).\\
+        Die Nebenklasse \([x] \in A/\ideal a\) von \(x\) bezeichnen wir häufig
+        wieder mit \(x\),\\
+        eventuell mit dem Zusatz "`in \(A/\ideal a\)"' oder
+        "`modulo \(\ideal a\)"'.\\
+        Anstelle von \([x] = 0\) sagen wir etwa, daß "`\(x = 0\) in
+        \(A/\ideal a\)"'\\
+        oder "`\(x = 0\) modulo \(\ideal a\)"'.
+    \end{visibleenv}
+\end{frame}
+

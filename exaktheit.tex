@@ -1,0 +1,175 @@
+\section{Exaktheitseigenschaften des Tensorproduktes}
+
+\subsection{Tensorprodukte und Homomorphismenmoduln}
+
+\begin{frame}{Tensorprodukte und Homomorphismenmoduln}
+	Sei \(A\) ein kommutativer Ring. Seien \(M, N, P\) drei \(A\)-Moduln.
+	\\
+	Sei \(\phi\colon M \otimes N \to P\) eine \(A\)-lineare Abbildung. Diese
+	definiert eine \(A\)-lineare Abbildung
+	\((\phi N)\colon M \to \Hom(N, P), x \mapsto (y \mapsto \phi(x \otimes y))\).
+	\begin{proposition}<+->
+		Die Abbildung
+		\[
+			\Hom(M \otimes N, P) \to \Hom(M, \Hom(N, P)), \phi \mapsto (\phi N)
+		\]
+		ist ein Isomorphismus von \(A\)-Moduln.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(\psi\colon M \to \Hom(N, P)\) eine \(A\)-lineare Abbildung.
+			\\
+			Diese definiert eine \(A\)-lineare Abbildung
+			\((N\psi)\colon M \otimes N \to P, x \otimes y \mapsto \psi(x)(y)\).
+		\item
+			Die Abbildung \(\psi \mapsto (N\psi)\) ist die Umkehrung der
+			Abbildung \(\phi \mapsto (\phi N)\).
+		\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Rechtsexaktheit des Tensorproduktes}
+
+\begin{frame}{Rechtsexaktheit des Tensorproduktes}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(E\colon M' \xrightarrow{\phi} M \xrightarrow{\psi} M'' \to 0\)
+		eine exakte Sequenz von \(A\)-Moduln und \(N\) ein weiterer \(A\)-Modul. Dann ist auch die Sequenz
+		\(E \otimes N\colon M' \otimes N \xrightarrow{\phi \otimes \id_N} M \otimes N \xrightarrow{\psi \otimes \id_N} M'' \otimes N
+		\to 0\) exakt.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(P\) ein beliebiger \(A\)-Modul. Aus der Exaktheit von \(E\) folgt die Exaktheit
+			der Sequenz \(\Hom(E, \Hom(N, P))\).
+		\item
+			Diese Sequenz ist isomorph zur Sequenz \(\Hom(E \otimes N, P)\), welche damit auch exakt ist.
+		\item
+			Da \(P\) beliebig ist, folgt die Exaktheit von \(E \otimes N\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Rechtsexaktheit adjungierter Funktoren}
+	\begin{remark}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(N\) ein \(A\)-Modul. Definieren wir
+		\(T(M) \coloneqq M \otimes N\) und \(U(P) \coloneqq \Hom(N, P)\) für \(A\)-Moduln
+		\(M\) und \(P\), so haben wir die Existenz eines natürlichen Isomorphismus'
+		\[
+			\Hom(T(M), P) = \Hom(M, U(P))
+		\]
+		gezeigt.
+		\\
+		In der Sprache der Kategorientheorie ist \(T\) damit das Linksadjungierte zu \(U\) und
+		das Rechtsadjungierte zu \(T\).
+		\\
+		Der Beweis der letzten Proposition zeigt allgemeiner, daß jeder Funktor, welcher
+		ein linksadjungierter ist, rechtsexakt ist.
+		\\
+		Entsprechend ist ein Funktor, welcher ein linksadjungierter ist, ein linksexakter.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Flache Moduln}
+	\begin{remark}<+->
+		Sei \(A\) ein kommutativer Ring.
+		Sei \(M' \to M \to M''\) eine exakte Sequenz von
+		\(A\)-Moduln. Im allgemeinen ist dann das Tensorprodukt \(M' \otimes N \to M \otimes N
+		\to M'' \otimes N\) mit einem beliebigen \(A\)-Moduln \(N\) nicht mehr exakt.
+	\end{remark}
+	\begin{example}<+->
+		Sei die exakte Sequenz \(0 \to \set Z \xrightarrow\phi \set Z\) mit \(\phi(x) = 2 x\)
+		von \(\set Z\)-Moduln gegeben.
+		\\
+		Sei weiter der \(\set Z\)-Modul \(N \coloneqq \set Z/(2)\) gegeben.
+		Das Tensorprodukt \(0 \to \set Z \otimes N \xrightarrow{\phi \otimes \id_N} \set Z \otimes N\)
+		der Sequenz mit \(N\) ist nicht exakt, denn für alle \(x \otimes y \in \set Z \otimes N\) ist
+		\((\phi \otimes \id_N)(x \otimes y) = 2x \otimes y = x \otimes 2y = x \otimes 0 = 0\), also
+		\(\phi \otimes \id_N = 0\). Allerdings ist \(\set Z \otimes N\) nicht der Nullmodul.
+	\end{example}
+\end{frame}
+
+\subsection{Flachheit}
+
+\begin{frame}{Flache Moduln}
+	Sei \(A\) ein kommutativer Ring. Sei \(N\) ein \(A\)-Modul.
+	\begin{definition}<+->
+		Der \(A\)-Modul \(N\) heißt \emph{flach}, falls für jede exakte Sequenz \(E\) von \(A\)-Moduln
+		auch die tensorierte Sequenz \(E \otimes N\) exakt ist.
+	\end{definition}
+	\begin{lemma}<+->
+		Sei \(\phi \otimes \id_N\colon M' \otimes N \to M \otimes N\) für jede injektive lineare Abbildung
+		\(\phi\colon M' \to M\) endlich erzeugter \(A\)-Moduln injektiv. Dann ist auch
+		\(\phi \otimes \id_N\) für jede injektive lineare Abbildung \(\phi\colon M' \to M\) beliebiger
+		\(A\)-Moduln injektiv.
+	\end{lemma}
+\end{frame}
+
+\begin{frame}{Beweis des Hilfssatzes}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei also \(\phi\colon M' \to M\) eine injektive lineare Abbildung zwischen \(A\)-Moduln. Sei
+			\(u = \sum x_i' \otimes y_i \in \ker (\phi \otimes \id_N)\), also \(\sum \phi(x_i') \otimes y_i = 0
+			\in M \otimes N\).
+		\item
+			Sei \(M_0' \subset M'\) der durch die \(x_i'\) erzeugte Untermodul und sei \(u_0 = \sum x_i' \otimes y_i 
+			\in M_0' \otimes N\).
+		\item
+			Es existiert ein endlich erzeugter Untermodul \(M_0 \subset M\) mit \(\phi(M_0') \subset M_0\), so daß
+			\(\sum \phi(x_i') \otimes y_i = 0 \in M_0 \otimes N\). Damit ist also \((\phi_0 \otimes \id_N)(u_0) = 0\),
+			wobei \(\phi_0 \coloneqq \phi|_{M_0'}\colon M_0' \to M_0\).
+		\item 
+			Da \(M_0', M_0\) endlich erzeugt sind, folgt damit nach Voraussetzung, daß \(u_0 = 0\), also \(u = 0\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Charakterisierungen von Flachheit}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(N\) ein \(A\)-Modul. Dann sind äquivalent:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Der \(A\)-Modul \(N\) ist flach.
+		\item
+			Für jede kurze exakte Sequenz \(E\colon 0 \to M' \to M \to M'' \to 0\) von \(A\)-Moduln ist die tensorierte
+			Sequenz \(E \otimes N\) exakt.
+		\item
+			Für jede injektive \(A\)-lineare Abbildung \(\phi\colon M' \to M\) zwischen \(A\)-Moduln ist die
+			Abbildung \(\phi \otimes \id_N\colon M' \otimes N \to M \otimes N\) injektiv.
+		\item
+			Für jede injektive \(A\)-lineare Abbildung \(\phi\colon M' \to M\) zwischen endlich erzeugten \(A\)-Moduln
+			ist die Abbildung \(\phi\otimes\id_N\colon M' \otimes N \to M \otimes N\) injektiv.
+		\end{enumerate}
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beweis zur Charakterisierung von Flachheit}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Die Äquivalenz der ersten beiden Aussagen folgt aus der Tatsache, daß jede lange exakte Sequenz in kurze
+			exakte Sequenzen zerfällt werden kann.
+		\item
+			Die Äquivalenz der zweiten und dritten Aussage folgt aus der Rechtsexaktheit des Tensorproduktes.
+		\item
+			Die Äquivalenz der letzten beiden Aussagen folgt aus dem letzten Hilfssatz.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Flachheit von Skalarerweiterungen}
+	\begin{proposition}<+->
+		Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe. Ist \(M\) ein flacher \(A\)-Modul, so ist
+		\(M_B\) ein flacher \(B\)-Modul.
+	\end{proposition}
+	\begin{proof}<+->
+		Dies folgt aus den kanonischen Isomorphismen \(N \otimes_B M_B \cong N^A \otimes_A M\) für \(B\)-Moduln \(N\).
+	\end{proof}
+\end{frame}
+

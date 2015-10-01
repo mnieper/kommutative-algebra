@@ -1,0 +1,207 @@
+\section{Erweiterungen und Kontraktionen von Idealen}
+
+\subsection{Kontraktionen}
+
+\begin{frame}{Definition der Kontraktion eines Ideals}
+	Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe.
+	Sei \(\ideal b\) ein Ideal von \(B\).
+	\\
+	Wir haben gesehen, daß das Urbild \(\phi^{-1}(\ideal b)\)
+	ein Ideal von
+	\(A\) ist.
+	\begin{definition}<+->
+		Das Ideal \(A \cap \ideal b := \phi^{-1}(\ideal b)\) von \(A\) heißt die
+		\emph{Kontraktion von \(\ideal b\) (bezüglich \(\phi\))}.
+	\end{definition}
+	\begin{remark}<+->
+		Ist \(\phi\) die Inklusion eines Unterringes \(A\) in \(B\), ist die 
+		Kontraktion von \(\ideal b\) in der Tat der mengentheoretische Schnitt
+		von \(A\) mit \(\ideal b\).
+	\end{remark}
+	\begin{visibleenv}<+->
+		Es ist \(A \cap \ideal b\) der Kern des Homomorphismus
+		\(A \to B/\ideal b, a \mapsto [\phi(a)]\).
+		\\
+		Nach dem Homomorphiesatz existiert damit ein injektiver Homomorphismus
+		\(A/(A \cap \ideal b) \to B/\ideal b\).
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Kontraktionen von Primidealen}
+	\begin{proposition}<+->
+		Ist \(\ideal q\) ein Primideal von \(B\), so ist \(A \cap \ideal q\) ein
+		Primideal von \(A\).
+	\end{proposition}
+	\begin{proof}<+->
+		Da ein injektiver Ringhomorphismus \(A/(A \cap \ideal q) \injto B/\ideal q\) existiert,
+		muß \(A/(A \cap \ideal q)\) mit \(B/\ideal q\) auch ein Integritätsbereich sein.
+	\end{proof}
+	\begin{example}<+->
+		Die Kontraktion eines maximalen Ideals ist im allgemeinen nicht mehr maximal.
+		Sei etwa \(\phi\colon \set Z \injto \set Q\) die Inklusion der ganzen in die
+		rationalen Zahlen. Dann ist die Kontraktion des maximalen Ideals \((0)\) in
+		\(\set Q\) das Primideal \((0)\) in \(\set Z\), welches aber nicht maximal 
+		ist. 
+	\end{example}
+\end{frame}
+
+\subsection{Erweiterungen}
+
+\begin{frame}{Definition der Erweiterung eines Ideals}
+	Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe.
+	Sei \(\ideal a\) ein Ideal von \(A\).
+	\\
+	Im allgemeinen ist das Bild \(\phi(\ideal a)\) kein Ideal in \(B\), aber wir 
+	können das von \(\phi(\ideal a)\) erzeugte Ideal \((\phi(\ideal a))\) in
+	\(B\) betrachten.
+	\begin{definition}<+->
+		Das Ideal \(B \ideal a := (\phi(\ideal a))\) von \(B\) heißt die
+		\emph{Erweiterung von \(\ideal a\) (bezüglich \(\phi\))}.
+	\end{definition}
+	\begin{remark}<+->
+		Ist \(\phi\) die Inklusion eines Unterringes \(A\) in \(B\), ist die 
+		Erweiterung von \(\ideal a\) in der Tat die Menge der
+		\(B\)\nobreakdash-Linearkombinationen von Elementen in \(\ideal a\).
+	\end{remark}
+	\begin{example}<+->
+		Die Erweiterung eines Primideals ist im allgemeinen nicht mehr prim.
+		Sei etwa \(\phi\colon \set Z \injto \set Q\) die Inklusion der ganzen in die
+		rationalen Zahlen. Ist dann \(\ideal a \neq (0)\) ein nicht triviales
+		Ideal von \(\set Z\), ist \(\set Q \ideal a = (1)\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Ein Beispiel aus der algebraischen Zahlentheorie}
+	\begin{example}<+->
+		Sei die kanonische Injektion \(\set Z \to \set Z[\iu]\) gegeben, wobei \(\iu^2 = -1\).
+		Der Ring \(\set Z[\iu]\) ist wie \(\set Z\) ein euklidischer Ring
+		und damit ebenso ein Hauptidealbereich. Die Erweiterung eines
+		Primideals \((p)\) in \(\set Z\) ist dann wie folgt gegeben:
+		\begin{enumerate}[<+->]
+		\item
+			Ist \(p = 2\), ist \(\set Z[\iu](p) = (1 + \iu)(1 + \iu)\), das Quadrat eines
+			Primideals in \(\set Z\).
+		\item
+			Ist \(p = 1\) modulo \(4\), ist \(\set Z[\iu](p)\) das Produkt zweier
+			verschiedener Primideale, also etwa \(\set Z[\iu](5) = (2 + \iu)(2 - \iu)\).
+			\\
+			Diese nicht triviale Tatsache ist effektiv der Fermatsche
+			Zwei-Quadrate-Satz, der besagt, daß eine Primzahl \(p\) mit \(p = 1\)
+			modulo \(4\) als Summe zweier Quadratzahlen dargestellt werden 
+			kann. (Also etwa \(5 = 2^2 + 1^2\).)
+		\item
+			Ist \(p = 3\) modulo \(4\), ist \(\set Z[\iu](p)\) ein Primideal.
+		\end{enumerate}
+	\end{example}
+\end{frame}
+
+\subsection{Operationen mit Erweiterungen und Kontraktionen}
+
+\begin{frame}{Erweiterungen von Kontraktionen und Kontraktionen von Erweiterungen}
+	\begin{proposition}<+->
+		Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe.
+		Sei \(\ideal a\) ein
+		Ideal von \(A\) und \(\ideal b\) ein Ideal von \(B\). Dann gilt:
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(\ideal a \subset A \cap (B \ideal a)\) und
+			\(\ideal b \supset B (A \cap \ideal b)\).
+		\item
+			\(A \cap \ideal b = A \cap (B (A \cap \ideal b))\) und
+			\(B \ideal a = B (A \cap (B \ideal a))\).
+		\end{enumerate}
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(A \cap (B \ideal a) \supset \phi^{-1}(\phi(\ideal a)) \supset
+			\ideal a\).
+		\item
+			\(\phi(\phi^{-1}(\ideal b)) \subset \ideal b\). Damit auch
+			\((\phi(\phi^{-1}(\ideal b))) \subset (\ideal b) = \ideal b\).
+		\item
+			Aus \(B (A \cap \ideal b) \subset \ideal b\) 
+			folgt \(A \cap (B (A \cap \ideal b)) \subset
+			A \cap \ideal b \subset A \cap (B (A \cap \ideal b))\). 
+		\item
+			Aus \(\ideal a \subset A \cap (B \ideal a)\)
+			folgt \(B \ideal a \subset B (A \cap (B \ideal a)) \subset
+			B \ideal a\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Erweiterte und kontrahierte Ideale}
+	\begin{proposition}<+->
+		Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe.
+		Durch \(\ideal a = A \cap \ideal b\) und \(\ideal b = B \ideal a\) wird
+		eine bijektive ordnungserhaltende Korrespondenz zwischen den kontrahierten
+		Idealen \(\ideal a\) von \(A\) und den erweiterten Idealen \(\ideal b\)
+		von \(B\) gegeben.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(\ideal a\) ein kontrahiertes Ideal von \(A\), also etwa
+			\(\ideal a = A \cap \ideal b\), so ist \(\ideal a = 
+			A \cap \ideal b = A \cap (B (A \cap \ideal b)) = A \cap
+			(B \ideal a)\), also die Kontraktion
+			eines erweiterten Ideals von \(B\).
+		\item
+			Ist \(\ideal b\) ein erweitertes Ideal von \(B\), also etwa
+			\(\ideal b = B \ideal a\), so ist \(\ideal b = B \ideal a
+			= B (A \cap (B \ideal a)) = B (A \cap \ideal b)\),
+			also die Erweiterung eines kontrahierten
+			Ideals von \(A\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Rechenregeln für Erweiterungen}
+	\begin{proposition}<+->
+		Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe.
+		Seien \(\ideal a, \ideal a_1,
+		\ideal a_2\) Ideale von \(A\). Dann gilt:
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(B(\ideal a_1 + \ideal a_2) = B \ideal a_1 + B \ideal a_2\).
+		\item
+		    \(B(\ideal a_1 \cap \ideal a_2) \subset B \ideal a_1 \cap
+		    B \ideal a_2\).
+		\item
+		    \(B(\ideal a_1 \ideal a_2) = (B \ideal a_1) (B \ideal a_2)\).
+		\item
+		    \(B(\ideal a_1 : \ideal a_2) \subset (B \ideal a_1 : B \ideal a_2)\).
+		\item
+		    \(B \sqrt{\ideal a} \subset \sqrt{B \ideal a}\).
+		    \qed
+		\end{enumerate}
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Rechenregeln für Kontraktionen}
+	\begin{proposition}<+->
+		Sei \(\phi\colon A \to B\) ein Ringhomomorphismus. Seien \(\ideal b,
+		\ideal b_1, \ideal b_2\) Ideale von \(B\). Dann gilt:
+		\begin{enumerate}[<+->]
+		\item<.->
+		    \(A \cap (\ideal b_1 + \ideal b_2) \supset (A \cap \ideal b_1)
+		    + (A \cap \ideal b_2)\).
+		\item
+		    \(A \cap (\ideal b_1 \cap \ideal b_2) = (A \cap \ideal b_1) \cap
+		    (A \cap \ideal b_2)\).
+		\item   
+		    \(A \cap (\ideal b_1 \ideal b_2) \supset (A \cap \ideal b_1)
+		    (A \cap \ideal b_2)\).
+		\item
+		    \(A \cap (\ideal b_1 : \ideal b_2) \subset (A \cap \ideal b_1 :
+		    A \cap \ideal b_2)\).
+		\item
+		    \(A \cap \sqrt{\ideal b} = \sqrt{A \cap \ideal b}\).
+		    \qed
+		\end{enumerate}
+	\end{proposition}
+\end{frame}
+

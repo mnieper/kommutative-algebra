@@ -1,0 +1,442 @@
+\section{Lokalisierungen von Ringen und Moduln}
+
+\subsection{Lokalisierung eines Ringes}
+
+\begin{frame}{Multiplikativ abgeschlossene Teilmengen}
+	\begin{definition}<+->
+		Sei \(A\) ein Ring. Eine \emph{multiplikativ abgeschlossene Teilmenge von \(A\)} ist eine Teilmenge \(S \subset A\)
+		mit \(1 \in S\) und \(x y \in S\) für alle \(x, y \in S\).
+	\end{definition}
+	\begin{visibleenv}<+->
+		Eine Teilmenge \(S \subset A\) ist also genau dann multiplikativ abgeschlossen, wenn sie ein Untermonoid des
+		multiplikativen Monoides von \(A\) ist.
+	\end{visibleenv}
+	\begin{example}<+->
+		Sei \(A\) ein kommutativer Ring. Dann ist \(A \setminus \{0\}\) genau dann multiplikativ abgeschlossen,
+		wenn \(A\) ein Integritätsbereich ist.
+	\end{example}
+	\begin{example}<+->
+		Sei \(\ideal a\) ein Ideal \(A\). Dann ist \(1 + \ideal a = \{1 + x \mid x \in \ideal a\} \subset A\) multiplikativ
+		abgeschlossen.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Kürzungsregel}
+	Sei \(A\) ein kommutativer Ring. Sei \(S \subset A\) multiplikativ abgeschlossen. Wir betrachten die
+	Menge der Paare \((a, s) \in A \times S\).
+	\\
+	Wir nennen zwei Paare \((a, s), (b, t)\) \emph{äquivalent}, wenn \((at - bs) u = 0\) für ein \(u \in S\).
+	\begin{proposition}<+->
+		Die so definierte Relation ist eine Äquivalenzrelation.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Die Relation ist offensichtlich reflexiv und symmetrisch.
+		\item
+			Sei \((a, s)\) äquivalent zu \((b, t)\) und \((b, t)\) äquivalent zu \((c, u)\). Damit
+			existieren \(v, w \in S\) mit \((a t - b s) v = (b u - c t) w = 0\).
+		\item
+			Multiplizieren wir die linke Gleichung mit \(uw\) und die rechte mit \(sv\), können wir \(b\)
+			eliminieren und erhalten \((au - cs) tvw = 0\).
+		\item
+			Da \(S\) multiplikativ abgeschlossen ist, ist \(tvw \in S\). Damit sind \((a, s)\) und \((c, u)\)
+			äquivalent.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Brüche}
+	Sei \(A\) ein kommutativer Ring. Sei \(S \subset A\) multiplikativ abgeschlossen.
+	\\Die Äquivalenzklasse
+	\((a, s) \in A \times S\) eines Paares nennen wir einen \emph{Bruch}. Wir schreiben die Äquivalenzklasse
+	dieses Paares als \(\frac a s\).
+	\\
+	Mit \(S^{-1} A\) bezeichnen wir die Menge aller dieser Brüche. Auf dieser Menge definieren wir eine Addition
+	durch
+	\[
+		\frac a s + \frac b t = \frac{at + bs}{st}
+	\]
+	und eine Multiplikation durch
+	\[
+		\frac a s \frac b t = \frac{ab}{st}.
+	\]
+	\begin{proposition}<+->
+		Mit den so definierten Operationen wird \(S^{-1} A\) zu einem wohldefinierten kommutativen Ring.
+		\qed
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Die Lokalisierung eines kommutativen Ringes}
+	Sei \(A\) ein kommutativer Ring. Sei \(S\) eine multiplikativ abgeschlossene Teilmenge.
+	\\
+	Die Abbildung \(\iota\colon A \to S^{-1} A, a \mapsto \frac a 1\) ist ein Ringhomomorphismus.
+	\begin{definition}<+->
+		Der kommutative Ring \(S^{-1} A\) heißt die \emph{Lokalisierung von \(A\) nach \(S\)} und
+		\(\iota\colon A \to S^{-1} A\) ihr \emph{Strukturhomomorphismus}.
+	\end{definition}
+	\begin{proposition}[Universelle Eigenschaft der Lokalisierung]<+->
+		Sei \(\phi\colon A \to B\) ein Ringhomomorphismus, so daß \(\phi(s) \in B^\units\) für alle \(s \in S\).
+		Dann existiert genau ein Ringhomomorphismus \(\psi\colon S^{-1} A \to B\) mit \(\phi = \psi \circ \iota\).
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beweis der universellen Eigenschaft der Lokalisierung}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Eindeutigkeit: Sei \(\psi\colon S^{-1} A \to B\) mit \(\psi(\frac a 1) = \phi(a)\) für alle \(a \in A\). 
+			Ist weiter \(s \in S\), so gilt dann 
+			\(\psi(\frac a s) = \psi(\frac a 1 (\frac s 1)^{-1}) = \psi(\frac a 1) \psi(\frac s 1)^{-1}
+			= \phi(a) \phi(s)^{-1}\).
+		\item
+			Existenz: Es ist zu zeigen, daß \(\psi\colon S^{-1} A \to B, \frac a s \mapsto \phi(a) \phi(s)^{-1}\) wohldefiniert
+			ist. Dazu sei \(\frac a s = \frac{a'}{s'}\), also \((a s' - a' s) u = 0\) für ein \(u \in S\).
+		\item
+			Es folgt \((\phi(a) \phi(s') - \phi(a') \phi(s)) \phi(u) = 0\).
+		\item
+			Da \(\phi(u) \in B^\units\), folgt \(\phi(a) \phi(s)^{-1} = \phi(a') \phi(s')^{-1}\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Eigenschaften der Lokalisierung}
+
+\begin{frame}{Eigenschaften der Lokalisierung}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(S \subset A\) multiplikativ abgeschlossen. Sei \(\iota\colon A \to S^{-1} A\)
+		der Strukturhomomorphismus. Dann gilt:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Für alle \(s \in S\) ist \(\iota(s)\) eine Einheit in \(S^{-1} A\).
+		\item
+			Ist \(a \in A\) mit \(\iota(a) = 0\), so ist \(a s = 0\) für ein \(s \in S\).
+		\item
+			Jedes Element in \(S^{-1} A\) ist von der Form \(\iota(a) \iota(s)^{-1}\) mit \(a \in A\) und \(s \in S\).
+			\qed
+		\end{enumerate}
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Charakterisierung der Lokalisierung}
+	\begin{corollary}[Universelle Eigenschaft der Lokalisierung]
+		Sei \(A\) ein kommutativer Ring. Sei \(S \subset A\) multiplikativ abgeschlossen.
+		Sei \(\iota\colon A \to S^{-1} A\) der Strukturhomomorphismus.
+		Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe mit folgenden Eigenschaften:
+		\begin{enumerate}[<+->]
+		\item
+			Für alle \(s \in S\) ist \(\phi(s)\) eine Einheit in \(B\).
+		\item
+			Ist \(a \in A\) mit \(\phi(a) = 0\), so ist \(a s = 0\) für ein \(s \in S\).
+		\item
+			Jedes Element von \(B\) ist von der Form \(\phi(a) \phi(s)^{-1}\) mit \(a \in A\) und \(s \in S\).
+		\end{enumerate}
+		\begin{visibleenv}<+->
+			Dann existiert ein eindeutiger Isomorphismus \(\psi\colon S^{-1} A \to B\) mit \(\phi = \psi \circ \iota\).
+		\end{visibleenv}
+	\end{corollary}
+\end{frame}
+
+\begin{frame}{Beweis der Folgerung aus der universellen Eigenschaft der Lokalisierung}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es ist zu zeigen, daß der aufgrund der ersten Eigenschaft wohldefinierte Ringhomomorphismus
+			\(\psi\colon S^{-1} A \to B, \frac a s \mapsto \phi(a)\phi(s)^{-1}\) ein Isomorphismus ist.
+		\item
+			Da jedes Element in \(B\) von der Form \(\phi(a)\phi(s)^{-1}\) ist, ist \(\psi\) offensichtlich surjektiv.
+		\item
+			Sei schließlich \(\frac a s \in S^{-1} A\) im Kern von \(\psi\). Damit ist insbesondere \(\phi(a) = 0\), also
+			\(a t = 0\) für ein \(t \in S\). Es folgt, daß \(\frac a s = \frac 0 1 = 0 \in S^{-1} A\). Also ist \(\psi\) auch
+			injektiv.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Beispiele von Lokalisierungen}
+
+\begin{frame}{Lokalisierungen an Primidealen}
+	Sei \(A\) ein kommutativer Ring. Sei \(\ideal p\) ein Primideal in \(A\).
+	\begin{example}<+->
+		Die Teilmenge \(A \setminus \ideal p \subset A\) ist multiplikativ abgeschlossen.
+	\end{example}
+	\begin{notation}<+->
+		Wir schreiben \(A_{\ideal p} \coloneqq (A \setminus \ideal p)^{-1} A\) und nennen \(A_{\ideal p}\) die
+		\emph{Lokalisierung von \(A\) bei \(\ideal p\)} oder den \emph{Halm von \(A\) an \(\ideal p\)}.
+	\end{notation}
+	\begin{example}<+->
+		Es ist \(\ideal m \coloneqq \{\frac a s \mid a \in \ideal p, s \in A \setminus \ideal p\}\) ein echtes
+		Ideal im Halm \(A_{\ideal p}\).
+		\\
+		Ist \(\frac b t \in A_{\ideal p} \setminus \ideal m\), so ist \(b \in A \setminus \ideal p\),
+		also \(\frac b t \in (A_{\ideal p})^\units\).
+		\\
+		Es folgt, daß \(A_{\ideal p}\) ein lokaler Ring mit maximalem Ideal \(\ideal m\) ist.
+		\\
+		Es ist \(\ideal m = A_{\ideal p} \ideal p\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Der Quotientenkörper}
+	\begin{example}<+->
+		Sei \(A\) ein Integritätsbereich. Dann ist \(S \coloneqq A \setminus \{0\}\) multiplikativ
+		abgeschlossen, so daß wir die Lokalisierung \(S^{-1} A\) bilden können. Da \(S\) nur reguläre Elemente (und zwar
+		alle) enthält, ist \(A \to S^{-1} A, a \mapsto \frac a 1\) ein injektiver Ringhomomorphismus, so daß
+		wir \(A\) als Unterring von \(S^{-1} A\) auffassen können.
+		\\
+		Ist \(\frac p q \in S^{-1} A \setminus \{0\}\), so ist \((\frac p q)^{-1} = \frac q p\). Damit ist \(S^{-1} A\) ein
+		Körper.
+		\\
+		Wir nennen \(S^{-1} A\) den \emph{Quotientenkörper von \(A\)}. Es ist der kleinste Körper, welcher \(A\) als
+		Unterring enthält.
+	\end{example}
+	\begin{example}<+->
+		Der Körper \(\set Q\) der rationalen Zahlen ist der Quotientenkörper des Ringes \(\set Z\) der ganzen Zahlen.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Lokalisierung außerhalb von Funktionen}
+	Sei \(A\) ein kommutativer Ring.
+	\begin{example}<+->
+		Sei \(S \subset A\) eine multiplikativ abgeschlossene Teilmenge. Dann gilt \(S^{-1} A = 0\) genau dann, wenn
+		\(0 \in S\).
+	\end{example}
+	\begin{example}<+->
+		Sei \(f \in A\). Dann ist \(\{f^n \mid n \in \set N_0\}\) eine multiplikativ abgeschlossene Teilmenge.
+	\end{example}
+	\begin{notation}<+->
+		Wir schreiben \(A[f^{-1}] \coloneqq \{f^n \mid n \in \set N_0\}^{-1} A\) und nennen \(A[f^{-1}]\) die
+		\emph{Lokalisierung von \(A\) außerhalb von \(f\)}.
+	\end{notation}
+\end{frame}
+
+\begin{frame}{Spezielle Lokalisierungen}
+	\begin{example}<+->
+		Sei \(p\) eine Primzahl. Dann ist \(\set Z_{(p)}\) die Menge aller rationalen Zahlen \(\frac m n\), wobei
+		\(n\) teilerfremd zu \(p\) ist.
+	\end{example}
+	\begin{example}<+->
+		Sei \(f \in \set Z \setminus \{0\}\). Dann ist \(\set Z[f^{-1}]\) die Menge der rationalen Zahlen der Form
+		\(\frac m {f^n}\), wobei \(n \in \set N_0\).
+	\end{example}
+	\begin{example}<+->
+		Sei \(A \coloneqq K[x_1, \dotsc, x_n]\) der Polynomring in \(n\) Variablen über einem Körper \(K\). Für jedes
+		Primideal \(\ideal p\) in \(A\) ist dann \(A_\ideal p\) der Ring derjenigen rationalen Funktionen \(\frac f g\)
+		in den \(x_i\) mit \(g \notin \ideal p\).
+	\end{example}
+\end{frame}
+
+\subsection{Lokalisierung von Moduln}
+
+\begin{frame}{Konstruktion der Lokalisierung eines Moduls}
+	Sei \(A\) ein kommutativer Ring. Seien \(S \subset A\) multiplikativ abgeschlossen und
+	\(M\) ein \(A\)-Modul.
+	\\
+	Wir nennen zwei Paare \((m, s), (m', s') \in M \times S\) \emph{äquivalent}, wenn \((ms' - m's) u = 0\) für
+	ein \(u \in S\).
+	\begin{proposition}<+->
+		Die so definierte Relation ist eine Äquivalenzrelation.
+		\qed
+	\end{proposition}
+	\begin{visibleenv}<+->
+		Die Menge der Äquivalenzklasse \(\frac m s\) der Paare \((m, s)\) bezeichnen wir mit \(S^{-1} M\). 
+	\end{visibleenv}
+	\begin{proposition}<+->
+		Mit der offensichtlichen Definition der Modulstruktur wird \(S^{-1} M\) zu einem \(S^{-1} A\)-Modul.
+		\qed
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Definition der Lokalisierung eines Moduls}
+	Sei \(A\) ein kommutativer Ring. Seien \(S \subset A\) multiplikativ abgeschlossen und
+	\(M\) ein \(A\)-Modul.
+	\\
+	Vermöge des Strukturhomomorphismus \(A \to S^{-1} A\) fassen wir \(S^{-1} A\) als \(A\)-Algebra auf.
+	\\
+	Die Abbildung \(\iota\colon M \to (S^{-1} M)^A, m \mapsto \frac m 1\)
+	ist ein Homomomorphismus von \(A\)-Moduln.
+	\begin{definition}<+->
+		Der \(S^{-1} A\)-Modul \(S^{-1} M\) heißt die \emph{Lokalisierung von \(M\) nach \(S\)} und
+		\(\iota\colon M \to (S^{-1} M)^A\) sein \emph{Strukturhomomorphismus}.
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Spezielle Lokalisierungen von Moduln}
+	Sei \(A\) ein kommutativer Ring. Sei \(M\) ein \(A\)-Modul. 
+	\begin{notation}<+->
+		Sei \(\ideal p\) ein Primideal in \(A\).
+		Wir schreiben \(M_\ideal p \coloneqq (A \setminus \ideal p)^{-1} M\) und nennen den \(A_{\ideal p}\)-Modul
+		\(M_{\ideal p}\) die \emph{Lokalisierung von \(M\) bei \(\ideal p\)} oder den \emph{Halm von \(M\)
+		an \(\ideal p\)}.
+
+		Das Bild eines Schnittes \(m \in M\) in \(M_{\ideal p}\) unter dem Strukturhomomorphismus \(M \to M_{\ideal p}\)
+		heißt der \emph{Keim von \(m\) an \(\ideal p\)}.
+	\end{notation}
+	\begin{notation}<+->
+		Sei \(f \in A\). Wir schreiben \(M[f^{-1}] \coloneqq \{f^n \mid n \in \set N_0\}^{-1} M\) und nennen
+		\(M[f^{-1}]\) die \emph{Lokalisierung von \(M\) außerhalb von \(f\)}.
+		
+		Das Bild eines Schnittes \(m \in M\) in \(M[f^{-1}]\) unter dem Strukturhomomorphismus \(M \to M[f^{-1}]\)
+		heißt die \emph{Einschränkung von \(m\) außerhalb von \(f\)}.
+	\end{notation}
+\end{frame}
+
+\subsection{Exaktheit der Lokalisierung}
+
+\begin{frame}{Funktorialität der Lokalisierung}
+	\begin{visibleenv}<+->
+		Sei \(A\) ein kommutativer Ring. Seien \(S \subset A\) multiplikativ abgeschlossen und \(\phi\colon M \to N\)
+		ein Homomorphismus von \(A\)-Moduln.
+		\\
+		Dann ist
+		\[
+			S^{-1}\phi\colon S^{-1} M \to S^{-1} N, \frac m s \mapsto \frac{\phi(m)} s
+		\]
+		ein Homomorphismus von \(S^{-1} A\)-Moduln.
+	\end{visibleenv}
+	\begin{proposition}<+->
+		Sei \(\psi\colon N \to P\) ein weiterer Homomorphismus von \(A\)-Moduln. Dann ist
+		\(S^{-1} (\psi \circ \phi) = S^{-1} \psi \circ S^{-1} \phi\colon S^{-1} M \to S^{-1} P\).
+		\qed
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Exaktheit der Lokalisierung}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(S \subset A\) multiplikativ abgeschlossen. Ist \(M' \xrightarrow{\phi} M
+		\xrightarrow{\psi} M''\) exakt bei \(M\), so ist auch \(S^{-1} M' \xrightarrow{S^{-1}\phi} S^{-1} M \xrightarrow{S^{-1} \psi}
+		S^{-1} M''\) exakt.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Wegen \(\psi \circ \phi = 0\) ist auch \((S^{-1} \psi) \circ (S^{-1} \phi) = S^{-1} 0 = 0\), also
+			\(\im S^{-1} \phi \subset \ker S^{-1} \psi\).
+		\item
+			Sei \(\frac m s \in \ker S^{-1} \psi\), also \(\frac{\psi(m)} s = 0 \in S^{-1} M''\). Damit existiert ein
+			\(t \in S\) mit \(\psi(t m) = t \psi(m) = 0 \in M''\).
+		\item
+			Damit existiert ein \(m' \in M'\) mit \(\phi(m') = t m\). Es folgt, daß \(\frac m s = \frac{\phi(m')}{st}
+			= (S^{-1} \phi)(\frac{m'}{st})\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Lokalisierung von Untermoduln}
+	\begin{example}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(S\) multiplikativ abgeschlossen. Sei
+		\(M'\) ein Untermodul eines \(A\)-Moduls \(M\).
+		\\
+		Da die Lokalisierung exakt ist, ist die Lokalisierung \(S^{-1} M' \to S^{-1} M\) der
+		Inklusion \(M' \injto M\) wieder injektiv.
+		\\
+		Damit können wir \(S^{-1} M'\) als Untermodul von \(S^{-1} M\) ansehen.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Lokalisierung kommutiert mit endlichen Summen und Quotienten}
+	Sei \(A\) ein kommutativer Ring. Seien \(S \subset A\) multiplikativ abgeschlossen und
+	\(M\) ein \(A\)-Modul. Seien \(N, P \subset M\) Untermoduln.
+	\begin{corollary}<+->
+		Es gilt \(S^{-1} (N + P) = S^{-1} N + S^{-1} P \subset S^{-1} M\).
+	\end{corollary}
+	\begin{proof}<+->
+		Folgt sofort aus den Definitionen.
+	\end{proof}
+	\begin{corollary}<+->
+		Die \(S^{-1} A\)-Moduln \(S^{-1}(M/N)\) und \((S^{-1} M)/(S^{-1} N)\) sind isomorph.
+	\end{corollary}
+	\begin{proof}<+->
+		Aus der Exaktheit von \(0 \to N \to M \to M/N \to 0\) folgt die
+		Exaktheit von \(0 \to S^{-1} N \to S^{-1} M \to S^{-1}(M/N) \to 0\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Lokalisierung kommutiert mit endlichen Schnitten}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Seien \(S \subset A\) multiplikativ abgeschlossen und
+		\(M\) ein \(A\)-Modul. Seien \(N, P \subset M\) Untermoduln.
+		Es gilt \(S^{-1} (N \cap P) = S^{-1} N \cap S^{-1} P \subset S^{-1} M\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Die Inklusion \(S^{-1} (N \cap P) \subset S^{-1} N \cap S^{-1} P\) ist offensichtlich.
+		\item
+			Seien umgekehrt \(\frac y s = \frac z t\) mit \(y \in N, z \in P\) und \(s, t \in S\). Dann
+			ist \(u (t y - s z) = 0\) für ein \(u \in S\). Es folgt, daß  \(w \coloneqq uty = usz \in N \cap P\).
+			Damit ist \(\frac y s = \frac w{stu} \in S^{-1} (N \cap P)\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Lokalisierung als Basiswechsel}
+
+\begin{frame}{Lokalisierung als Basiswechsel}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Seien \(S \subset A\) multiplikativ abgeschlossen und
+		\(M\) ein \(A\)-Modul. Dann existiert ein eindeutiger Isomorphismus
+		\(\phi \colon S^{-1} A \otimes_A M \to S^{-1} M, \frac a s \otimes m \mapsto \frac{am} s\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da \(\frac{am}{s}\) bilinear in \(\frac a s\) und \(m\) ist, ist \(\phi\) nach der universellen
+			Eigenschaft des Tensorproduktes wohldefiniert und eindeutig.
+		\item
+			Die Surjektivität von \(\phi\) ist offensichtlich.
+		\item
+			Sei \(\sum_i \frac{a_i}{s_i} \otimes m_i \in S^{-1} A \otimes M\) ein beliebiges Element.
+			Mit \(s \coloneqq \prod_i s_i \in S\) und \(t_i \coloneqq \prod_{j \neq i} s_j \in S\) haben wir
+			\(\sum_i \frac{a_i}{s_i} \otimes m_i = \frac 1 s \otimes \sum_i a_i t_i m_i\), jedes Element von
+			\(S^{-1} A \otimes M\) ist also von der Form \(\frac 1 s \otimes m\).
+		\item
+			Sei \(\phi(\frac 1 s \otimes m) = 0\). Dann ist \(\frac m s = 0 \in S^{-1} M\), also \(t m = 0 \in M\) für ein \(t \in S\).
+			Damit ist \(\frac 1 s \otimes m = \frac 1 {st} \otimes t m = 0\). Also ist
+			\(\phi\) injektiv.
+		\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Flachheit der Lokalisierung}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(S \subset A\) multiplikativ abgeschlossen. Dann ist
+		\(S^{-1} A\) eine flache \(A\)-Algebra.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Tensorieren eines \(A\)-Moduls mit \(S^{-1} A\) über \(A\) entspricht Lokalisieren dieses \(A\)-Moduls an \(S\).
+		\item
+			Lokalisieren ist exakt.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Tensorprodukte von Lokalisierungen}
+	Sei \(A\) ein kommutativer Ring. Seien \(M, N\) zwei \(A\)-Moduln. 
+	\begin{proposition}<+->
+		Sei \(S \subset A\) multiplikativ abgeschlossen. Dann existiert ein eindeutiger Isomorphismus
+		\(\phi\colon S^{-1} M \otimes_{S^{-1} A} \otimes S^{-1} N \to S^{-1} (M \otimes_A N),
+		\frac m s \otimes \frac n t \mapsto \frac{m \otimes n}{st}\)
+		von \(S^{-1} A\)-Moduln.
+	\end{proposition}
+	\begin{proof}<+->
+		Wir haben die Isomorphismen
+		\(S^{-1} M \otimes_{S^{-1} A} S^{-1} N \isoto (S^{-1} A \otimes_A M) \otimes_{S^{-1} A} (S^{-1} A \otimes_A N)
+		\isoto S^{-1} A \otimes_A (M \otimes_{S^{-1} A} S^{-1} A \otimes_A N)
+		\isoto S^{-1} A \otimes_A (M \otimes_A N) \isoto S^{-1} (M \otimes_A N)\).
+	\end{proof}
+	\begin{example}<+->
+		Sei \(\ideal p\) ein Primideal in \(A\). Dann gilt für die Halme \(M_{\ideal p} \otimes_{A_{\ideal p}}
+		N_{\ideal p} = (M \otimes_A N)_{\ideal p}\).
+	\end{example}
+\end{frame}
+

@@ -1,0 +1,186 @@
+\section{Operationen auf Untermoduln}
+
+\subsection{Summe und Schnitt}
+
+\begin{frame}{Definition der Summe von Untermoduln}
+	\begin{visibleenv}<+->
+		Sei \(A\) ein Ring. Sei \(M\) ein \(A\)-Modul.
+		Sei \((M_i)_{i \in I}\) eine Familie von Untermoduln von \(M\).
+		\\
+		Mit \(\sum\limits_{i \in I} M_i \subset M\) bezeichnen wir die Teilmenge aller
+		endlichen
+		Summen der Form \(\sum\limits_{i \in I} x_i\) mit \(x_i \in M_i\). Hierbei heißt
+		endlich, daß \(x_i = 0\) für fast alle (das heißt, alle bis auf endlich viele)
+		\(i \in I\).
+		\\
+		Es ist \(\sum\limits_{i \in I} M_i\) ein Untermodul von \(M\).
+	\end{visibleenv}
+	\begin{definition}<+->
+		Der Untermodul \(\sum\limits_{i \in I} M_i\) von \(M\) heißt die
+		\emph{Summe der Untermoduln \(M_i\)}.
+	\end{definition}
+	\begin{remark}<+->
+		Die Summe \(\sum\limits_{i \in I} M_i\) ist der kleinste Untermodul von \(M\),
+		welcher alle \(M_i\) umfaßt.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Der Schnitt einer Familie von Untermoduln}
+	Sei \(A\) ein Ring. Sei \(M\) ein \(A\)-Modul.
+	\begin{proposition}<+->
+		Sei \((M_i)_{i \in I}\) eine Familie von
+		Untermoduln von \(M\). Dann ist der Schnitt \(\bigcap\limits_{i \in I} M_i \subset M\)
+		ein Untermodul von \(M\).
+	\end{proposition}
+	\begin{remark}<+->
+		Damit bilden die Untermoduln von \(M\) einen vollständigen Verband bezüglich der
+		Inklusionsordnung.
+	\end{remark}
+\end{frame}
+
+\subsection{Die Isomorphiesätze}
+
+\begin{frame}{Der erste Isomorphiesatz}
+	\begin{proposition}[Erster Isomorphiesatz]<+->
+		Sei \(A\) ein Ring. Sei \(M\) ein \(A\)-Modul, und seien \(M_1, M_2 \subset M\)
+		zwei Untermoduln. Dann existiert ein kanonischer Isomorphismus
+		\((M_1 + M_2)/M_1 \isoto M_2/(M_1 \cap M_2)\) von \(A\)-Moduln.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(\theta\colon M_2 \to (M_1 + M_2)/M_1, x \mapsto x + M_1\). Dann ist \(\theta\)
+			ein surjektiver Homomorphismus von \(A\)-Moduln.
+		\item
+			Der Kern von \(\theta\) ist \(M_1 \cap M_2\). Damit folgt die Aussage aus dem Homomorphiesatz.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Der zweite Isomorphiesatz}
+	\begin{proposition}[Zweiter Isomorphiesatz]<+->
+		Sei \(A\) ein Ring. Sei \(L\) ein \(A\)-Modul, und seien \(N \subset M \subset L\)
+		Untermoduln. Dann existiert ein kanonischer Isomorphismus
+		\((L/N)/(M/N) \isoto L/M\) von \(A\)-Moduln.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(\theta\colon L/N \to L/M, x + N \mapsto x + M\). Dann ist \(\theta\) ein wohldefinierter,
+			surjektiver Homomorphismus von \(A\)-Moduln.
+		\item
+			Der Kern von \(\theta\) ist \(M/N\). Damit folgt die Aussage aus dem Homomorphiesatz.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Operationen mit Moduln}
+
+\begin{frame}{Produkt eines Ideals mit einem Modul}
+	Sei \(A\) ein kommutativer Ring. Seien \(M\) ein \(A\)-Modul und \(\ideal a\) ein Ideal in \(A\).
+	\\
+	Mit \(\ideal a M\) bezeichnen wir die Teilmenge aller endlichen Summen der Form \(\sum\limits_i
+	a_i x_i\) mit \(a_i \in \ideal a\) und \(x_i \in M\).
+	\\
+	Es ist \(\ideal a M\) ein Untermodul von \(M\).
+	\begin{definition}<+->
+		Der Untermodul \(\ideal a M\) von \(M\) heißt das \emph{Produkt von \(\ideal a\) und \(M\)}.
+	\end{definition}
+	\begin{notation}<+->
+		Ist \(\ideal a\) ein Hauptideal \((a)\), schreiben wir \(a M\) anstelle von \((a) M\).
+	\end{notation}
+	\begin{visibleenv}<+->
+		Der Untermodul \(a M\) enthält genau die Elemente der Form \(a x\) von \(M\) mit \(x \in M\).
+	\end{visibleenv}
+	\begin{remark}<+->
+		Auf diese Weise läßt sich ein Produkt von Moduln im allgemeinen nicht definieren.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Quotient zweier Untermoduln}
+	Sei \(A\) ein kommutativer Ring. Seien \(N, P\) zwei Untermoduln eines \(A\)-Moduls \(M\).
+	\\
+	Dann ist \((N : P) \coloneqq \{a \in A \mid a P \subset N\}\) ein Ideal von \(A\).
+	\begin{definition}<+->
+		Das Ideal \((N : P)\) heißt der \emph{Quotient von \(N\) nach \(P\)}.
+	\end{definition}
+	\begin{remark}<+->
+		Betrachten wir zwei Ideale von \(A\) als Untermoduln von \(A\), stimmt deren Idealquotient mit dem
+		Quotient als Moduln überein.
+	\end{remark}
+	\begin{definition}<+->
+		Das Ideal \((0:M)\) ist der \emph{Annulator \(\ann M\)} von \(M\).
+	\end{definition}
+	\begin{visibleenv}<+->
+		Es ist also \(\ann M = \{a \in A \mid a M = 0\}\).
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Der Annulator eines Moduls}
+	\begin{visibleenv}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(M\) ein \(A\)-Modul.
+		\\
+		Ist \(\ideal a\) ein Ideal von \(A\) mit \(\ideal a \subset \ann M\), können wir \(M\) als
+		einen
+		\(A/\ideal a\)-Modul \(M^{\ideal a}\) betrachten:
+		\\
+		Als abelsche Gruppen stimmen \(M\) und \(M^{\ideal a}\) überein.
+		\\
+		Die Multiplikation auf \(M^{\ideal a}\) ist durch \((a + \ideal a) \cdot x = a x\) mit \(a \in A\)
+		und \(x \in M\) definiert. Diese ist wohldefiniert, da \(a x = 0\)
+		für \(a \in \ideal a \subset \ann M\).
+	\end{visibleenv}
+	\begin{visibleenv}<+->
+		Anstelle von \(M^{\ideal a}\) sagen wir häufig auch "`\(M\) als \(A/\ideal a\)-Modul"'.
+	\end{visibleenv}
+	\begin{definition}<+->
+		Der \(A\)-Modul \(M\) heißt \emph{treu}, falls \(\ann M = 0\).
+	\end{definition}
+	\begin{visibleenv}<+->
+		Es ist \(M\) also genau dann treu, falls aus \(\forall x \in M\colon ax = 0\) mit \(a \in A\) schon
+		\(a = 0\) folgt.
+	\end{visibleenv}
+	\begin{example}<+->
+		Es ist \(M\) treu als \((A/\ann M)\)-Modul.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Rechenregeln für den Annulator}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Seien \(N, P\) zwei Untermoduln eines \(A\)-Moduls \(M\).
+		Dann gilt:
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(\ann(N + P) = \ann N \cap \ann P\).
+		\item
+			\((N : P) = \ann((N + P)/N)\).
+			\qed
+		\end{enumerate}
+	\end{proposition}
+\end{frame}
+
+\subsection{Endlich erzeugte Moduln}
+
+\begin{frame}{Endlich erzeugte Moduln}
+	\begin{visibleenv}<+->
+		Sei \(A\) ein Ring. Seien \(M\) ein \(A\)-Modul und \(x \in M\).
+		\\
+		Dann ist \(A x \coloneqq \{a x \mid a \in A\}\) ein Untermodul von \(M\), die Teilmenge der
+		Vielfachen von \(x\).
+	\end{visibleenv}
+	\begin{definition}<+->
+		Gilt \(M = \sum\limits_{i \in I} A x_i\) für eine Familie \((x_i)_{i \in I}\) von Elementen
+		in \(M\), so bilden die \(x_i\) eine \emph{Familie von Erzeugern von \(M\)}.
+	\end{definition}
+	\begin{visibleenv}<+->
+		In diesem Falle läßt sich also jedes Element von \(M\) als (nicht notwendigerweise eindeutige)
+		endliche Linearkombination der \(x_i\) darstellen.
+	\end{visibleenv}
+	\begin{definition}<+->
+		Der \(A\)-Modul \(M\) heißt \emph{endlich erzeugt}, falls er eine endliche Familie von
+		Erzeugern besitzt.
+	\end{definition}
+\end{frame}
+

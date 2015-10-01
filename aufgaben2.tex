@@ -1,0 +1,115 @@
+\subsection{Moduln}
+
+\begin{exercise}
+	Zeige, daß \((\set Z/(m)) \otimes_{\set Z} (\set Z/(n)) = 0\), falls \(m, n\) teilerfremd
+	sind.
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:tensor_with_quotient}
+	Sei \(A\) ein kommutativer Ring. Seien \(\ideal a\) ein Ideal in \(A\) und \(M\) ein \(A\)-Modul.
+	Zeige, daß der \(A\)-Modul \((A/\ideal a) \otimes_A M\) isomorph zu \(M/\ideal a M\) ist.
+	
+	(Tip: Tensoriere die exakte Sequenz \(0 \to \ideal a \to A \to A/\ideal a \to 0\) mit \(M\).)
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein lokaler, kommutativer Ring. Seien \(M\) und \(N\) zwei endlich erzeugte \(A\)-Moduln.
+	Zeige, daß aus \(M \otimes N = 0\) schon \(M = 0\) oder \(N = 0\) folgt.
+	
+	(Tip: Sei \(\ideal m\) das maximale Ideal von \(A\) und \(k = A/\ideal m\) der Restklassenkörper.
+	Nach~\prettyref{exer:tensor_with_quotient} ist die Skalarerweiterung von \(M\) auf \(k\) gerade die
+	Faser \(M_k = k^A \otimes_A M \cong M/\ideal m M = M(\ideal m)\). Folgere aus dem Nakajamaschen Lemma,
+	daß aus \(M_k = 0\) schon \(M = 0\) folgt. Ist \(M \otimes_A N = 0\) folgt auch \((M \otimes_A N)_k
+	= M_k \otimes_k N_k = 0\). Da \(k\) ein Körper ist, muß daher schon \(M_k = 0\) oder \(N_k = 0\) folgen.)
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:flatness_of_direct_sum}
+	Sei \(A\) ein kommutativer Ring.
+	Sei \((M_i)_{i \in I}\) eine Familie von \(A\)-Moduln. Sei \(M \coloneqq \bigoplus\limits_{i \in I}
+	M_i\) ihre direkte Summe. Zeige, daß der \(A\)-Modul \(M\) genau dann flach ist, wenn alle \(M_i\) flach sind.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Zeige, daß die Polynomalgebra \(A[x]\) eine flache \(A\)-Algebra ist.
+	
+	(Tip: Benutze~\prettyref{exer:flatness_of_direct_sum}.)
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:poly_over_mod}
+	Sei \(A\) ein kommutativer Ring. Für jeden \(A\)-Modul \(M\) sei \(M[x]\) die Menge aller Polynome in
+	\(x\) mit Koeffizienten in \(M\), also Ausdrücken der Form \(m_0 + m_1 x + \dotsb + m_n x^n\) mit \(m_i \in M\).
+	Zeige, daß \(M[x]\) mit der naheliegenden Definition der Multiplikation mit Elementen aus \(A[x]\) ein \(A[x]\)-Modul
+	wird.
+	
+	Zeige weiter, daß \(M[x] \cong A[x] \otimes_A M\) als \(A\)-Moduln.
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:poly_over_prime}
+	Sei \(A\) ein kommutativer Ring. Sei \(\ideal p\) ein Primideal in \(A\). Zeige, daß \(\ideal p[x]\) ein Primideal in
+	\(A[x]\) ist.
+	
+	Ist \(\ideal m[x]\) im allgemeinen ein maximales Ideal in \(A[x]\), wenn \(\ideal m\) ein maximales Ideal in \(A\) ist?
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Zeige:
+	\begin{enumerate}
+	\item
+		Sind \(M\) und \(N\) flache \(A\)-Moduln, so ist auch \(M \otimes_A N\) ein flacher \(A\)-Modul.
+	\item
+		Ist \(B\) eine flache \(A\)-Algebra und \(N\) ein flacher \(B\)-Modul, so ist \(N^A\) ein flacher \(A\)-Modul.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Sei \(0 \to M' \to M \to M'' \to 0\) eine exakte Sequenz. Zeige: Sind \(M'\) und \(M''\)
+	endlich erzeugt, so ist auch \(M\) endlich erzeugt.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Sei \(\ideal a\) ein im Jacobsonschon Ideal von \(A\) enthaltenes Ideal. Seien \(M\) ein 
+	\(A\)-Modul und \(N\) ein endlich erzeugter \(A\)-Modul. Sei \(\phi\colon M \to N\) ein Homomorphismus von \(A\)-Moduln.
+	Zeige: Ist der induzierte Homomorphismus \(M/\ideal a M \to N/\ideal a N\) surjektiv, so ist auch \(\phi\) surjektiv.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring mit \(A \neq 0\). Seien \(m, n \in \set N_0\).
+	\begin{enumerate}
+	\item
+		Zeige:
+		Sind \(A^m\) und \(A^n\) isomorphe \(A\)-Moduln, so folgt \(m = n\).
+		
+		(Tip: Sei \(\phi\colon A^m \isoto A^n\) ein Isomorphismus. Sei \(\ideal m\) ein maximales Ideal von \(A\). Sei
+		\(k \coloneqq A/m\). Dann ist \(\id_k \otimes \phi\colon k \otimes A^m \to k \otimes A^n\) ein Isomorphismus
+		von \(k\)-Vektorräumen der Dimension \(m\) beziehungsweis \(n\). Es folgt \(m = n\).)
+	\item
+		Zeige:
+		Ist \(\phi\colon A^m \to A^n\) eine surjektive \(A\)-lineare Abbildung, so folgt \(m \ge n\).
+	\item
+		Sei \(\phi\colon A^m \to A^n\) eine \(A\)-lineare Abbildung. Folgt aus der Injektivität von \(\phi\), daß
+		\(m \le n\)?
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:fg_ker_map_to_free}
+	Sei \(A\) ein kommutativer Ring.
+	Seien \(M\) ein endlich erzeugter \(A\)-Modul und \(\phi\colon M \to A^n\) eine surjektive \(A\)-lineare Abbildung.
+	Zeige, daß der \(A\)-Modul \(\ker \phi\) endlich erzeugt ist.
+	
+	(Tip: Sei \((e_1, \dotsc, e_n)\) eine Basis von \(A^n\). Wähle \(u_i \in M\) mit \(\phi(u_i) = e_i\). Zeige, daß
+	\(M\) die direkte Summe von \(\ker \phi\) und dem von den \(u_i\) erzeugten Untermodul ist.)
+\end{exercise}
+
+\begin{exercise}
+	Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe. Sei \(N\) ein \(B\)-Modul. Betrachte den
+	\(B\)-Modul \((N^A)_B = B \otimes_A N^A\). Zeige, daß die \(A\)-lineare Abildung \(\iota\colon
+	N \to (N^A)_B, y \mapsto 1 \otimes y\) injektiv ist und daß \(\im \iota\) ein direkter Summand von \((N^A)_B\) ist.
+	
+	(Tip: Definiere \(\pi\colon (N^A)_B \to N, b \otimes y \mapsto by\) und zeige, daß \((N^A)_B = \im \iota + \ker \rho\).
+\end{exercise}
+

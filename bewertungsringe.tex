@@ -1,0 +1,300 @@
+\section{Bewertungsringe}
+
+\subsection{Definition und erste Eigenschaften von Bewertungsringen}
+
+\begin{frame}{Definition eines Bewertungsringes}
+	\begin{definition}<+->
+		Sei \(B\) ein Integritätsbereich mit Quotientenkörper \(K\). Dann heißt
+		\(B\) ein \emph{Bewertungsring für \(K\)}, falls 
+		\(x \in B\) oder \(x^{-1} \in B\) (oder beides) für alle \(x \in K^\units\).
+	\end{definition}
+	\begin{example}<+->
+		Seien \(K\) ein Körper und \(B\) ein Bewertungsring für \(K\). Ist
+		dann \(B'\) ein Unterring von \(K\) mit \(B \subset B'\), so ist
+		\(B'\) ein Bewertungsring für \(K\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Bewertungsringe sind lokale Ringe}
+	\begin{proposition}<+->
+		Sei \(B\) ein Bewertungsring. Dann ist \(B\) ein lokaler Ring.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(\ideal m \coloneqq B \setminus B^\units\). Ist \(K\) der
+			Quotientenkörper von \(B\), so gilt damit für \(x \in K\), daß
+			\(x \in \ideal m\) genau dann, wenn \(x = 0\) oder \(x^{-1} \notin B\).
+		\item
+			Ist \(a \in B\) und \(x \in \ideal m\), so ist \(ax \in \ideal m\),
+			da ansonsten \((ax)^{-1} \in B\) und damit \(x^{-1} = a (ax)^{-1}
+			\in B\).
+		\item
+			Sind \(x, y \in \ideal m\), so gilt \(xy^{-1} \in B\) oder
+			\(x^{-1} y \in B\). Ohne Einschränkung sei \(xy^{-1} \in B\),
+			also \(x + y = (1 + xy^{-1}) y \in B \ideal m \subset \ideal m\).
+		\item
+			Damit ist \(\ideal m\) ein Ideal in \(B\), und \(B\) daher ein
+			lokaler Ring.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Ganze Abgeschlossenheit von Bewertungsringen}
+	\begin{proposition}<+->
+		Sei \(B\) ein Bewertungsring. Dann ist \(B\) ganz abgeschlossen.
+	\end{proposition}
+	\begin{proof}<+->
+		Sei \(x \in K\) ein ganzes Element im Quotientenkörper \(K\) von \(B\),
+		also \(x^n + b_1 x^{n - 1} + \dotsb + b_n = 0\) für gewisse \(b_i \in
+		B\). Falls \(x \in B\), ist nichts zu zeigen. Ansonsten ist \(x^{-1}
+		\in B\) und damit
+		\(x = - (b_1 + b_2 x^{-1} + \dotsb + b_n x^{1 - n}) \in B\).
+	\end{proof}
+\end{frame}
+
+\subsection{Existenz von Bewertungsringen}
+
+\begin{frame}{Nicht fortsetzbare Homomorphismen in algebraisch abgeschlossene
+	Körper}
+	\begin{visibleenv}<+->
+		Seien \(K\) ein Körper und \(L\) ein algebraisch abgeschlossener Körper.
+		Wir wollen einen
+		Ringhomomorphismus \(\phi\colon A \to L\) von einem Unterring \(A \subset K\)
+		\emph{nicht fortsetzbar in \(K\)}
+		nennen, falls für Unterringe \(A'\) von \(K\) mit \(A \subset
+		A'\) und einem Ringhomomorphismus \(\phi'\colon A' \to L\) mit
+		\(\phi'|_A = \phi\) schon \(A = A'\) gilt.
+	\end{visibleenv}
+	\begin{remark}<+->
+		Aus dem Zornschen Lemma folgt, daß zu jedem Ringhomomorphismus
+		\(\phi\colon A \to L\) ein Unterring \(B\) von \(K\) mit
+		\(A \subset B\) und ein Ringhomomorphismus \(\psi\colon B \to K\)
+		mit \(\psi|_A = \phi\) existiert, so daß \(\psi\) nicht fortsetzbar
+		ist.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Nicht fortsetzbare Homomorphismen sind auf lokalen Ringe definiert}
+	\begin{lemma}<+->
+		Seien \(K\) ein Körper und \(L\) ein algebraisch abgeschlossener Körper. Sei \(B
+		\subset K\) ein	Unterring. Ist dann \(\psi\colon B \to L\) ein nicht
+		in \(K\) fortsetzbarer Ringhomomorphismus, so ist \(B\) ein lokaler Ring mit
+		maximalem Ideal \(\ideal m = \ker \psi\).
+	\end{lemma}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da \(\psi(B) \cong B/\ker \psi\) als Unterring der Körpers \(L\) ein
+			Integritätsbereich ist, ist \(\ker \psi\) ein Primideal.
+		\item
+			Nach der universellen Eigenschaft der Lokalisierung, faktorisiert
+			\(\psi\) über einen Homomorphismus \(\psi_{\ideal m}\colon
+			B_{\ideal m} \to L\).
+		\item
+			Da \(\psi\colon B \to L\) nicht fortsetzbar ist, folgt
+			\(B = B_{\ideal m}\), also ist \(B\) ein lokaler Ring mit maximalem
+			Ideal \(\ideal m\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Ein Hilfssatz über nicht fortsetzbare Homomorphismen}
+	\begin{lemma}<+->
+		Seien \(K\) ein Körper und \(L\) ein algebraisch abgechlossener
+		Körper. Sei \(B \subset K\) ein Unterring.
+		Sei \(\psi\colon B \to L\) ein nicht in \(K\) fortsetzbarer Ringhomomorphismus.
+		Sei \(\ideal m\) das maximale Ideal von \(B\). Sei weiter
+		\(x \in K^\units\). Dann gilt
+		\(\ideal m[x] \neq B[x]\) oder \(\ideal m[x^{-1}] \neq B[x^{-1}]\).
+	\end{lemma}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Angenommen, \(\ideal m[x] = B[x]\) und \(\ideal m[x^{-1}]
+			= B[x^{-1}]\). Dann gibt es Gleichungen
+			\(u_0 + u_1 x + \dotsb + u_m x^m = 1\) und
+			\(v_0 + v_1 x^{-1} + \dotsb + v_n x^{-n} = 1\) mit \(u_i, v_j \in
+			\ideal m\). Seien weiter \(m, n\) minimal gewählt und ohne
+			Einschränkung \(m \ge n\).
+		\item
+			Aus \((1 - v_0) x^n = v_1 x^{n - 1} + \dotsb + v_n\) und
+			\((1 - v_0) \in B^\units\) folgt
+			\(x^n = w_1 x^{n - 1} + \dotsb + w_n\)
+			für gewisse \(w_j \in \ideal m\).
+		\item
+			Indem wir \(x^m = w_1 x^{m - 1} + \dotsb + w_n x^{m - n}\) in
+			\(u_0 + u_1 x + \dotsb + u_m x^m = 1\) substituieren, erhalten wir,
+			daß \(m\) nicht minimal gewählt ist. Widerspruch.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Nicht fortsetzbare Homomorphismen sind auf Bewertungsringen
+	definiert}
+	\begin{theorem}<+->
+		\label{thm:existence_of_valuation_rings}
+		Seien \(K\) ein Körper und \(L\) ein algebraisch abgeschlossener Körper.
+		Sei \(B \subset K\) ein Unterring. Ist dann \(\psi\colon B \to L\)
+		ein nicht in \(K\) fortsetzbarer Ringhomomorphismus, so ist \(B\) ein
+		Bewertungsring für \(K\).
+	\end{theorem}
+\end{frame}
+
+\begin{frame}{Beweis des Satzes über die Existenz von Bewertungsringen}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Mit \(\ideal m\) bezeichnen wir das maximale Ideal von \(B\).
+			Sei \(x \in K^\units\). Wir haben \(x \in B\) oder \(x^{-1} \in B\)
+			zu zeigen. Nach dem letzten Hilfssatz können wir ohne Einschränkung
+			annehmen, daß \(\ideal m[x] \neq (1) = B' \coloneqq B[x]\).
+		\item
+			Damit ist \(\ideal m[x]\) in einem maximalen Ideal \(\ideal m'\) von
+			\(B'\) enthalten. Da \(\ideal m' \cap B \subsetneq B\)
+			folgt \(\ideal m' \cap B = \ideal m\).
+		\item
+			Die Einbettung \(B \to B'\) induziert damit eine Körpereinbettung
+			\(k \coloneqq B/\ideal m \to k' \coloneqq B'/\ideal m'\).
+			Sei \(\bar x\) das Bild von \(x\) in \(k'\). Damit
+			\(k' = k[\bar x]\). Damit ist \(k[\bar x]\) ein Körper, \(\bar x\) also
+			algebraisch über \(k\) und \(k'\) damit eine endlich algebraische
+			Körpererweiterung von \(k\).
+		\item
+			Da \(\ideal m = \ker \psi\), induziert \(\psi\) einen Homomorphismus
+			\(\bar\psi\colon k \to L\) von Körpern. Da \(L\) algebraisch
+			abgeschlossen ist, können wir diesen zu einem Homomorphismus
+			\(\bar\psi'\colon k' \to L\) fortsetzen. Verknüpfung mit
+			\(B' \to k'\) liefert eine Fortsetzung von \(\psi\). Also \(B = B'\)
+			und damit \(x \in B\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Ganzer Abschluß als Schnitt über Bewertungsringe}
+	\begin{corollary}<+->
+		Sei \(A \subset K\) ein Unterring eines Körpers. Dann ist
+		der ganze Abschluß \(\bar A\) von \(A\) in \(K\) der Schnitt aller
+		Bewertungsringe \(B\) von \(K\) mit \(B \supset A\).
+	\end{corollary}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(B\) ein Bewertungsring von \(K\) mit \(B \supset A\). Da
+			\(B\) ganz abgeschlossen ist, folgt \(B \supset \bar A\).
+		\item
+			Sei umgekehrt \(x \notin \bar A\). Dann ist \(x \notin A' \coloneqq
+			A[x^{-1}] \subset K\). Damit ist \(x^{-1}\) keine Einheit in \(A'\),
+			also in einem maximalen Ideal \(\ideal m\) von \(A'\) enthalten.
+		\item
+			Sei \(L\) ein algebraischer Abschluß des Körpers \(k' \coloneqq
+			A'/\ideal m'\). Der Homomorphismus
+			\(\phi\colon A \injto A' \surjto k' \injto L\) kann zu einem
+			Bewertungsring \(B\) von \(K\) fortgesetzt werden. Da
+			\(\phi(x^{-1}) = 0\) ist folglich \(x \notin B\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Fortsetzbarkeit in endlich erzeugten Erweiterungen}
+	\begin{proposition}<+->
+		Sei \(A \subset B\) eine endlich erzeugte Erweiterung von
+		Integritätsbereichen. Sei \(v \in B \setminus \{0\}\). Dann existiert
+		ein \(u \in A \setminus \{0\}\) mit folgender Eigenschaft: Jeder
+		Homomorphismus \(\phi\colon A \to L\) in einen algebraisch
+		abgeschlossenen Körper mit \(\phi(u) \neq 0\) kann zu einem
+		Homomorphismus \(\psi\colon B \to L\) mit \(\phi(v) \neq 0\)
+		fortgesetzt werden.
+	\end{proposition}
+	\begin{proof}<+->
+		\renewcommand\qedsymbol{}
+		Mit Induktion über die Anzahl der Erzeuger von \(B\) über \(A\)
+		können wir davon ausgehen, daß \(B\) von einem Element \(x\)
+		erzeugt wird.
+		\\
+		Dann können zwei Fälle vorliegen: Entweder ist \(x\) über \(A\)
+		transzendent, das heißt kein nicht
+		verschwindendes Polynom über \(A\) besitzt \(x\) als Nullstelle.
+		\\
+		Oder \(x\) ist über \(A\) algebraisch, das heißt es gibt eine nicht
+		triviale polynomielle Gleichung für \(x\) über dem Quotientenkörper von \(A\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Beweis für den transzendenten Fall}
+	\begin{proof}[Transzendenter Fall]<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(x\) transzendent über \(A\).	
+		\item
+			Es existieren \(a_i \in A\) mit \(v = a_0 x^n + a_1 x^{n - 1} +
+			\dotsb + a_n\). Wähle \(u = a_0\).
+		\item
+			Ist \(\phi\colon A \to L\) ein Homomorphismus mit
+			\(\phi(u) \neq 0\), so existiert
+			ein \(y \in L\) mit \(\phi(a_0) y^n + \phi(a_1) y^{n - 1} + \dotsb +
+			\phi(a_n) \neq 0\), da \(L\) unendlich viele Elemente besitzt.
+		\item
+			Definiere \(\psi\colon B \to L\) durch \(\psi(x) = y\).
+			\renewcommand\qedsymbol{}
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Beweis für den algebraischen Fall}
+	\begin{proof}[Algebraischer Fall]<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(x\) algebraisch über \(A\). Da \(v\) ein Polynom in \(x\)
+			ist, ist damit auch \(v^{-1}\) algebraisch über \(x\). Damit
+			existieren Gleichungen \(a_0 x^m + a_1 x^{m - 1} + \dotsb
+			+ a_m = 0\) und \(a_0' v^{-n} + a_1' v^{1 - n} + \dotsb
+			+ a_n' = 0\) mit \(a_i, a_j' \in A\) und \(u \coloneqq a_0 a_0'
+			\neq 0\). 
+		\item
+			Sei \(\phi\colon A \to L\) mit \(\phi(u) \neq 0\). Dann kann
+			\(\phi\) zunächst zu einem Homomorphismus \(A[u^{-1}] \to L\)
+			fortgesetzt werden und danach zu einem Homomorphismus \(\chi\colon
+			C \to L\), wobei \(C\) ein Bewertungsring mit
+			\(C \supset A[u^{-1}]\) ist. 
+		\item
+			Aus der ersten der obigen Gleichungen folgt, daß \(x\) ganz über
+			\(A[u^{-1}]\) ist, daß also \(x \in C\), so daß sogar \(C \supset
+			B\), insbesondere also \(v \in C\).
+		\item
+			Analog ist \(v^{-1} \in C\), also ist \(v\) eine Einheit in \(C\),
+			also ist \(\chi(v) \neq 0\). Definiere \(\psi\coloneqq \chi|_B\colon B \to L\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Schwache Form des Hilbertschen Nullstellensatzes}
+	Sei \(K\) ein Körper.
+	\begin{corollary}<+->
+		\label{cor:weak_hilbert1}
+		Ist eine endlich erzeugte \(K\)-Algebra \(B\) ein Körper, so ist \(B\)
+		eine endliche algebraische Erweiterung von \(K\).
+	\end{corollary}
+	\begin{proof}<+->
+		Sei \(L\) ein algebraischer Abschluß von \(K\). Nach der Proposition
+		läßt sich die Körpererweiterung \(K \subset L\) zu einer
+		Körpererweiterung \(B \subset L\) fortsetzen. Damit ist \(B\)
+		algebraisch über \(K\) und als endlich erzeugte Algebra damit auch
+		endlich.
+	\end{proof}
+	\begin{corollary}[Schwacher Hilbertscher Nullstellensatz]<+->
+		Ist \(\ideal m\) ein maximales Ideal einer endlich erzeugten
+		\(K\)-Algebra \(A\), so ist \(A/\ideal m\)
+		eine endliche algebraische Erweiterung von \(K\). Insbesondere
+		ist \(A/\ideal m \cong K\), falls \(K\) algebraisch abgeschlossen ist.
+		\qed
+	\end{corollary}
+\end{frame}
+

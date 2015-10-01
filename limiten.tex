@@ -1,0 +1,243 @@
+\section{Gerichtete Limiten}
+
+\subsection{Definition des gerichteten Limes}
+
+\begin{frame}{Gerichtete Mengen}
+	\begin{definition}<+->
+		Eine \emph{gerichtete Menge} ist eine nicht leere teilweise geordnete Menge
+		\(I = (I, \le)\), so daß für jedes Paar von Elementen \(i, j \in I\) ein
+		\(k \in I\) mit \(i \le k\) und \(j \le k\) existiert.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Eine teilweise geordnete Menge ist also genau gerichtet, wenn jede endliche
+		Teilmenge eine obere Schranke besitzt.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Gerichtete Systeme von Moduln}
+	Sei \(A\) ein Ring. Sei \(I\) eine gerichtete Menge. Sei weiter \((M_i)_{i \in I}\)
+	eine Familie von \(A\)-Moduln. Schließlich sei für jedes Paar \(i, j \in I\) mit
+	\(i \le j\) ein Homomorphismus \(\mu^i_j\colon M_i \to M_j\) von \(A\)-Moduln
+	gegeben.
+	\begin{definition}<+->
+		Das Datum \(M_\bullet = (M_i, \mu^i_j)\) heißt ein \emph{gerichtetes System
+		von \(A\)-Moduln über \(I\)}, falls folgende Axiome erfüllt sind:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Für alle \(i \in I\) ist \(\mu^i_i = \id_{M_i}\colon M_i \to M_i\).
+		\item
+			Für alle \(i \le j \le k\) ist \(\mu^i_k = \mu^j_k \circ \mu^i_j\colon M_i \to M_k\).
+		\end{enumerate}
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Der gerichtete Limes}
+	Seien \(A\) ein Ring und \(I\) eine gerichtete Menge. Sei \(M_\bullet
+	= (M_i, \mu^i_j)\) ein gerichtetes System von \(A\)-Moduln über \(I\).
+	\\
+	Sei \(C \coloneqq \bigoplus\limits_{i \in I} M_i\). Wir identifizieren die
+	\(M_i\) mit ihren kanonischen Bildern in \(C\).
+	Sei \(D\) der Untermodul von \(C\), welcher von allen Elementen der Form
+	\(x_i - \mu^i_j(x_i)\) mit \(i \le j\) und \(x_i \in M_i\) erzeugt wird.
+	\\
+	Sei \(\mu\colon C \surjto M \coloneqq C/D\) die kanonische Projektion.
+	\\
+	Sei schließlich \(\mu^i \coloneqq \mu|M_i\colon M_i \to M\).
+	\begin{definition}<+->
+		Der Modul \(M\) heißt der \emph{gerichtete Limes von \(M_\bullet\)}. Die
+		kanonischen \(A\)-linearen Abbildungen \(\mu^i\colon M_i \to M\) heißen
+		die \emph{Strukturhomomorphismen von \(M\)}.
+	\end{definition}
+	\begin{notation}<+->
+		Wir schreiben \(\varinjlim\limits_{i \in I} M_i\) für den
+		gerichteten Limes des gerichteten Systems \(M_\bullet\).
+	\end{notation}
+\end{frame}
+
+\subsection{Universelle Eigenschaft des gerichteten Limes}
+
+\begin{frame}{Elemente im gerichteten Limes}
+	Seien \(A\) ein Ring und \(I\) eine gerichtete Menge. Sei
+	\(M_\bullet = (M_i, \mu^i_j)\) ein gerichtetes System von \(A\)-Moduln über
+	\(I\).
+	\\
+	Seien die \(\mu^i\colon M_i \to M \coloneqq \varinjlim\limits_{i \in I} M_i\) die
+	Strukturhomomorphismen.
+	\begin{proposition}<+->
+		Sei \(x \in M\).
+		Dann existiert ein \(i \in I\) und ein \(x_i \in M_i\)
+		mit \(\mu^i(x_i) = x\).
+		\qed
+	\end{proposition}
+	\begin{proposition}<+->
+		Seien \(i \in I\) und \(x_i \in M_i\) mit \(\mu^i(x_i) = 0 \in M\).
+		Dann existiert ein \(j \ge i\) mit \(\mu^i_j(x_i) = 0 \in M_j\).
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Universelle Eigenschaft des gerichteten Limes}
+	Seien \(A\) ein Ring und \(I\) eine gerichtete Menge. Sei
+	\(M_\bullet = (M_i, \mu^i_j)\) ein gerichtetes System von \(A\)-Moduln über
+	\(I\).
+	\\
+	Seien die \(\mu^i\colon M_i \to M \coloneqq \varinjlim\limits_{i \in I} M_i\) die
+	Strukturhomomorphismen.
+	\begin{proposition}<+->
+		Sei \(N\) ein \(A\)-Modul. Sei weiter für alle \(i \in I\) eine \(A\)-lineare
+		Abbildung \(\alpha^i\colon M_i \to N\) gegeben, so daß \(\alpha^i = \alpha^j \circ \mu^i_j\)
+		für alle Paare \(i \le j\). Dann existiert genau eine \(A\)-lineare
+		Abbildung \(\alpha\colon M \to N\) mit \(\alpha^i = \alpha \circ \mu^i\)
+		für alle \(i \in I\).
+		\qed
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Moduln als gerichtete Limiten endlich erzeugter}
+	\begin{example}<+->
+		Sei \(A\) ein Ring. 
+		Sei \(M\) ein \(A\)-Modul.
+		Sei \((M_i)_{i \in I}\) eine Familie von Untermoduln von \(M\).
+		\\
+		Für je zwei Elemente \(i, j \in I\) existieren ein \(k \in I\) mit
+		\(M_i + M_j \subset M_k\). Durch die Setzung \(i \le j \iff
+		M_i \subset M_j\) wird \(I\) zu einer gerichteten Menge.
+		\\
+		Weiter sei im Falle \(i \le j\) die Abbildung \(\mu^i_j\colon M_i \to M_j\)
+		die Inklusionsabbildung.
+		\\
+		Dann ist
+		\[
+			\varinjlim\limits_{i \in I} M_i \cong \sum\limits_{i \in I} M_i
+			= \bigcup\limits_{i \in I} M_i.
+		\]
+	\end{example}
+	\begin{visibleenv}<+->
+		Damit ist insbesondere jeder \(A\)-Modul der gerichtete Limes seiner
+		endlich erzeugten Untermoduln.
+	\end{visibleenv}
+\end{frame}
+
+\subsection{Exakte Sequenzen gerichteter Systeme}
+
+\begin{frame}{Homomorphismen gerichteteter Systeme}
+	Seien \(A\) ein Ring und \(I\) eine gerichtete Menge. Seien \(M_\bullet
+	= (M_i, \mu^i_j)\) und \(N_\bullet = (N_i, \nu^i_j)\) zwei gerichtete Systeme
+	von \(A\)-Moduln über \(I\).
+	\\
+	Mit \(\mu^i\colon M^i \to M \coloneqq \varinjlim\limits_{i \in I} M_i\)
+	und \(\nu^i\colon N^i \to N \coloneqq \varinjlim\limits_{i \in I} N_i\)
+	bezeichnen wir die Strukturhomomorphismen der gerichteten Limiten.
+	\\
+	Sei \(\phi_\bullet = (\phi_i)\) eine Familie von \(A\)-linearen Abbildungen
+	\(\phi_i\colon M_i \to N_i\).
+	\begin{definition}<+->
+		Die Familie \(\phi_\bullet\) heißt ein \emph{Homomorphismus
+		\(\phi_\bullet\colon M_\bullet \to N_\bullet\) gerichteter Systeme}, falls
+		\(\phi_j \circ \mu_j^i = \nu_j^i \circ \phi_i\colon M_i \to N_j\) für
+		alle \(i \le j\).
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Der gerichtete Limes als Funktor}
+	Seien \(A\) ein Ring und \(I\) eine gerichtete Menge. Seien \(M_\bullet
+	= (M_i, \mu^i_j)\) und \(N_\bullet = (N_i, \nu^i_j)\) zwei gerichtete Systeme
+	von \(A\)-Moduln über \(I\).
+	\\
+	Mit \(\mu^i\colon M^i \to M \coloneqq \varinjlim\limits_{i \in I} M_i\)
+	und \(\nu^i\colon N^i \to N \coloneqq \varinjlim\limits_{i \in I} N_i\)
+	bezeichnen wir die Strukturhomomorphismen der gerichteten Limiten.
+	\begin{proposition}<+->
+		Es existiert genau ein Homomorphismus \(\phi \coloneqq \varinjlim\limits_{i \in I}
+		\phi_i\colon M \to N\) von \(A\)-Moduln, so daß
+		\(\phi \circ \mu^i = \nu^i \circ \phi_i\colon M_i \to N\) für alle \(i \in I\).
+		\qedhere
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Exakte Sequenzen gerichteter Systeme}
+	\begin{definition}<+->
+		Seien \(A\) ein Ring und \(I\) eine gerichtete Menge. Eine Sequenz
+		\(M_\bullet \xrightarrow{\phi_\bullet} N_\bullet \xrightarrow{\psi_\bullet}
+		P_\bullet\) von gerichteten Systemen von \(A\)-Moduln über \(I\) heißt
+		\emph{exakt}, falls die induzierten Sequenzen
+		\(M_i \xrightarrow{\phi_i} N_i \xrightarrow{\psi_i} P_i\) für alle
+		\(i \in I\) exakt sind.
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Exaktheit des gerichteten Limes}
+	\begin{proposition}<+->
+		Seien \(A\) ein Ring und \(I\) eine gerichtete Menge. Sei
+		\(M_\bullet \xrightarrow{\phi_\bullet} N_\bullet \xrightarrow{\psi_\bullet}
+		P_\bullet\) eine exakte Sequenz von gerichteten Systemen von \(A\)-Moduln über \(I\).
+		Dann ist die induzierte Sequenz
+		\(\varinjlim\limits_{i \in I} M_i \xrightarrow{\varinjlim\limits_{i \in I} \phi_i}
+		\varinjlim\limits_{i \in I} N_i \xrightarrow{\varinjlim\limits_{i \in I} \psi_i}
+		\varinjlim\limits_{i \in I} P_i\)
+		exakt.
+		\qed
+	\end{proposition}
+\end{frame}
+
+\subsection{Tensorprodukte und gerichtete Limiten}
+
+\begin{frame}{Tensorprodukte und gerichtete Limiten}
+	Seien \(A\) ein Ring und \(I\) eine gerichtete Menge. Sei \(N\) ein \(A\)-Modul.
+	Sei weiter \(M_\bullet = (M_i, \mu^i_j)\) ein gerichtetes System von \(A\)-Moduln über \(I\).
+	\begin{example}<+->
+		Zusammen mit den Abbildungen \(\mu^i_j \otimes \id_N\colon M_i \otimes N \to M_j \otimes N\) für
+		alle \(i \le j\) wird \(M_\bullet \otimes N = (M_i \otimes N)\) zu einem gerichteten System über \(I\).
+	\end{example}
+	\begin{visibleenv}<+->
+		Seien \(\mu^i\colon M_i \to M \coloneqq \varinjlim\limits_{i \in I} M_i\) 
+		und \(\iota^i\colon M_i \otimes N \to P \coloneqq \varinjlim\limits_{i \in I} (M_i \otimes N)\)
+		die Strukturhomomorphismen für \(i \in I\).
+		\\
+		Nach der universellen Eigenschaft des gerichteten Limes induzieren die \(\mu_i \otimes \id_N\colon M_i \otimes N \to
+		M \otimes N\) eine eindeutige \(A\)-lineare Abbildung \(\psi\colon P
+		\to M \otimes N\) mit \(\mu^i \otimes \id_N = \psi \circ \iota^i\) für alle \(i\).
+	\end{visibleenv}
+	\begin{proposition}<+->
+		Die \(A\)-lineare Abbildung \(\psi\) ist ein Isomorphismus
+		\(\varinjlim\limits_{i \in I} (M_i \otimes N) \isoto (\varinjlim\limits_{i \in I} M_i) \otimes N\).
+		\qed
+	\end{proposition}
+\end{frame}
+
+\subsection{Gerichtete Limiten von Ringen}
+
+\begin{frame}{Gerichtete Limiten von Ringen}
+	Sei \(I\) eine gerichtete Menge. Sei \((A_i)_{i \in I}\) eine Familie von Ringen über \(I\).
+	Für \(i \le j\) sei \(\alpha^i_j\colon A_i \to A_j\) ein Ringhomomorphismus. 
+	Die additiven Gruppen der Ringe \(A_i\) mögen ein gerichtetes System von \(\set Z\)-Moduln	
+	\(A_\bullet = (A_i, \alpha^i_j)\) bilden.
+	Seien die \(\alpha^i\colon A_i \to \varinjlim\limits_{i \in I} A_i\) die Strukturhomomorphismen,
+	welche Homomorphismen abelscher Gruppen sind.
+	\begin{proposition}<+->
+		Auf \(\varinjlim\limits_{i \in I} A_i\) existiert genau eine Struktur eines Ringes, so daß die \(\alpha^i\colon A^i \to A\)
+		Ringhomomorphismen werden.
+		\qed
+	\end{proposition}
+	\begin{proposition}<+->
+		Ist \(\varinjlim\limits_{i \in I} A_i = 0\), so existiert ein \(i \in I\) mit \(A_i = 0\).
+		\qed
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Tensorprodukte über beliebige Familien}
+	Sei \(A\) ein kommutativer Ring. Sei \((B_i)_{i \in I}\) eine Familie kommutativer \(A\)-Algebren. Ist \(J \subset I\) eine
+	endliche Teilmenge, so sei \(B_J = \bigotimes_{j \in J} B_j\).
+	\\
+	Ist \(K \subset I\) eine weitere endliche Teilmenge mit \(K \subset J\), so sei \(\beta^K_J\colon B_K \to B_J\) der kanonische
+	Homomorphismus von \(A\)-Algebren, welcher \(\bigotimes\limits_{k \in K} b_k\) auf \(\bigotimes\limits_{j \in J} b_j\) abbildet,
+	wobei wir \(b_j = 1\) für \(j \notin K\) setzen.
+	\\
+	Der gerichtete Limes \(B \coloneqq \bigotimes\limits_{i \in I} B_i \coloneqq \varinjlim_{J \subset I} B_J\) ist in kanonischer Weise
+	eine \(A\)-
+	Algebra, so daß die
+	Strukturmorphismen \(B_J \to B\) Morphismen von \(A\)-Algebren werden.
+	\begin{definition}<+->
+		Die kommutative \(A\)-Algebra \(\bigotimes\limits_{i \in I} B_i\) heißt das \emph{Tensorprodukt über die Familie \((B_i)\)}.
+	\end{definition}
+\end{frame}
+

@@ -1,0 +1,131 @@
+\section{Erster Cohen--Seidenbergscher Satz}
+
+\subsection{Körpererweiterungen}
+
+\begin{frame}{Körper in einer ganzen Erweiterung}
+	\begin{proposition}<+->
+		\label{prop:fields_and_integral_extensions}
+		Sei \(A \subset B\) eine ganze Erweiterung von Integritätsbereichen.
+		Dann ist \(B\) genau dann ein Körper, wenn \(A\) ein Körper ist.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(A\) ein Körper. Sei \(y \in B\) mit \(y \neq 0\). Sei
+			\(y^n + a_1 y^{n - 1} + \dotsb + a_n = 0\) mit \(a_i \in A\) eine
+			Ganzheitsbedingung minimalen Grades. Da \(B\) ein
+			Integritätsbereich ist, ist \(a_n \neq 0\), also
+			\(y^{-1} = -a_n^{-1} (y^{n - 1} + a_1 y^{n - 2} + \dotsb
+			+ a_{n - 1}) \in B\). Damit ist \(B\) ein Körper.
+		\item
+			Sei umgekehrt \(B\) ein Körper. Sei \(x \in A\) mit \(x \neq 0\).
+			Dann ist \(x^{-1} \in B\), also ganz über \(A\), so daß eine
+			Ganzheitsbedingung \(x^{-n} + a_1 x^{-n + 1} + \dotsb + a_n = 0\)
+			mit \(a_i \in A\) existiert. Es folgt, daß
+			\(x^{-1} = -(a_1 + a_2 x + \dotsb + a_n x^{n - 1}) \in A\). Damit
+			ist \(A\) ein Körper. 
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Maximale Ideale in einer ganzen Erweiterung}
+	\begin{corollary}<+->
+		Sei \(A \subset B\) eine ganze Erweiterung kommutativer Ringe. Sei
+		\(\ideal q\) ein Primideal in \(B\) und \(\ideal p \coloneqq A \cap
+		\ideal q\). Dann ist \(\ideal q\) genau dann ein maximales Ideal, wenn
+		\(\ideal p\) ein maximales Ideal ist.
+	\end{corollary}
+	\begin{proof}<+->
+		Es ist \(A/\ideal p \subset B/\ideal q\) eine ganze Erweiterung
+		von Integritätsbereichen. Es ist \(A/\ideal p\) genau dann ein Körper,
+		wenn \(\ideal p\) maximal ist. Ebenso ist \(B/\ideal q\) genau dann
+		ein Körper, wenn \(\ideal q\) maximal ist.
+	\end{proof}
+\end{frame}
+
+\subsection{Primideale in ganzen Erweiterungen}
+
+\begin{frame}{Primideale in einer ganzen Erweiterung}
+	\begin{corollary}<+->
+		\label{cor:equality_of_primes_in_integral_extension}
+		Sei \(A \subset B\) eine ganze Erweiterung kommutativer Ringe. Seien
+		\(\ideal q \subset \ideal q'\) zwei Primideale in \(B\) mit
+		\(\ideal p \coloneqq A \cap \ideal q = A \cap \ideal q'\). Dann gilt
+		\(\ideal q = \ideal q'\).
+	\end{corollary}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es ist \(B_{\ideal p}\) ganz über \(A_{\ideal p}\).
+			Seien \(\ideal m \coloneqq A_{\ideal p} \ideal p\), \(\ideal n
+			\coloneqq B_{\ideal p} \ideal q\) und
+			\(\ideal n' \coloneqq B_{\ideal p} \ideal q'\).
+		\item
+			Dann ist \(\ideal m\) das maximale Ideal in \(A_{\ideal p}\).
+			Weiter gilt \(\ideal n \subset \ideal n'\) und
+			\(A_{\ideal p} \cap \ideal n = A_{\ideal p} \cap \ideal n' =
+			\ideal m\).
+		\item
+			Aus der Maximalität von \(\ideal m\) folgt, daß \(\ideal n\)
+			maximal ist, also \(\ideal n = \ideal n'\). Es folgt
+			\(\ideal q = \ideal q'\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Existenz von Primidealen in ganzen Ringerweiterungen}
+	\begin{theorem}<+->
+		\label{thm:existence_of_primes_in_integral_extensions}
+		Sei \(A \subset B\) eine ganze Erweiterung kommutativer Ringe.
+		Sei \(\ideal p\) ein Primideal von \(A\). Dann existiert ein
+		Primideal \(\ideal q\) von \(B\) mit \(A \cap \ideal q = \ideal p\).
+	\end{theorem}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(\ideal n\) ein maximales Ideal von \(B_{\ideal p}\). Da
+			\(B_{\ideal p}\) ganz über \(A_{\ideal p}\) ist, ist
+			\(\ideal m \coloneqq A_{\ideal p} \cap \ideal n\) ein maximales
+			Ideal von \(A_{\ideal p}\) und damit das einzige maximale Ideal
+			in \(A_{\ideal p}\).
+		\item
+			Sei \(\ideal q \coloneqq B \cap \ideal n\). Dann ist \(\ideal q\)
+			ein Primideal in \(B\). Weiter ist
+			\(A \cap \ideal q = A \cap (A_{\ideal p} \cap \ideal n)
+			= A \cap \ideal m = \ideal p\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Der erste Cohen--Seidenbergsche Satz}
+	\begin{theorem}["`Going-up"']<+->
+		Sei \(A \subset B\) eine ganze Erweiterung kommutativer Ringe. Sei
+		\(\ideal p_1 \subset \dotsb \subset \ideal p_n\) eine Kette von
+		Primidealen in \(A\) und
+		\(\ideal q\colon \ideal q_1 \subset \dotsb \subset \ideal q_m\), \(m \le n\), eine
+		Kette von Primidealen in \(B\) mit \(\ideal p_i = A \cap \ideal q_i\)
+		für \(i \le m\). Dann kann die Kette \(\ideal q\) zu einer Kette
+		\(\ideal q_1 \subset \dotsb \subset \ideal q_n\) mit \(A \cap
+		\ideal q_i = \ideal p_i\) erweitert werden.
+	\end{theorem}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es reicht, den Fall \(m = 1\), \(n = 2\) zu behandeln. Seien \(\bar A
+			\coloneqq A/\ideal p_1\) und \(\bar B \coloneqq B/\ideal q_1\).
+			Dann ist \(\bar B\) ganz über \(\bar A\).
+		\item
+			 Damit existiert ein Primideal \(\bar{\ideal q}_2\) von \(\bar B\)
+			 mit \(\bar A \cap \bar{\ideal q}_2 = \bar{\ideal p}_2
+			 \coloneqq \bar A \ideal p_2\).
+		\item
+			Damit ist \(\ideal q_2 \coloneqq B \cap \bar{\ideal q}_2\) ein
+			Primideal von \(B\) mit den gewünschten Eigenschaften.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+

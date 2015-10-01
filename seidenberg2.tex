@@ -1,0 +1,228 @@
+\section{Der zweite Cohen--Seidenbergsche Satz}
+
+\subsection{Ganz abgeschlossene Integritätsbereiche}
+
+\begin{frame}{Lokalisierung des ganzen Abschlusses}
+	\begin{proposition}<+->
+		Sei \(A \subset B\) eine Erweiterung kommutativer Ringe.
+		Sei \(C\) der ganze Abschluß von \(A\) in \(B\). Sei \(S \subset A\)
+		multiplikativ abgeschlossen. Dann ist \(S^{-1} C\) der ganze Abschluß
+		von \(S^{-1} A\) in \(S^{-1} B\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Wir haben schon gesehen, daß \(S^{-1} C\) ganz über \(S^{-1} A\) ist.
+		\item
+			Sei umgekehrt \(\frac b s \in S^{-1} B\) ganz über \(S^{-1} A\),
+			das heißt, wir haben eine Gleichung der Form
+			\((\frac b s)^n + \frac {a_1}{s_1} (\frac b s)^{n - 1}
+			+ \dotsb + \frac{a_n}{s_n} = 0\) mit \(a_i \in A, s_i \in S\).
+		\item
+			Sei \(t \coloneqq s_1 \dotsm s_n\). Multiplizieren wir die
+			Ganzheitsbedingung mit \((st)^n\) erhalten wir eine
+			Ganzheitsbedingung für \(bt\) über \(A\).
+		\item
+			Damit ist \(bt \in C\), also
+			\(\frac b s = \frac{bt}{st} \in S^{-1} C\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Ganz abgeschlossene Integritätsbereiche}
+	\begin{definition}<+->
+		Ein Integritätsbereich heißt \emph{ganz abgeschlossen}, falls er
+		in seinem Quotientenkörper ganz abgeschlossen ist.
+	\end{definition}
+	\begin{example}<+->
+		Der Ring \(\set Z\) der ganzen Zahlen ist ganz abgeschlossen.
+	\end{example}
+	\mode<article>{Ganz ähnlich wird gezeigt:}
+	\begin{example}<+->
+		Ein Polynomring \(K[x_1, \dotsc, x_n]\) in mehreren Variablen über einem
+		Körper ist ganz abgeschlossen.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Lokalität der ganzen Abgeschlossenheit}
+	\begin{proposition}<+->
+		Sei \(A\) ein Integritätsbereich. Die folgenden Eigenschaften sind
+		äquivalent:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es ist \(A\) ganz abgeschlossen.
+		\item
+			Für jedes Primideal \(\ideal p\) in \(A\) ist \(A_{\ideal p}\)
+			ganz abgeschlossen.
+		\item
+			Für jedes maximale Ideal \(\ideal m\) in \(A\) ist \(A_{\ideal m}\)
+			ganz abgeschlossen.
+		\end{enumerate}
+	\end{proposition}
+	\begin{proof}<+->
+		Seien \(K\) der Quotientenkörper von \(A\) und \(C\) der ganze Abschluß
+		von \(A\) in \(K\). Dann ist \(A\) genau dann ganz abgeschloseen,
+		wenn \(\phi\colon A \to C, x \mapsto x\) surjektiv ist. Es ist
+		Surjektivität eine lokale Eigenschaft und Bilden des ganzen Abschlusses
+		mit Lokalisierung verträglich.
+	\end{proof}
+\end{frame}
+
+\subsection{Ganzheit über Idealen}
+
+\begin{frame}{Definition der Ganzheit über Idealen}
+	\begin{definition}<+->
+		Sei \(A \subset B\) eine Erweiterung kommutativer Ringe. Sei
+		\(\ideal a\) ein Ideal von \(A\).
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ein Element \(x \in B\) heißt
+			\emph{ganz über \(\ideal a\)}, falls \(x\) eine Gleichung der
+			Form \(x^n + a_1 x^{n - 1} + \dotsb + a_n = 0\) mit \(a_i \in \ideal a\)
+			erfüllt.
+		\item
+			Der \emph{ganze Abschluß von \(\ideal a\) in \(B\)} ist die Menge
+			aller \(x \in B\), die ganz über \(\ideal a\) sind.
+		\end{enumerate}
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Erweiterungen in ganzen Abschlüssen}
+	\begin{lemma}<+->
+		Sei \(A \subset B\) eine Erweiterung kommutativer Ringe. Sei \(C\) der
+		ganze Abschluß von \(A\) in \(B\). Sei \(\ideal a\) ein Ideal von
+		\(A\). Dann ist der ganze Abschluß von \(\ideal a\) in \(B\)
+		das Wurzelideal \(\sqrt{C \ideal a}\).
+	\end{lemma}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(x \in B\) mit \(x^n + a_1 x^{n - 1} + \dotsb + a_n = 0\)
+			für gewisse \(a_i \in \ideal a\).
+			Es folgt \(x \in C\) und damit \(x^n \in C \ideal a\), also
+			\(x \in \sqrt{C \ideal a}\).
+		\item
+			Sei umgekehrt \(x \in \sqrt{C \ideal a}\), also \(x^n = \sum_i
+			a_i x_i\) für \(a_i \in \ideal a\) und \(x_i \in C\). Es ist
+			\(M \coloneqq A[x_1, \dotsc, x_n]\) ein endlich erzeugter
+			\(A\)-Modul mit \(x^n M \subset \ideal a M\). Damit erfüllt
+			die Multiplikation mit \(x^n\) auf \(M\) eine Ganzheitsbedingung
+			über \(\ideal a\). Also ist \(x^n\) und damit auch \(x\) ganz über
+			\(\ideal a\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Eine Proposition über über einem Ideal ganze Elemente}
+	\begin{proposition}<+->
+		Seien \(A \subset B\) eine Erweiterung von Integritätsbereichen, und
+		sei \(A\) ganz abgeschlossen mit Quotientenkörper \(K\). Sei weiter
+		\(x \in B\) ganz über einem Ideal \(\ideal a\) von \(A\). Dann ist
+		\(x\) algebraisch über \(K\) und für sein Minimalpolynom
+		\(f \in K[t]\) gilt \(f \in \sqrt{\ideal a}[t]\).
+	\end{proposition}
+	\begin{proof}<+->
+		Da \(x\) ganz über \(\ideal a\) ist, ist \(x\) insbesondere algebraisch
+		über \(K\). Sei \(L\) ein Zerfällungskörper von \(f\),
+		und seien \(x_1, \dotsc, x_n\) die Nullstellen (mit Vielfachheit)
+		von \(f\). Jedes \(x_i\) erfüllt dieselbe Ganzheitsbedingung wie \(x\),
+		daher sind die \(x_i\) ganz über \(\ideal a\).
+		Die Koeffizienten von \(f\) sind Polynome in den \(x_i\), also
+		ebenfalls ganz über \(\ideal a\). Da \(A\) ganz abgeschlossen ist,
+		müssen sie daher in \(\sqrt{\ideal a}\) liegen.
+	\end{proof}
+\end{frame}
+
+\subsection{Der zweite Cohen--Seidenbergsche Satz}
+
+\begin{frame}{Der zweite Cohen--Seidenbergsche Satz}
+	\begin{theorem}["`Going-down"']<+->
+		\label{thm:going_down}
+		Sei \(A \subset B\) eine ganze Erweiterung von Integritätsbereichen,
+		und sei \(A\) ganz abgeschlossen. Dann gilt: 
+		Seien \(\ideal p_1 \supset \dotsb
+		\supset \ideal p_n\) eine Kette von Primidealen in \(A\) und
+		\(\ideal q \colon \ideal q_1 \supset \dotsb \supset \ideal q_m\),
+		\(m \le n\)
+		eine Kette von Primidealen von \(B\) mit \(\ideal p_i = A \cap \ideal
+		q_i\) für \(i \le m\).
+		Dann kann die Kette \(\ideal q\) zu einer Kette \(\ideal q_1 \supset
+		\dotsb \supset \ideal q_n\) mit \(\ideal p_i = A \cap \ideal q_i\)
+		erweitert werden.
+	\end{theorem}
+\end{frame}
+
+\begin{frame}{Beweis des zweiten Cohen--Seidenbergschen Satzes}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es reicht, den Fall \(m = 1\), \(n = 2\) zu behandeln. Damit ist zu
+			zeigen, daß \(\ideal p_2\) die Kontraktion eines Primideals in
+			\(B_{\ideal q_1}\) ist, das heißt, daß
+			\(A \cap B_{\ideal q_1} \ideal p_2 = \ideal p_2\).
+		\item
+			Jedes \(x \in B_{\ideal q_1} \ideal p_2\) ist von der Form
+			\(x = \frac y s\) mit \(y \in B \ideal p_2\) und \(s \in
+			B \setminus \ideal q_1\). Dann ist \(y\) ganz über \(\ideal p_2\),
+			die Ganzheitsbedingung minimalen Grades von \(y\) über dem
+			Quotientenkörper \(K\) von \(A\)
+			ist also von der Form \(y^r + u_1 y^{r - 1} + \dotsb + u_r = 0\)
+			mit \(u_i \in \ideal p_2\).
+		\item
+			Sei zusätzlich \(x \in A\). Dann ist \(s = y x^{-1}\) mit \(x^{-1}
+			\in K\). Damit ist \(s^r + v_1 s^{r - 1} + \dotsb + v_r = 0\) mit
+			\(v_i = u_i x^{-i}\) die Ganzheitsbedingung minimalen Grades für
+			\(s\) über \(K\). Wir halten \(x^i v_i = u_i \in \ideal p_2\) fest.
+		\item
+			Da \(s\) ganz über \((1)\) in \(A\) ist, folgt \(v_i \in A\).
+			Angenommen, \(x \notin \ideal p_2\). Da \(\ideal p_2\) prim ist,
+			muß dann \(v_i \in \ideal p_2\) gelten.
+		\item
+			Daraus folgt wiederum, daß \(s^r \in B \ideal p_2 \subset
+			B \ideal p_1 \subset \ideal q_1\), also \(s \in \ideal q_1\),
+			ein Widerspruch.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Ganzer Abschluß in separablen Erweiterungen}
+	\begin{proposition}<+->
+		Sei \(A\) ein ganz abgeschlossener Integritätsbereich mit Quotientenkörper
+		\(K\). Sei \(L\) eine endliche separable Körpererweiterung von \(K\) und
+		\(B\) der ganze Abschluß von \(A\) in \(L\). Dann existiert eine
+		Basis \(v_1, \dotsc, v_n\) von \(L\) über \(K\) so daß
+		\(B \subset \sum\limits_{j = 1}^n A v_j\).
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beweis der Proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(v \in L\), erfüllt \(v\) eine Gleichung
+			\(a_0 v^r + a_1 v^{r - 1} + \dotsb + a_n = 0\) mit \(a_i \in A, a_0
+			\neq 0\).
+			Durch Multiplizieren dieser Gleichung mit \(a_0^{r - 1}\) sehen wir,
+			daß \(a_0 v\) ganz über \(A\) und damit in \(B\) ist. Damit können
+			wir eine beliebige Basis von \(L\) über \(K\) so umnormieren,
+			daß wir eine Basis \((u_1, \dotsc, u_n)\) mit \(u_i \in B\) erhalten.
+		\item
+			Da \(L\) über \(K\) separabel ist, existieren \(v_1, \dotsc, v_n
+			\in L\) mit \(\tr_{L/K}(u_i v_j) = \kron_{ij}\).
+		\item
+			Sei \(x \in B\), etwa \(x = \sum\limits_j x_j v_j\) mit \(x_j \in K\).
+			Weiter ist \(x u_i \in B\), also \(\tr_{L/K} (x u_i) \in A\), da die
+			Spur eines Elementes ein Vielfaches eines Koeffizienten seines
+			Minimalpolynomes ist.
+		\item
+			Es gilt \(\tr_{L/K} (x u_i) = \sum\limits_j x_j \tr_{L/K}(u_i v_j)
+			= x_i\), also \(x_i \in A\). Folglich ist \(B \subset \sum\limits_j
+			A v_j\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+

@@ -1,0 +1,262 @@
+\section{Primärzerlegung I}
+
+\subsection{Primäre Ideale}
+
+\mode<article>{Ein Primideal in einem kommutativen Ring ist in gewisser Weise eine Verallgemeinerung einer Primzahl.
+Die entsprechende Verallgemeinerung einer Potenz einer Primzahl ist ein Primärideal.}
+
+\begin{frame}{Definition primärer Ideale}
+	Sei \(A\) ein kommutativer Ring.
+	\begin{definition}
+		In Ideal \(\ideal q\) in \(A\) heißt \emph{primär}, falls \(1 \notin \ideal q\) und falls aus \(x y \in
+		\ideal q\) schon \(x \in \ideal q\) oder \(y^n \in \ideal q\) für ein \(n \in \set N_0\) folgt.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Das Ideal \(\ideal q\) ist also genau dann primär, falls die nilpotenten Elemente in \(A/\ideal q\) gerade die
+		Nullteiler in \(A/\ideal q\) sind.
+	\end{visibleenv}
+	\begin{example}<+->
+		Jedes Primideal in \(A\) ist auch primär.
+	\end{example}
+	\begin{example}<+->
+		Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe. Ist dann \(\ideal q\) ein primäres Ideal in
+		\(B\), ist die Kontraktion \(A \cap \ideal q\) primär in \(A\), denn \(A/(A \cap \ideal q)\) ist ein Unterring
+		von \(B/\ideal q\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Wurzeln primärer Ideale}
+	Sei \(\ideal q\) ein primäres Ideal in einem kommutativen Ring \(A\). 
+	\begin{proposition}<+->
+		Es ist \(\sqrt{\ideal q}\) das kleinste Primideal \(\ideal p\) mit \(\ideal p \supset \ideal q\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da \(\sqrt{\ideal q} = \bigcap\limits_{\ideal p' \supset \ideal q} \ideal p'\), wobei \(\ideal p'\) für ein
+			Primideal von \(A\) steht, reicht es zu zeigen, daß \(\sqrt{\ideal q}\) ein Primideal ist.
+		\item
+			Sei dazu \(x y \in \sqrt{\ideal q}\). Dann ist \(x^m y^m = (x y)^m \in \ideal q\) für ein \(m \in \set N_0\).
+		\item
+			Da \(\ideal q\) primär ist, folgt \(x^m \in \ideal q\) oder \(y^{nm} \in \ideal q\) für ein \(n \in \set N_0\).
+		\item
+			Daraus folgt \(x \in \sqrt{\ideal q}\) oder \(y \in \sqrt{\ideal q}\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+	\begin{definition}<+->
+		Ist \(\ideal p = \sqrt{\ideal q}\), so heißt \(\ideal q\) ein \emph{\(\ideal p\)-primäres Ideal von \(A\)}.
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Beispiele primärer Ideale}
+	\begin{example}<+->
+		Die primären Ideale in \(\set Z\) sind die Ideale der Form \((0)\) und \((p^n)\), wobei \(p\) eine Primzahl ist, denn
+		diese sind die einzigen Ideale, deren Wurzel ein Primideal ist, und es ist klar, daß diese Ideale primär sind.
+	\end{example}
+	\begin{example}<+->
+		Sei \(A \coloneqq K[x, y]\) der Polynomring in zwei Variablen über einem Körper. Sei \(\ideal q \coloneqq (x, y^2)\). Dann ist
+		\(A/\ideal q \cong k[y]/(y^2)\), ein Ring, in dem alle Nullteiler Vielfache von \(y\) sind, also nilpotent sind. Damit ist
+		\(\ideal q\) ein primäres Ideal, und zwar mit Wurzel \(\ideal p \coloneqq (x, y)\).
+		\\
+		Da \(\ideal p^2 \subsetneq \ideal q \subsetneq \ideal p\) sehen wir, daß ein primäres Ideal im allgemein keine Potenz
+		eines Primideals sein muß.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Nicht primäre Potenz eines Primideals}
+	\begin{example}<+->
+		Seien \(K\) ein Körper und \(A \coloneqq K[x, y, z]/(xy - z^2)\). Mit \(\bar x, \bar y, \bar z\) bezeichnen wir die
+		Bilder von \(x, y, z\) in \(A\).
+		\\
+		Es ist \(\ideal p \coloneqq (\bar x, \bar z)\) ein Primideal in \(A\), denn \(A/\ideal p \cong K[y]\), ein Integritätsbereich.
+		\\
+		Wir haben \(\bar x \bar y = \bar z^2 \in \ideal p^2\), aber \(\bar x \notin \ideal p^2\) und \(\bar y \notin \sqrt{\ideal p^2}
+		= \ideal p\), also ist \(\ideal p^2\) nicht primär.
+	\end{example}
+	\begin{visibleenv}<+->
+		Wir sehen also, daß Potenzen von Primidealen nicht notwendigerweise primär sind.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Ideale, deren Wurzel ein maximales Ideal ist}
+	Sei \(A\) ein kommutativer Ring.
+	\begin{proposition}<+->
+		Sei \(\ideal a\) ein Ideal in \(A\). Ist \(\ideal m \coloneqq \sqrt{\ideal a}\) ein maximales Ideal, so ist \(\ideal a\) ein
+		\(\ideal m\)-primäres
+		Ideal.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Das Bild von \(\ideal m\) in \(A/\ideal a\) ist das Nilradikal von \(A/\ideal a\). Da jedes Primideal das Nilradikal enthält,
+			besitzt \(A/\ideal a\) damit genau ein Primideal.
+		\item
+			Damit ist jedes Element in \(A/\ideal a\) entweder eine Einheit oder nilpotent, und damit ist jeder Nullteiler in
+			\(A/\ideal a\) auch nilpotent.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+	\begin{example}<+->
+		Ist \(\ideal m\) ein maximales Ideal in \(A\), so sind die Potenzen \(\ideal m^n\) mit \(n > 0\) alle \(\ideal m\)-primär.
+	\end{example}
+\end{frame}
+
+\subsection{Schnitte und Idealquotienten primärer Ideale}
+
+\begin{frame}{Schnitte primärer Ideale mit dem gleichen Wurzelideal}
+	\begin{lemma}<+->
+		\label{lem:primary1}
+		Sei \(\ideal p\) ein Primideal in einem kommutativen Ring \(A\). Dann ist der Schnitt
+		\(\ideal q \coloneqq \bigcap\limits_{i = 1}^n \ideal q_i\) endlich vieler \(\ideal p\)-primärer Ideale
+		\(\ideal q_1, \dotsc, \ideal q_n\) wieder \(\ideal p\)-primär.
+	\end{lemma}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(\sqrt{\ideal q} = \sqrt{\bigcap\limits_i \ideal q_i} = \bigcap\limits_i \sqrt{\ideal q_i} = \ideal p\).
+		\item
+			Sei \(xy \in \ideal q\) mit \(x \notin \ideal q\). Dann ist \(xy \in \ideal q_i\) mit \(x \notin \ideal q_i\) für ein
+			\(i\). Es folgt \(y \in \ideal p\), da \(\ideal q_i\) ein \(\ideal p\)-primäres Ideal ist.			
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Idealquotienten primärer Ideale}
+	\begin{lemma}<+->
+		\label{lem:primary2}
+		Sei \(\ideal p\) ein Primideal eines kommutativen Ringes \(A\). Sei \(\ideal q\) ein \(\ideal p\)-primäres
+		Ideal und \(x \in A\). Dann gilt:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(x \in \ideal q\), so \((\ideal q : x) = (1)\).
+		\item
+			Ist \(x \notin \ideal q\), so ist \((\ideal q : x)\) ein \(\ideal p\)-primäres Ideal.
+		\item
+			Ist \(x \notin \ideal p\), so ist \((\ideal q : x) = \ideal q\).
+		\end{enumerate}
+	\end{lemma}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Die erste und die dritte Aussage folgt sofort aus den Definitionen.
+		\item
+			Sei \(x \notin \ideal q\). Für \(y \in (\ideal q : x)\) folgt dann \(x y \in \ideal q\), also \(y \in \ideal p\).
+			Damit ist \(\ideal q \subset (\ideal q : x) \subset \ideal p\). Durch Wurzelziehen folgt \(\sqrt{(\ideal q : x)}
+			= \ideal p\).
+		\item
+			Sei weiter \(yz \in (\ideal q : x)\) mit \(x \notin \ideal q\). Sei \(y \notin \ideal p\). Aus \(x y z \in \ideal q\)
+			folgt dann \(xz \in \ideal q\), also \(z \in (\ideal q : x)\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Primärzerlegungen}
+
+\begin{frame}{Definition der Primärzerlegung}
+	\begin{definition}<+->
+		Sei \(\ideal a\) ein Ideal in einem kommutativen Ring \(A\). Ein Ausdruck von \(\ideal a\) als endlicher Schnitt
+		\(\ideal a = \bigcap\limits_{i = 1}^n \ideal q_i\) primärer Ideale \(\ideal q_i\) heißt \emph{Primärzerlegung von \(\ideal a\)}.
+		\\
+		Sind die \(\sqrt{\ideal q_i}\) paarweise verschieden und gilt \(\ideal q_i \not\supset \bigcap\limits_{j \neq i}
+		\ideal q_j\) für alle \(i\), so heißt die Primärzerlegung \emph{minimal}.
+	\end{definition}
+	\begin{remark}<+->
+		Nach dem vorletzten Hilfssatz können wir jede Primärzerlegung eines Ideals zu einer minimalen reduzieren.
+	\end{remark}
+	\begin{remark}<+->
+		Im allgemeinen muß nicht jedes Ideal eine Primärzerlegung besitzen. Im Falle, daß es eine hat, heißt es \emph{zerlegbar}.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Erster Eindeutigkeitssatz}
+	\begin{theorem}<+->
+		\label{thm:first_uniqueness}
+		Sei \(\ideal a\) ein zerlegbares Ideal in einem kommutativen Ring \(A\). Sei \(\ideal a = \bigcap\limits_{i = 1}^n \ideal
+		q_i\) eine minimale Primärzerlegung von \(\ideal a\). Sei \(\ideal p_i \coloneqq \sqrt{\ideal q_i}\). Dann sind die Ideale
+		\(\ideal p_i\) genau diejenigen Primideale von \(A\), welche von der Form \(\sqrt{(\ideal a : x)}\) mit \(x \in A\) sind.
+		\\
+		Insbesondere sind die \(\ideal p_i\) unabhängig von der Primärzerlegung von \(A\). Sie heißen die 			\alert{zu \(\ideal a\)
+		assoziierten Primideale}.
+	\end{theorem}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(\sqrt{(\ideal a : x)} = \sqrt{(\bigcap\limits_i \ideal q_i : x)} = \bigcap\limits_i
+			\sqrt{(\ideal q_i : x)} = \bigcap\limits_{\ideal q_j \not\ni x} \ideal p_j\).
+		\item
+			Ist \(\ideal p \coloneqq \sqrt{(\ideal a : x)}\) für ein \(x \in A\) prim, folgt damit \(\ideal p = \ideal p_j\) für ein
+			\(j\).
+		\item
+			Umgekehrt folgt aus der Minimalität der Zerlegung, daß für jedes \(i\) ein \(x \notin \ideal q_i\) mit
+			\(x \in \bigcap\limits_{j \neq i} \ideal q_j\) existiert. Dafür gilt \(\sqrt{(\ideal a : x)} = \ideal p_i\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Bemerkungen zum ersten Eindeutigkeitssatz}
+	Sei \(\ideal a\) ein zerlegbares Ideal in einem kommutativen Ring \(A\).
+	\begin{remark}<+->
+		Sei \(\ideal p\) ein assoziiertes Primideal zu \(\ideal a\).
+		Aus dem letzten Beweis und dem letzten Hilfssatz folgt, daß ein \(x \in A\) existiert, so daß
+		\((\ideal a : x)\) ein \(\ideal p\)-primäres Ideal ist.
+	\end{remark}
+	\begin{remark}<+->
+		Sehen wir \(A/\ideal a\) als \(A\)-Modul an, ist der Eindeutigkeitssatz äquivalent dazu zu sagen, daß die zu
+		\(\ideal a\) assoziierten Primideale genau diejenigen Primideale sind, welche als Wurzeln von Annulatoren von Elementen von
+		\(A/\ideal a\) auftauchen.
+	\end{remark}
+\end{frame}
+
+\subsection{Isolierte und minimale Primideale}
+
+\begin{frame}{Definition isolierter und eingebetteter Primideale}
+	\begin{definition}<+->
+		Sei \(\ideal a\) ein zerlegbares Ideal eines kommutativen Ringes \(A\). Die minimalen Elemente der Menge der zu
+		\(\ideal a\) assoziierten Primideale heißen die \emph{isolierten Primideale zu \(\ideal a\)}. Die übrigen zu
+		\(\ideal a\) assoziierten Primideale heißen die \emph{eingebetteten Primideale zu \(\ideal a\)}.
+	\end{definition}
+	\begin{example}<+->
+		Sei \(K\) ein Körper. Sei \(A = K[x, y]\). Sei \(\ideal a = (x^2, xy)\). Dann ist \(\ideal a = \ideal p_1 \cap \ideal p_2^2\)
+		mit \(\ideal p_1 = (x)\) und \(\ideal p_2 = (x, y)\). Da \(\ideal p_2\) maximal ist, ist \(\ideal p_2^2\) ein primäres
+		Ideal. Damit sind \(\ideal p_1\) und \(\ideal p_2\) die zu \(\ideal a\) assoziierten Ideale.
+		\\
+		In diesem Beispiel ist \(\ideal p_1 \subset \ideal p_2\), weiter haben wir \(\sqrt{\ideal a} = \ideal p_1 \cap \ideal p_2 =
+		\ideal p_1\), allerdings ist \(\ideal a\) selbst kein primäres Ideal.
+		\\
+		Es ist \(\ideal p_2\) ein eingebettetes Primideal zu \(\ideal a\).
+	\end{example}
+	\begin{visibleenv}<+->
+		Die Begriffe "`isoliert"' und "`eingebettet"' kommen aus der algebraischen Geometrie.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Isolierte Primideale}
+	\begin{proposition}<+->
+		\label{prop:isolated_prime}
+		Sei \(\ideal a\) ein zerlegbares Ideal eines kommutativen Ringes. Jedes Primideal \(\ideal p\) mit \(\ideal p \supset \ideal a\)
+		enthält ein isoliertes Primideal zu \(\ideal a\).
+	\end{proposition}
+	Die isolierten Primideale zu \(\ideal a\) sind damit genau die minimalen Elemente der Menge aller Primideale, welche \(\ideal a\)
+	umfassen.
+	\begin{proof}<+->
+		Sei \(\ideal a = \bigcap\limits_{i = 1}^n \ideal q_i\) eine Primärzerlegung von \(\ideal a\). Aus
+		\(\ideal p \supset \bigcap\limits_i \ideal q_i\) folgt \(\ideal p = \sqrt{\ideal p}
+		\supset \bigcap\limits_i \sqrt{\ideal q_i}\). Damit muß \(\ideal p \supset \sqrt{\ideal q_i}\) für ein \(i\) gelten.
+		Damit umfaßt \(\ideal p\) ein isoliertes Primideal zu \(\ideal a\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Die primären Komponenten sind nicht eindeutig}
+	\begin{remark}<+->
+		Sei \(K\) ein Körper. Im Ring \(K[x, y]\) sind \((x^2, xy) = (x) \cap (x, y)^2\) und
+		\((x) \cap(x^2, y)\) zwei verschiedene Primärzerlegungen von \((x^2, xy)\). Damit sind primären Komponenten
+		eines zerlegbaren Ideals im allgemeinen nicht eindeutig.
+		\\
+		In Kürze werden wir allerdings gewisse Eindeutigkeitseigenschaften kennenlernen.
+	\end{remark}
+\end{frame}
+

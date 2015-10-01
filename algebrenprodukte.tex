@@ -1,0 +1,55 @@
+\section{Tensorprodukte von Algebren}
+
+\subsection{Definition des Tensorproduktes zweier Algebren}
+
+\begin{frame}{Ein Produkt auf dem Tensorprodukt zweier Algebren}
+	Sei \(A\) ein kommutativer Ring, und seien \(B\) und \(C\) zwei kommutative \(A\)-Algebren.
+	\\
+	Da \(B\) und \(C\) insbesondere \(A\)-Moduln sind, können wir den \(A\)-Modul \(D \coloneqq B^A \otimes_A C^A\)
+	betrachten.
+	\\
+	Die Abbildung \(B \times C \times B \times C \mapsto D, (b, c, b', c') \mapsto bb' \otimes cc'\)
+	ist \(A\)-linear in jedem Faktor, so daß sie einen Homomorphismus
+	\(B \otimes C \otimes B \otimes C \to D, b \otimes c \otimes b' \otimes c' \mapsto bb' \otimes cc'\)
+	von \(A\)-Moduln induziert.
+	\\
+	Durch Klammersetzung erhalten wir also einen Homomorphismus \(D \otimes D \to D\) von \(A\)-Moduln,
+	welcher wiederum zu einer \(A\)-bilinearen Abbildung
+	\[
+		\mu\colon D \times D \to D, (b \otimes c, b' \otimes c') \mapsto bb' \otimes cc'
+	\]
+	korrespondiert.
+\end{frame}
+
+\begin{frame}{Das Tensorprodukt zweier Algebren als Algebra}
+	Sei \(A\) ein kommutativer Ring und seien \(\phi\colon A \to B\) und \(\psi\colon A \to C\) zwei
+	kommutative \(A\)-Algebren.
+	\\
+	Wir definieren eine kommutative \(A\)-Algebra \(B \otimes_A C\) wie folgt: Als abelsche Gruppe sei
+	\(B \otimes_A C\) die abelsche Gruppe des \(A\)-Moduls \(D = B^A \otimes_A C^A\).
+	\\
+	Die Multiplikation ist \(B \otimes_A C\) wird durch die eben definierte Abbildung
+	\[
+		\mu\colon (B \otimes_A C) \times (B \otimes_A C) \to B \otimes_A C, (b \otimes c, b' \otimes c') \mapsto bb' \otimes cc'
+	\]
+	gegeben.
+	\\
+	Die Eins ist durch \(1_B \otimes 1_C \in B \otimes_A C\) gegeben.
+	\\
+	Schließlich ist der Strukturhomomorphismus der \(A\)-Algebra durch \(A \to B \otimes_A C, a \mapsto \phi(a) \otimes
+	1 = 1 \otimes \psi(a)\) gegeben.
+	\begin{definition}<+->
+		Die kommutative \(A\)-Algebra \(B \otimes_A C\) heißt das \emph{Tensorprodukt der kommutativen \(A\)-Algebren \(B\) und \(C\)}.
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Bemerkung zur Modulstruktur des Tensorproduktes von Algebren}
+	\begin{remark}<+->
+		Sei \(A\) ein kommutativer Ring. Seien \(B, C\) zwei kommutative \(A\)-Algebren. Als \(A\)-Algebra trägt \(B \otimes_A C\)
+		insbesondere die Struktur eines \(A\)-Moduls, nämlich \((B \otimes_A C)^A\). Auf der anderen Seite ist die \(B \otimes_A C\)
+		zugrundeliegende abelsche Gruppe in natürlicher Weise ein \(A\)-Modul, nämlich \(B^A \otimes_A C^A\). Beide \(A\)-Modulstrukturen
+		stimmen überein, das heißt die identische Abbildung \(\id\colon B^A \otimes_A C^A \to (B \otimes_A C)^A\) ist ein
+		Isomorphismus von \(A\)-Moduln.
+	\end{remark}
+\end{frame}
+

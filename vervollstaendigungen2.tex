@@ -1,0 +1,271 @@
+\section{Vervollständigungen II}
+
+\subsection{Exaktheitseigenschaften inverser Limiten}
+
+\begin{frame}{Surjektive Systeme}
+	\begin{definition}<+->
+		Ein inverses System \(\dotsb \to A_1 \to A_0\) von Gruppen heißt \emph{surjektives System}, falls
+		die Gruppenhomomorphismen \(A_n \to A_{n - 1}\) surjektiv sind.
+	\end{definition}
+	\begin{example}<+->
+		Sei \(G\) eine topologische Gruppe mit einer Umgebungsbasis \(G_0 \supset G_1 \supset \dotsb\) von
+		\(0\) aus Normalteilern. Dann ist das inverse System \(\dotsb \to G/G_n \to \dotsb \to G/G_1 \to G/G_0\)
+		ein surjektives.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Homomorphismen inverser Systeme}
+	\begin{definition}<+->
+		Seien \(A_\bullet\colon \dotsb \xrightarrow{\alpha_1} A_1 \xrightarrow{\alpha_0} A_0\) und
+		\(B_\bullet\colon \dotsb \xrightarrow{\beta_1} B_1 \xrightarrow{\beta_0} B_0\) inverse Systeme
+		topologischer Gruppen. Eine Familie \((\phi_n\colon A_n \to B_n)_n\) stetiger Gruppenhomomorphismen
+		ist ein \emph{Homomorphismus inverser Systeme}, wenn \(\beta_n \circ \phi_n = \phi_{n - 1} \circ \alpha_n\colon A_n \to
+		B_{n - 1}\) für alle \(n \ge 1\).
+	\end{definition}
+	\begin{example}<+->
+		Sind \(\phi_\bullet\colon A_\bullet \to B_\bullet\)
+		und \(\psi_\bullet\colon B_\bullet \to C_\bullet\) zwei Homomorphismen inverser Systeme, so ist ihre
+		\emph{Verknüpfung} \(\psi_\bullet \circ \phi_\bullet \coloneqq (\psi_n \circ \phi_n)\colon A_\bullet \to
+		C_\bullet\) wieder ein Homomorphismus inverser Systeme.
+	\end{example}
+	\begin{example}<+->
+		Ist \(A_\bullet\) ein inverses System, so ist \(\id_{A_\bullet} \coloneqq (\id_{A_n})\colon
+		A_\bullet \to A_\bullet\) ein Homomorphismus inverser Systeme.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Homomorphismen inverser Systeme und der inverse Limes}
+	Sei \(\phi_\bullet\colon A_\bullet \to B_\bullet\) ein Homomorphismus inverser Systeme. Dann definiert
+	\[
+		\varprojlim\limits_n \phi_n\colon \varprojlim\limits_n A_n \to \varprojlim\limits_n B_n,
+		(\xi_n)_n \mapsto (\phi_n(\xi_n))_n
+	\]
+	einen stetigen Gruppenhomomorphismus.
+	\begin{example}<+->
+		Ist \(\psi_\bullet\colon B_\bullet \to C_\bullet\) ein weiterer Homomorphismus inverser Systeme,
+		so ist
+		\((\varprojlim\limits_n \psi_n) \circ (\varprojlim\limits_n \phi_n) = \varprojlim\limits_n (\psi_n \circ \phi_n)\colon
+		\varprojlim\limits_n A_n \to \varprojlim\limits_n C_n\).
+	\end{example}
+	\begin{example}<+->
+		Es ist \(\varprojlim\limits_n \id_{A_n} = \id_{\varprojlim\limits A_n}\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Exakte Sequenzen inverser Systeme}
+	\begin{definition}<+->
+		Eine Sequenz \(\dotsb \to A_\bullet^{i - 1} \xrightarrow{\phi_\bullet^{i - 1}} A_\bullet^i \xrightarrow{\phi_\bullet^i}
+		A_\bullet^{i + 1} \to \dotsb\) inverser Systeme abelscher Gruppen \(A_\bullet^i\)
+		heißt \emph{exakt bei \(A_\bullet^i\)},
+		falls die induzierten Sequenzen \(A_n^{i - 1} \xrightarrow{\phi_n^{i - 1}} A_n^i \xrightarrow{\phi_n^i} A_n^{i + 1} \to \dotsb\)
+		für alle \(n \in \set N_0\) exakt sind.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Den Begriff der kurzen exakten Sequenz inverser Systeme abelscher Gruppen definieren wir auf die offensichtliche Art
+		und Weise.
+	\end{visibleenv}
+	\begin{remark}<+->
+		Ist \(\dotsb \to A_\bullet^{i - 1} \xrightarrow{\phi_\bullet^{i - 1}} A_\bullet^i \xrightarrow{\phi_\bullet^i}
+		A_\bullet^{i + 1} \to \dotsb\) eine exakte Sequenz inverser Systeme abelscher Gruppen, so ist die
+		induzierte Sequenz
+		\(\varprojlim\limits_n A_n^{i - 1} \to \varprojlim\limits_n A_n^i \to \varprojlim\limits_n A_n^{i + 1}\)
+		abelscher Gruppen im allgemeinen nicht mehr exakt.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Linksexaktheit des inversen Limes}
+	\begin{proposition}<+->
+		Sei \(0 \to A_\bullet \to B_\bullet \to C_\bullet \to 0\) eine exakte Sequenz inverser Systeme abelscher Gruppen. Dann
+		ist die induzierte Sequenz \(0 \to \varprojlim\limits_n A_n \to \varprojlim\limits_n B_n \to \varprojlim\limits_n C_n\)
+		exakt.
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beweis der Linksexaktheit}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(A_\bullet\colon \dotsb \xrightarrow{\alpha_2} A_1 \xrightarrow{\alpha_1} A_0\).
+			Sei \(A \coloneqq \prod\limits_n A_n\). Setze \(d^A\colon A \to A, (a_n)_n \mapsto
+			(a_n - \alpha_{n + 1}(a_{n + 1}))_n\). Dann ist \(\ker d^A = \varprojlim\limits_n A_n\).
+		\item
+			Definiere \(B, C\) und \(d^B, d^C\) analog. Dann ist
+			\[
+				\begin{CD}
+					0 @>>> A @>>> B @>>> C @>>> 0 \\
+					& & @V{d^A}VV @V{d^B}VV @V{d^C}VV \\
+					0 @>>> A @>>> B @>>> C @>>> 0
+				\end{CD}
+			\]
+			ein kommutatives Diagram mit exakten Reihen.
+		\item
+			Nach dem Schlangenlemma ist \(0 \to \ker d^A \to \ker d^B \to \ker d^C \to {\varprojlim\limits_n}^1 A_n\)
+			mit \({\varprojlim\limits_n}^1 A_n \coloneqq \coker d^A\) exakt.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Exaktheit bei surjektiven Systemen}
+	\begin{proposition}<+->
+		Sei \(0 \to A_\bullet \to B_\bullet \to C_\bullet \to 0\) eine exakte Sequenz inverser Systeme abelscher Gruppen. 
+		Sei weiter \(A_\bullet\) ein surjektives System.
+		Dann
+		ist die induzierte Sequenz \(0 \to \varprojlim\limits_n A_n \to \varprojlim\limits_n B_n \to \varprojlim\limits_n C_n \to 0\)
+		exakt.
+	\end{proposition}
+	\begin{proof}<+->
+		Sei \(A_\bullet\colon \dotsb \xrightarrow{\alpha_2} A_1 \xrightarrow{\alpha_1} A_0\).
+		Es ist zu zeigen, daß \({\varprojlim\limits_n}^1 A_n = 0\), daß also \(d^A\) surjektiv ist. Dies folgt aus der Tatsache,
+		daß sich die Gleichungen \(\eta_n - \alpha_{n + 1}(\eta_{n + 1}) = \xi_n\) induktiv für \(\eta_n \in A_n\) lösen lassen, wenn
+		die \(\xi_n \in A\) gegeben sind.
+	\end{proof}
+\end{frame}
+
+\subsection{Vollständige topologische Gruppen}
+
+\begin{frame}{Exaktheit der Vervollständigung}
+	\begin{corollary}<+->
+		Sei \(0 \to G' \xrightarrow{\iota} G \xrightarrow{\pi} G'' \to 0\) eine exakte Sequenz
+		abelscher Gruppen. Definiere eine Folge \(G_0 \supset G_1 \supset \dotsb\) von
+		Untergruppen von \(G\) eine Topologie auf \(G\). Versehen wir \(G'\) und \(G''\)
+		mit den durch die Folgen \(\iota^{-1} G_0 \supset \iota^{-1} G_1 \supset \dotsb\) bzw.\
+		\(\pi(G_0) \supset \pi(G_1) \supset \dotsb\) definierten Topologien, so ist
+		die induzierte Sequenz
+		\(0 \to \hat G' \to \hat G \to \hat G'' \to 0\) exakt.
+	\end{corollary}
+	\begin{proof}<+->
+		Die Sequenzen \(0 \to G'/\iota^{-1} (G_n) \to G/G_n \to G/\pi(G_n) \to 0\) sind exakt
+		und bilden eine exakte Sequenz surjektiver Systeme. Damit ist ihr inverser Limes
+		\(0 \to \hat G' \to \hat G \to \hat G'' \to 0\) exakt.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Folgerung aus der Exaktheit}
+	\begin{corollary}<+->
+		Sei \(G\) eine abelsche topologische Gruppe. Sei \(G_0 \supset G_1 \supset \dotsb\) eine
+		Umgebungsbasis von \(0\) aus Untergruppen. Für jedes \(n\) induziert der kanonische Homomorphismus
+		\(G \to \hat G\) dann einen Isomorphismus \(G/G_n \to \hat G/\hat G_n\).
+	\end{corollary}
+	\begin{proof}<+->
+		Es ist \(0 \to G_n \to G \to G/G_n \to 0\) eine exakte Sequenz. Versehen wir \(G_n\) mit
+		der Teilraumtopologie und \(G/G_n\) mit der diskreten Topologie,
+		können wir die vorherige Proposition anwenden und erhalten die exakte Sequenz
+		\(0 \to \hat{G_n} \to \hat G \to \widehat{G/G_n} = G/G_n \to 0\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Vollständige topologische Gruppen}
+	\begin{definition}<+->
+		Eine topologische Gruppe heißt \emph{vollständig}, wenn der kanonische Homomorphismus
+		\(G \to \hat G\) ein Isomorphismus ist.
+	\end{definition}
+	\begin{remark}<+->
+		Eine vollständige topologische Gruppe ist also insbesondere hausdorffsch.
+	\end{remark}
+	\begin{proposition}<+->
+		Sei \(G\) eine abelsche topologische Gruppe. Sei \(G_0 \supset G_1 \supset \dotsb\) eine
+		Umgebungsbasis von \(0\) aus Untergruppen. Dann ist die Vervollständigung \(\hat G\) vollständig.
+	\end{proposition}
+	\begin{proof}<+->
+		Es ist \(\hat G \cong \varprojlim\limits_n G/G_n \cong \varprojlim\limits_n \hat G/\hat G_n
+		\cong \hat{\hat G}\).
+	\end{proof}
+\end{frame}
+
+\subsection{Topologische Ringe und Moduln}
+
+\begin{frame}{Topologische Ringe}
+	\begin{definition}<+->
+		Ein \emph{topologischer Ring} ist ein Ring \(A\), dessen additive Gruppe eine topologische Gruppe ist, so
+		daß die Multiplikation \(A \times A \to A, (x, y) \mapsto x y\) eine stetige Abbildung ist.
+	\end{definition}
+	\begin{example}<+->
+		Sei \(\ideal a\) ein Ideal eines Ringes \(A\). Dann gibt es genau eine Topologie auf
+		der additiven Gruppe von \(A\), so daß \((1) \supset \ideal a \supset \ideal a^2 \dotsb\) zu einer
+		Umgebungsbasis von \(0\) wird, die \emph{\(\ideal a\)-adische Topologie}.
+		\\
+		Da die \(\ideal a^n\) Ideale sind, läßt sich zeigen, daß \(A\) damit zu einem topologischen Ring wird.
+	\end{example}
+	\begin{remark}<+->
+		Die Vervollständigung \(\hat A\) eines topologischen Ringes \(A\) als topologische Gruppe ist wieder in kanonischer Weise
+		ein Ring. Außerdem ist die kanonische Abbildung \(A \to \hat A\) ein stetiger Ringhomomorphismus.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Vervollständigung topologischer Ringe}
+	Sei \(\ideal a\) ein Ideal eines Ringes \(A\). Wir versehen \(A\) mit der \(\ideal a\)-adischen Topologie.
+	\begin{example}<+->
+		Es ist \(A\) genau dann hausdorffsch, wenn \(\bigcap\limits_n \ideal a^n = (0)\).
+	\end{example}
+	\begin{visibleenv}<+->
+		Mit \(\hat A = \hat A_{\ideal a}\) bezeichnen wir die Vervollständigung von \(A\).
+	\end{visibleenv}
+	\begin{definition}<.->
+		Der Ring \(\hat A_{\ideal a}\) heißt die \emph{\(\ideal a\)-adische Vervollständigung von \(A\)}.
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Topologische Moduln}
+	Sei \(A\) ein topologischer Ring. 
+	\begin{definition}<+->
+		Ein \emph{topologischer \(A\)-Modul \(M\)} ist ein \(A\)-Modul \(M\), dessen
+		additive Gruppe eine topologische Gruppe ist, so daß die Multiplikation \(A \times M \to M, (a, x) \mapsto a x\)
+		eine stetige Abbildung ist.
+	\end{definition}
+	\begin{remark}<+->
+		Die Vervollständigung \(\hat M\) eines topologischen \(A\)-Moduls \(M\) als topologische Gruppe ist in kanonischer Weise
+		ein \(\hat A\)-Modul. Außerdem ist die kanonische Abbildung \(M \to \hat M\) ein stetiger Homomorphismus
+		\(M \to \hat M^{A}\) von \(A\)-Moduln.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Vervollständigung topologischer Moduln}
+	Sei \(\ideal a\) ein Ideal eines Ringes \(A\). Sei \(M\) ein \(A\)-Modul. 
+	\begin{example}<+->
+		Sei \(\ideal a\) ein Ideal eines Ringes \(A\). Sei \(M\) ein \(A\)-Modul. Dann gibt es genau eine Topologie
+		auf der additiven Gruppe von \(M\), so daß \(M \supset \ideal a M \supset \ideal a^2 M \supset \dotsb\) zu einer
+		Umgebungsbasis von \(0\) wird, die \emph{\(\ideal a\)-adische Topologie}.
+		\\
+		In der Tat wird \(M\) damit zu einem topologischen \(A\)-Modul, wenn \(M\) mit der \(\ideal a\)-adischen Topologie
+		versehen wird.
+	\end{example}
+	\begin{visibleenv}<+->
+		Wir versehen \(A\) und \(M\) mit der
+		\(\ideal a\)-adischen Topologie.
+		\\
+		Mit \(\hat M = \hat M_{\ideal a}\) bezeichnen wir die Vervollständigung von \(M\).
+	\end{visibleenv}
+	\begin{definition}<+->
+		Der \(\hat A_{\ideal a}\)-Modul \(\hat M_{\ideal a}\) heißt die \emph{\(\ideal a\)-adische Vervollständigung von \(M\)}.
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Vervollständigung von Homomorphismen}
+	Sei \(\ideal a\) ein Ideal eines Ringes \(A\). Sei \(\phi\colon M \to N\) ein Homomorphismus von \(A\)-Moduln.
+	\\
+	Dann gilt \(\phi(\ideal a^n M) \subset \ideal a^n \phi(M) \subset \ideal a^n N\), es ist
+	\(\phi\) damit stetig bezüglich der \(\ideal a\)-adischen Topologien auf \(M\) und \(N\).
+	\\
+	Damit definiert \(\phi\) eine Abbildung \(\hat\phi = \hat\phi_{\ideal a}\colon \hat M_{\ideal a} \to \hat N_{\ideal a}\).
+	\begin{proposition}<+->
+		Die Abbildung \(\hat\phi_{\ideal a}\colon \hat M_{\ideal a} \to \hat N_{\ideal a}\) ist ein stetiger
+		Homomorphismus topologischer Ringe.
+		\qed
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beispiele Vervollständigungen topologischer Ringe}
+	\begin{example}<+->
+		Sei \(K\) ein Körper. Vervollständigen wir \(K[x]\) bezüglich der \((x)\)-adischen Topologie, so erhalten
+		wir \(\widehat{K[x]}_{(x)} = \ps K x\) den Potenzreihenring über \(K\) als Vervollständigung.
+	\end{example}
+	\begin{example}<+->
+		Sei \(p\) eine Primzahl. Die Vervollständigung \(\set Z_p \coloneqq \hat{\set Z}_{(p)}\) heißt der
+		\emph{Ring der \(p\)-adischen Zahlen}. Elemente in \(\set Z\) können wir als Reihen
+		\(\sum_{n = 0}^\infty a_n p^n\) mit \(0 \le a_n < p\) darstellen.
+		\\
+		Es gilt \(\lim\limits_n p^n = 0\) in diesem Ring.
+	\end{example}
+\end{frame}
+

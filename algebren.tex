@@ -1,0 +1,85 @@
+\section{Algebren}
+
+\subsection{Definition von Algebren}
+
+\begin{frame}{Definition einer kommutativen Algebra}
+	Sei \(A\) ein kommutativer Ring.
+	\begin{definition}<+->
+		Eine \emph{kommutative \(A\)-Algebra \(B\)} ist ein kommutativer Ring \(B\) zusammen mit einem
+		Ringhomomorphismus \(\phi\colon A \to B\), dem \emph{Strukturmorphismus der Algebra \(B\)}.
+	\end{definition}
+	\begin{remark}<+->
+		Ist \(B\) eine \(A\)-Algebra, so können wir insbesondere die Skalareinschränkung
+		\(B^A\) definieren. Damit ist eine Multiplikation mit Elementen aus \(A\) auf der
+		\(B\) zugrundeliegenden abelschen Gruppe durch \(a b \coloneqq \phi(a) b \in B\) mit \(a \in A\)
+		und \(b \in B\) definiert.
+		\\
+		Die so definierte Struktur ist kompatibel mit der multiplikativen Struktur auf \(B\).
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Beispiele von Algebren}
+	\begin{example}<+->
+		Sei \(K\) ein Körper und \(B \neq 0\) eine kommutative \(K\)-Algebra. Da der Strukturmorphismus in diesem
+		Falle injektiv ist, können wir \(K\) kanonisch mit seinem Bild in \(B\) identifizieren.
+		\\
+		Damit ist eine kommutative Algebra über einem Körper nichts anderes als ein kommutativer Ring, welcher \(K\)
+		als Unterring enthält.
+	\end{example}
+	\begin{example}<+->
+		Sei \(B\) ein beliebiger kommutativer Ring. Da genau ein Ringhomomorphismus \(\set Z \to B\) existiert,
+		nämlich \(n \mapsto n \cdot 1_B\), wobei \(1_B\) die Eins in \(B\) bezeichnet, wird jeder kommutativer
+		Ring auf genau eine Weise zu einer \(\set Z\)-Algebra.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Algebrenhomomorphismen}
+	Sei \(A\) ein kommutativer Ring. Seien \(B, C\) zwei kommutative \(A\)-Algebren. 
+	\begin{definition}<+->
+		Ein \emph{Homomorphismus
+		\(\chi\colon B \to C\) von \(A\)-Algebren} ist ein Ringhomomorphismus \(\chi\colon B \to C\), welcher
+		einen Homomorphismus \(\chi\colon B^A \to C^A\) von \(A\)-Moduln induziert.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Ein Ringhomomorphismus \(\chi\colon B \to C\) ist also genau dann ein Homomorphismus von \(A\)-Algebren,
+		falls \(\chi(a b) = a \chi(b)\) für alle \(a \in A\) und \(b \in B\).
+	\end{visibleenv}
+	\begin{remark}<+->
+		Seien \(\phi\colon A \to B\) und \(\psi\colon A \to C\) die beiden Strukturhomomorphismen. Ein
+		Ringhomomorphismus \(\chi\colon B \to C\) ist genau dann ein Homomorphismus von \(A\)-Algebren,
+		falls \(\chi \circ \phi = \psi\).	
+	\end{remark}
+\end{frame}
+
+\subsection{Endliche Algebren und Algebren endlichen Typs}
+
+\begin{frame}{Endliche Algebren}
+	\begin{definition}<+->
+		Sei \(A\) ein kommutativer Ring. Eine kommutative \(A\)-Algebra \(B\) heißt eine \emph{endliche \(A\)-Algebra},
+		falls \(B^A\) als \(A\)-Modul endlich erzeugt ist.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Es ist \(B\) also genau dann eine endliche \(A\)-Algebra, falls endlich viele Elemente \(b_1, \dotsc, b_n \in B\)
+		existieren, so daß jedes andere Element von \(B\) als eine \(A\)-Linearkombination der \(b_i\) geschrieben werden
+		kann.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Algebren endlichen Typs}
+	\begin{definition}<+->
+		Sei \(A\) ein kommutativer Ring. Eine kommutative \(A\)-Algebra \(B\) heißt eine \emph{\(A\)-Algebra endlichen Typs},
+		falls endlich viele Elemente \(b_1, \dotsc, b_n \in B\) existieren, so daß jedes Element von \(B\) als Polynom
+		in den \(b_i\) mit Koeffizienten aus \(A\) geschrieben werden kann.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Es ist \(B\) also genau dann eine \(A\)-Algebra endlichen Typs, falls ein surjektiver \(A\)-Algebrenhomomorphismus von
+		einem Polynomring \(A[x_1, \dotsc, x_n]\) auf \(B\) existiert.
+	\end{visibleenv}
+	\begin{example}<+->
+		Ein kommutativer Ring \(B\) heißt \emph{endlich erzeugt}, falls er eine \(\set Z\)-Algebra endlichen Typs ist.
+		\\
+		Dies ist gleichbedeutend damit, daß endlich viele Elemente \(b_1, \dotsc, b_n\) von \(B\) existieren, so daß jedes
+		Element von \(B\) als Polynom in den \(b_i\) mit ganzzahligen Koeffizienten geschrieben werden kann.
+	\end{example}
+\end{frame}
+

@@ -1,0 +1,317 @@
+\section{Vervollständigungen I}
+
+\subsection{Topologische Gruppen}
+
+\begin{frame}{Definition topologischer Gruppen}
+	\begin{definition}<+->
+		Sei \(G\) eine (additiv geschriebene) Gruppe, deren zugrundeliegende Menge von Elementen
+		ein topologischer Raum ist. Dann heißt \(G\) eine \emph{topologische
+		Gruppe}, falls die Addition \(G \times G \to G, (g, h) \mapsto g + h\)
+		und die Negation \(G \to G, g \mapsto -g\) stetige Abbildungen sind.
+	\end{definition}
+	\begin{example}<+->
+		Jede Gruppe ist bezüglich der diskreten Topologie eine topologische.
+	\end{example}
+	\begin{proposition}<+->
+		Sei \(G\) eine topologische Gruppe, so daß \(\{0\} \subset G\) 
+		abgeschlossen ist. Dann ist \(G\) hausdorffsch.
+	\end{proposition}
+	\begin{proof}<+->
+		Die Diagonale \(\{(g, g) \mid g \in G\} \subset G \times G\)
+		ist als Urbild von \(\{0\}\) unter der stetigen Abbildung \(G \times G \to G,
+		(x, y) \mapsto x - y\) abgeschlossen.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Unter- und Faktorgruppen topologischer Gruppen}
+	\begin{example}<+->
+		Sei \(H\) eine Untergruppe einer topologischen Gruppe \(G\).
+		Dann ist \(H\) mit der Teilraumtopologie eine topologische
+		Gruppe.
+	\end{example}
+	\begin{example}<+->
+		Seien \(G\) ein topologische Gruppe und \(N\) ein Normalteiler in \(G\).
+		Versehen mit der Quotiententopologie ist \(G/N\) eine topologische Gruppe.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Uniformität topologischer Gruppen}
+	\begin{remark}<+->
+		Sei \(G\) eine topologische Gruppe. Für jedes \(a \in G\) ist die
+		Verschiebung \(\tau_a\colon G \to G, g \mapsto a + g\) eine stetige
+		Abbildung mit Inverse \(\tau_{-a}\). Damit ist \(\tau_a\) ein
+		Homöomorphismus.
+		\\
+		Ist also \(U \subset G\) eine offene Umgebung von \(0\), so ist
+		\(a + U\) eine offene Umgebung von \(a\). Umgekehrt ist jede
+		offene Umgebung von \(a\) von dieser Form.
+		\\
+		Damit definieren die offenen Umgebungen um \(0\) die Topologie auf \(G\).
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Hausdorffsche topologische Gruppen}
+	\begin{lemma}<+->
+		Sei \(G\) eine topologische Gruppe.
+		Sei \(H\) der Schnitt aller (offenen) Umgebungen \(U\) von \(0\) in \(G\). Dann
+		gilt:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es ist \(H\) ein Normalteiler in \(G\).
+		\item
+			Es ist \(H\) der topologische Abschluß von \(\{0\}\).
+		\item
+			Die Faktorgruppe \(G/H\) ist hausdorffsch.
+		\item
+			Es ist \(G\) genau dann hausdorffsch, wenn \(H = 0\).
+		\end{enumerate}
+	\end{lemma}
+\end{frame}
+
+\begin{frame}{Beweis des Hilfssatzes über hausdorffsche topologische Gruppen}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Aus der Stetigkeit der Gruppenoperationen folgt, daß \(H\) ein Normalteiler ist.
+		\item
+			Es ist \(\pm x \in H\) genau dann, wenn \(0 \in \mp x + U\) für alle \(U\), wenn also \(\mp x \in \closure{\{0\}}\).
+		\item
+			Damit sind insbesondere auch die Nebenklassen von \(H\) abgeschlossen, also sind
+			Punkte in \(G/H\) abgeschlossen, also ist \(G/H\) hausdorffsch.
+		\item
+			Schließlich ist \(G \cong G/H\), wenn \(H = 0\) ist, insbesondere also hausdorffsch. Umgekehrt
+			folgt aus \(G\) hausdorffsch, daß \(H = 0\), da \(\{0\}\) dann abgeschlossen ist.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Vervollständigungen topologischer Gruppen}
+
+\begin{frame}{Cauchy-Folgen}
+	\begin{visibleenv}<+->
+		Der Einfachheit halber setzen ab sofort voraus, daß alle unsere topologischen Gruppen \(G\) das
+		erste Abzählbarkeitsaxiom erfüllen, daß also eine Folge \(U_0 \supset U_1 \supset \dotsb\)
+		von Umgebungen von \(0 \in G\) existiert, so daß für jede
+		Umgebung \(U\) von \(0\) gilt, daß \(U_n \subset U\) für \(n \gg 0\).
+		\\
+		Eine solche Folge heißt \emph{Umgebungsbasis von \(0\)}.
+	\end{visibleenv}
+	\begin{definition}<+->
+		Sei \(G\) eine topologische Gruppe. Eine \emph{Cauchy-Folge \((g_n)_{n \in \set N_0}\) in \(G\)}
+		ist eine Folge von Elementen in \(G\), so daß für alle (offenen) Umgebungen \(U\) von \(0 \in G\)
+		ein \(N \in \set N_0\) mit \(g_n - g_m \in U\) für \(n, m \ge N\) existiert.
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Definition der Vervollständigung}
+	Sei \(G\) eine topologische Gruppe.
+	\begin{definition}<+->
+		Zwei Cauchy-Folgen \((g_n), (h_n)\) in \(G\) heißen
+		\emph{äquivalent}, wenn \(\lim\limits_{n \to \infty} (g_n - h_n) = 0\).
+	\end{definition}
+	\begin{visibleenv}<+->
+		Mit \(\hat G\) bezeichnen wir die Menge aller Äquivalenzklassen von Cauchy-Folgen in \(G\).
+		Sind \((g_n), (h_n)\) beliebige Cauchy-Folgen, so ist auch \((g_n + h_n)\) eine Cauchy-Folge, deren
+		Äquivalenzklasse nur von den Klassen von \((g_n)\) und \((h_n)\) abhängt. Dies definiert eine
+		Addition auf \(\hat G\), welche \(\hat G\) eindeutig zu einer Gruppe macht.
+	\end{visibleenv}
+	\begin{definition}<+->
+		Die Gruppe \(\hat G\) heißt die \emph{Vervollständigung von \(G\)}.
+	\end{definition}
+	\begin{remark}<+->
+		Ist \(G\) abelsch, so auch \(\hat G\).
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Topologie der Vervollständigung}
+	Sei \(G\) eine topologische Gruppe.
+	\begin{remark}<+->
+		Für jede offene Umgebung \(U\) von
+		\(0 \in G\) definieren wir \(\hat U \subset \hat G\) als die Menge der
+		Äquivalenzklassen von Cauchy-Folgen \((g_n)\) in \(G\) mit \(g_n \in U\)
+		für \(n \gg 0\).
+		\\
+		Alle Teilmengen der Form \(a + \hat U\) mit \(a \in \hat G\) bilden dann
+		die Basis einer Topologie auf \(\hat G\). Mit dieser Definition wird
+		\(\hat G\) zu einer topologischen Gruppe.
+	\end{remark}
+	\begin{visibleenv}<+->
+		Ist \(U\) eine mit der Teilraumtopologie versehene Untergruppe, so stimmt \(\hat U\)
+		mit der Vervollständigung von \(U\) überein.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Die gewöhnliche Vervollständigung der rationalen Zahlen}
+	\begin{example}<+->
+		Betrachten wir \(\set Q\) mit der gewöhnlichen Topologie als topologische Gruppe,
+		so ist \(\hat{\set Q} = \set R\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Kern der kanonischen Abbildung in die Vervollständigung}
+	\begin{visibleenv}<+->
+		Sei \(G\) eine topologische Gruppe. Jedes Element \(g \in G\) definiert die konstante
+		Cauchy-Folge \((g)_{n \in \set N_0}\). Dies definiert eine kanonische 
+		Abbildung \(\phi\colon G \to \hat G\), welche ein Gruppenhomomorphismus ist.
+	\end{visibleenv}
+	\begin{example}<+->
+		Die kanonische Abbildung \(G \to \hat G\) ist stetig, und ihr Bild ist dicht
+		in \(\hat G\).
+	\end{example}
+	\begin{proposition}<+->
+		Es ist \(\ker \phi = \overline{\{0\}}\), und damit ist \(\phi\) genau dann injektiv, wenn
+		\(G\) hausdorffsch ist.
+	\end{proposition}
+	\begin{proof}<+->
+		Es ist \(g \in \ker \phi\), wenn \(g = \lim\limits_n g = 0\), wenn also \(g \in \overline{\{0\}}\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Funktorialität der Vervollständigung}
+	\begin{visibleenv}<+->
+		Sei \(\phi\colon G \to H\) ein stetiger Homomorphismus topologischer Gruppen.
+		Ist dann \((g_n)\) eine Cauchy-Folge in \(G\), so ist \(\phi(g_n)\) eine
+		Cauchy-Folge in \(H\), deren Äquivalenzklasse nur von der Klasse von \((g_n)\)
+		abhängt. Damit definiert \(\phi\) eine kanonische Abbildung
+		\(\hat \phi\colon \hat G \to \hat H\).
+	\end{visibleenv}
+	\begin{proposition}<+->
+		Es ist \(\hat\phi\colon \hat G \to \hat H\) ein stetiger Gruppenhomomorphismus.
+		\\
+		Ist \(\psi\colon H \to K\) ein weiterer stetiger Homomorphismus topologischer
+		Gruppen, so ist \(\widehat{\psi \circ \phi} = \hat \psi \circ \hat\phi\colon \hat G \to \hat K\).
+		\qed
+	\end{proposition}
+\end{frame}
+
+\subsection{Inverse Limiten}
+
+\begin{frame}{Inverse Systeme}
+	\begin{definition}<+->
+		Eine Sequenz von Gruppen und Gruppenhomomorphismen der Form
+		\(\dotsb \xrightarrow{\theta_3} A_2 \xrightarrow{\theta_2} A_1 \xrightarrow{\theta_1} A_0\)
+		heißt ein \emph{inverses System (von Gruppen)}.
+	\end{definition}
+	\begin{example}<+->
+		Sei \(p\) ein Primzahl. Dann ist
+		\(\dotsb \to \set Z/(p^2) \surjto \set Z/(p) \surjto 0\), wobei die Abbildungen die
+		kanonischen sind, ein inverses System abelscher Gruppen.
+	\end{example}
+	\begin{definition}<+->
+		Sei \(A_\bullet\colon \dotsb \xrightarrow{\theta_2} A_1 \xrightarrow{\theta_1} A_0\) ein inverses
+		System von Gruppen. Eine Folge \((\xi_n)_{n \in \set N_0}\) von Elementen \(\xi_n \in A_n\)
+		heißt \emph{kohärent (in \(A_\bullet\))}, wenn \(\theta_n(\xi_n) = \xi_{n - 1}\) für alle \(n \in \set N\).
+	\end{definition}
+	\begin{visibleenv}<+->
+		Die Menge der kohärenten Systeme bezeichnen wir mit \(\varprojlim\limits_n A_n\).
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Der inverse Limes}
+	Sei \(A_\bullet\colon \dotsb \to A_1 \to A_0\) ein inverses System von Gruppen. Sind \((\xi_n), (\eta_n)\)
+	zwei kohärente Folgen, so ist auch \((\xi_n) + (\eta_n) \coloneqq (\xi_n + \eta_n)\) eine
+	kohärente Folge. Dies definiert eine Addition auf der Menge \(\varprojlim\limits_n A_n\)
+	der kohärenten Folgen. Mit dieser Definition wird \(\varprojlim\limits_n A_n\) zu
+	einer Gruppe.
+	\begin{definition}<+->
+		Die Gruppe \(\varprojlim\limits_n A_n\) heißt der \emph{inverse Limes des Systems
+		\(A_\bullet\)}.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Die kanonischen Abbildungen \(\varprojlim\limits_n A_n \to A_i, (\xi_n) \mapsto \xi_i\) sind
+		für alle \(i\) Gruppenhomomorphismen.
+	\end{visibleenv}
+	\begin{remark}<+->
+		Sind die \(A_n\) abelsche Gruppen, so ist auch \(\varprojlim\limits_n A_n\) abelsch.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Der inverse Limes topologischer Gruppen}
+	\begin{remark}<+->
+		Sei \(\dotsb \to A_1 \to A_0\) ein \emph{inverses System topologischer Gruppen}, das heißt
+		die \(A_i\) sind topologische Gruppen und die Homomorphismen \(A_n \to A_{n - 1}\) sind
+		außerdem stetig.
+		\\
+		Die Menge \(\prod\limits_n A_n\) aller Folgen versehen wir mit der Produkttopologie.
+		Damit können wir der Menge \(\varprojlim\limits_n A_n \subset \prod\limits_n A_n\) der kohärenten
+		Folgen die Teilraumtopologie geben.
+		\\
+		Mit dieser Setzung wird \(\varprojlim\limits_n A_n\) zu einer topologischen Gruppe.
+	\end{remark}
+	\begin{example}<+->
+		Ist \(\dotsb \to A_1 \to A_0\) ein inverses System von Gruppen, so fassen wir es
+		als System topologischer Gruppen auf, indem die \(A_n\) mit der diskreten Topologie versehen werden.
+		\\
+		Die Topologie des inversen Limes \(\varprojlim\limits_n A_n\) ist i.a.\ nicht diskret.
+	\end{example}
+\end{frame}
+
+\subsection{Topologische Gruppen mit neutralen Umgebungsbasen aus Normalteilern}
+
+\begin{frame}{Neutrale Umgebungsbasis aus Normalteilern}
+	\begin{proposition}<+->
+		Sei \(G\) eine topologische Gruppe. Sei \(G_0 \supset G_1 \supset \dotsb\)
+		eine Umgebungsbasis von \(0\) aus Normalteilern. Dann sind die \(G_n\) sowohl offen als auch
+		abgeschlossen in \(G\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(g \in G_n\), so ist \(g + G_n\) eine Umgebung von \(g\). Da \(g + G_n \subset G_n\)
+			folgt, daß \(G_n\) offen ist.
+		\item
+			Damit ist auch \(\bigcup\limits_{h \notin G_n} (h + G_n)\) offen. Das Komplement, nämlich 
+			\(G_n\), ist damit abgeschlossen.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Beispiele zu neutralen Umgebungsbasen aus Normalteilern}
+	\begin{example}<+->
+		Sei \(G\) eine  Gruppe. Sei \(G_0 \supset G_1 \supset \dotsb\) eine
+		Folge von Normalteilern in \(G\). Dann gibt es genau eine Topologie
+		auf \(G\), so daß \(G_0 \supset G_1 \supset \dotsb\) eine Umgebungsbasis
+		von \(0\) ist und mit der \(G\) zu einer topologischen Gruppe wird.
+	\end{example}
+	\begin{example}<+->
+		Für jede Primzahl \(p\) wird
+		\(\set Z\) mit der Umgebungsbasis \((1) \supset (p) \supset (p^2) \dotsb\)
+		zu einer topologischen Gruppe. Die zugehörige Topologie nennen wir
+		die \emph{\(p\)-adische Topologie auf \(\set Z\)}.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Vervollständigungen und inverse Limiten}
+	\begin{enumerate}[<+->]
+	\item
+		Sei \(G\) eine topologische Gruppe mit einer Umgebungsbasis \(G_0 \supset G_1 \supset \dotsb\)
+		von \(0\) aus Normalteilern. Wir setzen \(A_n \coloneqq G/G_n\) für alle \(n \in \set N_0\).
+	\item
+		Vermöge der kanonischen Homomorphismen \(A_n = G/G_n \surjto A_{n - 1} = G/G_{n - 1}\) wird
+		\(A_\bullet\colon \dotsb \to A_2 \to A_1 \to A_0\) zu einem inversen System topologischer Gruppen.
+	\item
+		Ist dann \((x_{\nu})\) eine Cauchy-Folge in \(G\), so hängt die Äquivalenzklasse \(\xi_n \in A_n\) von
+		\(x_{\nu}\) modulo \(G_n\) für \(\nu \gg 0\) nicht von \(\nu\) ab.
+	\item
+		Die Folge \((\xi_n)\) ist offensichtlich eine kohärente Folge in \(A_\bullet\). Wir erhalten also
+		eine kanonische Abbildung \(\hat G \to \varprojlim\limits_n A_n, [x_\nu] \mapsto (\xi_n)\),
+		welche ein Gruppenhomomorphismus ist.
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Die Vervollständigung als inverser Limes}
+	\begin{proposition}<+->
+		Sei \(G\) eine topologische Gruppe mit einer Umgebungsbasis \(G_0 \supset G_1 \supset \dotsb\).
+		Der kanonische Gruppenhomomorphismus \(\hat G \to \varprojlim\limits_n G/G_n\) ist ein Isomorphismus
+		topologischer Gruppen, das heißt ein Gruppenisomorphismus, welcher gleichzeitig ein Homöomorphismus ist.
+	\end{proposition}
+	\begin{proof}<+->
+		Wir geben die Umkehrabbildung an: Ist \((\xi_n) \in \varprojlim\limits_n G/G_n\) eine kohärente Folge,
+		so definieren wir \((x_\nu)\), indem wir für jedes \(\nu\) ein \(x_\nu\) mit \(\xi_\nu = x_\nu + G_\nu\)
+		wählen.
+	\end{proof}
+\end{frame}
+
+

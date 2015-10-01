@@ -1,0 +1,323 @@
+\section{Dimensionstheorie noetherscher lokaler Ringe}
+
+\subsection{Die Größe regulärer Quotienten}
+
+\begin{frame}{Größen eines noetherschen lokalen Ringes}
+	\begin{visibleenv}<+->
+		Einem noetherschen lokalen Ring \((A, \ideal m)\) können wir folgende Größen zuordnen:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Die minimale Anzahl \(\updelta(A)\) von Elementen \(x_1, \dotsc, x_{\updelta(A)} \in A\), so daß
+			\((x_1, \dotsc, x_{\updelta(A)})\) ein \(\ideal m\)-primäres Ideal ist.
+		\item
+			Der Grad \(\size(A)\) des charakteristischen Polynoms \(\chi_{\ideal m}\) von \(A\), also
+			die Ordnung plus \(1\), mit der \(\ell(A/\ideal m^n)\) für
+			\(n \gg 0\) wächst.
+		\item
+			Die Dimension \(\dim A\), also das Supremum der Längen aller Primidealketten in \(A\).
+		\end{enumerate}
+	\end{visibleenv}
+	\begin{visibleenv}<+->
+		Im folgenden zeigen wir, daß \(\updelta(A) \ge \size(A) \ge \dim A \ge \updelta(A)\), daß also alle drei Größen
+		übereinstimmen.
+	\end{visibleenv}
+	\begin{proposition}<+->
+		Es ist \(\delta(A) \ge \size(A)\).
+		\qed
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Die Größe eines regulären Quotienten eines Moduls}
+	\begin{proposition}<+->
+		Sei \((A, \ideal m)\) ein noetherscher lokaler Ring. Sei \(\ideal q\) ein \(\ideal m\)-primäres
+		Ideal. Sei \(M\) ein endlich erzeugter \(A\)-Modul. Seien \(x \in A\) regulär in \(M\) und
+		\(M'' \coloneqq M/xM\). Dann gilt: \(\deg \chi_{\ideal q}^{M''} \leq  \deg \chi_{\ideal q}^M - 1\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da \(x\) regulär in \(M\) ist, ist \(M \to N \coloneqq x M, m \mapsto x m\) ein Isomorphismus von
+			\(A\)-Moduln. Sei \(N_n \coloneqq N \cap \ideal q^n M\) für \(n \in \set N_0\). Es existieren exakte Sequenzen
+			\(0 \to N/N_n \to M/\ideal q^n M \to M''/\ideal q^n M'' \to 0\).
+		\item
+			Sei \(g(n) = \ell(N/N_n)\) für \(n \gg 0\), so \(g(n) - \chi_{\ideal q}^M(n) + \chi_{\ideal q}^{M''}(n) = 0\).
+			Nach Artin--Rees ist \((N_n)\) eine stabile \(\ideal q\)-Filtration von \(N\), wir können daher
+			\(g \in \set Q[n]\) annehmen.
+			Da \(N \cong M\) müssen Grad und Leitkoeffizient von \(g\) und \(\chi_{\ideal q}^M\) übereinstimmen.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Die Größe eines regulären Quotienten}
+	\begin{corollary}<+->
+		Sei \(A\) ein noetherscher lokaler Ring. Sei \(x \in A\) ein reguläres Element. Dann ist
+		\(\size(A/(x)) \le \size(A) - 1\).
+	\end{corollary}
+	\begin{proof}<+->
+		Wir wenden die Proposition auf den \(A\)-Modul \(M = A\) an.
+	\end{proof}
+\end{frame}
+
+\subsection{Die Dimension noetherscher lokaler Ringe}
+
+\begin{frame}{Größe und Dimension}
+	\begin{proposition}<+->
+		Sei \((A, \ideal m)\) ein noetherscher lokaler Ring. Dann ist \(\size(A) \ge \dim A\).
+	\end{proposition}
+	\begin{proof}[Induktionsanfang]<+->
+		Der Beweis erfolge mit Induktion über \(d \coloneqq \size(A)\). Ist \(d = 0\), so ist
+		\(\ell(A/\ideal m^n)\) für \(n \gg 0\) konstant, also ist \(\ideal m^n = \ideal m^{n + 1}\) für
+		\(n \gg 0\), also ist \(A\) artinsch, also \(\dim A = 0\).
+		\renewcommand{\qedsymbol}{}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Fortsetzung des Beweises}
+	\begin{proof}[Induktionsschritt]<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(d > 0\). Sei \(\ideal p_0 \subsetneq \ideal p_1 \subsetneq \dotsb \subsetneq \ideal p_r\) eine
+			Primidealkette in \(A\). Sei \(x \in \ideal p_1 \setminus \ideal p_0\). Sei \(A' \coloneqq A/\ideal p_0\),
+			und sei \(x'\) das Bild von \(x \in A'\). Dann ist \(x'\) regulär,
+			also \(\size(A'/(x')) \leq \size(A') - 1\).
+		\item
+			Sei \(\ideal m'\) das maximale Ideal in \(A'\). Dann ist \(A'/(\ideal m')^n\) homomorphes Bild von
+			\(A/\ideal m^n\), also ist \(\ell(A/\ideal m^n) \ge \ell(A'/(\ideal m')^n)\), also \(\size(A) \ge \size(A')\),
+			also \(\size(A'/(x')) \leq d - 1\).
+		\item
+			Nach Induktionsvoraussetzung ist die Länge einer Primidealkette in \(A'/(x')\) damit höchstens \(d - 1\). Das
+			Bild der Kette \(\ideal p_1 \subsetneq \dotsb \subsetneq \ideal p_r\) in \(A'/(x')\) ist eine Kette der Länge
+			\(r - 1\), also \(r - 1 \le d - 1\), also \(r \le d\), also \(\dim A \le d\).
+		\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Endlichkeit der Dimension}
+	\begin{corollary}<+->
+		Sei \(A\) ein noetherscher lokaler Ring. Dann ist \(\dim A < \infty\).
+		\qed
+	\end{corollary}
+	\begin{visibleenv}<+->
+		Die Längen von Primidealketten in \(A\) sind also beschränkt.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Die Höhe von Primidealen}
+	\begin{definition}<+->
+		Sei \(A\) ein kommutativer Ring. Die \emph{Höhe \(\height \ideal p\) eines Primideals \(\ideal p\)} von
+		\(A\) ist das Supremum der Längen von Primidealketten der Form \(\ideal p_0 \subsetneq \ideal p_1 \subsetneq
+		\dotsb \subsetneq \ideal p_r = \ideal p\).
+	\end{definition}
+	\begin{visibleenv}<+->
+		Es ist also \(\height \ideal p = \dim A_{\ideal p}\).
+	\end{visibleenv}
+	\begin{corollary}<+->
+		Ist \(A\) ein noetherscher kommutativer Ring, so hat jedes Primideal \(\ideal p\) von \(A\) endliche Höhe.
+		\qed
+	\end{corollary}
+	\begin{visibleenv}<+->
+		Die Menge der Primideale in einem noetherschen kommutativen Ring erfüllt damit die absteigende Kettenbedingung.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Die Tiefe von Primidealen}
+	\begin{definition}<+->
+		Sei \(A\) ein kommutativer Ring. Die \emph{Tiefe \(\depth \ideal p\) eine Primideals \(\ideal p\)} von
+		\(A\) ist das Supremum der Längen von Primidealketten der Form \(\ideal p = \ideal p_0 \subsetneq \ideal p_1
+		\subsetneq \dotsb \subsetneq \ideal p_r\).
+	\end{definition}
+	\begin{visibleenv}<+->
+		Es ist also \(\depth \ideal p = \dim A/\ideal p\).
+	\end{visibleenv}
+	\begin{remark}<+->
+		Selbst wenn \(A\) noethersch ist, kann die Tiefe eines  Primideals unendlich sein --- außer \(A\) ist zudem lokal.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Dimension und Erzeuger primärer Ideale}
+	\begin{proposition}<+->
+		Sei \((A, \ideal m)\) ein noetherscher lokaler Ring der Dimension \(d\). Dann existiert ein von
+		\(d\) Elementen \(x_1, \dotsc, x_d \in A\) erzeugtes \(\ideal m\)-primäres Ideal, also \(\dim A \ge \updelta(A)\).
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beweis der Proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Wir konstruieren induktiv \(x_1, \dotsc, x_d \in A\), so daß jedes Primideal, welches
+			\(\ideal a_i \coloneqq (x_1, \dotsc, x_i)\) enthält,
+			mindestens Höhe \(i\) hat. Sei \(i > 0\) und seien \(x_1, \dotsc, x_{i - 1}\) schon konstruiert.
+		\item
+			Seien \(\ideal p_1, \dotsc, \ideal p_s\) die minimalen Primideale mit \(\ideal p_j \supset \ideal a_{i - 1}\) und
+			\(\height \ideal p_j = i - 1\).
+			Dann ist \(\ideal m \neq \ideal p_j\) für alle \(j\), da \(\height \ideal m = d > i - 1 = \height \ideal p_j\).
+			Es folgt \(\ideal m \neq \bigcup\limits_{j = 1}^s \ideal p_j\), also können wir ein \(x_i \in \ideal m\) mit
+			\(x_i \notin \ideal p_j\) wählen.
+		\item
+			Sei \(\ideal q\) ein Primideal, welches \(\ideal a_i\) enthält. Dann enthält \(\ideal q\) ein minimales Primideal
+			\(\ideal p\) mit \(\ideal p \supset \ideal a_{i - 1}\). Ist \(\ideal p = \ideal p_j\) für ein \(j\),
+			so folgt \(\ideal q \supsetneq \ideal p\), also \(\height \ideal q \ge i\).
+		\item
+			Ist dagegen \(\ideal p \neq \ideal p_j\) für alle \(j\), so ist \(\height \ideal p \ge i\),
+			also \(\height \ideal q \ge i\).
+		\item
+			Ist schließlich \(\ideal p\) ein minimales Primideal mit \(\ideal p \supset \ideal a_d\), so hat \(\ideal p\) damit
+			Höhe \(d\), also \(\ideal p = \ideal m\). Also ist \(\ideal a_d\) ein \(\ideal m\)-primäres Ideal.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Der Dimensionssatz}
+
+\begin{frame}{Der Dimensionssatz}
+	\begin{theorem}[Dimensionssatz]<+->
+		Sei \((A, \ideal m)\) ein noetherscher lokaler Ring. Dann sind folgende Größen gleich:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Das maximale Länge \(\dim A\) von Primidealketten in \(A\).
+		\item
+			Der Grad \(\size(A)\) des charakteristischen Polynoms \(\chi_{\ideal m}\) von \(A\).
+		\item
+			Die minimale Anzahl von Erzeugern \(\ideal m\)-primärer Ideale von \(A\).
+			\qed
+		\end{enumerate}
+	\end{theorem}
+\end{frame}
+
+\begin{frame}{Beispiel zur Dimension}
+	\begin{example}<+->
+		Sei \(K\) ein Körper. Sei \(A \coloneqq K[X_1, \dotsc, X_n]_{\ideal m}\) der Polynomring in \(n\) Variablen über \(K\)
+		lokalisiert am maximalen Ideal \(\ideal m = (X_1, \dotsc, X_n)\). Dann ist \(\Graded_{\ideal m}(A, t) \cong
+		K[\bar X_1 t, \dotsc, \bar X_n t]\), wobei die \(\bar X_i\) die Bilder der \(X_i\) in \(\Graded_{\ideal m}(A, t)\) sind.
+		\\
+		Damit ist die Poincarésche Reihe von \(\Graded_{\ideal m}(A, t)\) durch \((1 - t)^{- n}\) gegeben, also
+		\(\dim A = \size(A) = \size(\Graded_{\ideal m}(A, t)) = n\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Vergleich mit der Dimension des Kotangentialraums}
+	\begin{corollary}<+->
+		Sei \((A, \ideal m, F)\) ein noetherscher lokaler Ring. Dann ist \(\dim A \leq \dim_F \ideal m/\ideal m^2\).
+	\end{corollary}
+	\begin{proof}<+->
+		Seien \(x_1, \dotsc, x_s \in \ideal m\), so daß ihre Bilder in \(\ideal m/\ideal m^2\) eine Basis über \(F\) bilden.
+		Nach dem Nakayamaschen Lemma erzeugen die \(x_i\) damit das Ideal \(\ideal m\). Also ist \(\dim A = \updelta(A) \le s
+		= \dim_F \ideal m/\ideal m^2\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Höhe minimaler Primideale}
+	\begin{corollary}<+->
+		Sei \(A\) ein kommutativer noetherscher Ring. Seien \(x_1, \dotsc, x_r \in A\). Ist dann \(\ideal p\) ein
+		minimales Primideal mit \(\ideal p \supset (x_1, \dotsc, x_r)\), so gilt \(\height \ideal p \le r\).
+	\end{corollary}
+	\begin{proof}<+->
+		Indem wir von \(A\) auf \(A_{\ideal p}\) übergehen, 
+		können wir davon ausgehen, daß \(A\) ein lokaler Ring mit maximalem Ideal \(\ideal p\) ist, in dem \((x_1, \dotsc,
+		x_r)\) ein \(\ideal p\)-primäres Ideal ist. Damit ist \(r \ge \updelta(A) = \dim A = \height \ideal p\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Der Krullsche Hauptidealsatz}
+	\begin{corollary}<+->
+		Sei \(A\) ein kommutativer noetherscher Ring. Sei weiter \(x \in A\) ein reguläres Element.
+		Dann gilt für jedes minimale Primideal \(\ideal p\) mit \(\ideal p \supset (x)\), daß \(\height \ideal p = 1\).
+	\end{corollary}
+	\begin{proof}<+->
+		Nach der letzten Folgerung ist \(\height \ideal p \le 1\). Wäre \(\height \ideal p = 0\),
+		so wäre \(\ideal p\) assoziiert zu \((0)\).
+		Damit besteht \(\ideal p\) nur aus Nullteilern. Widerspruch.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Dimension regulärer Quotienten}
+	\begin{corollary}<+->
+		\label{cor:dim_of_reg_quot}
+		Sei \((A, \ideal m)\) ein noetherscher lokaler Ring. Sei \(x \in \ideal m\) regulär. Dann ist
+		\(\dim A/(x) = \dim A - 1\).
+	\end{corollary}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(d \coloneqq \dim A/(x)\). Dann ist \(d = \size(A/(x)) \le \size(A) - 1 \le \dim A - 1\). 
+		\item
+			Seien auf der anderen Seite \(x_1, \dotsc, x_d \in \ideal m\), deren Bilder in \(A/(x)\) ein
+			\(\ideal m/(x)\)-primäres Ideal erzeugen. Dann ist \((x, x_1, \dotsc, x_d)\) ein \(\ideal m\)-primäres Ideal
+			in \(A\), also \(d + 1 \ge \updelta(A) = \dim A\).
+		\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Die Dimension der Vervollständigung eines lokalen Ringes}
+	\begin{corollary}<+->
+		Sei \((A, \ideal m)\) ein lokaler noetherscher Ring. Sei \(\hat A\) seine \(\ideal m\)-adische Vervollständigung.
+		Dann ist \(\dim A = \dim \hat A\).
+	\end{corollary}
+	\begin{proof}<+->
+		Sei \(\hat{\ideal m}\) das maximale Ideal von \(\hat A\).
+		Es ist \(A/\ideal m^n \cong \hat A/\hat{\ideal m}^n\), also \(\chi_{\ideal m} = \chi_{\hat{\ideal m}}\). Damit
+		ist \(\dim A = \size(A) = \size(\hat A) = \dim \hat A\).
+	\end{proof}
+\end{frame}
+
+\subsection{Parametersysteme}
+
+\begin{frame}{Parametersysteme}
+	\begin{definition}<+->
+		Sei \((A, \ideal m)\) ein noetherscher lokaler Ring der Dimension \(d\). Sind dann \(x_1, \dotsc, x_d\) Erzeuger eines
+		\(\ideal m\)-primären Ideals von \(A\), so heißt \((x_1, \dotsc, x_d)\) ein Parametersystem von \(A\).
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Unabhängigkeit der Parameter}
+	\begin{proposition}<+->
+		Sei \((A, \ideal m)\) ein noetherscher lokaler Ring. Sei \((x_1, \dotsc, x_d)\) ein Parametersystem für \(A\).
+		Sei \(\ideal q \coloneqq (x_1, \dotsc, x_d)\) das erzeugte \(\ideal m\)-primäre Ideal.
+		Ist \(f \in A[X_1, \dotsc, X_d]\) homogen vom Grad \(s\) mit \(f(x_1, \dotsc, x_d) \in \ideal q^{s + 1}\), so folgt
+		\(f \in \ideal m[X_1, \dotsc, X_d]\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es ist \(\alpha\colon A/\ideal q[X_1, \dotsc, X_d] \to \Graded_{\ideal q}(t), X_i \mapsto \bar x_i t\),
+			wobei \(\bar x_i\) das Bild von \(x_i\) in \(\ideal q/\ideal q^2\) ist, ein surjektiver 
+			Homomorphismus gewichteter Ringe. 
+		\item
+			Nach Voraussetzung an \(f\) ist das Bild \(\bar f\) von \(f\) im Kern von \(\alpha\). Angenommen, ein 
+			Koeffizient von
+			\(f\) ist eine Einheit. Dann ist \(\bar f\) regulär. Dann gilt:
+			\(\size(\Graded_{\ideal q}(t)) \leq \size(A/\ideal q[X_1, \dotsc, X_d]/(\bar f))
+			= \size(A/\ideal q[X_1, \dotsc, X_d]) - 1 = d - 1\).
+		 \item
+		 	Aber es ist \(\size(\Graded_{\ideal q}(t)) = \size(A) = d\), ein Widerspruch.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Algebraische Unabhängigkeit von Parametern}
+	\begin{corollary}<+->
+		Sei \(K\) ein Körper. Sei \((A, \ideal m)\) eine lokale \(K\)-Algebra, so daß \(K\) isomorph auf \(A/\ideal m\)
+		abgebildet wird. Ist dann \((x_1, \dotsc, x_d)\) ein Parametersystem für \(A\), so sind die \(x_i\) algebraisch
+		unabhängig über \(K\).
+	\end{corollary}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(f \in K[X_1, \dotsc, X_n]\) mit \(f(x_1, \dotsc, x_d) = 0\). Angenommen, \(f \neq 0\).
+		\item
+			Dann können wir \(f = g + h\) schreiben, wobei \(g \neq 0\) ein homogenes Polynom ist und \(h\) echt größeren
+			Grad als \(g\) hat.
+		\item
+			Anwenden der Proposition liefert, daß \(g\) Koeffizienten in \(\ideal m\) hat.
+			Da aber \(g\) ein Polynom über \(K\) ist, folgt \(g = 0\), ein Widerspruch.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+

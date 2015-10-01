@@ -1,0 +1,166 @@
+\section{Moduln und Modulhomomorphismen}
+
+\subsection{Moduln}
+
+\begin{frame}{Definition eines Moduls}
+	Sei \(A\) ein Ring.
+	\begin{definition}
+		Ein \emph{\(A\)-(Links-)Modul \(M\)} ist eine abelsche Gruppe \((A, +, 0)\) 
+		zusammen mit einer Abbildung \(\cdot\colon A \times M \to M\), so daß
+		\begin{enumerate}[<+->]
+		\item
+			die Multiplikation eine Operation des multiplikativen Monoides von
+			\(A\) auf der Menge \(M\) ist, also \((ab) x = a (b x)\) und
+			\(1 \cdot x = x\) für alle \(a, b \in A\) und \(x \in M\) gilt, und
+		\item
+			die Multiplikation distributiv über die Addition ist, also
+			\(a (x + y) = a x + a y\) und \((a + b) x = a x + b y\) für alle
+			\(a, b \in A\) und \(x, y \in M\).
+		\end{enumerate}
+	\end{definition}
+	\begin{remark}<+->
+		Alternativ läßt sich ein \(A\)-Modul als eine abelsche Gruppe zusammen mit
+		einem Ringhomomorphismus \(A \to \End_{\set Z}(M), a \mapsto (m \mapsto a m)\)
+		definieren, wobei \(\End_{\set Z}(M)\) für den Endomorphismenring der
+		abelschen Gruppe \(M\) steht.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Multiplikation mit Null}
+	Seien \(A\) ein Ring und \(M\) ein \(A\)-Modul.
+    \begin{proposition}<+->
+        Sei \(x \in M\). Dann ist \(0 \cdot x = 0\).
+    \end{proposition}
+    \begin{proof}<+->
+        \(0 \cdot x = 0 \cdot x + 0 \cdot x - 0 \cdot x
+        = (0 + 0) \cdot x - 0 \cdot x = 0 \cdot x - 0 \cdot x = 0.\)
+    \end{proof}
+    \begin{corollary}<+->
+        Sei \(x \in M\). Dann ist \((-1) \cdot x = -x\).
+    \end{corollary}
+    \begin{proof}<+->
+        \(x + (-1) \cdot x = 1 \cdot x + (-1) \cdot x
+        = (1 - 1) \cdot x = 0 \cdot x = 0\).
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Beispiele von Moduln}
+	\begin{example}<+->
+		Jedes Ideal \(\ideal a\) eines Ringes \(A\) wird durch Einschränkung der
+		Multiplikation zu einem \(A\)-Modul. Insbesondere ist \(A\) selbst in
+		kanonischer Weise ein \(A\)-Modul.
+		\\
+		Betrachten wir das Nullideal als \(A\)-Modul schreiben wir in der Regel \(0\) statt \((0)\).		
+	\end{example}
+	\begin{example}<+->
+		Ein Modul über einem (Schief-)Körper \(K\) ist dasselbe wie ein
+		\(K\)-(Links-)Vektorraum.
+	\end{example}
+	\begin{example}<+->
+		Ein \(\set Z\)-Modul \(M\) ist dasselbe wie eine abelsche Gruppe
+		(\(n x = (\underbrace{1 + \dotsb + 1}_n) x = \underbrace{x + \dotsb + x}_n,
+		n \in \set N_0, x \in M\)).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Weitere Beispiele von Moduln}
+	Sei \(K\) ein Körper.
+	\begin{example}<+->
+		Ein \(K[x]\)-Modul \(V\) ist dasselbe wie ein
+		\(K\)-Vektorraum \(V\) zusammen mit einem Endomorphismus \(V \to V,
+		v \mapsto x v\).
+	\end{example}
+	\begin{example}<+->
+		Sei \(G\) eine endliche Gruppe und \(A \coloneqq K[G] =
+		\left\{\sum\limits_{g \in G} a_g \cdot g \mid g \in G, a_g \in K\right\}\) die Gruppenalgebra von
+		\(G\) über \(K\). Ein \(A\)-Modul \(V\) ist dasselbe wie eine \(K\)-Vektorraum \(V\)
+		zusammen mit einer \(K\)-linearen Darstellung \(G \to \End_K(V)\) von \(G\)
+		auf \(V\).
+	\end{example}
+\end{frame}
+
+\subsection{Modulhomomorphismen}
+
+\begin{frame}{Definition eines Modulhomomorphismus}
+	Sei \(A\) ein Ring.
+	\begin{definition}<+->
+		Ein \emph{\(A\)-Modulhomomorphismus \(\phi\)} ist eine Abbildung \(\phi\colon
+		M \to N\) zwischen zwei \(A\)-Moduln, welche einen Homomorphismus zwischen
+		den abelschen Gruppen von \(M\) und \(N\) induziert, welcher mit der Operation
+		des multiplikativen Monoids von \(A\) verträglich ist, das heißt
+		\(\phi(a x) = a \phi(x)\) für alle \(a \in A\) und \(x \in M\).
+	\end{definition}
+	\begin{visibleenv}<+->
+		Eine Abbildung \(\phi\colon M \to N\) ist also genau dann ein 
+		Modulhomomorphismus, falls für alle \(a \in A\) und \(x, y \in M\) gilt:
+		\begin{align*}
+			\phi(x + y) & = \phi(x) + \phi(y); \tag{$*$} \\
+			\phi(0) & = 0 && \text{(folgt schon aus ($*$))}; \\
+			\phi(a x) & = a \phi(x),
+		\end{align*}
+		wenn die Abbildung also \(A\)-linear ist.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Der Homomorphismenmodul}
+	Sei \(A\) ein kommutativer Ring. Seien \(M, N\) zwei \(A\)-Moduln.
+	Auf der Menge \(\Hom_A(M, N)\) der Modulhomomorphismen \(M \to N\) definieren wir
+	eine Addition durch \((\phi + \psi)(x) = \phi(x) + \psi(x)\). Zusammen mit der
+	Nullabbildung als Null wird \(\Hom_A(M, N)\) damit zu einer abelschen Gruppe,
+	durch die Setzung \((a \phi)(x) = a \phi(x)\) sogar zu einem \(A\)-Modul.
+	\begin{definition}<+->
+		Der \(A\)-Modul \(\Hom_A(M, N)\) ist der \emph{Modul der Homomorphismen von
+		\(M\) nach \(N\)}.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Ergibt sich der Ring \(A\) aus dem Kontext, schreiben wir in der Regel
+		\(\Hom(M, N) = \Hom_A(M, N)\).
+	\end{visibleenv}
+	\begin{example}<+->
+		Seien \(\phi\colon M' \to M\) und \(\psi\colon N \to N'\) zwei Homomorphismen
+		von \(A\)-Moduln. Dann sind
+		\(\phi^*\colon \Hom_A(M, N) \to \Hom_A(M', N), \chi \mapsto \chi \circ \phi\)
+		und
+		\(\psi_*\colon \Hom(M, N) \to \Hom(M, N'), \chi \mapsto \psi \circ \chi\)
+		Homomorphismen von \(A\)-Moduln.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Modulisomorphismen}
+	Sei \(A\) ein Ring. Sei \(\phi\colon M \to N\) ein Homomorphismus
+	von \(A\)-Moduln.
+	\begin{definition}<+->
+		Der Homomorphismus \(\phi\) heißt \emph{Isomorphismus}, falls ein
+		Modulhomomorphismus \(\check \phi\colon N \to M\) existiert, so daß
+		\(\check \phi \circ \phi = \id_M\) und \(\phi \circ \check \phi = \id_N\).
+	\end{definition}
+	\begin{proposition}<+->
+		Ist \(\phi\) bijektiv, so ist \(\phi\) schon ein Isomorphismus.
+		\qed
+	\end{proposition}
+	\begin{example}<+->
+		Sei \(A\) kommutativ. Es ist
+		\(\Hom(A, M) \to M, \phi \mapsto \phi(1)\)
+		ein Isomorphismus von \(A\)-Moduln, denn ein \(A\)-Modulhomomorphismus
+		\(\phi\colon A \to M\) ist schon eindeutig durch \(\phi(1)\) bestimmt, was
+		ein beliebiges Element aus \(M\) sein kann.
+	\end{example}
+\end{frame}
+
+\subsection{Bezeichnungen}
+
+\begin{frame}{Bezeichnungen von Moduln, Modulelementen und Modulhomomorphismen}
+	\begin{convention}<+->
+		Moduln bezeichnen wir mit großen lateinischen Buchstaben \(L, M, N, \dotsc\),
+		Modulelemente mit kleinen lateinischen Buchstaben \(m, n, x, y, z, \dotsc\).
+	\end{convention}
+	\begin{visibleenv}<+->
+		Betrachten wir einen Ring als Algebra von Funktionen über einem Raum,
+		heißen die Elemente eines Moduls über diesem Ring auch \emph{Schnitte}.
+	\end{visibleenv}
+	\begin{convention}<+->
+		Modulhomomorphismen bezeichnen wir mit kleinen griechischen Buchstaben
+		\(\phi, \psi, \dotsc\).
+	\end{convention}
+\end{frame}
+

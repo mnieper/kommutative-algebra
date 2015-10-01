@@ -1,0 +1,74 @@
+\section{Direkte Summen und Produkte}
+
+\subsection{Definition von direkter Summe und Produkt}
+
+\begin{frame}{Definition des direkten Produktes}
+	\begin{visibleenv}<+->
+		Sei \(A\) ein Ring. Sei \((M_i)_{i \in I}\) eine Familie von \(A\)-Moduln. Auf der
+		Menge \(M \coloneqq \prod\limits_{i \in I} M_i\) der Folgen
+		\(x \coloneqq (x_i)_{i \in I}\) mit \(x_i \in M_i\) definieren wir eine Addition
+		und eine Multiplikation mit Ringelementen gliedweise.
+		\\
+		Dann wird \(M\) mit der Null \((0)_{i \in I}\) zu einem \(A\)-Modul.
+	\end{visibleenv}
+	\begin{definition}<+->
+		Der \(A\)-Modul \(\prod\limits_{i \in I} M_i\) ist das \emph{direkte Produkt über die
+		Familie \((M_i)_{i \in I}\)}.
+	\end{definition}
+	\begin{proposition}<+->
+		Die Projektionen \(\pi_i\colon M \to M_i, x \mapsto x_i\) sind Homomorphismen von
+		\(A\)-Moduln.
+		\qed
+	\end{proposition}
+	\begin{visibleenv}<+->
+		Die \(A\)-Modulstruktur auf \(M\) ist gerade so gewählt, daß die \(\pi_i\)
+		Homomorphismen von \(A\)-Moduln werden.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Definition der direkten Summe}
+	\begin{visibleenv}<+->
+		Sei \(A\) ein Ring. Sei \((M_i)_{i \in I}\) eine Familie von \(A\)-Moduln. Sei
+		\(M \coloneqq \bigoplus\limits_{i \in I} M_i\) die Teilmenge derjenigen Familien
+		\(x = (x_i)_{i \in I}
+		\in \prod\limits_{i \in I} M_i\), für die für fast alle \(i \in I\) gilt \(x_i = 0\).
+		\\
+		Es ist \(\bigoplus\limits_{i \in I} M_i\) ein Untermodul des direkten Produktes
+		\(\prod\limits_{i \in I} M_i\).
+	\end{visibleenv}
+	\begin{definition}<+->
+		Der \(A\)-Modul \(\bigoplus\limits_{i \in I} M_i\) heißt die \emph{direkte Summe über
+		die Familie \((M_i)_{i \in I}\)}.
+	\end{definition}
+	\begin{remark}<+->
+		Ist die Indexmenge \(I\) endlich, stimmen direktes Produkt und direkte Summe überein.
+	\end{remark}
+	\begin{proposition}<+->
+		Die Inklusionen \(\iota_i\colon M_i \to M, m \mapsto x\) mit \(x_j = m\) für \(j = i\) und
+		\(x_j = 0\) sonst sind ein Homomorphismus von \(A\)-Moduln.
+	\end{proposition}
+\end{frame}
+
+\subsection{Direkte Summenzerlegungen von Ringen}
+
+\begin{frame}{Zerlegung eines Ringes in eine direkte Summe endlich vieler Ideale}
+	\begin{example}<+->
+		Sei \(A = \prod\limits_{i = 1}^n A_i\) ein endliches direktes Produkt kommutativer Ringe. Sei
+		\(\ideal a_i \subset A\) die Teilmenge aller \((a_j)\) mit \(a_j = 0\) für \(j \neq i\) und
+		\(a_i \in A_i\) beliebig.
+		\\
+		Dann ist \(\ideal a_i\) ein Ideal in \(A\). Weiter besitzt \(A\) als \(A\)-Modul die direkte
+		Summenzerlegung \(A = \ideal a_1 \oplus \dotsc \oplus \ideal a_n\).
+	\end{example}
+	\begin{example}<+->
+		Sei \(A = \ideal a_1 \oplus \dotsc \oplus \ideal a_n\) eine Zerlegung eines kommutativen Ringes \(A\)
+		als \(A\)-Modul in eine direkte Summe von Idealen.
+		\\
+		Dann existiert ein kanonischer Isomorphismus \(A \cong \prod\limits_{i = 1}^n A/\ideal b_i\)
+		mit \(\ideal b_i \coloneqq \bigoplus\limits_{j \neq i} \ideal a_j\). 
+		\\
+		Ist \(e_i \in A\) das Einselement des Ringes \(A/\ideal b_i \cong \ideal a_i\), so ist
+		\(\ideal a_i = (e_i)\).
+	\end{example}
+\end{frame}
+

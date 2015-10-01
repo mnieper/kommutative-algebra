@@ -1,0 +1,225 @@
+\section{Kettenbedingungen II}
+
+\subsection{Kompositionsreihen und Länge eines Moduls}
+
+\begin{frame}{Ketten von Untermoduln}
+	Sei \(A\) ein Ring.
+	\begin{definition}<+->
+		Sei \(M\) ein \(A\)-Modul. Eine \emph{Untermodulkette von
+		\(M\)} ist eine Kette von Untermoduln von \(M\) der Form
+		\(M_\bullet\colon M = M_0 \supsetneq M_1 \supsetneq \dotsb \supsetneq M_n = 0\).
+		Es heißt \(n\) die \emph{Länge von \(M_\bullet\)}.
+	\end{definition}
+	\begin{definition}<+->
+		Ein \(A\)-Modul \(M\) heißt \emph{einfach}, falls er außer \(0\) und
+		sich selbst keine weiteren Untermoduln besitzt.
+	\end{definition}
+	\begin{definition}<+->
+		Sei \(M\) ein \(A\)-Modul. Eine Untermodulkette \(M_\bullet\) von \(M\)
+		heißt eine \emph{Kompositionsreihe}, falls jeder Quotient
+		\(M_i/M_{i + 1}\) ein einfacher \(A\)-Modul ist.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Eine Kompositionsreihe ist also eine maximale Untermodulkette.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Länge eines Moduls}
+	\begin{definition}<+->
+		Sei \(A\) ein Ring und \(M\) ein \(A\)-Modul.
+		Die \emph{Länge \(\ell(M)\) von \(M\)} ist das Infimum über die Längen aller
+		Kompositionsreihen von \(M\).
+	\end{definition}
+	\begin{visibleenv}<+->
+		Es ist also \(\ell(M) = \infty\) genau dann, wenn \(M\) keine Kompositionsreihe
+		besitzt.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Längen echter Untermoduln}
+	\begin{lemma}<+->
+		Sei \(A\) ein Ring und \(M\) ein \(A\)-Modul endlicher Länge.
+		Für jeden echten Untermodul \(N\) von \(M\) gilt \(\ell(N) < \ell(M)\).
+	\end{lemma}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(M_\bullet\) eine Kompositionsreihe von \(M\) minimaler Länge \(n\). Sei \(N_i
+			\coloneqq N \cap M_i\). Dann ist \(N_i/N_{i + 1} \subset M_i/M_{i + 1}\).
+		\item
+			Da \(M_i/M_{i + 1}\) einfach ist, ist \(N_i/N_{i + 1} = M_i/M_{i + 1}\) oder
+			\(N_i = N_{i + 1}\). Indem wir also wiederholte Moduln herausnehmen, erhalten
+			wir eine Kompositionsreihe von \(N\) und insbesondere \(\ell(N) \leq \ell(M)\).
+		\item
+			Angenommen, \(\ell(N) = \ell(M)\). Dann ist \(N_i/N_{i + 1} = M_i/M_{i + 1}\),
+			also \(M_{n - 1} = N_{n - 1}, M_{n - 2} = N_{n - 2}, \dotsc, M_0 = N_0\) und
+			damit \(M = N\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Längen von Untermodulketten}
+	\begin{lemma}<+->
+		Sei \(A\) ein Ring. Sei \(M\) ein \(A\)-Modul endlicher Länger. Die Länge einer jeden
+		Untermodulkette von \(M\) ist höchstens \(\ell(M)\).
+	\end{lemma}
+	\begin{proof}<+->
+		Ist \(M = M_0 \supsetneq M_1 \supsetneq \dotsb \supsetneq M_k = 0\) eine Untermodulkette
+		der Länge \(k\), so haben wir nach dem letzten Hilfssatz, daß
+		\(\ell(M) > \ell(M_1) > \dotsb > \ell(M_k)\), also \(\ell(M) \ge k\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Invarianz der Länge}
+	\begin{proposition}<+->
+		Sei \(A\) ein Ring. Sei \(M\) ein \(A\)-Modul, welcher eine Kompositionsreihe
+		der Länge \(n\) besitze. Dann hat jede Kompositionsreihe die Länge \(n\),
+		und jede Untermodulkette von \(M\) läßt sich zu einer Kompositionsreihe
+		erweitern.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(M_\bullet\) eine Kompositionsreihe von \(M\) der Länge \(k\).
+			Nach dem letzten Hilfssatz wissen wir, daß \(k \le \ell(M) \leq n\). Nach
+			Definition von \(\ell(M)\) folgt daraus \(k = \ell(M) \leq n\).
+		\item
+			Sei \(M_\bullet\) eine beliebige Untermodulfolge von \(M\) der Länge \(k\).
+			Ist \(k < \ell(M)\), so ist \(M_\bullet\) keine Kompositionsreihe, also nicht
+			maximal, also kann \(M_\bullet\) zu einer Folge der Länge \(k + 1\)
+			erweitert werden.
+		\item
+			Ist \(k = \ell(M)\), so muß \(M_\bullet\) schon eine Kompositionsreihe sein,
+			denn ansonsten könnte \(M_\bullet\) zu einer Folge der Länge
+			\(\ell(M) + 1\) erweitert werden.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Moduln endlicher Länge}
+
+\begin{frame}{Moduln mit Kompositionsreihen}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Ein \(A\)-Modul \(M\)
+		besitzt genau dann eine Kompositionsreihe, wenn \(M\)
+		noethersch und artinsch ist.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Besitzt \(M\) eine Kompositionsreihe, so sind alle streng
+			monotonen Ketten von Untermoduln endlich und damit \(M\)
+			sowohl noethersch als auch artinsch.
+		\item
+			Sei \(M\) noethersch und artinsch. Da \(M_0 \coloneqq M\) noethersch
+			ist, existiert ein maximaler echter Untermodul \(M_1 \subsetneq M_0\).
+			Analog besitzt \(M_1\) einen maximalen echten Untermodul \(M_2 \subsetneq M_1\),
+			usw.
+			\\
+			Wir erhalten eine streng absteigende Kette \(M_0 \supsetneq M_1
+			\supsetneq \dotsb\), welche endlich sein muß, da \(M\) artinsch ist.
+			Dies ist damit eine Kompositionsreihe von \(M\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\mode<article>{Folglich definieren wir:}
+
+\begin{frame}{Moduln endlicher Länge}
+	Sei \(A\) ein Ring.
+	\begin{definition}<+->
+		Ist ein \(A\)-Modul \(M\) noethersch und artinsch, so heißt \(M\) \emph{von endlicher Länge}.
+	\end{definition}
+	\begin{remark}[Jordan--Hölderscher Satz]<+->
+		Sind \(M_\bullet\) und \(M'_\bullet\) zwei Kompositionsreihen eines \(A\)-Moduls
+		\(M\) endlicher Länge \(n\), so existiert ein \(\sigma \in \SG_n\) mit
+		\(M_{i - 1}/M_i \cong M'_{\sigma(i) - 1}/M'_{\sigma(i)}\).
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Die Länge ist eine additive Funktion}
+	\begin{proposition}<+->
+		Sei \(A\) ein Ring.
+		Die Länge ist eine additive Funktion auf der Klasse aller \(A\)-Moduln
+		endlicher Länge.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(0 \to M' \xrightarrow{\phi} M \xrightarrow{\psi} M'' \to 0\) eine exakte Sequenz von
+			\(A\)-Moduln endlicher Länge. Wir müssen \(\ell(M') + \ell(M'') = \ell(M)\) zeigen.
+		\item
+			Sei \(M'_0 \supsetneq M'_1 \supsetneq \dotsb \supsetneq M'_m\) eine Kompositionsreihe in \(M'\)
+			und \(M''_0 \supsetneq M''_1 \supsetneq \dotsb \supsetneq M''_n\) eine Kompositionsreihe in \(M''\).
+			Dann ist \(\psi^{-1}(M''_0) \supsetneq \dotsb \supsetneq \psi^{-1}(M''_n)
+			= \phi(M'_0) \supsetneq \dotsb \supsetneq \phi(M'_m)\) eine Kompositionsreihe von \(M\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Vektorräume endlicher Länge}
+	\begin{proposition}<+->
+		Für einen Vektorraum \(V\) über einem Körper \(K\) sind folgende
+		Aussagen äquivalent.
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es ist \(V\) endlich-dimensional.
+		\item
+			Es hat \(V\) endliche Länge.
+		\item
+			Es ist \(V\) noethersch.
+		\item
+			Es ist \(V\) artinsch.
+		\end{enumerate}
+		\begin{visibleenv}<+->
+			In diesen Fällen gilt außerdem \(\ell(V) = \dim V\).
+		\end{visibleenv}
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beweis der Proposition über Vektorräume endlicher Länge}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Besitzt \(V\) eine Basis \((e_1, \dotsc, e_n)\), so bilden die Unterräume
+			\(U_i \coloneqq \gen{e_{i + 1}, \dotsc, e_n}\) eine Kompositionsreihe von \(V\).
+		\item
+			Nach Definition ist \(V\) noethersch und artinsch, wenn \(V\) von endlicher Länge ist.
+		\item
+			Sei \(V\) ein unendlich-dimensionaler Vektorraum, das heißt \(V\) besitzt
+			eine unendliche Familie \((v_n)_{n \in \set N}\) linear unabhängiger Elemente.
+			Dann bilden die Unterräume \(U_i \coloneqq \gen{v_1, \dotsc, v_i}\) eine
+			nicht stationäre aufsteigende Kette und die Unterräume
+			\(W_i \coloneqq \gen{v_{i + 1}, v_{i + 2}, \dotsc}\) eine nicht stationäre absteigende Kette.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Kommutative Ringe, deren Nullideal Produkt maximaler Ideale ist}
+	\begin{corollary}<+->
+		\label{cor:zero_is_prod_of_max}
+		Seien \(\ideal m_1, \dotsc, \ideal m_n\) maximale Ideale in einem kommutativen
+		Ring \(A\), so daß \(\ideal m_1 \dotsm \ideal m_n = (0)\). Dann ist
+		\(A\) genau dann noethersch, wenn \(A\) artinsch ist.
+	\end{corollary}
+	\begin{proof}<+->
+	\begin{enumerate}[<+->]
+	\item<.->
+		Der Ring \(A\) besitzt die Idealkette \(A \supset \ideal m_1 \supset
+		\ideal m_1 \ideal m_2 \supset \dotsb \supset \ideal m_1 \dotsm \ideal m_n = (0)\),
+		und jeder Faktor \((\ideal m_1 \dotsm \ideal m_{i - 1})/(\ideal m_1 \dotsm \ideal m_i)\)
+		ist ein Vektorraum über dem Körper \(A/\ideal m_i\).
+	\item
+		Damit ist jeder Faktor genau dann artinsch, wenn er noethersch ist.
+	\item
+		Es ist \(A\) genau dann noethersch bzw.~artinsch, wenn jeder Faktor noethersch
+		bzw.~artinsch ist.
+		\qedhere
+	\end{enumerate}
+	\end{proof}
+\end{frame}

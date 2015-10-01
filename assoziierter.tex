@@ -1,0 +1,245 @@
+\section{Der assoziierte gewichtete Ring}
+
+\subsection{Definition und grundlegende Eigenschaften des assoziierten gewichteten Ringes}
+
+\begin{frame}{Definition des assoziierten gewichteten Ringes}
+	\begin{definition}<+->
+		Sei \(\ideal a\) ein Ideal in einem kommutativen Ring \(A\). Dann heißt der
+		gewichtete kommutative Ring
+		\[
+			\Graded_{\ideal a}(t) = \Graded_{\ideal a}(A, t)
+			\coloneqq \Rees_{\ideal a}(A, t)/t^{-1} \Rees_{\ideal a}(A, t)_+ 
+			\cong \bigoplus\limits_{n = 0}^\infty \ideal a^n/\ideal a^{n + 1} t^n
+		\]
+		der \emph{assoziierte gewichtete Ring zur \(\ideal a\)-adischen Filtrierung von \(A\)}.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Ist \(x \in \ideal a^n\), so schreiben wir \(\bar x\) für die Restklasse modulo \(\ideal a^{n + 1}\). Damit können
+		wir die Multiplikation auf \(\Graded_{\ideal a}(t)\) folgendermaßen beschreiben:
+		\\
+		Es ist \((\bar x t^m) \cdot (\bar y t^n) = \overline{xy} t^{m + n}\) für \(x \in \ideal a^m, y \in \ideal a^n\).
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Assozierte gewichtete Moduln}
+	Sei \(\ideal a\) ein Ideal in einem kommutativen Ring. 
+	Sei \(M\) ein \(A\)-Modul zusammen mit einer \(\ideal a\)-Filtrierung \(M_\bullet\). 
+	\begin{definition}<+->
+		Der gewichtete \(A\)-Modul
+		\[
+			\Graded(M_\bullet, t) = \Rees(M_\bullet, t)/t^{-1} \Rees(M_\bullet, t)_+
+			\cong \bigoplus\limits_{n = 0}^\infty M_n/M_{n + 1} t^n
+		\]
+		heißt der \emph{assoziierte gewichtete Modul zur Filtrierung \(M_\bullet\)}.
+	\end{definition}
+	\begin{visibleenv}<+->
+		In kanonischer Weise ist \(\Graded(M_\bullet, t)\) sogar ein \(\Graded_{\ideal a}(t)\)-Modul. Schreiben wir
+		wieder \(\bar\cdot\) für Restklasen, so ist die Multiplikation auf \(\Graded(M_\bullet, t)\) durch
+		\((\bar a t^m) \cdot (\bar x t^n) = \overline{ax} t^{m + n}\) für \(a \in \ideal a^m, x \in M_n\) gegeben.
+	\end{visibleenv}
+	\begin{notation}<+->
+		Ist \(M_\bullet\) die \(\ideal a\)-adische Filtrierung auf \(M\), so schreiben wir
+		\(\Graded_{\ideal a}(M, t) = \Graded(M_\bullet, t)\).
+	\end{notation}
+\end{frame}
+
+\begin{frame}{Morphismen zwischen assoziierten gewichteten Moduln}
+	Sei \(\ideal a\) ein Ideal in einem kommutativen Ring \(A\).
+	Seien \(M, N\) zwei \(A\)-Moduln jeweils zusammen mit einer \(\ideal a\)-Filtrierung \(M_\bullet\) bzw.\
+	\(N_\bullet\).
+	\\
+	Sei \(\phi\colon M \to N\) ein filtrierter Homomorphismus von \(A\)-Moduln, das heißt \(\phi(M_n) \subset N_n\)
+	für alle \(n\). Dann induziert \(\phi\) einen Homomorphismus
+	\[
+		\Graded(\phi)\colon \Graded(M_\bullet, t) \to \Graded(N_\bullet, t), \bar x t^n \mapsto \overline{\phi(x)} t^n,
+	\]
+	wobei wieder \(\bar x \in M_n/M_{n + 1}\) das Bild eines \(x \in M_n\) modulo \(M_{n + 1}\) ist.
+\end{frame}
+
+\begin{frame}{Endlichkeitseigenschaften des assoziierten gewichteten Ringes}
+	\begin{proposition}<+->
+		Sei \(A\) ein noetherscher kommutativer Ring. Für ein Ideal \(\ideal a\) in \(A\) gilt:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Der Ring \(\Graded_{\ideal a}(A, t)\) ist noethersch.
+		\item
+			Es sind \(\Graded_{\ideal a}(A, t)\) und \(\Graded_{\hat{\ideal a}_{\ideal a}}(\hat A_{\ideal a}, t)\)
+			als gewichtete Ringe isomorph.
+		\item
+			Für jeden endlich erzeugten \(A\)-Modul \(M\) zusammen mit einer stabilen \(\ideal a\)-Filtrierung
+			\(M_\bullet\) ist \(\Graded(M_\bullet, t)\) ein endlich erzeugter \(\Graded_{\ideal a}(A, t)\)-Modul.
+		\end{enumerate}
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da \(A\) noethersch ist, ist \(\ideal a\) durch endlich viele \(x_1, \dotsc, x_n \in A\) erzeugt.
+			Ist \(\bar x_i\) das Bild von \(x_i\) in \(\ideal a/\ideal a^2\), so ist \(\Graded_{\ideal a}(t)\) als
+			\(A\)-Algebra von \(\bar x_1 t, \dotsc, \bar x_n t\) erzeugt. Damit ist
+			\(\Graded_{\ideal a}(t)\) noethersch.
+		\item
+			\(\Graded_{\ideal a}(t) \cong \bigoplus\limits_n \ideal a^n/\ideal a^{n + 1} t^n \cong \bigoplus\limits_n
+			\hat{\ideal a}^n/\hat{\ideal a}^{n + 1} t^n \cong \Graded_{\hat{\ideal a}}(t)\).
+			\renewcommand{\qedsymbol}{}
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Fortsetzung des Beweises zu Endlichkeitseigenschaften}
+	\begin{proof}[Beweis, daß \(\Graded(M_\bullet, t)\) endlich erzeugt ist]<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei jetzt \(M\) ein endlich erzeugter \(A\)-Modul und \(M_\bullet\) eine stabile \(\ideal a\)-Filtrierung.
+			Dann existiert ein \(n_0 \in \set N_0\) mit \(M_{n_0 + r} = \ideal a^r M_{n_0}\) für alle \(r \ge 0\).
+		\item
+			Folglich ist \(\Graded(M_\bullet, t)\) als \(\Graded_{\ideal a}(t)\)-Modul durch
+			\(\bigoplus\limits_{n = 0}^{n_0} M_n/M_{n + 1} t^n\) erzeugt. Die \(M_n/M_{n + 1}\) sind endlich erzeugte
+			\(A\)-Moduln, da \(A\) noethersch ist und \(M_n\) Untermodul des endlich erzeugten Moduls \(M\) ist.
+		\item
+			Da \(\ideal a \subset \ann M_n/M_{n + 1}\), ist \(M_n/M_{n + 1}\) auch ein endlich erzeugter
+			\(A/\ideal a\)-Modul.
+			Damit ist \(\bigoplus_{n = 0}^{n_0} M_n/M_{n + 1} t^n\) ein endlich erzeugter \(A/\ideal a\)-Modul.
+		\item
+			Es folgt, daß \(\Graded(M_\bullet, t)\) ein endlich erzeugter \(\Graded_{\ideal a}(t)\)-Modul ist.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Endlichkeitseigenschaften der Vervollständigung}
+
+\begin{frame}{Injektivität und Surjektivität von vervollständigten Homomorphismen}
+	\begin{lemma}<+->
+		Seien \(A\) und \(B\) zwei abelsche Gruppen (d.h.\ \(\set Z\)-Moduln) jeweils zusammen mit einer
+		Filtrierung \(A_\bullet\) bzw.\ \(B_\bullet\), welche jeweils eine Umgebungsbasis um \(0\) einer
+		Topologie auf \(A\) bzw.\ \(B\) bilden.
+		\\
+		Ist dann \(\phi\colon A \to B\) ein filtrierter Homomorphismus,
+		so gilt:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(\Graded(\phi)\colon \Graded(A_\bullet, t) \to \Graded(B_\bullet, t)\) injektiv,
+			so ist auch \(\hat\phi\colon \hat A \to \hat B\) injektiv.
+		\item
+			Ist \(\Graded(\phi)\colon \Graded(A_\bullet, t) \to \Graded(B_\bullet, t)\) surjektiv,
+			so ist auch \(\hat\phi\colon \hat A \to \hat B\) surjektiv.
+		\end{enumerate}
+	\end{lemma}
+\end{frame}
+
+\begin{frame}[Beweis zur Injektivität und Surjektivität von vervollständigten Homomorphismen]
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Die Reihen im folgenden Diagramm sind exakt:
+			\[
+				\begin{CD}
+					0 @>>> A_n/A_{n + 1} @>>> A/A_{n + 1} @>>> A/A_n @>>> 0 \\
+					& & @V{\psi_n}VV @V{\phi_{n + 1}}VV @V{\phi_n}VV \\
+					0 @>>> B_n/B_{m + 1} @>>> B/B_{n + 1} @>>> B/B_n @>>> 0.
+				\end{CD}
+			\]
+			Nach dem Schlangenlemma existiert damit eine exakte Sequenz
+			\(0 \to \ker \psi_n \to \ker \phi_{n + 1} \to \ker \phi_n \to \coker \psi_n \to \coker \phi_{n + 1} \to \coker \phi_n \to 0	
+			\).
+		\item
+			Sind die \(\psi_n\) injektiv bzw.\ surjektiv, folgt durch Induktion nach \(n\), daß die \(\phi_n\) injektiv bzw.\ surjektiv
+			sind. Im letzteren Fall ist außerdem \((\ker \phi_n)_n\) ein surjektives System.
+		\item
+			Im ersten Fall ist \(\hat \phi\) injektiv, da der inverse Limes linksexakt ist.
+		\item
+			Im zweiten Falle ist \(\hat \phi\) surjektiv, da in diesem Falle \({\varprojlim\limits_n}^1 (\ker \phi_n) = 0\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Moduln mit endlich erzeugtem assoziierten gewichteten Modul}
+	\begin{proposition}<+->
+		\label{prop:weighted_mod_is_ft}
+		Sei \(\ideal a\) ein Ideal in einem kommutativen Ring \(A\). Sei \(M\) ein \(A\)-Modul zusammen mit
+		einer \(\ideal a\)-Filtrierung \(M_\bullet\). Sei \(A\) vollständig bezüglich der \(\ideal a\)-adischen Topologie,
+		und sei \(M\) in seiner Filtrationstopologie hausdorffsch, also \(\bigcap\limits_n M_n = 0\). Sei schließlich
+		\(\Graded(M_\bullet, t)\) als \(\Graded_{\ideal a}(A, t)\)-Modul endlich erzeugt. Dann ist \(M\) ein endlich
+		erzeugter \(A\)-Modul.
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beweis der Proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Seien \(x_1, \dotsc, x_r\) mit \(x_i \in M_{n(i)}\) für \(n(i) \in \set N_0\), so daß die Bilder
+			\(\bar x_i t^{n(i)} \in M_{n(i)}/M_{n(i) + 1}\) den \(\Graded_{\ideal a}(t)\)-Modul \(\Graded(M_\bullet)\) erzeugen.
+		\item
+			Für jedes \(i\) sei \(F^i\) der \(A\)-Modul \(A\) zusammen mit der stabilen \(\ideal a\)-Filtrierung \(F^i_\bullet\)
+			mit	\(F^i_k = \ideal a^{k + n(i)}\). Seien \(F \coloneqq\bigoplus\limits_{i = 1}^r F^i, F_\bullet
+			\coloneqq \bigoplus\limits_{i = 1}^r F^i_\bullet\). Dann ist
+			\(\phi\colon F \to M, (a_1, \dotsc, a_r) \mapsto a_1 x_1 + \dotsb a_r x_r\) ein Homomorphismus filtrierter Gruppen.
+		\item
+			Der induzierte Homomorphismus \(\Graded(\phi)\colon \Graded(F_\bullet) \to \Graded(M_\bullet)\) ist nach
+			Konstruktion surjektiv. Damit ist der Homomorphismus \(\hat\phi\colon \hat F \to \hat M\) zwischen den
+			Vervollständigungen surjektiv.
+		\item
+			Da \(F \cong A^r\) als topologische \(A\)-Moduln und \(A\) vollständig ist, ist auch \(F \cong \hat F\).
+			Damit ist \(F \to \hat F \to \hat M\) surjektiv. Da \(M \to \hat M\) aufgrund der Hausdorffeigenschaft von
+			\(M\) injektiv ist, muß damit \(\phi\colon F \to M\) surjektiv sein. Folglich ist \(M\)
+			als \(A\)-Modul von den \(x_i\) erzeugt.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Moduln mit noetherschen assoziierten gewichteten Moduln}
+	\begin{corollary}<+->
+		Sei \(\ideal a\) ein Ideal in einem kommutativen Ring \(A\). Sei \(M\) ein \(A\)-Modul zusammen mit
+		einer \(\ideal a\)-Filtrierung \(M_\bullet\). Sei \(A\) vollständig bezüglich der \(\ideal a\)-adischen Topologie,
+		und sei \(M\) in seiner Filtrationstopologie hausdorffsch, also \(\bigcap\limits_n M_n = 0\). Sei schließlich
+		\(\Graded(M_\bullet, t)\) ein noetherscher \(\Graded_{A, \ideal a}(t)\)-Modul. Dann ist \(M\) ein noetherscher
+		\(A\)-Modul.
+	\end{corollary}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es ist zu zeigen, daß jeder Untermodul \(M'\) von \(M\) endlich erzeugt ist. Es \(M'_\bullet \coloneqq
+			M' \cap M_\bullet\) eine \(\ideal a\)-Filtration auf \(M'\), und die Einbettung \(M' \to M\) induziert
+			eine Einbettung \(\Graded(M'_\bullet, t) \to \Graded(M_\bullet, t)\).
+		\item
+			Da \(\Graded(M_\bullet, t)\) noethersch ist, ist \(\Graded(M'_\bullet, t)\) endlich erzeugt.
+		\item
+			Wegen \(\bigcap\limits_n M'_n \subset \bigcap\limits_n M_n = (0)\) ist \(M'\) schließlich hausdorffsch.
+			Nach der Proposition ist \(M'\) damit endlich erzeugt.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Endlichkeitseigenschaft der Vervollständigung}
+	\begin{theorem}<+->
+		\label{thm:compl_is_noeth}
+		Sei \(A\) ein noetherscher kommutativer Ring. Für jedes Ideal \(\ideal a\) von \(A\) ist
+		die Vervollständigung \(\hat A_{\ideal a}\) noethersch.
+	\end{theorem}
+	\begin{proof}<+->
+		Es ist \(\Graded_{\ideal a}(t) \cong \Graded_{\hat {\ideal a}}(t)\), und diese Ringe sind noethersch.
+		Damit können wir die letzte Folgerung auf den vollständigen Ring \(\hat A\) und den \(\hat A\)-Modul
+		\(\hat A\) mit der \(\hat{\ideal a}\)-adischen Filtrierung anwenden (welche hausdorffsch ist) und erhalten,
+		daß \(\hat A\) ein noetherscher \(\hat A\)-Modul ist, also ein noetherscher Ring.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Beispiel des Potenzreihenrings}
+	\begin{corollary}<+->
+		Für jeden noetherschen kommutativen Ring \(A\) ist der Potenzreihenring \(\ps A{X_1, \dotsc, X_n}\) in \(n\)
+		Variablen noethersch.
+	\end{corollary}
+	\begin{proof}<+->
+		Nach dem Hilbertschen Basissatz ist \(A[X_1, \dotsc, X_n]\) noethersch. Es ist \(\ps A{X_1, \dotsc, X_n}\) die
+		\((X_1, \dotsc, X_n)\)-adische Vervollständigung von \(A[X_1, \dotsc, X_n]\).
+	\end{proof}
+	\begin{example}<+->
+		Für jeden Körper \(K\) ist \(\ps K{X_1, \dotsc, X_n}\) noethersch.
+	\end{example}
+\end{frame}
+

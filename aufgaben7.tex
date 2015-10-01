@@ -1,0 +1,191 @@
+\subsection{Noethersche Ringe}
+
+\begin{exercise}
+	Sei \(A\) ein nicht noetherscher kommutativer Ring. Zeige, daß die
+	Menge \(\mathfrak S\) der nicht endlich erzeugten Ideale von \(A\)
+	ein maximales Element besitzt und daß maximale Elemente Primideale sind.
+	
+	(Tip: Sei \(\ideal a\) ein maximales Element von \(\mathfrak S\). Seien
+	\(x, y \in A\) mit \(xy \in \ideal a\), aber \(x, y \notin \ideal a\).
+	Zeige, daß ein endlich erzeugtes Ideal \(\ideal a_0 \subset \ideal a\) mit
+	\(\ideal a_0 + (x) = \ideal a + (x)\) und \(\ideal a = \ideal a_0 +
+	x \cdot (a : x)\) existiert. Da \(\ideal a \subsetneq (\ideal a : x)\), kann
+	\(\ideal a\) nicht maximal sein. Widerspruch.)
+	
+	Folgere, daß ein kommutativer Ring, in dem jedes Primideal endlich erzeugt
+	ist, ein noetherscher Ring ist.
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:nilp_powerseries}
+	Sei \(A\) ein noetherscher kommutativer Ring. Zeige, daß eine Potenzreihe
+	\(f = \sum\limits_{n = 0}^\infty a_n x^n \in \ps A x\) genau dann nilpotent ist,
+	wenn alle \(a_n\) nilpotent sind.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(\ideal a\) ein irreduzibles Ideal in einem kommutativen Ring \(A\).
+	Zeige, daß die folgenden Aussagen äquivalent sind:
+	\begin{enumerate}
+	\item
+		Das Ideal \(\ideal a\) ist ein Primärideal.
+	\item
+		Für jede mutliplikativ abgeschlossene Teilmenge \(S\) von \(A\)
+		existiert ein \(x \in S\) mit \(A \cap S^{-1} \ideal a = (\ideal a : x)\).
+	\item
+		Für alle \(x \in A\) ist die Kette
+		\((\ideal a : x) \subset (\ideal a : x^2) \subset \dotsb\)
+		stationär.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein noetherscher kommutativer Ring. Seien weiter \(B\) eine
+	endlich erzeugte kommutative \(A\)-Algebra und \(G\) eine endliche Gruppe
+	von \(A\)-Algebrenautomorphismen von \(B\). Zeige, daß
+	\(B^G \coloneqq \{y \in B \mid \forall g \in G\colon g(y) = y\}\) eine
+	endlich erzeugte \(A\)-Algebra ist.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(K\) ein endlich erzeugter kommutativer Ring, das heißt \(K\) ist
+	endlich erzeugt als \(\set Z\)-Algebra. Zeige: Ist \(K\) ein Körper, so
+	ist \(K\) ein endlicher Körper.
+	
+	(Tip: Ist \(K\) von Charakteristik \(0\), so haben wir \(\set Z \subset
+	\set Q \subset K\). Da \(K\) endlich über \(\set Z\) erzeugt ist, ist
+	\(K\) dann auch endlich über \(\set Q\) erzeugt, und ist
+	nach~\prettyref{cor:weak_hilbert1} damit ein endlich erzeugter
+	\(\set Q\)-Vektorraum. Leite aus~\prettyref{prop:intermediate_ring} dann
+	einen Widerspruch her.
+	
+	Also ist \(K\) von positiver Charakteristik \(p\), also endlich erzeugt
+	als \(\set Z/(p)\)-Algebra. Nutze wieder~\prettyref{cor:weak_hilbert1}.)
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring, so daß \(A[x]\) noethersch ist. Ist
+	dann auch \(A\) noethersch?
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:stalks_are_noetherian}
+	Sei \(A\) ein kommutativer Ring. Seien die Halme \(A_{\ideal m}\) für
+	alle maximalen Ideale \(\ideal m\) von \(A\) noethersch. Sei weiter für
+	alle \(x \in A \setminus \{0\}\) die Menge der maximalen Ideale mit
+	\(x \in \ideal m\) endlich. Zeige, daß \(A\) noethersch ist.
+	
+	(Tip: Sei \(\ideal a \neq (0)\) ein Ideal in \(A\). Seien \(\ideal m_1,
+	\dotsc, \ideal m_r\) die maximalen Ideale, welche \(\ideal a\) umfassen.
+	Wähle \(x_0 \in \ideal a \neq (0)\). Seien \(\ideal m_1, \dotsc,
+	\ideal m_{r + s}\) diejenigen maximalen Ideale, welche \(x_0\) enthalten.
+	Da \(\ideal m_{r + 1}, \dotsc, \ideal m_{r + s}\) das Ideal \(\ideal a\)
+	nicht umfassen, existieren \(x_j \in \ideal a\) mit \(x_j \notin
+	\ideal m_{r + j}\) für \(1 \leq j \leq s\). Da die \(A_{\ideal m_i}\)
+	noethersch sind, sind die \(A_{\ideal m_i} \ideal a\) endlich erzeugt.
+	Damit existieren \(x_{s + 1}, \dotsc, x_t \in \ideal a\), deren Bilder
+	in \(A_{\ideal m_i}\) die \(A_{\ideal m_i} \ideal a\) für
+	\(1 \leq i \leq r\) erzeugen. Sei \(\ideal a_0 = (x_0, \dotsc, x_t)\).
+	Zeige, daß \(A_{\ideal m} \ideal a_0 = A_{\ideal m} \ideal a\) für alle
+	maximalen Ideale \(\ideal m\) von \(A\) und folgere
+	mit~\prettyref{prop:inj_is_local}, daß \(\ideal a_0 = \ideal a\).)
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring.
+	Sei \(M\) ein noetherscher \(A\)-Modul. Zeige, daß \(M[x]\) (siehe
+	\prettyref{exer:poly_over_mod}) ein noetherscher \(A[x]\)-Modul ist.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring, so daß der Halm \(A_{\ideal p}\)
+	für jedes Primideal ein noetherscher Ring ist. Ist dann \(A\)
+	notwendigerweise auch noethersch?
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Sei \(M\) ein noetherscher \(A\)-Modul.
+	Zeige, daß jeder Untermodul \(N\) von \(M\) eine Primärzerlegung in
+	\(M\) besitzt (siehe~\prettyref{exer:primary_decomp_for_mod}).
+	
+	(Tip: Imitiere die Beweise von \prettyref{lem:lasker1} und
+	\prettyref{lem:lasker2}.)
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:primes_to_mod}
+	Sei \(A\) ein noetherscher kommutativer Ring. Sei \(M\) ein endlich
+	erzeugter \(A\)-Modul. Zeige, daß für ein Primideal \(\ideal p\) von \(A\)
+	die folgenden Aussagen äquivalent sind:
+	\begin{enumerate}
+	\item
+		Das Primideal \(\ideal p\) ist zu \(0\) in \(M\) assoziiert.
+	\item
+		Es existiert ein \(x \in M\) mit \(\ann(x) = \ideal p\).
+	\item
+		Es existiert ein Untermodul \(N\) von \(M\) mit \(N \cong A/\ideal p\).
+	\end{enumerate}
+	
+	Folgere, daß eine Kette von Untermoduln \(0 = M_0 \subset M_1 \dotsb
+	M_r = M\) existiert, so daß jeder Quotient \(M_{i + 1}/M_i\) von der
+	Form \(A/\ideal p_i\) mit einem Primideal \(\ideal p_i\) in \(A\) ist.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein noetherscher kommutativer Ring. Seien
+	\(\ideal a = \bigcap\limits_{i = 1}^r \ideal b_i
+	= \bigcap\limits_{j = 1}^s \ideal c_j\) zwei minimale Zerlegungen
+	eines Ideals \(\ideal a\) in irreduzible Ideale. Zeige, daß
+	\(r = s\) und daß eine Permutation \(\sigma \in \SG_n\) mit
+	\(\sqrt{\ideal b_i} = \sqrt{\ideal c_{\sigma(i)}}\) existiert.
+	
+	(Tip: Zeige, daß für alle \(1 \leq i \leq r\) ein \(j\) mit
+	\(\ideal a = \ideal b_1 \cap \dotsb \cap \ideal b_{i - 1} \cap
+	\ideal c_j \cap \ideal b_{i + 1} \cap \dotsb \ideal b_r\) existiert.)
+	
+	Formuliere und beweise eine entsprechende Aussage für Moduln.
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:groth_group}
+	Sei \(A\) ein noetherscher kommutativer Ring. Mit \(\mathfrak F(A)\)
+	bezeichnen wir die Menge der Isomorphieklassen \([M]\) endlich erzeugter
+	\(A\)-Moduln \(M\). Sei \(C\) die durch \(\mathfrak F(A)\) frei erzeugte
+	abelsche Gruppe, das heißt Elemente in \(C\) sind formale (endliche)
+	\(\set Z\)-Linearkombinationen von Isomorphieklassen endlich erzeugter
+	\(A\)-Moduln. Jeder exakten Sequenz \(0 \to M' \to M \to M'' \to 0\)
+	endlich erzeugter \(A\)-Moduln ordnen wir das Element
+	\([M] - [M'] - [M''] \in C\) zu. Sei \(D\) die von diesen Elementen für alle
+	exakten Sequenzen erzeugte Untergruppe. Die Quotientengruppe
+	\(\GrothK(A) \coloneqq C/D\) heißt die \emph{Grothendiecksche Gruppe
+	von \(A\)}. Für jeden endlich erzeugten \(A\)-Modul \(A\) bezeichnen wir mit
+	\(\gamma(M) = \gamma_A(M)\) das Bild von \([M]\) in \(\GrothK(A)\).
+	Zeige:
+	\begin{enumerate}
+	\item
+		Für jede additive Funktion \(\lambda\) mit Werten in einer abelschen
+		Gruppe \(G\), welche auf der Klasse der endlich erzeugten \(A\)-Moduln
+		definiert ist, existiert genau ein Gruppenhomorphismus
+		\(\lambda_0\colon \GrothK(A) \to G\) mit \(\lambda(M) = 
+		\lambda_0(\gamma(M))\) für alle endlich erzeugten \(A\)-Moduln \(M\).
+	\item
+		Zeige, daß \(\GrothK(A)\) von Elementen der Form \(\gamma(A/\ideal p)\)
+		erzeugt wird, wobei \(\ideal p\) ein Primideal in \(a\) ist.
+		
+		(Tip: \prettyref{exer:primes_to_mod}.)
+	\item
+		Zeige, daß \(\GrothK(A) \cong \set Z\), wenn \(A\) ein Körper oder
+		allgemeiner ein Hauptidealbereich ist.
+	\item
+		Sei \(f^*\colon A \to B\) ein endlicher Homomorphismus
+		noetherscher kommutativer Ringe. Zeige, daß ein Gruppenhomomorphismus
+		\(f_!\colon \GrothK(B) \to \GrothK(A)\) mit \(f_!(\gamma_B(N))
+		= \gamma_A(N^A)\) für alle endlich erzeugten \(B\)-Moduln
+		\(N\) existiert.
+	
+		Sei \(g^*\colon B \to C\) ein weiterer Homomorphismus noetherscher
+		kommutativer Ringe. Zeige, daß \((f \circ g)_! = f_! \circ g_!\colon
+		\GrothK(C) \to \GrothK(A).\).
+	\end{enumerate}
+\end{exercise}
+

@@ -1,0 +1,109 @@
+\section{Dedekindsche Bereiche}
+
+\subsection{Charakterisierung Dedekindscher Bereiche}
+
+\begin{frame}{Definition Dedekindscher Bereiche}
+	\begin{theorem}<+->
+		Für einen eindimensionalen noetherschen Integritätsbereich \(A\) sind folgende
+		Aussagen äquivalent:
+		\begin{enumerate}[<+->]
+		\item
+			\(A\) ist ganz abgeschlossen.
+		\item
+			Jedes Primärideal in \(A\) ist eine Potenz eines Primideals.
+		\item
+			Für jedes Primideal \(\ideal p \neq (0)\) von \(A\)
+			ist der Halm \(A_{\ideal p}\) ein diskreter Bewertungsring.
+		\end{enumerate}
+	\end{theorem}
+	\begin{visibleenv}<+->
+		Erfüllt \(A\) die drei äquivalenten Aussagen des Satzes, so heißt \(A\)
+		ein \emph{Dedekindscher Bereich}.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Beweis der Charakterisierung Dedekindscher Bereiche}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Daß ein Ring ganz abgeschlossen ist, ist eine lokale Eigenschaft. Damit
+			folgt die Äquivalenz der ersten mit der dritten Aussage aus den
+			Charakterisierungen diskreter Bewertungsringe.
+		\item
+			Auch die zweite Aussage beschreibt eine lokale Eigenschaft, denn Primärideale
+			und Idealpotenzen verhalten sich gut unter Lokalisierung.
+			\\
+			Damit folgt die Äquivalenz der zweiten mit der dritten Aussage ebenfalls aus den
+			Charakterisierungen diskreter Bewertungsringe, denn in noetherschen eindimensionalen
+			lokalen Ringen sind alle Ideale \(\ideal a \neq (0)\) Primärideale.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Eindeutige Faktorisierung in Dedekindschen Bereichen}
+	\begin{corollary}<+->
+		In einem Dedekindschen Bereich läßt sich jedes nicht verschwindende Ideale als
+		eindeutiges Produkt von Primidealen schreiben.
+	\end{corollary}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Jeder Dedekindsche Bereich ist ein eindimensionaler noetherscher Integritätsbereich,
+			in welchem sich jedes Ideal eindeutig als Produkt von Primäridealen schreiben läßt.
+		\item
+			Die Primärideale in einem Dedekindschen Bereich sind alle (eindeutige) Potenzen von Primidealen.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Beispiele Dedekindscher Bereiche}
+
+\begin{frame}{Hauptidealbereiche}
+	\begin{example}<+->
+		Sei \(A\) ein Hauptidealbereich. Da jedes Ideal offensichtlich
+		endlich erzeugt ist, ist \(A\) ein noetherscher Ring.
+		\\
+		Da in Hauptidealbereichen jedes nicht verschwindende Primideal maximal
+		ist, gilt weiter \(\dim A = 1\).
+		\\
+		Ist \(\ideal p \neq (0)\) ein Primideal, so ist \(A_{\ideal p}\)
+		ein lokaler Hauptidealbereich, nach unseren Charakterisierungen
+		diskreter Bewertungsbereiche also ein solcher.
+		\\
+		Damit ist \(A\) ein Dedekindscher Bereich, das heißt Hauptidealbereiche
+		sind spezielle Dedekindsche Bereiche.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Ringe ganzer Zahlen in Zahlkörpern}
+	\begin{theorem}<+->
+		Sei \(K\) ein Zahlkörper, das heißt eine endliche Erweiterung von
+		\(\set Q\). Dann ist der Ring \(A\) der ganzen Zahlen in \(K\), das
+		heißt der ganze Abschluß von \(\set Z\) in \(K\), ein Dedekindscher
+		Bereich.
+	\end{theorem}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da \(\set Q\) die Charakteristik \(0\) hat, 
+			ist \(K\) eine separable Erweiterung von
+			\(\set Q\). Damit existiert eine Basis \(v_1, \dotsc, v_n\) von
+			\(K\) über \(\set Q\) mit \(A \subset \sum\limits_i \set Z v_i\).
+		\item
+			Damit ist \(A\) als \(\set Z\)-Modul endlich erzeugt, also
+			noethersch. Als ganzer Abschluß in \(K\) ist \(A\) selbst ganz
+			abgeschlossen.
+		\item
+			Es bleibt zu zeigen, daß jedes Primideal \(\ideal p \neq (0)\) von
+			\(A\) maximal ist: Zunächst ist \(\set Z \cap \ideal p \neq (0)\),
+			da \(A\) ganz über \(\set Z\) ist. Damit ist \(\set Z \cap \ideal p\)
+			maximal. Wieder weil \(A\) ganz über \(\set Z\) ist, ist damit
+			auch \(\ideal p\) maximal.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+

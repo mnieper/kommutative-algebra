@@ -1,0 +1,197 @@
+\section{Grundlagen aus der Algebra I}
+
+%\subsection{Gruppen}
+
+\subsection{Körper}
+
+\begin{definition}
+	Die \emph{Charakteristik \(\chr K\)} eines Körpers \(K\) ist die
+	kleinste positive Zahl \(p \in \set N\) mit \(p \cdot 1 = 0 \in K\) oder
+	\(0\), wenn kein solches \(p\) existiert.
+\end{definition}
+
+\begin{example}
+	Der Körper \(\set Q\) der rationalen Zahlen ist ein Körper der
+	Charakteristik \(0\).
+\end{example}
+
+\begin{proposition}
+	Die Charakteristik eines Körpers ist entweder \(0\) oder eine Primzahl.
+\end{proposition}
+
+\subsection{Algebraische Erweiterungen}
+
+\begin{definition}
+	Ein Körper \(K\) heißt \emph{algebraisch abgeschlossen}, falls
+	jedes normierte Polynom \(f \in K[x]\) vollständig in Linearfaktoren zerfällt,
+	falls also \(x_1, \dotsc, x_n \in K\) mit \(f = (x - x_1) \dotsm (x - x_n)\) existieren.
+\end{definition}
+
+Diese Definition ist gleichbedeutend damit, daß jedes Polynom über \(K\) mindestens eine Nullstelle besitzt.
+
+\begin{example}<+->
+	Der Körper \(\set C\) der komplexen Zahlen ist algebraisch abgeschlossen.
+\end{example}
+
+\begin{definition}
+	Sei \(K \subset L\) eine Körpererweiterung.
+	\begin{enumerate}
+	\item
+		Ein Element \(x \in L\) heißt \emph{algebraisch über \(K\)}, falls es
+		einer Gleichung der Form \(x^n + a_1 x^{n + 1} + \dotsb + a_n\) mit \(a_i \in K\)
+		genügt.
+	\item
+		Ein Element \(x \in L\) heißt \emph{transzendent über \(K\)}, falls es
+		nicht algebraisch ist.
+	\item
+		Die Körpererweiterung \(K \subset L\) heißt \emph{algebraisch}, falls jedes
+		Element von \(L\) algebraisch über \(K\) ist.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Eine Körpererweiterung \(K \subset L\) heißt \emph{endlich}, falls
+	\(L\) als \(K\)-Vektorraum endlich-dimensional ist. Die Zahl
+	\([L : K] \coloneqq \dim_K L\) heißt der \emph{Grad der Körpererweiterung}.
+\end{definition}
+
+\begin{example}
+	Jede endliche Körpererweiterung ist algebraisch.
+\end{example}
+
+\begin{example}
+	Sei \(K \subset L\) eine Körpererweiterung. Für ein \(x \in L\) bezeichne
+	\(K(x)\) den kleinsten Zwischenkörper von \(K \subset L\), welcher \(x\) enthält.
+	Dann ist \(K \subset K(x)\) genau dann eine endliche Körpererweiterung, wenn
+	\(x\) algebraisch über \(K\) ist.
+\end{example}
+
+\begin{definition}
+	Sei \(K \subset L\) eine Körpererweiterung. Ist \(x \in L\) algebraisch
+	über \(K\), so heißt das normierte Polynom \(m \in K[x]\) minimalen Grades
+	mit \(m(x) = 0 \in L\) das \emph{Minimalpolynom von \(x\) über \(K\)}.
+\end{definition}
+
+\begin{definition}
+	Sei \(K \subset L\) eine Körpererweiterung. Zerfällt ein Polynom \(f \in K[x]\)
+	über \(L\) vollständig in Linearfaktoren, so heißt \(L\) ein \emph{Zerfällungskörper von \(K\)}.
+\end{definition}
+
+\begin{theorem}
+	Sei \(K\) ein Körper. Dann existiert eine
+	algebraische Körpererweiterung \(K \subset L\), so
+	daß \(L\) ein algebraisch abgeschlossener Körper ist. Insbesondere ist
+	\(L\) ein Zerfällungskörper für jedes Polynom über \(K\).
+\end{theorem}
+
+Der Körper \(L\) heißt ein \emph{algebraischer Abschluß von \(K\)}.
+
+\begin{theorem}
+	Sei \(K \subset K'\) eine algebraische Körpererweiterung. Sei \(\phi\colon K \to L\)
+	ein Körperhomomorphismus in einen algebraisch abgeschlossenen Körper \(L\).
+	\begin{enumerate}
+	\item
+		Der Homomorphismus \(\phi\) läßt sich zu einem Körperhomomorphismus \(K' \to L\) fortsetzen.
+	\item
+		Die Anzahl \([K' : K]_\sep\) der möglichen Fortsetzungen hängt nur von der Körpererweiterung
+		\(K \subset K'\) ab und heißt ihr \emph{Separabilitätsgrad}.
+	\item
+		Es gilt \([K' : K]_\sep \le [K' : K]\). Insbesondere ist der Separabilitsgrad einer endlichen
+		Körpererweiterung endlich.
+	\end{enumerate}
+\end{theorem}
+
+\begin{definition}
+	Eine endliche Körpererweiterung \(K \subset K'\) heißt \emph{separabel}, falls
+	\([K' : K]_\sep = [K' : K]\).
+\end{definition}
+
+\begin{proposition}
+	Ist \(K\) ein Körper der Charakteristik Null, so ist jede endliche Körpererweiterung \(K \subset K'\)
+	separabel.
+\end{proposition}
+
+\subsection{Galoissche Theorie}
+
+\begin{definition}
+	Sei \(K \subset L\) eine endliche Körpererweiterung. Ist \(x \in L\), so bezeichnen wir
+	mit \(\phi_x\colon L \to L, y \mapsto x y\) den durch Multiplikation mit \(x\) induzierten
+	Endomorphismus des \(K\)-Vektorraumes \(L\).
+	
+	Seine Spur \(\tr_K \phi_x\) heißt die \emph{Spur \(\tr_{L/K}(x)\) von \(x\) in der Körpererweiterung
+	\(K \subset L\)}.
+\end{definition}
+
+\begin{proposition}
+	Sei \(K \subset L\) eine endliche Körpererweiterung.
+	\begin{enumerate}
+	\item
+		Die Spur \(\tr_{L/K}\colon L \to K\) ist eine \(K\)-lineare Abbildung.
+	\item
+		Sei \(x \in L\) mit Minimalpolynom \(x^n + a_1 x^{n - 1} + \dotsb + a_n\) über \(K\).
+		Dann ist \(\tr_{L/K} (x) = - [L : K(x)] \cdot a_1\), insbesondere also ein Vielfaches eines
+		Koeffizienten des Minimalpolynomes.
+	\end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+	Sei \(K \subset L\) eine separable endliche Körpererweiterung. Dann ist die Bilinearform
+	\[
+		L \times L \to K, (x, y) \mapsto \tr_{L/K} (xy)
+	\]
+	auf \(L\) über \(K\) nicht ausgeartet.
+\end{theorem}
+
+\begin{corollary}
+	Ist \(K \subset L\) eine separable endliche Körpererweiterung, und ist
+	\((x_1, \dotsc, x_n)\) eine Basis von \(L\) über \(K\), so existiert genau eine Basis
+	\((y_1, \dotsc, y_n)\) von \(L\) über \(K\) mit \(\tr_{L/K} (x_i y_j) = \kron_{ij}\).
+\end{corollary}
+
+\subsection{Transzendente Erweiterungen}
+
+\begin{definition}
+	Sei \(K \subset L\) eine Körpererweiterung. Eine Familie \((x_i)_{i \in I}\)
+	von	Elementen in \(L\) heißt \emph{algebraisch unabhängig}, wenn 
+	für je endlich
+	viele Elemente \(x_{i_1}, \dotsc, x_{i_n}\) der Folge und \(f \in K[t_1, \dotsc, t_n]\)
+	mit \(f(x_{i_1}, \dotsc, x_{i_n}) = 0\) schon \(f = 0\) folgt.
+\end{definition}
+
+\begin{remark}
+	Sei \(K \subset L\) eine Körpererweiterung. Eine Familie \((x_i)_{i \in I}\)
+	von Elementen in \(L\) ist also genau dann algebraisch unabhängig, wenn
+	der Ringhomomorphismus \(K[(t_i)] \to L, t_i \mapsto x_i\) injektiv ist.
+\end{remark}
+
+\begin{definition}
+	Sei \(K \subset L\) eine Körpererweiterung. Eine \emph{Transzendenzbasis
+	von \(L\) über \(K\)} ist eine maximale Familie algebraisch unabhängiger
+	Elemente.
+\end{definition}
+
+\begin{remark}
+	Sei \(K \subset L\) eine Körpererweiterung. Dann ist \((x_i)_{i \in I}\)
+	genau dann eine Transzendenzbasis von \(L\) über \(K\), wenn
+	\(K((t_i)) \to L, t_i \mapsto x_i\) eine wohldefinierte algebraische
+	Körpererweiterung ist.
+\end{remark}
+
+\begin{proposition}
+	Sei \(K \subset L\) eine Körpererweiterung. Dann besitzt \(L\) eine
+	Transzendenzbasis über \(K\) und je zwei Transzendenzbasen haben dieselbe
+	Mächtigkeit.
+\end{proposition}
+
+\begin{definition}
+	Sei \(K \subset L\) eine Körpererweiterung. Der
+	\emph{Transzendenzgrad \(\trdeg_K L\) von
+	\(L\) über \(K\)} ist die Mächtigkeit einer Transzendenzbasis von \(L\)
+	über \(K\).
+\end{definition}
+
+\begin{example}
+	Eine Körpererweiterung \(K \subset L\) ist genau dann algebraisch, wenn
+	der Transzendenzgrad von \(L\) über \(K\) gleich \(0\) ist.
+\end{example}
+

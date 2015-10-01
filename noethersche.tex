@@ -1,0 +1,161 @@
+\section{Noethersche Ringe}
+
+\subsection{Elementare Eigenschaften noetherscher Ringe}
+
+\begin{frame}{Bilder noetherscher Ringe}
+	Wir erinnern an folgende Möglichkeiten, einen Ring \(A\) als noethersch zu
+	charakterisieren:
+	\begin{enumerate}[<+->]
+	\item
+		Jede nicht leere Menge von Idealen von \(A\) besitzt ein maximales Element.
+	\item
+		Jede aufsteigende Kette von Idealen in \(A\) ist stationär.
+	\item
+		Jedes Ideal in \(A\) ist endlich erzeugt.
+	\end{enumerate}
+	\begin{proposition}<+->
+		Sei \(\phi\colon A \to B\) ein Homomorphismus von Ringen. Ist \(A\)
+		noethersch, so ist auch \(\phi(A)\) noethersch.
+	\end{proposition}
+	\begin{proof}<+->
+		Nach dem Homomorphiesatz ist \(\phi(A) \cong A/\ideal \ker \phi\), und
+		Quotienten noetherscher Ringe sind noethersch.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Endliche Erweiterungen noetherscher Ringe}
+	\begin{proposition}<+->
+		Sei \(A \subset B\) eine endliche Erweiterung kommutativer Ringe.
+		Sei \(A\) noethersch. Dann ist auch \(B\) noethersch.
+	\end{proposition}
+	\begin{proof}<+->
+		Da \(B\) als \(A\)-Modul endlich erzeugt ist und \(A\) ein noetherscher Ring
+		ist, ist \(B\) als \(A\)-Modul noethersch. Damit ist \(B\) auch als
+		Modul über sich selbst noethersch.
+	\end{proof}
+	\begin{example}<+->
+		Der Ring \(\set Z[i]\) der ganzen Gaußschen Zahlen eine endliche Erweiterung
+		von \(\set Z\) und damit noethersch.
+	\end{example}
+	\begin{remark}<+->
+		Allgemeiner ist ganze Abschluß von \(\set Z\) in einer beliebigen endlichen
+		algebraischen Erweiterung von \(\set Q\) ein noetherscher Ring.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Lokalisierungen noetherscher Ringe}
+	Sei \(A\) ein noetherscher kommutativer Ring. 
+	\begin{proposition}<+->
+		Sei \(S \subset A\) multiplikativ
+		abgeschlossen. Dann ist \(S^{-1} A\) noethersch.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Jedes Ideal in \(S^{-1} A\) ist von der Form \(S^{-1} \ideal a\), wobei
+			\(\ideal a\) ein Ideal in \(A\) ist.
+		\item
+			Erzeugen \(x_1, \dotsc, x_n\) das Ideal \(\ideal a\), so wird \(S^{-1} \ideal a\)
+			von \(\frac {x_1} 1, \dotsc, \frac{x_n} 1\) erzeugt.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+	\begin{corollary}<+->
+		Die Halme \(A_{\ideal p}\) von \(A\) sind noethersch.
+		\qed
+	\end{corollary}
+\end{frame}
+
+\subsection{Der Hilbertsche Basissatz}
+
+\begin{frame}{Der Hilbertsche Basissatz}
+	\begin{theorem}[Hilbertscher Basissatz]<+->
+		Ist \(A\) ein noetherscher kommutativer Ring, so ist auch der Polynomring \(A[x]\) noethersch.
+	\end{theorem}
+\end{frame}
+
+\begin{frame}{Beweis des Hilbertschen Basissatzes}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(\ideal a\) ein Ideal in \(A[x]\). Die führenden Koeffizienten der
+			Polynome in \(\ideal a\) erzeugen ein Ideal \(\ideal l\) in \(A\), welches
+			nach Voraussetzung von endlich vielen Elementen \(a_1, \dotsc, a_n\) erzeugt ist.
+		\item
+			Zu jedem \(a_i\) wählen wir ein Polynom \(f_i \in \ideal a\) mit Leitmonom
+			\(a_i x^{r_i}\). Sei \(r\) das Maximum der \(r_i\). Die \(f_i\)
+			erzeugen ein Ideal \(\ideal a' \subset \ideal a\).
+		\item
+			Sei \(f \in \ideal a\) ein Polynom mit Leitmonom \(a x^m\).
+			Ist \(m \ge r\), so existieren \(u_i \in A\) mit \(a = \sum\limits_i u_i a_i\).
+			Dann ist \(f - \sum\limits_i u_i f_i x^{m - r_i} \in \ideal a\) ein Polynom echt kleineren Grades 
+			als \(f\). Indem wir so fortfahren, können wir \(f = g + h\) mit \(h \in \ideal a'\)
+			schreiben, wobei \(\deg g < r\).
+		\item
+			Ist \(M\) der von \(1, x, \dots, x^{r - 1}\) erzeugte \(A\)-Modul, so haben
+			wir \(\ideal a = (\ideal a \cap M) + \ideal a'\) gezeigt.
+		\item
+			Es ist \(\ideal a \cap M\) als Untermodul eines noetherschen Moduls endlich erzeugt, 
+			etwa von \(g_1, \dotsc, g_m\). Damit ist \(\ideal a\) von
+			\(g_1, \dotsc, g_m, f_1, \dotsc, f_n\) erzeugt.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Folgerungen aus dem Hilbertschen Basissatz}
+	\begin{corollary}<+->
+		Ist \(A\) ein noetherscher kommutativer Ring, so ist auch der Polynomring \(A[x_1, \dotsc, x_n]\) in
+		endlich vielen Variablen noethersch.
+	\end{corollary}
+	\begin{proof}<+->
+		Folgt aus dem Hilbertschen Basissatz mittels Induktion über \(n\).
+	\end{proof}
+	\begin{corollary}<+->
+		Sei \(A\) ein noetherscher Ring. Dann ist jede endlich erzeugte kommutative
+		\(A\)-Algebra \(B\) noethersch.
+	\end{corollary}
+	\begin{proof}<+->
+		Es ist \(B\) ein Bild eines Polynomringes der Form \(A[x_1, \dotsc, x_n]\) unter einem
+		Ringhomomorphismus.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Zwischenringe in endlich erzeugten Erweiterungen}
+	\begin{proposition}<+->
+		\label{prop:intermediate_ring}
+		Seien \(A \subset B \subset C\) Erweiterungen kommutativer Ringe. Seien \(A\) noethersch
+		und \(C\) endlich erzeugt als \(A\)-Algebra. Sei weiter \(C\) endlich als \(B\)-Algebra.
+		Dann ist \(B\) endlich erzeugt als \(A\)-Algebra.
+	\end{proposition}
+	\begin{remark}<+->
+		In der Situation der Proposition ist es äquivalent zu fordern, daß \(C\) ganz als \(B\)-Algebra ist.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Beweis der Proposition über Zwischenringe}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Seien \(x_1, \dotsc, x_m\) Erzeuger von \(C\) als \(A\)-Algebra. Seien weiter
+			\(y_1, \dotsc, y_n\) Erzeuger von \(C\) als \(B\)-Modul. Damit existieren
+			\(b_i^j \in B\) mit \(x_i = \sum\limits_j b_i^j y_j\) und \(b_{ij}^k \in B\)
+			mit \(y_i y_j = \sum\limits_k b_{ij}^k y_k\). Sei \(B_0\) die von den \(b_i^j\) und
+			\(b_{ij}^k\) erzeugte \(A\)-Unteralgebra von \(B\). Da \(A\)
+			noethersch, ist auch \(B_0\) noethersch.
+		\item
+			Jedes Element in \(C\) ist ein Polynom in den \(x_i\) mit Koeffizienten in \(A\).
+			Durch wiederholtes Einsetzen der Ausdrücke für \(x_i\) und \(y_i y_j\) erhalten wir,
+			daß jedes Element in \(C\) eine Linearkombination der \(y_j\) mit Koeffizienten
+			in \(B_0\) ist, und damit ist \(C\) eine endliche \(B_0\)-Algebra.
+		\item
+			Da \(B_0\) noethersch ist, ist damit \(C\) ein noetherscher \(B_0\)-Modul.
+			Da \(B\) Untermodul von	\(C\), ist \(B\) als \(B_0\)-Modul endlich erzeugt.
+		\item
+			Schließlich ist \(B_0\) als \(A\)-Algebra endlich erzeugt, also ist
+			auch \(B\) als \(A\)-Algebra endlich erzeugt.
+		\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+

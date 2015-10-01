@@ -1,0 +1,145 @@
+\subsection{Ringe und Ideale}
+
+\begin{exercise}
+	\label{exer:sum_unit_nilp}
+	Sei \(x\) ein nilpotentes Element eines kommutativen Ringes \(A\). Zeige,
+	daß \(1 + x\) eine Einheit von \(A\) ist. Folgere, daß die Summe eines
+	nilpotenten Elementes mit einer Einheit wieder eine Einheit ist.
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:polys}
+	Sei \(A\) ein kommutativer Ring und \(A[x]\) der Polynomring in der
+	Variablen \(x\) über \(A\). Sei \(f = a_0 + a_1 x + \dotsb + a_m x^m
+	\in A[x]\). Zeige:
+	\begin{enumerate}
+	\item
+		Das Polynom \(f\) ist genau dann eine Einheit in \(A[x]\), wenn \(a_0\)
+		eine Einheit in \(A\) und die \(a_1, \dotsc, a_m\) nilpotent sind.
+		
+		(Sei \(b_0 + b_1 x + \dotsb + b_n x^n \in A[x]\) eine Inverse von \(f\).
+		Zeige per Induktion über \(r\), daß \(a_m^{r + 1} b_{n - r} = 0\).
+		Folgere daraus, daß \(a_m\) nilpotent ist und nutze
+		dann~\prettyref{exer:sum_unit_nilp}.)
+	\item
+		Das Polynom \(f\) ist genau dann nilpotent, wenn die \(a_0, \dotsc, a_m\)
+		nilpotent sind.
+	\item
+		Das Polynom \(f\) ist genau dann ein Nullteiler, wenn ein \(a \in A \setminus
+		\{0\}\) mit \(a f = 0\) existiert.
+		
+		(Sei \(g = b_0 + b_1 x + \dotsb + b_n x^n \in A[x] \setminus \{0\}\) ein
+		Polynom minimalen Grades mit \(g f = 0\). Dann ist \(a_m b_n = 0\), und damit
+		auch \(a_m g = 0\), denn \((a_m g) f = 0\) und \(a_m g\) hat echt kleineren
+		Grad als \(g\). Folgere dann per Induktion über \(r\), daß
+		\(a_{m - r} g = 0\).)
+	\item
+		Das Polynom \(f \in A[x]\) heißt \emph{primitiv}, wenn
+		\((a_0, \dotsc, a_m) = (1)\). Sei \(g \in A[x]\) ein weiteres Polynom.
+		
+		Dann ist \(fg\) genau dann primitiv, wenn \(f\) und \(g\) primitiv sind.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Verallgemeinere die Aussagen der \prettyref{exer:polys} auf einen Polynomring
+	\(A[x_1, \dotsc, x_n]\) in mehreren Variablen.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Zeige, daß im Polynomring \(A[x]\) das 
+	Jacobsonsche Radikal gleich dem Nilradikal ist.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Sei \(\ps A x\) der Ring der formalen
+	Potenzreihen \(f = \sum\limits_{m = 0}^\infty a_m x^m\) mit Koeffizienten in
+	\(A\). Zeige:
+	\begin{enumerate}
+	\item
+		Die Potenzreihe \(f\) ist genau dann eine Einheit in \(\ps A x\), wenn
+		\(a_0\) eine Einheit in \(A\) ist.
+	\item
+		Ist \(f\) nilpotent, ist \(a_m\) für alle \(m \in \set N_0\) nilpotent.
+		
+		Gilt auch die Umkehrung? (Vergleiche mit \prettyref{exer:nilp_powerseries}.)
+	\item
+		Die Potenzreihe \(f\) liegt genau dann im Jacobsonschen Radikal von
+		\(\ps A x\), wenn \(a_0\) im Jacobsonschen Ideal von \(A\) liegt.
+	\item
+		Sei \(\ideal m\) ein maximales Ideal in \(\ps A x\). Dann ist
+		die Kontraktion \(\ideal m_0 \coloneqq A \cap \ideal m\) ein maximales Ideal
+		in \(A\) und \(\ideal m\) ist das von \(\ideal m_0\) und \(x\) in \(\ps A x\)
+		erzeugte Ideal.
+	\item
+		Jedes Primideal von \(A\) ist die Kontraktion eines Primideals von
+		\(\ps A x\).
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring, in dem jedes nicht im Nilradikal enthaltene
+	Ideal ein nicht triviales Idempotentes enthält, das heißt, ein Element
+	\(e \neq 0\) mit \(e^2 = e\). Zeige, daß das Nilradikal und das Jacobsonsche
+	Radikal von \(A\) übereinstimmen.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring, in dem jedes Element \(x\) eine Gleichung der
+	Form \(x^n = x\) für ein (von \(x\) abhängiges) \(n > 1\) erfüllt. Zeige, daß
+	jedes Primideal von \(A\) maximal ist.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring, welcher nicht der Nullring ist. Zeige, daß \(A\)
+	ein bezüglich der Inklusion minimales Primideal besitzt.
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:radicals}
+	Sei \(\ideal a \neq (1)\) ein echtes Ideal eines kommutativen Ringes \(A\). Zeige,
+	daß \(\ideal a\) genau dann mit seinem Wurzelideal übereinstimmt, wenn
+	\(\ideal a\) ein Schnitt von Primidealen ist.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring mit Nilradikal \(\ideal n\). Zeige, daß folgende
+	Aussagen äquivalent sind:
+	\begin{enumerate}
+	\item
+		Der Ring \(A\) besitzt genau ein Primideal.
+	\item
+		Jedes Element von \(A\) ist entweder eine Einheit oder nilpotent.
+	\item
+		Der Quotientenring \(A/\ideal n\) ist ein Körper.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein \emph{Boolescher Ring}, das heißt ein kommutativer Ring, in dem
+	\(x^2 = x\) für alle \(x \in A\) gilt. Zeige:
+	\begin{enumerate}
+	\item
+		Für alle \(x \in A\) gilt \(2 x = 0\).
+	\item
+		Jedes Primideal \(\ideal p\) von \(A\) ist maximal und \(A/\ideal p\) ist
+		ein Körper mit zwei Elementen.
+	\item
+		Jedes endlich erzeugte Ideal von \(A\) ist ein Hauptideal.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein lokaler kommutativer Ring. Zeige, daß \(A\) außer \(0\) und \(1\)
+	keine idempotenten Elemente enthält.
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:ideals_of_zero_divs}
+	Sei \(A\) ein kommutativer Ring. Sei \(\mathfrak S\) die Menge aller Ideale von \(A\),
+	in denen jedes Element ein Nullteiler ist. Zeige, daß im Falle \(A \neq 0\) die Menge \(\mathfrak S\) bezüglich
+	der Inklusion maximale Elemente besitzt und daß jedes maximale Element von \(\mathfrak S\) ein
+	Primideal ist. Folgere, daß die Menge der Nullteiler von \(A\) eine Vereinigung von Primidealen
+	ist.
+\end{exercise}
+

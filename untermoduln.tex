@@ -1,0 +1,131 @@
+\section{Untermoduln und Quotientenmoduln}
+
+\subsection{Untermoduln, Quotientenmoduln, Kerne und Kokerne}
+
+\begin{frame}{Definition eines Untermoduls}
+	Sei \(A\) ein Ring.
+	\begin{definition}
+		Eine Teilmenge \(M'\) eines \(A\)-Moduls \(M\) heißt \emph{Untermodul von
+		\(M\)}, falls
+		\begin{enumerate}[<+->]
+			\item \(M'\) eine Untergruppe der abelschen Gruppe von \(M\) ist und
+			\item \(M'\) abgeschlossen unter Multiplikation mit Elementen aus \(A\) ist,
+			also \(a x \in M'\) für alle \(a \in A\) und \(x \in M'\).
+		\end{enumerate}
+	\end{definition}
+	\begin{visibleenv}<+->
+		Eine Teilmenge \(M'\) von \(M\) ist genau dann ein Untermodul, falls für alle
+		\(x, x' \in M'\) und \(a \in A\) gilt:
+		\begin{align*}
+			x + x' & \in M'; & 0 & \in M'; \\
+			a x & \in M'.
+		\end{align*}
+	\end{visibleenv}
+	\begin{remark}<+->
+		Durch Einschränkung der Multiplikation wird jeder Untermodul eines \(A\)-Moduls
+		selbst zu einem \(A\)-Modul.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Beispiele für Untermoduln}
+	Sei \(A\) ein Ring.
+	\begin{example}<+->
+		Jeder \(A\)-Modul \(M\) besitzt die beiden trivialen Untermoduln \(\{0\}\) und
+		\(M\).
+	\end{example}
+	\begin{example}<+->
+		Sei \(A\) kommutativ. Eine Teilmenge \(\ideal a\) von \(A\) ist genau dann
+		ein Ideal von \(A\), wenn \(\ideal a\) ein Untermodul von \(A\) ist,
+		wobei wir \(A\) in kanonischer Weise als Modul über sich selbst auffassen.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Quotientenmoduln}
+	Sei \(A\) ein Ring. Sei \(M'\) ein Untermodul eines \(A\)-Moduls \(M\).
+	\begin{proposition}<+->
+		Es gibt genau eine
+		Modulstruktur auf der Menge \(M/M'\) der \(M'\)-Nebenklassen, so daß die
+		kanonische Abbildung \(\pi\colon M \surjto M/M', x \mapsto [x] \coloneqq
+		x + M'\) ein Homomorphismus von \(A\)-Moduln wird.
+		\qed
+	\end{proposition}
+	\begin{definition}<+->
+		Der \(A\)-Modul \(M/M'\) heißt der \emph{Quotientenmodul von \(M\) nach
+		\(M'\)}.
+	\end{definition}
+	\begin{proposition}<+->
+		Sei \(\pi\colon M \to M/M'\) die kanonische Abbildung.
+		Durch \(N = \pi^{-1}(\bar N)\) wird eine bijektive, ordnungserhaltende
+		Korrespondenz zwischen den Untermoduln \(N\) von \(M\) mit \(N \supset M'\)
+		und den Untermoduln \(\bar N\) von \(M/M'\) gegeben.
+		\qed
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Kern, Bild und Kokern}
+	\begin{visibleenv}<+->
+		Sei \(A\) ein Ring. Sei \(\phi\colon M \to N\) ein Homomorphismus von \(A\)-
+		Moduln. Es sind
+		\[\ker \phi \coloneqq \{x \in M \mid \phi(x) = 0\} \subset
+		M\] und \[\im \phi \coloneqq \{\phi(x) \mid x \in M\} \subset N\]
+		Untermoduln von \(M\) beziehungsweise \(N\).
+	\end{visibleenv}
+	\begin{definition}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Der Untermodul \(\ker \phi\) von \(M\) heißt der \emph{Kern von \(\phi\)}.
+		\item
+			Der Untermodul \(\im \phi\) von \(N\) heißt das
+			\emph{Bild von \(\phi\)}.
+		\item
+			Der Quotientenmodul \(\coker \phi \coloneqq N/\im \phi\) heißt der
+			\emph{Kokern von \(\phi\)}.
+		\end{enumerate}
+	\end{definition}
+	\begin{proposition}<+->
+		Es ist \(\coker \phi = 0\) genau dann, wenn \(\phi\) surjektiv ist.
+		\qed
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Der Homomorphiesatz für Moduln}
+	Sei \(A\) ein Ring. Sei \(\phi\colon M \to N\) ein Homomorphismus von
+	\(A\)-Moduln. 
+	\begin{proposition}[Homomorphiesatz für Moduln]<+->
+		Ist \(M'\) ein Untermodul von \(M\)
+		mit \(M' \subset \ker \phi\), so gibt es genau
+		einen Modulhomomorphismus \(\underline \phi\colon M/M' \to N,
+		[x] \mapsto \phi(x)\) mit \(\ker \underline{\phi} = \ker \phi/M'\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Die Existenz von \(\underline \phi\) wird wie beim Homomorphiesatz für
+			Ringe bewiesen.
+		\item
+			Es ist \([x] \in \ker{\underline\phi} \iff 
+			\underline\phi([x]) = 0 \iff
+			\phi(x) = 0 \iff
+			x \in \ker\phi \iff [x] \in \ker\phi/M'\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+	\begin{example}<+->
+		Es existiert ein kanonischer Isomorphismus \(M/\ker \phi \to \im \phi\) von
+		\(A\)-Moduln.
+	\end{example}
+\end{frame}
+
+\subsection{Bezeichnungen}
+
+\begin{frame}{Bezeichnungen für Unter- und Quotientenmoduln}
+	\begin{convention}<+->
+		Untermoduln von Moduln \(M, N, L, \dotsc\) bezeichnen wir häufig mit Strichen
+		\(M', N', L', \dotsc\).
+	\end{convention}
+	\begin{convention}<+->
+		Quotientenmoduln von Moduln \(M, N, L, \dotsc\) bezeichnen wir häufig mit
+		Doppelstrichen \(M'', N'', L'', \dotsc\).
+	\end{convention}
+\end{frame}
+

@@ -1,0 +1,78 @@
+\section{Moduln über Dedekindschen Bereichen}
+
+\subsection{Vorüberlegungen}
+
+\mode<article>{In diesem Kapitel wollen wir die Moduln über einem Dedekindschen Bereich klassifizieren. Da jeder
+Hauptidealbereich insbesondere ein Dedekindscher Bereich ist, ist die Klassifikation in diesem Kapitel eine
+Verallgemeinerung der Klassifikation von Moduln über Hauptidealbereichen.}
+
+\begin{frame}{Exponenten gebrochener Ideale}
+	Sei \(A\) ein Dedekindscher Bereich. Wir erinnern, daß die heißt, daß \(A\) ein ganz abgeschlossener
+	Integritätsbereich der Dimension \(1\) ist. Insbesondere läßt sich in \(A\) jedes nicht verschwindende
+	gebrochene Ideal \(\ideal r\) eindeutig als Produkt
+	\(\ideal r = \prod\limits_{\ideal p} \ideal p^{n_{\ideal p}}\)
+	von (ganzzahligen) Potenzen von Primidealen von \(A\) schreiben.
+	\begin{definition}<+->
+		Die Zahl \(\ord_{\ideal p}(\ideal r) \coloneqq n_{\ideal p}\) heißt der \emph{Exponent von \(\ideal r\) an
+		\(\ideal p\)}.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Wir setzen \(\ord_{\ideal p}((0)) \coloneqq \infty\) für alle \(\ideal p\) und
+		\(\ord_{\ideal p} f = \ord_{\ideal p}(f)\) für eine Funktion \(f\).
+	\end{visibleenv}
+	\begin{remark}<+->
+		Der Expontent \(\ord_{\ideal p} \ideal a\) von \(\ideal a\) an \(\ideal p\) ist
+		gerade durch dasjenige \(n \in \set Z\) gegeben, so daß \(A_{\ideal p} \ideal a = (x^n)\)
+		gilt, wobei \(x\) Erzeuger des maximalen Ideals im diskreten lokalen Bewertungsring \(A_{\ideal p}\) ist.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Lösungen von Idealgleichungen}
+	\begin{lemma}<+->
+		Sei \(A\) ein Dedekindscher Bereich. Seien \(\ideal a, \ideal b\) zwei ganze Ideale von \(A\) mit
+		\(\ideal b \neq (0)\).
+		Dann existieren ein ganzes Ideal \(\ideal c\) und ein \(r \in A \setminus \{0\}\)
+		mit \(\ideal a + \ideal c = (1)\) und \(\ideal b \ideal c = (r)\).
+	\end{lemma}
+	\begin{visibleenv}<+->
+		Ist \(\ideal b\) nur ein gebrochenes Ideal, so gilt die Aussage des Hilfssatzes ebenfalls, es ist dann
+		allerdings im allgemeinen \(r \in K^\units\).
+	\end{visibleenv}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Seien \(\ideal a = \prod\limits_{i = 1}^t (\ideal p_i)^{a_i}\)
+			und \(\ideal b = \prod\limits_{i = 1}^t (\ideal p_i)^{b_i}\)
+			Primidealzerlegungen von \(\ideal a\) und \(\ideal b\).
+			Wir wählen \(r_i \in \ideal p_i^{b_i} \setminus \ideal p_i^{b_i + 1}\).
+		\item
+			Da die \(\ideal p_i\) paarweise koprim sind, existiert ein \(r \in A\) mit \(r = r_i\)
+			modulo \(\ideal p_i^{b_i + 1}\). Es folgt \(r \in \bigcup\limits_{i = 1}^t
+			\ideal p_i^{b_i} = \ideal b\).
+		\item
+			Damit ist \((r) + \ideal a \ideal b = \ideal b\), denn der Exponent der linken Seite an einem Primideal
+			\(\ideal p\) ist gerade \(b_i\).
+		\item
+			Setze schließlich \(\ideal c \coloneqq (r) \ideal b^{-1}\). Dann ist \(\ideal c \ideal b + \ideal a \ideal b
+			= \ideal b\), also \(\ideal c + \ideal a = (1)\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Direkte Summen gebrochener Ideale}
+	\begin{lemma}<+->
+		Seien \(\ideal a, \ideal b\) zwei Ideale in einem Dedekindschen Bereich \(A\). Dann existiert
+		ein Isomorphismus \(\ideal a \oplus \ideal b \cong (1) \oplus \ideal a \ideal b\) von \(A\)-Moduln.
+	\end{lemma}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sind \(\ideal a, \ideal b\) ganz und koprim, so ist \(\ideal a \oplus \ideal b \to (1), (a, b) \mapsto
+			a + b\) ein surjektiver Ringhomomorphismus mit Kern \(\ideal a \ideal b\).
+		\item
+		\item
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+

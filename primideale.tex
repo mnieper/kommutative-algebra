@@ -1,0 +1,224 @@
+\section{Primideale und maximale Ideale}
+
+\subsection{Primideale}
+
+\begin{frame}{Definition von Prim- und maximalen Idealen}
+    Seien \(\ideal p, \ideal m\) zwei Ideale eines kommutativen Ringes \(A\).
+    \begin{definition}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Das Ideal \(\ideal p\) von \(A\) heißt \emph{prim},
+            falls \(1 \notin \ideal p\) und falls
+            aus \(a b \in \ideal p\) für \(a, b \in A\) schon \(a \in \ideal p\)
+            oder \(b \in \ideal p\) folgt.
+        \item
+            Das Ideal \(\ideal m\) von \(A\) heißt \emph{maximal},
+            falls für jedes Ideal \(\ideal a\) von \(A\)
+            mit \(\ideal a \supset \ideal m\) \alert{entweder} \(\ideal a = \ideal m\)
+            \alert{oder} \(\ideal a = (1)\) gilt.
+        \end{enumerate}
+    \end{definition}
+    \begin{proposition}<+->
+        Das Ideal \(\ideal p\) ist genau dann prim, wenn \(A/\ideal p\) ein 
+        Integritätsbereich ist.
+        \qed
+    \end{proposition}
+    \begin{example}<+->
+        Das Nullideal ist genau dann prim, wenn \(A\) ein Integritätsbereich ist.
+    \end{example}
+\end{frame}
+
+\begin{frame}{Beispiele von Primidealen}
+    \begin{example}<+->
+        Jedes Ideal in \(\set Z\) ist von der Form \((m)\) mit \(m \ge 0\). Das 
+        Ideal \((m)\) ist genau dann prim, falls \(m = 0\) oder \(m\) eine Primzahl
+        ist. Im Falle, daß \(p\) eine Primzahl ist, ist \((p)\) ein maximales Ideal.
+    \end{example}
+    \begin{example}<+->
+        Sei \(f \in A \coloneqq K[x_1, \dotsc, x_n]\) ein irreduzibles Polynom über
+        dem Körper \(K\). Da \(A\) ein faktorieller Ring ist, ist \((f)\) ein 
+        Primideal von \(A\).
+        
+        Das Ideal \((x_1, \dotsc, x_n)\) ist ein maximales Ideal in \(A\).
+    \end{example}
+    \begin{proposition}<+->
+        Sei \(\ideal a\) ein Ideal eines kommutativen Ringes \(A\) und
+        \(\pi\colon A \to A/\ideal a\) der kanonische Homomorphismus.
+        Durch \(\ideal p = \pi^{-1}(\bar{\ideal p})\) wird eine bijektive 
+        ordnungserhaltende Korrespondenz zwischen den Primidealen \(\ideal p\)
+        von \(A\) mit \(\ideal p \supset \ideal a\) und den Primidealen
+        \(\bar{\ideal p}\) von \(A/\ideal a\) gegeben.
+        \qed
+    \end{proposition}
+\end{frame}
+
+\begin{frame}{Primideale in Hauptidealbereichen}
+    \begin{proposition}<+->
+        Sei \(\ideal p\) ein Primideal in einem Hauptidealbereich \(A\). Ist
+        \(\ideal p \neq (0)\), so ist \(\ideal p\) ein maximales Ideal.
+    \end{proposition}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Sei \(\ideal p = (p)\) mit \(p \neq 0\). Sei \((q) \supset (p)\). Wir
+            müssen zeigen, daß \(q\) eine Einheit ist oder daß \((q) = (p)\).
+        \item
+            Da \((q) \supset (p)\), existiert ein \(x \in A\) mit \(p = x q\).
+        \item
+            Aus \(x q \in (p)\) folgt \(x \in (p)\) oder \(q \in (p)\).
+        \item
+            Sei \(x \in (p)\). Dann existiert ein \(y \in A\) mit \(x = y p\), also
+            \(p = y q p\). Da \(p \neq 0\), folgt \(y q = 1\). Also ist \(q\) eine
+            Einheit.
+        \item
+            Sei \(q \in (p)\). Dann ist \((q) \subset (p)\) und damit \((q) = (p)\).
+            \qedhere
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\subsection{Maximale Ideale}
+
+\begin{frame}{Maximale Ideale}
+    Sei \(A\) ein kommutativer Ring.
+    \begin{proposition}<+->
+        Sei \(\ideal a\) ein Ideal von \(A\) und \(\pi\colon A \to A/\ideal a\) der
+        kanonische Homomorphismus.
+        Durch \(\ideal m = \pi^{-1}(\bar{\ideal m})\) wird eine bijektive 
+        ordnungserhaltende Korrespondenz zwischen den maximalen Idealen \(\ideal m\)
+        von \(A\) mit \(\ideal m \supset \ideal a\) und den maximalen Idealen
+        \(\bar{\ideal m}\) von \(A/\ideal a\) gegeben.
+        \qed
+    \end{proposition}
+    \begin{proposition}<+->
+        Ein Ideal \(\ideal m\) von \(A\) ist genau dann maximal, wenn
+        \(A/\ideal m\) ein Körper ist.
+        \qed
+    \end{proposition}
+    \begin{corollary}<+->
+        Jedes maximale Ideal von \(A\) ist prim.
+        \qed
+    \end{corollary}
+\end{frame}
+
+\begin{frame}{Existenz maximaler Ideale}
+    \begin{theorem}<+->
+        Ein Ring \(A\) besitzt genau dann ein maximales Ideal, wenn \(A\) nicht der
+        Nullring ist.
+    \end{theorem}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Ein maximales Ideal von \(A\) ist gerade ein maximales Element des
+            Systems \(\mathfrak A\) aller Ideale \(\ideal a\) von \(A\) mit
+            \(\ideal a \neq (1)\) bezüglich der Inklusionsordnung.
+        \item
+            Jede Kette \(\mathfrak C\) in \(\mathfrak A\) besitzt eine obere Schranke
+            in \(\mathfrak A\), nämlich \(\bigcup \mathfrak C\).
+        \item
+            Nach dem Zornschen Lemma besitzt \(\mathfrak A\) damit genau dann ein
+            maximales Element, falls \(\mathfrak A\) nicht leer ist.
+        \item
+            Das System \(\mathfrak A\) ist genau nicht leer, wenn \(A\) nicht der
+            Nullring ist, denn dann ist \((0) \in \mathfrak A\).
+            \qedhere
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Folgerungen aus der Existenz maximaler Ideale}
+    Sei \(A\) ein kommutativer Ring.
+    \begin{corollary}<+->
+        Sei \(\ideal a\) ein Ideal von \(A\). Dann existiert genau dann ein
+        maximales Ideal \(\ideal m\) von \(A\) mit \(\ideal a \subset \ideal m\),
+        wenn \(\ideal a \neq (1)\).
+    \end{corollary}
+    \begin{proof}<+->
+        Der Ring \(A/\ideal a\) besitzt genau dann ein maximales Ideal, wenn
+        \(\ideal a \neq (1)\). Ein solches maximales Ideal entspricht einem maximalen
+        Ideal \(\ideal m\) von \(A\) mit \(\ideal m \supset \ideal a\).
+    \end{proof}
+    \begin{corollary}<+->
+        Ein Element \(x\) von \(A\) liegt genau dann in einem maximalen Ideal von
+        \(A\), wenn \(x\) keine Einheit ist.
+        \qed
+    \end{corollary}
+\end{frame}
+
+\subsection{Lokale Ringe}
+
+\begin{frame}{Lokale Ringe}
+    \begin{definition}<+->
+        Ein \emph{lokaler Ring \(A\)} ist ein kommutativer Ring mit genau einem
+        maximalen Ideal \(\ideal m\). Der Körper \(A/\ideal m\) ist der
+        \emph{Restklassenkörper von \(A\)}.
+    \end{definition}
+    \begin{example}<+->
+        Körper sind lokale Ringe.
+    \end{example}
+    \begin{notation}<+->
+        Ist \(A\) ein lokaler Ring mit maximalem Ideal \(\ideal m\) und
+        Restklassenkörper \(F\), so schreiben wir häufig \((A, \ideal m)\) oder
+        \((A, \ideal m, F)\) für \(A\).
+    \end{notation}
+    \begin{visibleenv}<+->
+        Die folgende Definition verallgemeinert den Begriff des lokalen Ringes.
+    \end{visibleenv}
+    \begin{definition}<.->
+        Ein \emph{halblokaler Ring \(A\)} ist ein kommutativer Ring mit nur
+        endlich vielen maximalen Idealen.
+    \end{definition}
+\end{frame}
+
+\begin{frame}{Ringe, in denen die Nichteinheiten ein Ideal bilden}
+    \begin{proposition}<+->
+        Sei \(\ideal m\) ein Ideal eines kommutativen Ringes \(A\), so daß
+        \(A \setminus \ideal m = A^\units\). Dann ist \((A, \ideal m)\) ein
+        lokaler Ring.
+    \end{proposition}
+    \begin{proof}<+->
+        Sei \(\ideal a \neq (1)\) ein Ideal von \(A\). Wegen \(1 \neq \ideal a\)
+        enthält \(\ideal a\) keine Einheiten. Also ist
+        \(\ideal a \subset A \setminus A^\units = \ideal m\). Folglich
+        ist \(\ideal m\) ein maximales Ideal und das einzige.
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Ein Kriterium für einen lokalen Ring}
+    \begin{proposition}<+->
+        Sei \(\ideal m\) ein maximales Ideal eines kommutativen Ringes \(A\),
+        so daß jedes Element von \(1 + \ideal m\) eine Einheit in \(A\) ist.
+        Dann ist \(A\) ein lokaler Ring.
+    \end{proposition}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Wir zeigen, daß \(A \setminus \ideal m = A^\units\). Sei dazu
+            \(x \in A \setminus \ideal m\).
+        \item
+            Da \(\ideal m\) ein maximales Ideal ist, ist das von \(\ideal m\)
+            und \(x\) aufgespannte Ideal das Einsideal.
+        \item
+            Damit existieren ein \(y \in A\) und ein \(t \in \ideal m\) mit
+            \(x y + t = 1\), also \(x y = 1 - t \in 1 + \ideal m\).
+        \item
+            Nach Voraussetzung ist \(x y\) damit eine Einheit. Folglich ist
+            auch \(x \in A^\units\).
+            \qedhere
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\subsection{Bezeichnungen}
+
+\begin{frame}{Bezeichnungen für Primideale}
+    \begin{convention}<+->
+        Primideale bezeichnen wir mit kleinen deutschen Buchstaben
+        \(\ideal p, \ideal q, \dotsc\).
+    \end{convention}
+    \begin{convention}<+->
+        Maximale Ideale bezeichnen wir mit kleinen deutschen Buchstaben
+        \(\ideal m, \ideal n, \dotsc\).
+    \end{convention}    
+\end{frame}
+

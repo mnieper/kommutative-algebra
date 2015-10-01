@@ -1,0 +1,277 @@
+\section{Gewichtete Ringe und Moduln I}
+
+\subsection{Definition gewichteter Ringe und Moduln}
+
+\begin{frame}{Gewichtete Ringe}
+	\begin{definition}<+->
+		Ein \emph{gewichteter Ring} ist ein Ring \(A\) zusammen mit einer
+		Familie \((A_n)_{n \in \set N_0}\) von Untergruppen der additiven
+		Gruppen von \(A\), so daß
+		\(\bigoplus\limits_{n \in \set N_0} A_n \to A, (a_n) \mapsto
+		\sum\limits_n a_n\) ein Gruppenisomorphismus ist und
+		\(A_m A_n \subset A_{n + m}\) für alle \(m, n \in \set N_0\).
+	\end{definition}
+	\begin{visibleenv}<+->
+		Aus der Definition folgt insbesondere, daß \(A_0\) ein Unterring
+		von \(A\) ist und daß jedes \(A_n\) ein \(A_0\)-Modul ist.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Der Polynomring als gewichteter Ring}
+	\begin{example}<+->
+		Sei \(K\) ein Körper. Sei \(A \coloneqq K[X_1, \dotsc, X_r]\) der
+		Polynomring in \(r\) Variablen. 
+		\\
+		Für alle \(n \in \set N_0\) sei \(A_n\) die Untergruppe der homogenen
+		Polynome vom Grad \(n\) (inklusive des Nullpolynoms).
+		\\
+		Mit dieser Setzung wird \(A\) zu einem kommutativen gewichteten Ring.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Das irrelevante Ideal}
+	\begin{visibleenv}<+->
+		Sei \(A\) ein gewichteter Ring. Die Menge
+		\(A_+ \coloneqq \sum\limits_{n > 0} A_n\) ist ein Ideal von \(A\).
+	\end{visibleenv}
+	\begin{notation}<+->
+		Wir nennen \(A_+\) das \emph{irrelevante Ideal von \(A\)}.
+	\end{notation}
+	\begin{proposition}<+->
+		Es ist \(A_0 \to A/A_+, x \mapsto [x]_{A_+}\) ein Ringisomorphismus.
+		\qed
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Gewichtete Moduln}
+	\begin{definition}<+->
+		Sei \(A\) ein gewichteter Ring. Ein \emph{gewichteter \(A\)-Modul} ist
+		ein \(A\)-Modul \(M\) zusammen mit einer Familie \((M_n)_{n \in \set N_0}\)
+		von Untergruppen der additiven Gruppe von \(M\), so daß
+		\(\bigoplus\limits_n M_n \to M, (m_n) \mapsto \sum\limits_n m_n\)
+		ein Gruppenisomorphismus ist und \(A_m M_n \subset M_{m + n}\)
+		für alle \(m, n \in \set N_0\).
+	\end{definition}
+	\begin{visibleenv}<+->
+		Aus der Definition folgt insbesondere, daß jedes \(M_n\) ein \(A_0\)-Modul
+		ist.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Homogene Komponenten}
+	\begin{definition}<+->
+		Sei \(A\) ein gewichteter Ring. Sei \(M\) ein gewichteter \(A\)-Modul. 
+		Sei \(n \in \set N_0\). Ein	\(x \in M\) heißt \emph{homogen vom
+		Gewicht \(n\)}, falls \(x \in M_n\).
+	\end{definition}
+	\begin{visibleenv}<+->
+		Offensichtlich kann jedes Element \(x \in M\) eindeutig als Summe
+		\(x = \sum\limits_n x_n\) geschrieben werden, wobei die \(x_n\) jeweils
+		homogen vom Gewicht \(n\) sind und fast alle \(x_n\) verschwinden
+		(d.h.\ die Summe ist endlich).
+		\\
+		Die nicht verschwindenden \(x_n\) heißen die \emph{homogenen Komponenten
+		von \(x\)}.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Homomorphismen gewichteter Moduln}
+	\begin{definition}<+->
+		Sei \(A\) ein gewichteter Ring. Seien \(M, N\) zwei gewichtete \(A\)-Moduln.
+		Ein \emph{Homomorphismus \(\phi\colon M \to N\) gewichteter \(A\)-Moduln}
+		ist ein Homomorphismus \(\phi\colon M \to N\) von \(A\)-Moduln mit
+		\(\phi(M_n) \subset N_n\) für alle \(n \in \set N_0\).
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Noethersche gewichtete Ringe}
+	\begin{proposition}<+->
+		Ein kommutativer gewichteter Ring ist genau dann noethersch, wenn
+		\(A_0\) noethersch ist und \(A\) als \(A_0\)-Algebra endlich erzeugt ist.
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beweis zu noetherschen gewichteten Ringen}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(A_0\) noethersch und \(A\) als \(A_0\)-Algebra endlich erzeugt,
+			so ist \(A\) nach dem Hilbertschen Basissatz noethersch.
+		\item
+			Sei umgekehrt \(A\) noethersch. Damit ist \(A_0 \cong A/A_+\) als
+			Quotient ebenfalls noethersch. Es bleibt, endlich viele Erzeuger
+			von \(A\) als \(A_0\)-Algebra zu finden. Zunächst ist
+			\(A_+\) als Ideal \(A\) endlich erzeugt, etwa von \(x_1, \dotsc,
+			x_r\). Ohne Einschränkung seien die \(x_i\) jeweils homogen von
+			den Gewichten \(d_i > 0\).
+		\item
+			Sei \(A'\) die von den \(x_i\) über \(A_0\) erzeugte Unteralgebra
+			von \(A\). Wir zeigen per Induktion, daß \(A_n \subset A'\) für
+			alle \(n\). Wir können \(n > 0\) annehmen. Sei \(y \in A_n\).
+		\item
+			Da \(y \in A_+\), existieren homogene \(a_i \in A\) 
+			mit \(y = \sum\limits_i a_i x_i\). Die Gewichte der \(a_i\) sind echt
+			kleiner als \(n\). Nach Induktionsvoraussetzung ist daher \(a_i \in A'\)
+			und damit auch \(y \in A'\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Reessche Ringe und Moduln}
+
+\begin{frame}{Der Reessche Ring}
+	Sei \(\ideal a\) ein Ideal in einem kommutativer Ring \(A\). Mit
+	\(\Rees_{\ideal a}(t) = \Rees_{\ideal a}(A, t)\) bezeichnen wir die Teilmenge aller derjenigen Polynome
+	\(a_n t^n + a_{n - 1} t^{n - 1} + \dotsb + a_0 \in A[t]\) mit
+	\(a_i \in \ideal a^i\).
+	\\
+	Durch die Setzung \(\Rees_{\ideal a}(t)_n = \ideal a^n t^n\) wird
+	\(\Rees_{\ideal a}(t)\) zu einem kommutativen gewichteten Ring.
+	\begin{definition}<+->
+		Der gewichtete Ring \(\Rees_{\ideal a}(A, t)\) heißt der \emph{Reessche
+		Ring von \(A\) bezüglich \(\ideal a\)}.
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Reessche Ringe noetherscher Ringe}
+	\begin{proposition}<+->
+		Sei \(\ideal a\) ein Ideal in einem kommutativen Ring \(A\). Ist
+		\(A\) noethersch, so ist auch der Reessche Ring
+		\(\Rees_{\ideal a}(A, t)\) noethersch.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(A\) noethersch, so ist insbesondere das Ideal \(\ideal a\)
+			endlich erzeugt, etwa von \(x_1, \dotsc, x_r\).
+		\item
+			Damit ist \(\Rees_{\ideal a}(t)\) als \(A\)-Algebra von
+			\(x_1 t, \dotsc, x_r t\) erzeugt. Nach dem Hilbertschen Basissatz
+			ist \(\Rees_{\ideal a}(t)\) damit auch noethersch.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Der Reessche Modul}
+	\begin{visibleenv}<+->
+		Sei \(\ideal a\) ein Ideal in einem kommutativen Ring \(A\). Sei
+		\(M\) ein \(A\)-Modul zusammen mit einer \(\ideal a\)-Filtrierung
+		\(M_\bullet\colon M = M_0 \supset M_1 \supset \dotsb\). 
+		\\
+		Mit \(\Rees(M_\bullet, t)\) bezeichnen wir die Teilmenge aller derjenigen
+		Polynome \(m_n t^n + m_{n - 1} t^{n - 1} + \dotsb + m_0 \in M[t]\)
+		mit \(m_i \in M_i\).
+		\\
+		Durch die Setzung \(\Rees(M_\bullet, t)_n \coloneqq M_n t^n\) wird
+		\(\Rees(M_\bullet, t)\) wegen \(\ideal a^m M_n \subset M_{m + n}\)
+		zu einem gewichteten \(\Rees_{\ideal a}(A, t)\)-Modul.
+	\end{visibleenv}
+	\begin{definition}<+->
+		Der \(\Rees_{\ideal a}(A, t)\)-Modul \(\Rees(M_\bullet, t)\) heißt der
+		\emph{Reessche Modul zur Filtration \(M_\bullet\)}.
+	\end{definition}
+	\begin{notation}<+->
+		Im Falle der \(\ideal a\)-adischen Filtrierung \(M_n = \ideal a^n M\) schreiben wir
+		\(\Rees_{\ideal a}(M, t) = \Rees(M_\bullet, t)\).
+	\end{notation}
+\end{frame}
+
+\begin{frame}{Endliche erzeugte Reessche Moduln}
+	\begin{proposition}<+->
+		Sei \(\ideal a\) ein Ideal in einem noetherschen kommutativen Ring
+		\(A\). Sei \(M\) ein endlich erzeugter \(A\)-Modul zusammen mit einer
+		\(\ideal a\)-Filtration \(M_\bullet\). Dann ist
+		\(\Rees(M_\bullet, t)\) genau dann ein endlich erzeugter \(\Rees_{\ideal a}(A, t)\)-Modul,
+		wenn die Filtration \(M_\bullet\) stabil ist.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Die \(A\)-Moduln \(M_n\) sind endlich erzeugt. Damit ist auch
+			\(Q_n \coloneqq \sum\limits_{r = 0}^n M_r t^r \subset \Rees(M_\bullet, t)\)
+			ein endlich erzeugter \(A\)-Modul.
+		\item
+			Der von \(Q_n\) in \(\Rees(M_\bullet, t)\) erzeugte \(\Rees_{\ideal a}(t)\)-Untermodul
+			\(Q^*_n\) ist damit als \(\Rees_{\ideal a}(t)\)-Modul endlich erzeugt.
+			Es ist \(\Rees(M_\bullet, t) = \sum\limits_n Q^*_n\).
+		\item
+			Da \(\Rees_{\ideal a}(t)\) noethersch ist, ist \(\Rees(M_\bullet, t)\)
+			genau dann als \(\Rees_{\ideal a}(t)\)-Modul endlich erzeugt, wenn
+			\(\Rees(M_\bullet, t) = Q^*_{n_0}\) für ein \(n_0 \in \set N_0\), wenn also
+			\(M_{n_0 + n} = \ideal a^n M_{n_0}\) für alle \(n \ge 0\), wenn
+			die Filtration also stabil ist.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Das Artin--Reessche Lemma}
+
+\begin{frame}{Das Artin--Reessche Lemma}
+	\begin{proposition}<+->
+		Sei \(\ideal a\) ein Ideal in einem noetherschen kommutativen Ring
+		\(A\). Sei \(M\) ein endlich erzeugter \(A\)-Modul zusammen mit einer
+		stabilen \(\ideal a\)-Filtration \(M_\bullet\). Für jeden Untermodul
+		\(M'\) von \(M\) ist dann \(M' \cap M_\bullet\colon M' = M' \cap M_0
+		\supset M' \cap M_1 \supset M' \cap M_2 \supset \dotsb\) eine
+		stabile \(\ideal a\)-Filtration von \(\ideal M\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da \(\ideal a (M' \cap M_n) \subset \ideal a M' \cap \ideal a M_n
+			\subset M' \cap M_{n + 1}\), ist \(M' \cap M_\bullet\) eine
+			\(\ideal a\)-Filtration.
+		\item
+			Der Reessche Modul \(Q^*\) zur Filtration \(M' \cap M_\bullet\)
+			von \(M'\) ist gewichteter \(\Rees_{\ideal a}(t)\)-Modul, und zwar
+			Untermodul des endlich erzeugten \(\Rees_{\ideal a}(t)\)-Moduls
+			\(\Rees(M_\bullet, t)\) ist.
+		\item
+			Da \(\Rees_{\ideal a}(t)\) noethersch ist, ist damit auch
+			\(Q^*\) endlich erzeugt. Nach dem letzten Hilfssatz ist damit
+			\(M' \cap M_\bullet\) eine stabile Filtration.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Das spezielle Artin--Reessche Lemma}
+	\begin{corollary}<+->
+		Sei \(\ideal a\) ein Ideal in einem noetherschen kommutativen Ring \(A\).
+		Sei \(M\) ein endlich erzeugter \(A\)-Modul. Dann existiert für jeden Untermodul \(M' \subset M\)
+		ein \(n_0 \in \set N_0\),
+		so daß
+		\[
+			(\ideal a^n M) \cap M' = \ideal a^{n - n_0} ((\ideal a^{n_0} M) \cap M')
+		\]
+		für alle \(n \ge n_0\).
+	\end{corollary}
+	\begin{proof}<+->
+		Ist die Aussage der Proposition, wenn wir die \(\ideal a\)-adische Filtration
+		auf \(M\) wählen.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{\(\ideal a\)-adische Topologien auf Untermoduln}
+	\begin{theorem}<+->
+		Sei \(A\) ein noetherscher kommutativer Ring. Sei \(\ideal a\) ein
+		Ideal in \(A\). Sei \(M\) ein endlich erzeugter \(A\)-Modul und
+		\(M'\) ein Untermodul von \(M\). Dann haben die Filtrationen
+		\(M' \supset \ideal a M' \supset \ideal a^2 M' \supset \dotsb\) und
+		\(M' \supset (\ideal a M) \cap M' \supset (\ideal a^2 M) \cap M'
+		\supset \dotsb\) beschränkte Differenz.
+	\end{theorem}
+	\begin{visibleenv}<+->
+		Insbesondere stimmt die \(\ideal a\)-adische Topologie auf \(M'\) mit
+		der von der \(\ideal a\)-adischen Topologie auf \(M\) induzierten
+		Teilraumtopologie überein.
+	\end{visibleenv}
+	\begin{proof}<+->
+		Nach dem Artin--Reesschen Lemma ist die zweite Filtration eine stabile.
+		Die erste ist es trivialerweise. Damit haben sie beschränkte Differenz.
+	\end{proof}
+\end{frame}
+

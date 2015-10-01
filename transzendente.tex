@@ -1,0 +1,132 @@
+\section{Transzendente Dimension}
+
+\subsection{Transzendente Dimension}
+
+\begin{frame}{Transzendente Dimension}
+	Sei \(K\) ein Körper. Sei \(A\) ein endlich erzeugter Integritätsbereich über \(K\).
+	\begin{definition}<+->
+		Der Transzendenzgrad des Quotientenkörpers \(K(A)\) von \(A\) über \(K\) heißt die \emph{(transzendente)
+		Dimension \(\trdim_K A\) von \(A\)}.
+	\end{definition}
+	\begin{remark}<+->
+		Sind \(x_1, \dotsc, x_n\) Erzeuger von \(A\) über \(K\), so erzeugen die
+		\(x_i\) auch den Quotientenkörper \(K(A)\) über \(A\). Damit muß
+		\(\trdim_K A \leq n\) gelten. Die transzendente Dimension von \(A\) ist
+		also endlich.
+	\end{remark}
+	\begin{visibleenv}<+->
+		Im folgenden wollen wir zeigen, daß \(\trdim_K A = \dim A\).
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Ein Lemma über Höhe und Tiefe in ganzen Erweiterungen}
+	\begin{lemma}<+->
+		Sei \(A \subset B\) eine ganze Erweiterung von
+		Integritätsbereichen. Sei \(A\) weiter ganz abgeschlossen.
+		Sei \(\ideal q\) ein Primideal in \(B\). Sei \(\ideal p \coloneqq A \cap \ideal q\).
+		Dann gilt \(\height \ideal p = \height \ideal q\) und \(\depth \ideal p = \depth \ideal q\).
+	\end{lemma}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(\ideal q' \subsetneq \ideal q''\) eine echte Inklusion von
+			Primidealen in \(B\), so ist \(A \cap \ideal q' \subsetneq A
+			\cap \ideal q''\) eine echte Inklusion von Primidealen in
+			\(A\). Damit folgt
+			\(\height \ideal p \ge \height \ideal q\), \(\depth \ideal p \ge \depth \ideal q\).
+		\item
+			Nach dem "`Going-Down"'-Satz kann jede absteigende Primidealkette in \(A\)
+			zu einer Primidealkette in \(B\) hochgehoben werden. Damit folgt
+			\(\height \ideal q \ge \height \ideal p\).
+		\item
+			Nach dem "`Going-Up"'-Satz kann jede aufsteigende Primidealkette in
+			\(A\) zu einer Primidealkette in \(B\) hochgehoben werden. Damit
+			folgt \(\depth \ideal q \ge \depth \ideal p\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Dimension des Polynomrings}
+	\begin{lemma}<+->
+		Sei \(K\) ein Körper. Für jedes maximale Ideal \(\ideal m\) des
+		Polynomringes \(A \coloneqq K[X_1, \dotsc, X_n]\) ist dann
+		\(\dim A_{\ideal m} = n\).
+	\end{lemma}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(L\) ein algebraischer Abschluß von \(K\).
+			Dann ist \(B \coloneqq L[X_1, \dotsc, X_n]\) der ganze
+			Abschluß von \(A\) in \(L\). Dann existiert ein maximales
+			Ideal \(\ideal n\) von \(B\) mit \(\ideal m = A \cap \ideal n\).
+		\item		
+			Nach dem Hilbertschen Basissatz ist
+			\(\ideal n = (X_1 - b_1, \dotsc, X_n - b_n)\) für gewisse
+			\(b_i \in B\). Damit ist \(\dim B_{\ideal n} = n\) nach den
+			schon angestellten Überlegungen.
+		\item
+			Daraus folgt nach dem letzten Hilfssatz, daß \(\dim A_{\ideal m}
+			= \height \ideal m = \height \ideal n = \dim B_{\ideal n} = n\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Transzendente Dimension und lokale Dimension}
+	\begin{theorem}<+->
+		Sei \(K\) ein Körper. Sei \(A\) ein endlich erzeugter
+		Integritätsbereich über \(K\). Dann ist \(\dim A_{\ideal m} = \trdim_K A\) für
+		alle maximalen Ideale \(\ideal m\) von \(A\).
+	\end{theorem}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Nach der noetherschen Normalisierung existiert eine ganze
+			Ringerweiterung der Form \(A' \coloneqq K[X_1, \dotsc, X_d] \subset A\).
+			Damit ist \(\trdim_K A = \trdim_K A' = d\).
+		\item
+			Ist weiter \(\ideal m' \coloneqq A' \cap \ideal m\), so folgt
+			\(\dim A_{\ideal m} = \dim A'_{\ideal m'} = d\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Dimension und lokale Dimension}
+	\begin{corollary}<+->
+		Sei \(K\) ein Körper. Sei \(A\) ein endlich erzeugter Integritätsbereich
+		über \(K\). Dann ist \(\dim A = \dim A_{\ideal m}\) für jedes maximale
+		Ideale von \(A\).
+	\end{corollary}
+	\begin{proof}<+->
+		Es ist \(\dim A = \sup\limits_{\ideal m} \dim A_{\ideal m}\), wobei
+		\(\ideal m\) alle maximalen Ideale von \(A\) durchläuft. Nach dem
+		Satz haben aber alle \(A_{\ideal m}\) dieselbe Dimension, nämlich die
+		transzendente.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Dimension und Kodimension}
+	\begin{theorem}<+->
+		Sei \(K\) ein Körper. Sei \(A\) ein endlich erzeugter Integritätsbereich
+		über \(K\). Dann gilt \(\height \ideal p + \dim A/\ideal p = \dim A\)
+		für alle Primideale \(\ideal p\) von \(A\).
+	\end{theorem}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Nach der noetherschen Normalisierung existiert ein endlicher,
+			injektiver Homomorphismus \(A' \coloneqq K[X_1, \dotsc, X_n] \to A\).
+			Sei \(\ideal m\) ein maximales Ideal, \(\ideal m' \coloneqq A' \cap \ideal m\). Dann ist \(A = \dim A_{\ideal m} =
+			\dim A'_{\ideal m'} = n\). Sei \(\ideal p' = A' \cap \ideal p\). Da \(\height \ideal p = \height \ideal p'\)
+			und \(\depth \ideal p = \depth \ideal p'\), reicht es, den Satz für \(A'\) und \(\ideal p'\) zu beweisen.
+		\item
+			Wieder aufgrund der noetherschen Normalisierung können wir davon ausgehen, daß \(\ideal p' = (X_{r + 1},
+			\dotsc, X_n)\). Damit ist
+			\(\dim A' \ge \height \ideal p' + \depth \ideal p' \ge (n - r) + r = n = \dim A'\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+

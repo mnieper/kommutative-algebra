@@ -1,0 +1,110 @@
+\subsection{Vervollständigungen}
+
+\begin{exercise}
+	\label{exer:compl_not_right_exact}
+	Sei \(p\) eine Primzahl. Sei \(\alpha_n\colon \set Z/(p) \injto \set Z/(p^n), [x]_{(p)} \mapsto [p^{n - 1} x]_{(p^n)}\).
+	Seien \(A \coloneqq \bigoplus\limits_{n = 1}^\infty \set Z/(p)\) und \(B \coloneqq \bigoplus\limits_{n = 1}^\infty \set Z/(p^n)\).
+	Sei \(\alpha\colon A \injto B, (\xi_1, \xi_2, \dotsc) \mapsto (\alpha_1(\xi_1), \alpha_2(\xi_2), \dotsc)\).
+	\\
+	Zeige, daß die \(p\)-adische Vervollständigung von \(A\) wieder \(A\) ist.
+	Zeige weiter, daß die Vervollständigung von \(A\) bezüglich der von der \(p\)-adischen Topologie auf \(B\) induzierten Topologie
+	durch \(\prod\limits_{n = 1}^\infty \set Z/(p)\) gegeben ist.
+	
+	Folgere, daß die \(p\)-adische Vervollständigung kein rechtsexakter Funktor auf der Kategorie aller \(\set Z\)-Moduln ist.
+\end{exercise}
+
+\begin{exercise}
+	In den Bezeichnungen von \prettyref{exer:compl_not_right_exact} sei \(A_n \coloneqq \alpha^{-1} (B p^n)\). Betrachte die
+	exakten Sequenzen
+	\[
+		0 \to A_n \to A \to A/A_n \to 0.
+	\]
+	Zeige, daß \(\varprojlim\) kein rechtsexakter Funktor ist, und berechne \({\varprojlim\limits_n}^1 A_n\).
+\end{exercise}
+
+\begin{exercise}
+	Sei \(\ideal a\) ein Ideal in einem noetherschen kommutativen Ring. Sei \(M\) ein endlich erzeugter \(A\)-Modul.
+	Zeige mit \prettyref{thm:krull} und \prettyref{exer:trivial_stalks_in_closed_subset}, daß
+	\[
+		\bigcap\limits_{n = 1}^\infty \ideal a^n M = \bigcap\limits_{\ideal m \supset \ideal a} \ker(M \to M_{\ideal m}),
+	\]
+	wobei \(\ideal m\) über alle maximalen Ideale läuft, welche \(\ideal a\) enthalten-
+\end{exercise}
+
+\begin{exercise}
+	Sei \(\ideal a\) ein Ideal in einem noetherschen kommutativen Ring \(A\). Für jedes \(x \in A\) bezeichnen wir mit
+	\(\hat x\) das Bild unter dem kanonischen Homomorphismus \(A \to \hat A = \hat A_{\ideal a}\). Zeige, daß \(\hat x\) ein
+	reguläres Element in \(\hat A\) ist, wenn \(x\) ein reguläres Element in \(A\) ist.
+	
+	Folgt daraus, daß \(\hat A\) ein Integritätsbereich ist, wenn \(A\) ein Integritätsbereich ist?
+	
+	(Tip: Nutze die Exaktheit der Vervollständigung der Sequenz \(0 \to A \xrightarrow{x \cdot} A\) aus.)
+\end{exercise}
+
+\begin{exercise}
+	Seien \(\ideal a, \ideal b\) zwei Ideale in einem noetherschen kommutativen Ring \(A\). Zeige, daß für einen endlich erzeugten
+	\(A\)-Modul ein Isomorphismus
+	\[
+		\widehat{(\hat M_{\ideal a})}_{\hat{\ideal b}_{\ideal a}} \cong \hat M_{\ideal a + \ideal b}
+	\]
+	existiert.
+	
+	(Tip: Betrachte die \(\ideal a\)-adische Vervollständigung der kurzen exakten Sequenz
+	\[
+		0 \to \ideal b^m M \to M \to M/\ideal b^m M \to 0
+	\]
+	und verwende \prettyref{prop:compl_as_scalar_ext}. Dann benutze die Isomorphismen
+	\[
+		\varprojlim\limits_m (\varprojlim\limits_n M/(\ideal a^n M + \ideal b^m M)) \cong
+		\varprojlim\limits_n M/(\ideal a^n M + \ideal b^n M)
+	\]
+	und die Inklusionen \((\ideal a + \ideal b)^{2n} \subset \ideal a^n + \ideal b^n
+	\subset (\ideal a + \ideal b)^n\).
+\end{exercise}
+
+\begin{exercise}
+	Sei \(\ideal a\) ein Ideal in einem noetherschen Ring \(A\). Zeige, daß \(\ideal a\) genau dann
+	im Jacobsonschen Radikal enthalten ist, wenn jedes maximale Ideal von \(A\) abgeschlossen
+	bezüglich der \(\ideal a\)-adischen Topologie ist.
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:hensel}
+	Sei \((A, \ideal m, F)\) ein lokaler Ring, welcher \(\ideal m\)-adisch vollständig ist. Für ein Polynom
+	\(f \in A[x]\) bezeichne \(\bar f \in F[x]\) die Reduktion modulo \(\ideal m\).
+	
+	Zeige das "`Henselsche Lemma"':
+	Ist \(f \in A[x]\) ein normiertes Polynom mit \(\bar f = \tilde g \tilde h\) für teilerfremde normierte Polynome \(\tilde g,
+	\tilde h \in F[x]\), so existieren normierte Polynome \(g, h \in A[x]\) mit \(f = g h\) und \(\bar g = \tilde g\) und
+	\(\bar h = \tilde h\).
+	
+	(Tip: Nimm an, daß induktiv Polynome \(g_k, h_k \in A[x]\) mit \(g_k h_k - f \in A[x] \ideal m^k\) konstruiert worden sind.
+	Dann folgere aus der Teilerfremdheit von \(\tilde g, \tilde h\), daß für jede Zahl \(1 \leq p \leq n\) Polynome
+	\(\tilde a_p, \tilde b_p \in F[x]\) mit \(x^p = \tilde a_p \bar g_k + \tilde b_p \bar h_k\) existieren.
+	Schließlich folgere aus der Vollständigkeit von \(A\), daß die Folgen \(g_k, h_k\) gegen die gewünschten Polynome \(g, h \in A[x]\)
+	konvergieren.)
+\end{exercise}
+
+\begin{exercise}
+	\begin{enumerate}
+	\item
+		Sei \((A, \ideal m, F)\) ein lokaler Ring, welcher \(\ideal m\)-adisch vollständig ist. Sei \(f \in A[x]\).
+		Sei weiter \(\tilde a \in F\) eine einfache Nullstelle der Reduktion \(\bar f \in F[x]\) von \(f\) modulo \(\ideal m\).
+		Zeige, daß \(f\) eine einfache Nullstelle \(a \in A\) mit \(\bar a = \tilde a\) besitzt.
+	\item
+		Zeige, daß \(2\) eine Quadratwurzel in den \(7\)-adischen ganzen Zahlen \(\set Z_7\) besitzt.
+	\item
+		Seien \(K\) ein Körper und \(f \in K[x, y]\). Besitze \(f(0, y) \in K[y]\) eine einfache Nullstelle in \(a_0 \in K\).
+		Zeige, daß eine formale Potenzreihe \(g = \sum\limits_{n = 0}^\infty a_n x^n \in \ps K x\) mit \(f(x, g(x)) = 0\) existiert.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Zeige, daß die Umkehrung von \prettyref{thm:compl_is_noeth} falsch ist, selbst unter der Annahme, daß \(A\) lokal ist und
+	\(\hat A\) ein endlich erzeugter \(A\)-Modul.
+	
+	(Tip: Nimm als \(A\) die Lokalisierung des Ringes aller \(\Cont^\infty\)-Funktionen auf \(\set R\) nach dem maximalen Ideal
+	der bei \(0\) verschwindenden Funktionen. Benutze den Borelschen Satz, daß jede Potenzreihe über \(\set R\) als Taylorreihe einer
+	\(\Cont^\infty\)-Funktion auf \(\set R\) realisiert werden kann.
+\end{exercise}
+

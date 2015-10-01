@@ -1,0 +1,125 @@
+\subsection{Lokalisierungen von Ringen und Moduln}
+
+\begin{exercise}
+	Sei \(S\) eine multiplikativ abgeschlossene Teilmenge eines kommutativen Ringes \(A\).
+	Sei \(M\) ein endlich erzeugter \(A\)-Modul. Zeige, daß \(S^{-1} M = 0\) genau dann, wenn
+	ein \(s \in S\) mit \(s M = 0\) existiert.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(\ideal a\) ein Ideal in einem kommutativen Ring \(A\). Sei \(S = 1 + \ideal a\). Zeige, daß
+	\(S^{-1} \ideal a\) im Jacobsonschen Radikal von \(S^{-1} A\) enthalten ist.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Seien \(S, T \subset A\) zwei multiplikativ abgeschlossene
+	Teilmengen. Sei \(S^{-1} T\) das Bild von \(T\) in \(S^{-1} A\). Zeige, daß die Ringe
+	\((ST)^{-1} A\) und \((S^{-1} T)^{-1} S^{-1} A\) isomorph sind.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe. Sei \(S \subset A\) multiplikativ
+	abgeschlossen. Zeige, daß \(S^{-1} (B^A)\) und \(((\phi(S))^{-1} B)^{S^{-1} A}\) isomorph als
+	\(S^{-1} A\)-Algebren sind.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Für jedes Primideal \(\ideal p\) von \(A\) besitze \(A_{\ideal p}\) kein
+	nilpotentes Element außer \(0\). Zeige, daß \(A\) außer \(0\) kein nilpotentes Element besitzt.
+	
+	Folgt aus der Tatsache, daß alle Halme \(A_{\ideal p}\) Integritätsbereiche sind, die Tatsache, daß \(A\)
+	ein Integritätsbereich ist?
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:max_mult_closed}
+	Sei \(A\) ein kommutativer Ring mit \(A \neq 0\). Sei \(\mathfrak S\) die Menge der multiplikativ abgeschlossenen
+	Teilmengen \(S\) von \(A\) mit \(0 \notin S\). Zeige, daß \(\mathfrak S\) bezüglich der Inklusion maximale Elemente
+	besitzt und daß \(S \in \mathfrak S\) genau dann maximal ist, falls \(A \setminus S\) ein minimales Primideal von \(A\)
+	ist.
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:mult_sat}
+	Wir nennen eine multiplikativ abgeschlossene Teilmenge \(S\) eines kommutativen Ringes \(A\) \emph{gesättigt},
+	falls aus \(xy \in S\) schon \(x \in S\) und \(y \in S\) folgt. Zeige:
+	\begin{enumerate}
+	\item
+		Es ist \(S\) genau dann gesättigt, wenn \(A \setminus S\) eine Vereinigung von Primidealen ist.
+	\item
+		Es gibt eine eindeutige, kleinste gesättigte multiplikativ abgeschlossene Teilmenge \(\bar S \subset A\) mit
+		\(S \subset \bar S\), nämlich das Komplement der Vereinigung aller Primideale von \(A\), welche \(S\) nicht schneiden.
+		
+		Es heißt \(\bar S\) die \emph{Sättigung von \(S\)}.
+	\end{enumerate}
+	
+	Berechne die Sättigung einer multiplikativ abgeschlossenen Teilmenge der Form \(1 + \ideal a\), wobei
+	\(\ideal a\) ein Ideal von \(A\) ist.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Seien \(S, T \subset A\) zwei multiplikativ abgeschlossene Teilmengen von \(A\) mit
+	\(S \subset T\). Sei \(\phi\colon S^{-1} A \to T^{-1} A, \frac a s \mapsto \frac a s\). Zeige, daß die folgenden Aussagen
+	äquivalent sind:
+	\begin{enumerate}
+	\item	
+		Der Ringhomomorphismus \(\phi\) ist bijektiv.
+	\item
+		Für alle \(t \in T\) ist \(\frac t 1\) eine Einheit in \(S^{-1} A\).
+	\item
+		Für alle \(t \in T\) existiert ein \(x \in A\) mit \(x t \in S\).
+	\item
+		Es ist \(T\) in der Sättigung \(\bar S\) von \(S\) enthalten (\prettyref{exer:mult_sat}).
+	\item
+		Für jedes Primideal \(\ideal p\) von \(A\) mit \(\ideal p \cap T \neq \emptyset\) gilt auch
+		\(\ideal p \cap S \neq \emptyset\).
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Die Menge \(S_0\) der regulären Elemente von \(A\) ist eine
+	gesättigte, multiplikativ abgeschlossene Teilmenge. Damit ist die Menge \(D\) der Nullteiler von \(A\)
+	eine Vereinigung von Primidealen nach~\prettyref{exer:ideals_of_zero_divs}. Zeige, daß jedes minimale Primideal
+	von \(A\) in \(D\) enthalten ist.
+	
+	(Tip:~\prettyref{exer:max_mult_closed}.)
+	
+	Der Ring \(S_0^{-1} A\) heißt der \emph{vollständige Quotientenring von \(A\)}. Zeige:
+	\begin{enumerate}
+	\item
+		Die Teilmenge \(S_0\) ist die größte multiplikativ abgeschlossene Teilmenge \(S\) von \(A\), 
+		für die \(A \to S^{-1} A\) injektiv ist.
+	\item
+		Jedes Element in \(S_0^{-1} A\) ist entweder ein Nullteiler oder eine Einheit.
+	\item	
+		Ein kommutativer Ring \(A\), in dem jede Nichteinheit ein Nullteiler ist, ist gleich
+		seinem vollständigen Quotientenring, das heißt \(A \to S^{-1}_0 A\) ist ein Isomorphismus.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:trivial_stalks_in_closed_subset}
+	Sei \(\ideal a\) ein Ideal in einem kommutativen Ring \(A\). Sei \(M\) ein \(A\)-Modul. Für die Halme an
+	allen maximalen Idealen \(\ideal m\) von \(A\) mit \(\ideal m \supset \ideal a\) gelte \(M_{\ideal m} = 0\). Zeige,
+	daß \(M = \ideal a M\).
+	
+	(Tip: Gehe auf den \(A/\ideal a\)-Modul \(M/\ideal a M\) über und nutze die Lokalität der Trivialität eines Moduls.)
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Sei \(F \coloneqq A^n\) als \(A\)-Modul. Zeige, daß jede Menge von \(n\) Erzeugern von
+	\(F\) als \(A\)-Modul schon eine Basis von \(F\) als \(A\)-Modul ist.
+	
+	(Tip: Seien \(x_1, \dotsc, x_n\) Erzeuger von \(F\). Sei \((e_1, \dotsc, e_n)\) die kanonische Basis von \(F\). Definiere
+	\(\phi\colon F \to F\) durch \(\phi(e_i) = x_i\). Dann ist \(\phi\) surjektiv. Es ist zu zeigen, daß \(\phi\) ein Isomorphismus
+	ist. Da Injektivität eine lokale Eigenschaft ist, können wir annehmen, daß \(A\) ein lokaler Ring ist. Sei etwa \(k = A/\ideal m\)
+	der Restklassenkörper von \(A\). Sei weiter \(N = \ker \phi\). Da \(F\) ein flacher \(A\)-Modul ist, führt die exakte
+	Sequenz \(0 \to N \to F \xrightarrow{\phi} F \to 0\) zu einer exakten Sequenz \(0 \to k \otimes N \to k \otimes F \xrightarrow
+	{\id_k \otimes \phi} k \otimes F \to 0\). Es ist \(k \otimes F = k^n\) ein \(n\)-dimensionaler \(k\)-Vektorraum. Aus der Surjektivität von
+	\(\id_k \otimes \phi\) folgt damit auch die Injektivität, also \(k \otimes N = 0\).
+	Nach~\prettyref{exer:fg_ker_map_to_free} ist \(N\) weiter endlich erzeugt. Nach dem Nakayamaschen Lemma ist damit \(N = 0\). Damit 
+	ist \(\phi\) ein Isomorphismus.)
+	
+	Folgere, daß jede Erzeugermenge von \(F\) aus mindestens \(n\) Elementen bestehen muß.
+\end{exercise}
+

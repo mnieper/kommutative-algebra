@@ -1,0 +1,328 @@
+\section{Gewichtete Ringe und Moduln II}
+
+\subsection{Exaktheit der Vervollständigung}
+
+\begin{frame}{Exaktheit der Vervollständigung}
+	\begin{proposition}<+->
+		Sei \(A\) ein noetherscher kommutativer Ring. Sei \(0 \to M' \to M \to
+		M'' \to 0\) eine exakte Sequenz endlich erzeugter \(A\)-Moduln.
+		Für jedes \(\ideal a\) von \(A\) ist dann die induzierte Sequenz
+		\(0 \to \hat M'_{\ideal a} \to \hat M_{\ideal a} \to \hat M''_{\ideal a}
+		\to 0\) wieder exakt.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Die \(\ideal a\)-adische Topologie auf \(M'\) ist nach dem 
+			letzten Satz die von
+			der \(\ideal a\)-adischen Topologie auf \(M\) induzierte. 
+		\item
+			Da \(\phi(\ideal a^n M) = \ideal a^n \phi(M) = \ideal a^n M''\)
+			ist außerdem die \(\ideal a\)-adische Topologie auf \(M''\) die
+			von der \(\ideal a\)-adischen Topologie auf \(M\) induzierte.
+		\item
+			Damit ist die Vervollständigung der exakten Sequenz bezüglich dieser
+			Topologien wieder exakt.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Vervollständigung von Moduln}
+	\begin{remark}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(\ideal a\) ein
+		Ideal von \(A\). Durch den kanonischen Homomorphismus \(A \to \hat A_{\ideal a}\)
+		können wir die Vervollständigung in kanonischer Weise als \(A\)-Modul
+		auffassen.
+		\\
+		Zu jedem \(A\)-Modul \(M\) können wir damit die Skalarerweiterung
+		\(M_{\hat A_{\ideal a}}\) definieren. Der kanonische Homomorphismus
+		\(M \to \hat M_{\ideal a}^A\) von \(A\)-Moduln definiert damit einen
+		kanonischen \(\hat A_{\ideal a}\)-Modulhomomorphismus
+		\[
+			M_{\hat A_{\ideal a}}
+			= M \otimes_A \hat A_{\ideal a} \to \hat M_{\ideal a} \otimes_A
+			\hat A_{\ideal a} \to \hat M_{\ideal a} \otimes_{\hat A_{\ideal a}}
+			\hat A_{\ideal a} \to \hat M.
+		\]
+		Für allgemeines \(A\) und \(M\) ist dieser kanonische Homomorphismus
+		im allgemeinen weder injektiv noch surjektiv.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Vervollständigung von Moduln als Skalarerweiterung}
+	\begin{proposition}<+->
+		\label{prop:compl_as_scalar_ext}
+		Sei \(\ideal a\) ein Ideal in einem kommutativen Ring \(A\). Ist
+		\(M\) ein endlich erzeugter \(A\)-Modul, so ist die kanonische
+		Abbildung \(M_{\hat A_{\ideal a}} \to \hat M_{\ideal a}\) surjektiv.
+		\\
+		Ist \(A\) außerdem noethersch, so ist \(M_{\hat A_{\ideal a}} \to
+		\hat M_{\ideal a}\) ein Isomorphismus.
+	\end{proposition}
+	\begin{proof}  <+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es ist leicht zu sehen, daß die \(\ideal a\)-adische
+			Vervollständigung mit direkten Summen kommutiert. Für einen \(A\)-Modul
+			der Form \(F \cong A^n\) gilt daher \(F_{\hat A} = F \otimes_A \hat A \cong \hat F\).
+		\item
+			Da \(M\) endlich erzeugt ist, existiert eine exakte Sequenz der
+			Form \(0 \to N \to F \to M \to 0\) mit \(F \cong A^n\).
+			\renewcommand{\qedsymbol}{}
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Fortsetzung des Beweises zur Vollständigkeit von Moduln}
+	\begin{proof}[Fortsetzung des Beweises]<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Die erste Zeile des kommutativen Diagrams
+			\[
+				\begin{CD}
+					& & N_{\hat A} @>>> F_{\hat A} @>>> M_{\hat A} @>>> 0 \\
+					& & @V{\gamma}VV @V{\beta}VV @V{\alpha}VV \\
+					0 @>>> \hat N @>>> \hat F @>{\psi}>> \hat M @>>> 0
+				\end{CD}
+			\]
+			ist exakt aufgrund der Rechtsexaktheit des Tensorproduktes.
+		\item
+			Es ist \(\psi\) surjektiv, da \(M\) die von \(F\) induzierte
+			Topologie trägt. Da \(\beta\) surjektiv ist, folgt daraus die
+			Surjektivität von \(\alpha\).
+		\item
+			Ist zusätzlich \(A\) noethersch, so ist \(N\) endlich erzeugt.
+			Wir haben schon gezeigt, daß \(\gamma\) damit surjektiv ist.
+			Außerdem ist dann die untere Zeile nach der letzten Proposition exakt.
+		\item
+			Eine Diagrammjagd zeigt, daß \(\alpha\) dann auch injektiv sein muß.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Flachheit der Vervollständigung}
+	Sei \(A\) ein noetherscher kommutativer Ring. 
+	\begin{proposition}<+->
+		Für jedes Ideal
+		\(\ideal a\) von \(A\) ist \(\hat A_{\ideal a}\) eine
+		flache \(A\)-Algebra.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Für endlich erzeugte \(A\)-Moduln \(M\) ist der Funktor
+			\(M \mapsto \hat A \otimes_A M \cong \hat M\) exakt, da die
+			Vervollständigung exakt ist.
+		\item
+			Wir haben schon allgemein gezeigt, daß dies Flachheit, also
+			die Exaktheit für auch nicht endlich erzeugte Moduln, impliziert.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+	\begin{remark}<+->
+		Für nicht endlich erzeugte \(A\)-Moduln ist der Funktor \(M \mapsto
+		\hat M\) nicht exakt. Der gute Funktor ist daher \(M \mapsto M_{\hat A}\).
+	\end{remark}
+\end{frame}
+
+\subsection{Vervollständigungen von Ringen}
+
+\begin{frame}{Die Vervollständigung eines Ideals}
+	\begin{proposition}<+->
+		Sei \(\ideal a\) ein Ideal in einem noetherschen kommutativen Ring \(A\).
+		Dann gilt für alle \(n \in \set N_0\):
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(\hat{\ideal a}_{\ideal a} = \hat A_{\ideal a} \ideal a
+			\cong {\ideal a}_{\hat A_{\ideal a}}\).
+		\item
+			\(\widehat{\ideal a^n}_{\ideal a} = {\hat{\ideal a}_{\ideal a}}^n\).
+		\item
+			\(\ideal a^n/\ideal a^{n + 1}
+			\cong \hat{\ideal a}_{\ideal a}^n/\hat{\ideal a}_{\ideal a}^{n + 1}\).
+		\end{enumerate}
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da \(A\) noethersch ist, ist \(\ideal a\) endlich erzeugt, womit
+			die Abbildung \(\ideal a_{\hat A} = \ideal a \otimes_A \hat A \to
+			\hat {\ideal a}\) ein Isomorphismus (mit Bild \(\hat A \ideal a\)) ist.
+		\item
+			\(\widehat{\ideal a^n} = \hat A \ideal a^n = (\hat A \ideal a)^n
+			= \hat{\ideal a}^n\).
+		\item
+			\(\ideal a^n/\ideal a^{n + 1} = \ker(A/\ideal a^{n + 1} \to
+			A/\ideal a^n) \cong \ker (\hat A/\hat{\ideal a}^{n + 1} \to
+			\hat A/\hat{\ideal a}^n) = \hat{\ideal a}^n/\hat{\ideal a}^{n + 1}\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Die Vervollständigung eines Ideals liegt im Jacobsonschen Ideal}
+	\begin{proposition}<+->
+		Sei \(\ideal a\) ein Ideal in einem noetherschen kommutativen Ring
+		\(A\). Dann liegt \(\hat{\ideal a}_{\ideal a}\) im Jacobsonschen
+		Radikal von \(\hat A_{\ideal a}\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da \(\widehat{\ideal a^n} = \hat{\ideal a}^n\), ist
+			\(\hat A\) vollständig bezüglich der \(\hat{\ideal a}\)-adischen
+			Topologie.
+		\item
+			Für jedes \(x \in \hat{\ideal a}\) konvergiert
+			\((1 - x)^{-1} = 1 + x + x^2 + \dotsb\) damit in \(\hat A\), so
+			daß \(1 - x\) eine Einheit in \(\hat A\) ist.
+		\item
+			Damit liegt \(\hat{\ideal a}\) im Jacobsonschen Radikal von \(\hat A\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Die Vervollständigung eines lokalen Ringes}
+	\begin{proposition}<+->
+		Sei \((A, \ideal m, F)\) ein noetherscher lokaler Ring. Dann ist
+		\((\hat A_{\ideal m}, \hat{\ideal m}_{\ideal m}, F)\) ein lokaler Ring.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es ist \(\hat A/\hat{\ideal m} = A/\ideal m = F\), also ein Körper.  Damit ist
+			\(\hat {\ideal m}\) ein maximales Ideal.
+		\item
+			Da \(\hat {\ideal m}\) im Jacobsonschen Ideal liegt und maximal ist, ist es das einzige
+			maximale Ideal. Damit ist \(\hat A\) ein lokaler Ring.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Der Krullsche Satz}
+
+\begin{frame}{Krullscher Satz}
+	\begin{theorem}[Krullscher Satz]<+->
+		\label{thm:krull}
+		Sei \(\ideal a\) ein Ideal in einem noetherschen kommutativen Ring \(A\). Sei
+		\(M\) ein endlich erzeugter \(A\)-Modul. Der Kern \(K \coloneqq \bigcap\limits_{n = 1}^\infty
+		\ideal a^n M\) des kanonischen Homomorphismus \(M \to \hat M_{\ideal a}\) besteht genau
+		aus den \(x \in M\) mit \((1 + \ideal a) \cap \ann(x) \neq \emptyset\).
+	\end{theorem}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da \(K\) der Schnitt aller Umgebungen von \(0\) ist, ist die induzierte Topologie auf \(K\)
+			die Klumpentopologie. Da die induzierte Topologie auch die \(\ideal a\)-adische ist,
+			ist damit auch die \(\ideal a\)-adische Topologie auf \(K\)
+			die Klumpentopologie, es ist also \(\ideal a K = K\).
+		\item
+			Damit existiert ein \(x \in \ideal a\) mit \((1 - x) K = 0\). 
+		\item
+			Ist umgekehrt \((1 - x) y = 0\) für ein \(x \in \ideal a\) und ein \(y \in M\), 
+			so folgt \(y = x y = x^2 y = \dotsb \in K\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Lokalisierung und Vervollständigung}
+	\begin{remark}<+->
+		Sei \(\ideal a\) ein Ideal in einem noetherschen kommutativen Ring \(A\). Sei \(S \coloneqq 1 + \ideal a\).
+		Dann ist \(S\) multiplikativ abgeschlossen.
+		\\
+		Nach dem Krullschen Satz stimmen die Kerne der beiden kanonischen
+		Abbildungen \(A \to \hat A_{\ideal a}\) und \(A \to S^{-1} A\) überein.
+		\\
+		Für jedes \(x \in \hat {\ideal a}_{\ideal a}\) gilt weiter \((1 - x)^{-1} = 1 + x + x^2 + \dotsb\), so daß
+		jedes Element in \(S\) unter \(A \to \hat A_{\ideal a}\) zu einer Einheit wird.
+		\\
+		Die universelle Eigenschaft von \(S^{-1} A\) impliziert damit, daß \(S^{-1} A \to \hat A_{\ideal a},
+		\frac a s \mapsto s^{-1} a\) zu einem wohldefinierten (injektiven) Homomorphismus von Ringen wird.
+		\\
+		Wir können (und werden) also \(S^{-1} A\) mit einem Unterring von \(\hat A_{\ideal a}\) identifizieren.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Gegenbeispiel zum Krullschen Satz}
+	\begin{example}<+->
+		Ohne die Voraussetzung, daß der Ring noethersch ist, ist der Krullsche Satz im allgemeinen falsch.
+		Sei etwa \(A\) der Ring aller \(\Cont^\infty\)-Funktionen auf \(\set R\) und \(\ideal a\) das Ideal der
+		an \(0\) verschwindenden Funktionen (wegen \(A/\ideal a \cong \set R\) ist \(\ideal a\) maximal).
+		\\
+		Aus der Existenz der Taylorreihenentwicklung folgt, daß \(\ideal a\) von der identischen Funktion \(x\) erzeugt wird
+		und daß \(\bigcap\limits_{n = 0}^\infty \ideal a^n\) die Menge aller \(f \in A\) ist, deren Taylorreihe in \(0\) trivial
+		ist.
+		\\
+		Auf der anderen Seite ist \((1 + g) f = 0\) für ein \(g \in \ideal a\) genau dann Null, wenn \(f \in A\) einer ganzen
+		Umgebung um \(0\) verschwindet.
+		\\
+		Damit liegt die Funktion \(\exp(-x^{-2})\) im Kern von \(A \to \hat A_{\ideal a}\) aber nicht im Kern von
+		\(A \to (1 + \ideal a)^{-1} A\).
+		\\
+		Folglich ist \(A\) nicht noethersch.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Krullscher Schnittsatz}
+	\begin{corollary}<+->
+		\label{cor:krull}
+		Sei \(A\) ein noetherscher Integritätsbereich. Für jedes echte Ideal \(\ideal a \neq (1)\) von \(A\) gilt
+		dann \(\bigcap\limits_{n = 0}^\infty \ideal a^n = (0)\).
+	\end{corollary}
+	\begin{proof}<+->
+		Nach dem Krullschen Satz ist \(\bigcap\limits_{n = 0}^\infty \ideal a^n\) der Kern von \(A \to (1 + \ideal a)^{-1} A\).
+		Dieser ist trivial, da \(A\) ein Integritätsbereich ist.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Hausdorffeigenschaft der \(\ideal a\)-adischen Topologie}
+	\begin{corollary}<+->
+		Sei \(A\) ein noetherscher kommutativer Ring. Sei \(\ideal a\) ein Ideal von \(A\), welches im Jacobsonschen
+		Radikal von \(A\) enthalten ist. Für jeden endlich erzeugten \(A\)-Modul ist die \(\ideal a\)-adische Topologie auf
+		\(M\) dann hausdorffsch.
+	\end{corollary}
+	\begin{visibleenv}<.->
+		Es ist also \(\bigcap\limits_{n = 0}^\infty \ideal a^n M = (0)\).
+	\end{visibleenv}
+	\begin{proof}<+->
+		Jedes Element der Form \(1 + x\) ist eine Einheit, wenn \(x\) in Jacobsonschen Radikal von \(A\) liegt.
+	\end{proof}
+	\begin{corollary}<+->
+		Sei \((A, \ideal m)\) ein noetherscher lokaler Ring. Für jeden endlich erzeugten \(A\)-Modul ist die
+		\(\ideal m\)-adische Topologie hausdorffsch. Insbesondere ist die \(\ideal m\)-adische Topologie auf \(A\)
+		hausdorffsch.
+		\qed
+	\end{corollary}
+\end{frame}
+
+\begin{frame}{Der Schnitt aller primären Ideale zu einem Primideal}
+	\begin{corollary}<+->
+		Sei \(\ideal p\) ein Primideal in einem noetherschen kommutativen Ring \(A\). Dann ist der Kern des
+		kanonischen Homomorphismus \(A \to A_{\ideal p}\) durch den Schnitt aller \(\ideal p\)-primären Ideale von \(A\)
+		gegeben.
+	\end{corollary}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(A\) lokal mit maximalem Ideal \(\ideal m\), so sind alle \(\ideal m\)-primären Ideale alle
+			zwischen \(\ideal m\)
+			und Idealen der Form \(\ideal m^n\) liegende Ideale. Damit zeigt die letzte Folgerung, daß der Schnitt
+			aller \(\ideal m\)-primären Ideale in einem lokalen Ring das Nullideal ist.
+		\item
+			Ist \(A\) ein beliebiger kommutativer Ring erhalten wir, daß der Schnitt aller
+			\(\ideal m \coloneqq A_{\ideal p} \ideal p\)-primären Ideale
+			des lokalen Ringes \(A_{\ideal p}\) das Nullideal ist.
+		\item
+			Aus der Tatsache, daß die \(\ideal p\)-primären Ideale von \(A\) gerade die Kontraktionen der
+			\(\ideal m\)-primären Ideale von \(A_{\ideal p}\) sind, erhalten wir die Behauptung.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+

@@ -1,0 +1,376 @@
+\section{Artinsche Ringe}
+
+\subsection{Elementare Eigenschaften Artinscher Ringe}
+
+\begin{frame}{Primideale in artinschen Ringen}
+	Wir erinnern an folgende Möglichkeiten, einen Ring \(A\) als artinsch zu
+	charakterisieren:
+	\begin{enumerate}[<+->]
+	\item
+		Jede nicht leere Menge von Idealen von \(A\) besitzt ein minimales Element.
+	\item
+		Jede absteigende Kette von Idealen in \(A\) ist stationär.
+	\end{enumerate}
+	\mode<article>{Die anscheinende Symmetrie mit noetherschen Ringen ist
+	irreführend. Und zwar werden wir sehen, daß jeder artinsche Ring
+	notwendigerweise ein noetherscher Ring und zudem von besonders einfacher
+	Gestalt ist.}
+	\begin{proposition}<+->
+		Sei \(A\) ein artinscher kommutativer Ring. Dann ist jedes Primideal
+		in \(A\) maximal.
+	\end{proposition}
+	\begin{proof}<+->
+		Ist \(\ideal p\) ein Primideal in \(A\), so ist
+		\(B \coloneqq A/\ideal p\) ein artinscher Integritätsbereich.
+		Sei \(x \in B \setminus \{0\}\). Dann ist \((x^n) = (x^{n + 1})\) für
+		ein \(n \gg 0\), da \(B\) artinsch ist, also \(x^n = x^{n + 1} y\)
+		für \(y \in B\). Kürzen mit \(x^n\) liefert \(1 = xy\), also ist
+		\(x \in B^\units\). Damit ist \(B\) ein Körper und \(\ideal p\) ein
+		maximales Ideal.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Maximale Ideale in artinschen Ringen}
+	\begin{corollary}<+->
+		In einem artinschen kommutativen Ring ist das Nilradikal gleich dem
+		Jacobsonschen Radikal.
+		\qed
+	\end{corollary}
+	\begin{proposition}<+->
+		Ein artinscher kommutativer Ringe hat nur endlich viele maximale Ideale.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Die Menge aller endlichen Schnitte maximaler Ideale hat ein minimales
+			Element, etwa \(\ideal m_1 \cap \dotsb \cap \ideal m_n\), wobei die
+			\(\ideal m_i\) maximale Ideale sind.
+		\item
+			Für jedes weitere maximale Ideal
+			\(\ideal m\) haben wir damit \(\ideal m \supset
+			\ideal m_1 \cap \dotsb \cap \ideal m_n\).
+		\item
+			Da \(\ideal m\) ein Primideal
+			ist, folgt \(\ideal m \supset \ideal m_i\) für ein \(i\), aufgrund
+			der Maximalität also \(\ideal m = \ideal m_i\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Nilpotentes Nilradikal in artinschen Ringen}
+	\begin{proposition}<+->
+		In einem kommutativen artinschen Ring ist das Nilradikal \(\ideal n\)
+		nilpotent.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da der Ring artinsch ist, existiert ein \(k \gg 0\) mit
+			\(\ideal a \coloneqq \ideal n^k = \ideal n^{k + 1} = \dotsb\).
+			Angenommen, \(\ideal a \neq (0)\).
+		\item
+			Die Menge der Ideale \(\ideal b\) mit \(\ideal a \ideal b \neq (0)\)
+			ist nicht leer, da insbesondere \(\ideal a\) ein solches Ideal ist,
+			besitzt also ein minimales Element \(\ideal c\).
+		\item
+			Es existiert ein \(x \in \ideal c\) mit \(x \ideal a \neq (0)\).
+			Weiter ist \((x) \subset \ideal c\), also \((x) = \ideal c\)
+			aufgrund der Minimalität von \(\ideal c\).
+		\item
+			Weiter ist \((x \ideal a) \ideal a = x \ideal a^2 = x \ideal a
+			\neq (0)\) und sowieso \(x \ideal a \subset (x)\), also
+			\(x \ideal a = (x)\) aufgrund der Minimalität von \((x)\).
+		\item
+			Damit ist \(x = xy\) für ein \(y \in \ideal a\), also
+			\(x = xy = xy^2 = \dotsb = xy^n\). Da \(y\) insbesondere nilpotent
+			ist, ist folglich \(x = 0\), Widerspruch.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Der Struktursatz für artinsche kommutative Ringe}
+
+\begin{frame}{Dimension kommutativer Ringe}
+	Sei \(A\) ein kommutativer Ring.
+	\begin{definition}<+->
+		Eine \emph{Primidealkette in \(A\)} ist eine streng aufsteigende
+		Kette \(\ideal p_0 \subsetneq \ideal p_1 \subsetneq \dotsb
+		\subsetneq \ideal p_n\) von Primidealen in \(A\). Es heißt \(n\)
+		die \emph{Länge} der Kette.
+	\end{definition}
+	\begin{definition}<+->
+		Die \emph{Dimension \(\dim A\) von \(A\)} ist das Supremum der Längen
+		aller Primidealketten in \(A\).
+	\end{definition}
+	\begin{example}<+->
+		Es ist \(\dim A \ge 0\) genau dann, wenn \(A\) nicht der Nullring ist.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Beispiele für Dimensionen}
+	\begin{example}<+->
+		Die Dimension eines Körpers ist \(0\).
+	\end{example}
+	\begin{example}<+->
+		Für den Ring der ganzen Zahlen gilt \(\dim \set Z = 1\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Das Nullideal in artinschen kommutativen Ringen}
+	\begin{lemma}<+->
+		\label{lem:zero_is_prod_of_max}
+		Seien \(\ideal m_1, \dotsc, \ideal m_n\) die maximalen Ideale
+		eines artinschen kommutativen Ringes \(A\). Dann ist
+		\(\prod\limits_{i = 1}^n \ideal m_i^k = (0)\) für \(k \gg 0\).
+	\end{lemma}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da jedes Primideal in \(A\) maximal ist, gilt \(\ideal n = \ideal m_1
+			\cap \dotsb \cap \ideal m_n\) für das Nilradikal \(\ideal n\) von
+			\(A\).
+		\item
+			Da das Nilradikal in \(A\) nilpotent ist, gilt
+			\(\prod\limits_{i = 1}^n \ideal m_i^k
+			\subset (\bigcap\limits_{i = 1}^n \ideal m_i)^k = \ideal n^k = (0)\)
+			für \(k \gg 0\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Dimensionscharakterisierung artinscher kommutativer Ringe}
+	\begin{theorem}<+->
+		Ein kommutativer Ring \(A \neq 0\) ist genau dann artinsch, wenn er
+		noethersch ist und \(\dim A = 0\) gilt.
+	\end{theorem}
+\end{frame}
+
+\begin{frame}{Beweis der Dimensionscharakterisierung}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(A\) artinsch, so sind alle Primideale maximal, also \(\dim
+			A = 0\). Weiter ist nach dem letzten Lemma das Nullideal Produkt
+			von maximalen Idealen. Damit sind äquivalent, daß \(A\) artinsch und
+			noethersch ist.
+		\item
+			Sei \(A\) noethersch mit \(\dim A = 0\). Da das Nullideal eine
+			Primärzerlegung besitzt, gibt es nur endlich viele minimale
+			Primideale. Wegen \(\dim A = 0\) sind alle diese maximal.
+		\item
+			Das Nilradikal ist also Schnitt endlich vieler maximaler Ideale.
+			Da das Nilradikal nilpotent in noetherschem \(A\) ist, ist
+			das Nullideal Produkt endlich vieler
+			maximaler Ideale. Damit sind äquivalent, daß \(A\) artinsch und
+			noethersch ist.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Ein kommutativer Ring mit nur einem Primideal}
+	\begin{example}<+->
+		Ein kommutativer Ring mit genau einem Primideal muß nicht
+		notwendigerweise noethersch (und damit auch nicht artinsch) sein: Sei
+		etwa \(A = K[x_1, x_2, \dotsc]\) der Polynomring in unendlich vielen
+		Variablen über einem Körper \(K\).
+		\\
+		Sei \(\ideal a \coloneqq (x_1, x_2^2, \dotsc)\). Dann besitzt
+		\(B \coloneqq A/\ideal a\) genau ein Primideal, nämlich das Bild von
+		\((x_1, x_2, \dotsc)\).
+		\\
+		Damit ist \(B\) ein lokaler Ring der Dimension \(0\). Allerdings ist
+		\(B\) nicht noethersch, denn z.B.~sein Primideal ist nicht endlich
+		erzeugt.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Artinsche lokale Ringe}
+	Ist \((A, \ideal m)\) ein artinscher lokaler Ring, so ist \(\ideal m\)
+	das einzige Primideal von \(A\) und damit gleich dem Nilradikal von \(A\).
+	\\
+	Insbesondere ist jedes Element aus \(\ideal m\) nilpotent, und \(\ideal m\)
+	selbst ist nilpotent.
+	\\
+	Jedes Element aus \(A\) ist damit entweder eine Einheit oder nilpotent.
+	\begin{example}<+->
+		Sei \(p\) ein Primzahl und \(n \ge 1\). Dann ist \(\set Z/(p^n)\) ein
+		artinscher lokaler Ring mit maximalem Ideal \(\set Z/(p^n) (p)\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Nilpotenz des maximalen Ideals charakterisiert lokale artinsche Ringe}
+	\begin{proposition}<+->
+		Sei \((A, \ideal m)\) ein noetherscher lokaler Ring. Dann tritt genau
+		einer der beiden folgenden Fälle ein:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Für alle \(n \in \set N_0\) ist \(\ideal m^n \supsetneq
+			\ideal m^{n + 1}\).
+		\item
+			Es ist \(\ideal m^n = (0)\) für \(n \gg 0\), in welchem Falle
+			\(A\) artinsch ist.
+		\end{enumerate}
+	\end{proposition}
+	\begin{proof}<+->
+		Ist \(\ideal m^n = \ideal m^{n + 1}\), so folgt mit dem
+		Nakayamaschen Lemma, daß \(\ideal m^n = 0\).
+		\\
+		Insbesondere ist dann
+		\(\ideal m^n \subset \ideal p\) für ein Primideal \(\ideal p\). Nach
+		Wurzelziehen erhalten wir \(\ideal m = \ideal p\), also besitzt \(A\)
+		dann nur ein Primideal, ist also artinsch.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Der Struktursatz für artinsche kommutative Ringe}
+	\begin{theorem}[Struktursatz für artinsche kommutative Ringe]<+->
+		\label{thm:artin_structure}
+		Ein artinscher kommutativer Ring ist (eindeutig bis auf Isomorphie
+		der Faktoren) ein direktes Produkt artinscher lokaler
+		Ringe.
+	\end{theorem}
+	\begin{proof}[Beweis der Existenz]<+->
+		\renewcommand{\qedsymbol}{}
+		\begin{enumerate}[<+->]
+		\item<.->
+			Seien \(\ideal m_1, \dotsb, \ideal m_n\) die verschiedenen maximalen
+			Ideale eines artinschen Ringes \(A\). Nach dem letzten Hilfssatz
+			ist \(\prod\limits_{i = 1}^n \ideal m_i^k = (0)\) für \(k \gg 0\).
+			Da die \(\ideal m_i = \sqrt{\ideal m_i^k}\) paarweise koprim sind,
+			sind auch die \(\ideal m_i^k\) paarweise koprim.
+		\item
+			Damit gilt \(\bigcap\limits_i \ideal m_i^k
+			= \prod\limits_i \ideal m_i^k = (0)\). Damit ist insbesondere
+			der kanonische Homomorphismus \(A \to \prod\limits A/\ideal m_i^k\)
+			ein Isomorphismus. Da die \(A/\ideal m_i^k\) jeweils lokale
+			artinsche Ringe sind, ist \(A\) direktes Produkt artinscher lokaler
+			Ringe.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Eindeutigkeit im Struktursatz}
+	\begin{proof}[Beweis der Eindeutigkeit]<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei umgekehrt \(A \cong \prod\limits_{i = 1}^n A_i\) für einen
+			kommutativen Ring \(A\), wobei die
+			\(A_i\) lokale artinsche kommutative Ringe sind. Seien
+			\(\pi_i\colon A \to A_i\) die Projektionen und \(\ideal a_i
+			\coloneqq \ker\pi_i\). Die \(\ideal a_i\) sind paarweise koprim
+			mit \(\bigcap\limits_i \ideal a_i = (0)\).
+		\item
+			Sei \(\ideal q_i\) das einzige Primideal in \(A_i\), und sei
+			\(\ideal p_i \coloneqq A \cap \ideal q_i\). Dann ist \(\ideal p_i\)
+			ein maximales Primideal in \(A\).
+		\item
+			Da \((0)\) in \(A_i\) ein \(\ideal q_i\)-primäres Ideal ist, ist \(\ideal a_i\) in \(A\)
+			ein \(\ideal p_i\)-primäres Ideal. Damit ist \(\bigcap\limits_i
+			\ideal a_i = (0)\) eine Primärzerlegung.
+		\item
+			Da die \(\ideal a_i\) paarweise koprim sind, sind die \(\ideal p_i\)
+			ebenso paarweise koprim, also die zu \((0)\)
+			assoziierten isolierten Primideale.
+		\item
+			Damit sind alle Primkomponenten von \(A\) isoliert, also nach
+			dem zweiten Eindeutigkeitssatz durch \(A\) eindeutig bestimmt.
+			Also sind die \(A_i \cong A/\ideal a_i\) durch \(A\) eindeutig
+			bestimmt.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Artinsche lokale Ringe}
+
+\begin{frame}{Der Zariskische Kotangentialraum}
+	Sei \((A, \ideal m, F)\) ein lokaler Ring. Dann ist
+	die spezielle Faser \(\ideal m/\ideal m^2\) von \(\ideal m\) ein \(F\)-Vektorraum.
+	\begin{definition}<+->
+		Der \(F\)-Vektorraum \(\ideal m/\ideal m^2\) ist der
+		\emph{Zariskische Kotangentialraum von \(A\)}.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Ist \(\ideal m\) endlich erzeugt (z.B.~weil \(A\) noethersch ist),
+		ist auch \(\ideal m/\ideal m^2\) als \(F\)-Vektorraum endlich erzeugt.
+		Es folgt, daß in diesem Falle \(\dim_F \ideal m/\ideal m^2 < \infty\).
+	\end{visibleenv}
+	
+	\begin{visibleenv}<+->
+		Wir erinnern an die Tatsache, daß sich jede Basis des Zariskischen
+		Kotangentialraums \(\ideal m/\ideal m^2\) zu einem Erzeugendensystem von \(\ideal m\)
+		hochheben läßt.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Artinsche lokale Ringe, deren maximales Ideal ein Hauptideal ist}
+	\begin{lemma}<+->
+		Sei \((A, \ideal m)\) ein artinscher lokaler Ring, so daß \(\ideal m\) ein
+		Hauptideal ist. Dann ist jedes Ideal \(\ideal a\) von \(A\) ein Hauptideal.
+	\end{lemma}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(\ideal m = (x)\) für ein \(x \in A\).
+			Wir können \(\ideal a \neq (0)\) annehmen. Da \(\ideal m\) auch das Nilradikal
+			ist, ist \(\ideal m\) nilpotent. Damit existiert ein \(r \in \set N_0\) mit
+			\(\ideal a \subset \ideal m^r\), aber \(\ideal a \subsetneq \ideal m^{r + 1}\).
+		\item
+			Folglich existiert ein \(a \in A\) mit \(y \coloneqq ax^r \in \ideal a\), aber
+			\(y \notin (x^{r + 1})\). Es folgt \(a \notin (x)\), also ist \(a\) eine Einheit in
+			\(A\).
+		\item
+			Damit ist \(x^r \in \ideal a\), also \(\ideal m^r = (x^r) \subset \ideal a\),
+			also \(\ideal a = \ideal m^r = (x^r)\). Also ist \(\ideal a\) ein Hauptideal.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Artinsche lokale Ringe}
+	\begin{proposition}<+->
+		Für einen artinschen lokalen Ring \((A, \ideal m, F)\) sind folgende Aussagen äquivalent:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Jedes Ideal in \(A\) ist ein Hauptideal.
+		\item
+			Das maximale Ideal \(\ideal m\) ist ein Hauptideal.
+		\item
+			Es ist \(\dim_F \ideal m/\ideal m^2 \leq 1\).
+		\end{enumerate}
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Daß aus der ersten die zweite und aus der zweite die dritte Aussage folgt ist offensichtlich.
+		\item
+			Ist \(\dim_F \ideal m/\ideal m^2 = 0\), also \(\ideal m = \ideal m^2\), so folgt \(\ideal m = 0\)
+			nach dem Nakayamaschen Lemma. Damit ist \(A\) ein Körper und nichts weiter zu zeigen.
+		\item
+			Ist \(\dim_F \ideal m/\ideal m^2 = 1\), so wird \(\ideal m\) von einem Element \(x \in A\) erzeugt.
+			Dann schließen wir mit dem Hilfssatz.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Beispiele zu lokalen artinschen Ringen}
+	Sei \(K\) ein Körper.
+	\begin{example}<+->
+		Die Ringe \(\set Z/(p^n)\) und \(K[x]/(f^n)\), wobei \(p\) eine Primzahl ist und \(f\) ein
+		irreduzibles Polynom, sind artinsche lokale Ringe, deren maximales Ideal
+		von einem Element (nämlich dem Bild von \(p\) beziehungsweise \(f\)) erzeugt wird.
+	\end{example}
+	\begin{example}<+->
+		Im artinschen lokalen Ring \(K[x^2, x^3]/(x^4)\) ist das maximale Ideal \(\ideal m\)
+		von den zwei Elementen \(x^2\) und \(x^3\) modulo \(x^4\) erzeugt. Damit ist
+		\(\ideal m^2 = (0)\), also \(\dim_K \ideal m/\ideal m^2 = 2\).
+	\end{example}
+\end{frame}
+
+

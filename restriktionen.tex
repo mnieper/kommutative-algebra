@@ -1,0 +1,67 @@
+\section{Skalareinschränkungen und -erweiterungen}
+
+\subsection{Skalareinschränkung}
+
+\begin{frame}{Definition der Skalareinschränkung}
+	Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe. Sei \(N\) ein \(B\)-Modul.
+	\\
+	Wir definieren einen \(A\)-Modul \(N^A\) wie folgt:
+	\\
+	Die abelsche Gruppe von \(N^A\) ist die abelsche Gruppe von \(N\). Die Multiplikation mit
+	Elementen aus \(A\) wird durch \(a y \coloneqq \phi(a) y\) mit \(a \in A\) und \(y \in N\)
+	definiert.
+	\begin{definition}<+->
+		Der \(A\)-Modul \(N^A\) heißt die \emph{Skalareinschränkung von \(N\) (vermöge \(\phi\)) auf \(A\)}.
+	\end{definition}
+	\begin{example}<+->
+		Da wir \(B\) als Modul über sich selbst auffassen können, erhalten wir insbesondere den
+		\(A\)-Modul \(B^A\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Endlichkeit von Skalareinschränkungen}
+	\begin{proposition}<+->
+		Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe. Sei \(N\) ein \(B\)-Modul.
+		Ist \(B^A\) ein endlich erzeugter \(A\)-Modul und \(N\) ein endlich erzeugter \(B\)-Modul,
+		so ist \(N^A\) ein endlich erzeugter \(A\)-Modul.
+	\end{proposition}
+	\begin{proof}<+->
+		Sei \(N\) als \(B\)-Modul von den Elementen \(y_1, \dotsc, y_n \in N\) erzeugt. Sei weiter
+		\(B^A\) als \(A\)-Modul von den Elementen \(b_1, \dotsc, b_m \in B\) erzeugt. Dann erzeugen die
+		Produkte \(b_1 y_1, \dotsc, b_m y_n \in N\) den \(A\)-Modul \(N^A\).
+	\end{proof}
+\end{frame}
+
+\subsection{Skalarerweiterung}
+
+\begin{frame}{Definition der Skalarerweiterung}
+	Sei \(\phi\colon A \to B\) ein Homomorphismus kommutativer Ringe. Sei \(M\) ein \(A\)-Modul.
+	\\
+	Wir definieren einen \(B\)-Modul \(M_B\) wie folgt:
+	\\
+	Die abelsche Gruppe von \(M_B\) ist die abelsche Gruppe von \(B^A \otimes_A M\). Die
+	Multiplikation mit Elementen aus \(B\) wird durch \(b (b' \otimes x) \coloneqq (b b') \otimes x\)
+	mit \(b, b' \in B\) und \(x \in M\) definiert.
+	\begin{definition}<+->
+		Der \(B\)-Modul \(M_B\) heißt die \emph{Skalarerweiterung von \(M\) (vermöge \(\phi\)) auf \(B\)}.
+	\end{definition}
+	\begin{example}<+->
+		Sei \(N\) ein \(B\)-Modul. Dann ist \(N^A \otimes_A M = N \otimes_A M\), indem wir \(N\) als
+		\((A, B)\)-Bimodul auffassen. Insbesondere ist \(N^A \otimes_A M\) (durch Multiplikation von links) in
+		kanonischer Weise ein \(B\)-Modul.
+		\\	
+		In dieser Situation existiert ein kanonischer Isomorphismus \(N \otimes_B M_B \cong
+		N^A \otimes_A M\) von \(B\)-Moduln.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Endlichkeit von Skalarerweiterungen}
+	\begin{proposition}<+->
+		Ist \(M\) als \(A\)-Modul endlich erzeugt, so ist \(M_B\) als \(B\)-Modul endlich erzeugt.
+	\end{proposition}
+	\begin{proof}<+->
+		Sei \(M\) als \(A\)-Modul von \(x_1, \dotsc, x_m \in M\) erzeugt. Dann wird \(M_B\) als \(B\)-Modul
+		durch \(1 \otimes x_1, \dotsc, 1 \otimes x_m \in M_B\) erzeugt.
+	\end{proof}
+\end{frame}
+

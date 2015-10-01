@@ -1,0 +1,44 @@
+\section{Filtrationen}
+
+\subsection{Filtrationen}
+
+\begin{frame}{Definition einer Filtration}
+	Sei \(A\) ein Ring. Sei \(M\) ein \(A\)-Modul.
+	\begin{definition}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Eine (unendliche) Folge
+			\(M_\bullet\colon M = M_0 \supset M_1 \supset M_2 \dotsb\) von Untermoduln von
+			\(M\) heißt eine \emph{Filtration von \(M\)}.
+		\item
+			Sei \(\ideal a\) ein Ideal von \(A\). Die Filtration \(M_\bullet\) heißt eine
+			\emph{\(\ideal a\)-Filtration}, falls \(\ideal a M_n \subset M_{n + 1}\) für alle \(n\).
+		\item
+			Eine \(\ideal a\)-Filtration \(M_\bullet\) heißt \emph{stabil}, falls
+			\(\ideal a M_n = M_{n + 1}\) für \(n \gg 0\).
+		\end{enumerate}
+	\end{definition}
+	\begin{example}<+->
+		Für jedes Ideal \(\ideal a\) von \(A\) ist \(M \supset \ideal a M \supset \ideal a^2 M \supset \dotsb\)
+		eine stabile \(\ideal a\)-Filtration von \(M\), die \emph{\(\ideal a\)-adische Filtration von \(M\)}.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Topologie durch \(\ideal a\)-stabiler Filtrationen}
+	\begin{lemma}<+->
+		Sei \(\ideal a\) ein Ideal eines Ringes \(A\). Sei \(M\) ein \(A\)-Modul. Je
+		zwei stabile \(\ideal a\)-adische Filtrationen \(M_\bullet\) und \(M_\bullet'\) 
+		von \(M\) haben eine beschränkte Differenz, das heißt es existiert ein \(n_0 \in \set N_0\) mit
+		\(M_{n + n_0} \subset M_n'\) und \(M'_{n + n_0} \subset M_n\) für alle \(n \ge 0\).
+	\end{lemma}
+	\begin{visibleenv}<+->
+		Damit sind zwei stabile \(\ideal a\)-adische Filtrationen Umgebungsbasen von \(0\) ein- und derselben
+		Topologie auf \(M\).
+	\end{visibleenv}
+	\begin{proof}<+->
+		Für \(n_0 \gg 0\) gilt
+		\(M'_{n + n_0} = \ideal a^n M'_{n_0} \subset \ideal a^n M = \ideal a^n M_0 \subset \ideal a^{n - 1} M_1 \subset \dotsb
+		\subset M_n\).
+	\end{proof}
+\end{frame}
+

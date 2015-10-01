@@ -1,0 +1,235 @@
+\section{Diskrete Bewertungsringe}
+
+\subsection{Eindimensionale noethersche Integritätsbereiche}
+
+\begin{frame}{Eindeutige Faktorisierung in Primärideale}
+	\begin{proposition}<+->
+		Sei \(A\) ein eindimensionaler noetherscher Integritätsbereich. Dann kann
+		jedes Ideal \(\ideal a \neq (0)\) von \(A\) eindeutig als Produkt primärer
+		Ideale mit paarweise verschiedenen Wurzelidealen geschrieben werden.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da \(A\) noethersch ist, existiert eine  minimale Primärzerlegung
+			\(\ideal a = \bigcap\limits_{i = 1}^n \ideal q_i\). Die \(\ideal p_i
+			\coloneqq \sqrt{\ideal q_i}\) sind Primideale ungleich dem Nullideal, welches
+			selbst ein Primideal ist. Wegen \(\dim A = 1\) sind die
+			\(\ideal p_i\) paarweise verschiedene maximale Ideale.
+		\item
+			Es folgt, daß die \(\ideal q_i\) paarweise koprim sind, also
+			\(\ideal a = \bigcap\limits_i \ideal q_i = \prod\limits_i \ideal q_i\).
+		\item
+			Ist umgekehrt \(\ideal a = \prod\limits_i \ideal q_i\) mit
+			\(\ideal p_i\)-primären Idealen \(\ideal q_i\), so folgt analog \(\ideal a = \bigcap\limits_i \ideal q_i\).
+			Dies ist eine minimale Primärzerlegung von \(\ideal a\), in dem die
+			\(\ideal q_i\) isolierte Komponenten sind.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Eindeutige Faktorisierung in Primideale}
+	\begin{remark}<+->
+		Ist \(A\) ein eindimensionaler noetherscher Integritätsbereich, in dem jedes Primärideal
+		Potenz eines Primideals ist, so folgt aus der Proposition, daß jedes nicht verschwindende
+		Ideal in \(A\) eine eindeutige Faktorisierung in Primideale besitzt.
+		\\
+		Für jedes Primideal \(\ideal p \neq (0)\) besitzt der Halm \(A_{\ideal p}\) dann dieselben
+		Eigenschaften, in \(A_{\ideal p}\) kann jedes nicht verschwindende Ideal also als eindeutige
+		Potenz des maximalen Ideals geschrieben werden.
+	\end{remark}
+\end{frame}
+
+\subsection{Diskrete Bewertungsringe}
+
+\begin{frame}{Definition einer diskreten Bewertung}
+	\begin{definition}<+->
+		Eine \emph{diskrete Bewertung auf einem Körper \(K\)} ist eine surjektive Abbildung
+		\(\nu\colon K \surjto \set Z \cup \{\infty\}\) mit folgenden Eigenschaften:
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(\nu(x) = \infty \iff x = 0\) für alle \(x \in K\).
+		\item
+			\(\nu(xy) = \nu(x) + \nu(y)\) für alle \(x, y \in K\).
+		\item
+			\(\nu(x + y) \ge \min(\nu(x), \nu(y))\) für alle \(x, y \in K\).
+		\end{enumerate}
+	\end{definition}
+	\begin{visibleenv}<+->
+		Die Menge aller \(x \in K\) mit \(\nu(x) \ge 0\) ist ein Unterring von \(K\)
+		und heißt der \emph{Bewertungsring von \(K\) (zu \(\nu\))}. Dieser ist in der Tat ein
+		Bewertungsring.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Beispiele diskreter Bewertungen}
+	\begin{example}<+->
+		Sei \(p\) eine Primzahl. Jedes \(x \in \set Q^\units\) kann eindeutig in der Form
+		\(x = p^a y\) geschrieben werden, wobei \(a \in \set Z\) ist und \(y\) ein Bruch ist,
+		dessen Zähler und Nenner nicht durch \(p\) teilbar sind.
+		\\
+		Durch die Setzung \(\nu(x) \coloneqq a\) wird eine diskrete Bewertung auf \(\set Q\) definiert,
+		deren Bewertungsring der lokale Ring \(\set Z_{(p)}\) ist.
+	\end{example}
+	\begin{example}<+->
+		Seien \(F\) ein Körper und \(K \coloneqq F(x)\) der Körper der rationalen Funktion über \(F\) in \(x\).
+		Sei \(f \in F[x]\) ein irreduzibles Polynom. Jedes \(g \in K^\units\) kann eindeutig in der
+		Form \(g = f^a h\) geschrieben werden, wobei \(a \in \set Z\) ist und \(h\) ein Bruch ist,
+		dessen Zähler und Nenner nicht durch \(f\) teilbar sind.
+		\\
+		Durch die Setzung \(\nu(g) \coloneqq a\) wird eine diskrete Bewertung auf \(K\) definiert,
+		deren Bewertungsring der lokale Ring \(F[x]_{(f)}\) ist.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Definition eines diskreten Bewertungsringes}
+	\begin{definition}<+->
+		Ein Integritätsbereich \(A\) heißt \emph{diskreter Bewertungsring}, falls
+		\(A\) der Bewertungsring einer diskreten Bewertung auf seinem Quotientenkörper \(K\) ist.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Ist \(A\) ein diskreter Bewertungsring zur Bewertung \(\nu\colon K \to \set Z \cup \{\infty\}\),
+		so ist \(A\) insbesondere ein lokaler Ring mit maximalem Ideal \(\ideal m \coloneqq
+		\{x \in A \mid \nu(x) > 0\}\).
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Hauptideale in einem diskreten Bewertungring}
+	\begin{proposition}<+->
+		Sei \(A\) ein diskreter Bewertungsring mit Bewertung \(\nu\colon K \to \set Z \cup \{\infty\}\).
+		Seien \(x, y \in A\). Dann gilt \(\nu(x) = \nu(y)\) genau dann, wenn \((x) = (y)\).
+	\end{proposition}
+	\begin{proof}<+->
+		Aus \(\nu(xy^{-1}) = 0\) folgt, daß \(xy^{-1}\) eine Einheit in \(A\) ist.
+		\\
+		Umgekehrt genauso.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Diskrete Bewertungsringe sind noethersch}
+	Sei \(A\) ein diskreter Bewertungsring mit Bewertung \(\nu\colon K \to \set Z \cup \{\infty\}\).
+	\begin{proposition}<+->
+		Jedes Ideal in \(A\) ist von der Form \(\ideal m_k = \{x \in A \mid \nu(x) \ge k\}\) mit
+		\(k \in \set N_0 \cup \{\infty\}\).
+	\end{proposition}
+	\begin{proof}<+->
+		Zu einem Ideal \(\ideal a\) sei \(k \coloneqq \inf\{\nu(x) \mid x \in \ideal a\}\). Dann gilt
+		\(\ideal a = \ideal m_k\), denn ist \(x \in \ideal a\), so ist auch \(y \in \ideal a\), falls
+		\(\nu(y) \ge \nu(x)\).
+	\end{proof}
+	\begin{corollary}<+->
+		Diskrete Bewertungsringe sind noethersche lokale Ringe.
+	\end{corollary}
+	\begin{proof}<+->
+		Die einzigen Ideale in \(A\) bilden die absteigende Folge \((1) = \ideal m_0 \supset \ideal m_1
+		\supset \ideal m_2 \supset \dotsb\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Diskrete Bewertungsringe sind eindimensional}
+	\begin{proposition}<+->
+		Sei \(A\) ein diskreter Bewertungsring.
+		Dann ist \(A\) ein eindimensionaler noetherscher lokaler Integritätsbereich,
+		in dem jedes (nicht verschwindende) Ideal eine Potenz des
+		maximalen Ideals \(\ideal m\) ist.
+	\end{proposition}
+	\begin{proof}<+->
+		Da die Bewertung \(\nu\colon K \to \set Z \cup \{\infty\}\) von \(A\) surjektiv ist, existiert ein \(x \in \ideal m\)
+		mit \(\nu(x) = 1\). Damit ist \(\ideal m = (x)\), und alle weiteren Ideale sind von der Form \(\ideal m_k = (x^k) = \ideal m^k\).
+	\end{proof}
+\end{frame}
+
+\subsection{Charakterisierungen diskreter Bewertungsringe}
+
+\begin{frame}{Charakterisierungen diskreter Bewertungsringe}
+	\begin{proposition}<+->
+		Sei \((A, \ideal m, F)\) ein eindimensionaler noetherscher lokaler Integritätsbereich.
+		Dann sind folgende Aussagen äquivalent:
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(A\) ist ein diskreter Bewertungsring.
+		\item
+			\(A\) ist ganz abgeschlossen.
+		\item
+			\(\ideal m\) ist ein Hauptideal.
+		\item
+			\(\dim_F \ideal m/\ideal m^2 = 1\).
+		\item
+			Jedes (nicht verschwindende) Ideal von \(A\) ist eine Potenz von \(\ideal m\).
+		\item
+			Es existiert ein \(x \in A\), so daß jedes (nicht verschwindende) Ideal von der Form
+			\((x^k)\) mit \(k \ge 0\) ist.
+		\end{enumerate}
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beweis der Charakterisierungen}
+	\begin{proof}[Beweis]<+->
+		\renewcommand{\qedsymbol}{}
+		\begin{enumerate}[<+->]
+		\item<.->
+			Bewertungsringe sind ganz abgeschlossen.
+		\item
+			Sei \(A\) ganz abgeschlossen. Sei \(a \in \ideal m \setminus \{0\}\). Dann ist \(\ideal a \coloneqq (a)\)
+			ein \(\ideal m\)-primäres Ideal (da \(\ideal m\) das einzige nicht verschwindende
+			Primideal ist), also \(\sqrt{\ideal (a)} = \ideal m\). Da \(A\) noethersch ist,
+			existiert ein \(n\) mit \(\ideal m^n \subset \ideal a\). Wir wählen \(n\) minimal.
+			\\
+			Wähle ein \(b \in \ideal m^{n - 1}\) mit \(b \notin \ideal a\). Sei \(x \coloneqq \frac a b\).
+			Damit ist \(x^{-1} \notin A\), also nicht ganz über \(A\). Damit ist \(x^{-1} \ideal m \subsetneq \ideal m\),
+			denn sonst wäre \(\ideal m\) ein treuer \(A[x^{-1}]\)-Modul, der endlich erzeugt ist als \(A\)-Modul.
+			\\
+			Aber \(x^{-1} \ideal m \subset A\) nach Konstruktion, also \(x^{-1} \ideal m = A\), also \(\ideal m = Ax = (x)\).
+			\\
+			Damit ist \(\ideal m\) ein Hauptideal.
+		\item
+			Sei \(\ideal m\) ein Hauptideal. Dann ist \(\dim_F \ideal m/\ideal m^2 \leq 1\). Da \(\ideal m \neq \ideal m^2\),
+			da \(\dim A > 0\) folgt \(\dim_F \ideal m/\ideal m^2 = 1\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Fortsetzung des Beweises}
+	\begin{proof}[Fortsetzung des Beweises]<+->
+		\renewcommand{\qedsymbol}{}
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(\dim_F \ideal m/\ideal m^2 = 1\). Sei \(\ideal a\) ein nicht verschwindendes Ideal von \(A\).
+			Wir können uns auf den Fall \(\ideal a \neq (1)\) beschränken.
+			Wir haben schon gesehen, daß \(\ideal m^n \subset \ideal a\) für ein \(n\). Es ist \(A/\ideal m^n\) ein
+			lokaler artinscher Ring, dessen Zariskischer Kotangentialraum höchstens eindimensional ist.
+			\\
+			Damit ist \((A/\ideal m^n) \ideal a\) notwendigerweise eine Potenz von \((A/\ideal m^n) \ideal m\), wie wir schon
+			gezeigt haben.
+			\\
+			Folglich ist \(\ideal a\) eine Potenz von \(\ideal m\).
+		\item
+			Sei jedes nicht verschwindende Ideal von \(A\) eine Potenz von \(\ideal m\). Da \(\dim A > 0\), ist \(\ideal m
+			\neq \ideal m^2\), also existiert ein \(x \in \ideal m \setminus \ideal m^2\).
+			\\
+			Nach Voraussetzung ist \((x) = \ideal m^r\) für ein \(r \ge 0\), also \(r = 1\). Damit ist \((x) = \ideal m\) und
+			\((x^k) = \ideal m^k\) für alle \(k \ge 0\).
+			\\
+			Damit sind alle nicht verschwindenden Ideale von der Form \((x^k)\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Ende des Beweises}
+	\begin{proof}[Ende des Beweises]<+->
+		\begin{enumerate}
+		\item<.->
+			Seien alle nicht verschwindenden Ideale von der Form \((x^k)\) mit \(x \in A\). Da \(\ideal m\) maximal ist,
+			folgt \(\ideal m = (x)\). Da \(\dim A > 0\), damit \((x^k) \neq (x^{k + 1})\). Ist also \(a \in A \setminus \{0\}\),
+			so gilt \((a) = (x^k)\) für genau ein \(k \in \set N_0\). Durch die Setzung \(\nu(a) \coloneqq k\) wird eine
+			diskrete Bewertung auf dem Quotientenkörper von \(A\) mit Bewertungsring \(A\) definiert.
+			\\
+			Folglich ist \(A\) ein diskreter Bewertungsring.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+

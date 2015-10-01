@@ -1,0 +1,306 @@
+\section{Gebrochene Ideale}
+
+\subsection{Gebrochene Ideale}
+
+\begin{frame}{Gebrochene Ideale}
+	Sei \(A\) ein Integritätsbereich mit Quotientenkörper \(K\).
+	\begin{definition}<+->
+		Ein \(A\)-Untermodul \(\ideal r\) von \(K\) heißt \emph{gebrochenes Ideal
+		von \(A\)}, falls ein \(x \in A \setminus \{0\}\) mit \(x \ideal r
+		\subset A\) existiert.
+	\end{definition}
+	\begin{example}<+->
+		Ein ganzes (d.h.\ gewöhnliches) Ideal in \(A\) ist insbesondere
+		ein gebrochenes Ideal.
+	\end{example}
+	\begin{example}<+->
+		Jedes \(u \in K\) definiert ein gebrochenes Ideal \((u) \coloneqq
+		A u \subset K\), ein \emph{gebrochenes Hauptideal von \(A\)}.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Gebrochene Ideale in noetherschen Integritätsbereichen}
+	Sei \(A\) ein Integritätsbereich mit Quotientenkörper \(K\).
+	\begin{proposition}<+->
+		Ist \(\ideal r\) ein endlich erzeugter \(A\)-Untermodul von \(K\),
+		so ist \(\ideal r\) ein gebrochenes Ideal.
+	\end{proposition}
+	\begin{proof}<+->
+		Ist \(\ideal r\) von \(x_1, \dotsc, x_n\) erzeugt, so können wir
+		\(x_i = \frac{y_i}z\) mit \(y_i \in A\) mit einem \(z \in A\) schreiben.
+		Dann ist \(z \ideal r \subset A\).
+	\end{proof}
+	\begin{proposition}<+->
+		Ist \(A\) noethersch, so ist jedes gebrochene Ideal \(\ideal r\)
+		als \(A\)-Modul endlich erzeugt.
+	\end{proposition}
+	\begin{proof}<+->
+		Ist \(x \in A \setminus \{0\}\), so daß \(\ideal a \coloneqq x \ideal r\)
+		ein ganzes Ideal von \(A\) ist, so ist mit \(\ideal a\) auch
+		\(\ideal r = x^{-1} \ideal a\) endlich erzeugt.
+	\end{proof}
+\end{frame}
+
+\subsection{Invertierbare Ideale}
+
+\begin{frame}{Invertierbare Ideale}
+	\begin{definition}<+->
+		Sei \(A\) ein Integritätsbereich mit Quotientenkörper \(K\).
+		Ein \(A\)-Untermodul \(\ideal r\) von \(K\) heißt \emph{invertierbares
+		Ideal}, falls ein \(A\)-Untermodul \(\ideal s\) mit \(\ideal r
+		\ideal s = A\) existiert.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Ist \(\ideal r\) ein \(A\)-Untermodul von \(K\), so schreiben wir
+		\((1 : \ideal r)\) für den \(A\)-Modul derjenigen \(x \in K\) mit
+		\(x \ideal r \subset A\).
+		\\
+		(Diese Schreibweise möge nicht zur Verwechslung mit dem gewöhnlichen
+		Idealquotienten führen.)
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Inversen invertierbarer Ideale}
+	\begin{proposition}<+->
+		Sei \(A\) ein Integritätsbereich mit Quotientenkörper \(K\).
+		Ist dann \(\ideal r\) ein invertierbares Ideal von \(K\), so existiert
+		genau ein \(A\)-Untermodul \(\ideal s\) mit \(\ideal r \ideal s = (1)\),
+		nämlich \((1 : \ideal r)\).
+	\end{proposition}
+	\begin{visibleenv}<.->
+		In diesem Falle schreiben wir \(\ideal r^{-1} \coloneqq (1 : \ideal r)\).
+	\end{visibleenv}
+	\begin{proof}<+->
+		Sei \(\ideal s\) mit \(\ideal r\ideal s = (1)\). Dann gilt
+		\(\ideal s \subset (1 : \ideal r) = (1 : \ideal r) \ideal r \ideal s
+		\subset \ideal s\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Invertierbare Ideale sind gebrochene Ideale}
+	\begin{proposition}<+->
+		Sei \(A\) ein Integritätsbereich. Jedes invertierbare Ideal
+		\(\ideal r\) von \(A\) ist als \(A\)-Modul endlich erzeugt, insbesondere
+		also ein gebrochenes Ideal von \(A\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Aus \(\ideal r \ideal r^{-1} = (1)\) folgt die Existenz endlich vieler
+			\(x_i \in \ideal r, y_i \in \ideal r^{-1}\) mit \(\sum\limits_i
+			x_i y_i = 1\).
+		\item
+			Für jedes \(x \in \ideal r\) gilt damit \(x = \sum\limits_i
+			(y_i x) x_i\).
+		\item
+			Wegen \(y_i x \in A\) wird \(\ideal r\) damit als \(A\)-Modul von
+			\(x_1, \dotsc, x_n\) erzeugt.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Die Gruppe der invertierbaren Ideale}
+	Sei \(A\) ein Integritätsbereich mit Quotientenkörper \(K\).
+	\begin{example}<+->
+		Ist \(u \in K^\units\), so ist das Hauptideal \((u)\) ein invertierbares
+		Ideal mit \((u)^{-1} = (u^{-1})\).
+	\end{example}
+	\begin{remark}<+->
+		Bezüglich der Idealmultiplikation bilden die invertierbaren Ideale
+		eine Gruppe, deren neutrales Element durch \((1)\) gegeben ist.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Invertierbarkeit ist eine lokale Eigenschaft}
+	\begin{proposition}<+->
+		Sei \(A\) ein Integritätsbereich. Für ein gebrochenes Ideal
+		\(\ideal r\) von \(A\) sind dann folgende Aussagen äquivalent:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es ist \(\ideal r\) invertierbar.
+		\item
+			Es ist \(\ideal r\) endlich erzeugt, und für alle Primideale
+			\(\ideal p\) von \(A\) ist \(\ideal r_{\ideal p}\) ein
+			invertierbares Ideal von \(A_{\ideal p}\).
+		\item
+			Es ist \(\ideal r\) endlich erzeugt, und für alle maximalen
+			Ideale \(\ideal m\) von \(A\) ist \(\ideal r_{\ideal m}\) ein
+			invertierbares Ideal von \(A_{\ideal m}\).
+		\end{enumerate}
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beweis, daß Invertierbarkeit eine lokale Eigenschaft ist}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+			\item<.->
+				Es ist \(A_{\ideal p} = (\ideal r \cdot (1 : \ideal r))_{\ideal p}
+				= \ideal r_{\ideal p} \cdot (1 : \ideal r_{\ideal p})\), da
+				\(\ideal r\) als invertierbares Ideal endlich erzeugt ist.
+				Damit folgt die zweite aus der ersten Aussage.
+			\item
+				Die dritte Aussage folgt trivialerweise aus der zweiten Aussage.
+			\item
+				Um aus der dritten Aussage, die erste zu folgern, betrachten wir
+				\(\ideal a = \ideal r \cdot (1 : \ideal r)\), ein ganzes Ideal.
+				Für jedes maximale Ideal \(\ideal m\) haben wir
+				\(\ideal a_{\ideal m} = \ideal r_{\ideal m}
+				\cdot (1 : \ideal r_{\ideal m}) = A_{\ideal m}\), wenn \(\ideal r\) endlich erzeugt
+				und \(\ideal r_{\ideal m}\) invertierbar ist. Damit ist
+				\(\ideal a = (1)\) und damit \(\ideal r\) invertierbar.
+				\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Gebrochene Ideale in Dedekindschen Bereichen}
+
+\begin{frame}{Gebrochene Ideale in diskreten Bewertungsbereichen}
+	\begin{proposition}<+->
+		Ein lokaler Integritätsbereich \(A\), welcher kein Körper ist,
+		ist genau dann ein diskreter
+		Bewertungsring, wenn jedes nicht verschwindende gebrochene Ideal
+		von \(A\) invertierbar ist.
+	\end{proposition}
+	\begin{proof}<+->
+		\renewcommand{\qedsymbol}{}
+		Sei zunächst \(A\) ein diskreter Bewertungsring. Sei \(x\) ein
+		Erzeuger des maximalen Ideals von \(A\). Sei \(\ideal r \neq (0)\)
+		ein gebrochenes Ideal. Dann existiert ein \(y \in A\) mit
+		\(y \ideal r \subset A\), also ist \(y \ideal r = (x^r)\) für ein
+		\(r \in \set N_0\). Damit folgt \(\ideal r = (x^{r - s})\), wenn
+		\((y) = (x^s)\). Also ist \(\ideal r\) invertierbar.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Fortsetzung des Beweises}
+	\begin{proof}[Fortsetzung des Beweises]<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei umgekehrt jedes nicht verschwindende gebrochene Ideal
+			invertierbar. Damit ist insbesondere jedes nicht triviale ganze Ideal
+			invertierbar, also auch endlich erzeugt, also ist \(A\) noethersch.
+		\item
+			Damit reicht es zu zeigen, daß jedes nicht verschwindende Ideal
+			eine Potenz des maximalen Ideals \(\ideal m\) ist. Angenommen, dies ist falsch.
+			Dann existiert ein maximales nicht verschwindendes Ideal \(\ideal a\),
+			welches keine Potenz von \(\ideal m\) ist.
+		\item
+			Da \(\ideal a \subset \ideal m\) ist \(\ideal m^{-1} \ideal a\) ein
+			ganzes Ideal mit \(\ideal m^{-1} \ideal a \supset \ideal a\).
+		\item
+			Wäre \(\ideal m^{-1} \ideal a = \ideal a\), dann auch \(\ideal a = \ideal m \ideal a\),
+			also \(\ideal a = 0\) nach dem Nakayamaschen Lemma.
+		\item
+			Daher ist \(\ideal m^{-1} \ideal a \supsetneq \ideal a\), also ist
+			\(\ideal m^{-1} \ideal a\) aufgrund der Maximalität von \(\ideal a\)
+			eine Potenz von \(\ideal m\), also auch \(\ideal a\). Widerspruch.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Gebrochene Ideale in Dedekindschen Bereichen}
+	\begin{theorem}<+->
+		Ein Integritätsbereich \(A\), welcher kein Körper ist, ist genau
+		dann ein Dedekindscher Bereich, wenn jedes nicht verschwindende
+		gebrochene Ideal invertierbar ist.
+	\end{theorem}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(A\) ein Dedekindscher Bereich. Ist \(\ideal r \neq (0)\) ein
+			gebrochenes Ideal, so ist \(\ideal r\) endlich erzeugt, da
+			\(A\) noethersch ist. Für jedes Primideal \(\ideal p \neq (0)\) ist
+			\(\ideal r_{\ideal p} \neq (0)\) ein gebrochenes, also invertierbares
+			Ideal im diskreten Bewertungsring \(A_{\ideal p}\). Damit ist
+			\(\ideal r\) invertierbar.
+		\item
+			Sei umgekehrt jedes nicht verschwindende gebrochene Ideal invertierbar.
+			Wie im letzten Beweis folgt, daß \(A\) noethersch ist. Damit reicht es
+			zu zeigen, daß \(A_{\ideal p}\) für alle Primideal \(\ideal p \neq (0)\)
+			ein diskreter Bewertungsring ist. Dazu reicht es zu zeigen, daß
+			jedes (ganze) Ideal \(\ideal b \neq (0)\) in \(A_{\ideal p}\)
+			invertierbar ist.
+		\item
+			Es ist aber \(\ideal a = A \cap \ideal b\) invertierbar, und damit
+			auch \(\ideal b = \ideal a_{\ideal p}\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Anmerkungen zur Idealklassengruppe}
+
+\begin{frame}{Idealgruppe eines Dedekindschen Bereiches}
+	\begin{corollary}<+->
+		In einem Dedekindschen Bereich \(A\) bilden die nicht verschwindenden
+		gebrochenen Ideale eine Gruppe bezüglich der Multiplikation, die
+		\emph{Idealgruppe von \(A\)}.
+	\end{corollary}
+	\begin{remark}<+->
+		In diesem Zusammenhang können wir den Satz über die eindeutige
+		Faktorisierbarkeit von nicht verschwindenden Idealen in Dedekindschen
+		Bereichen in Primideale auch so formulieren:
+		\\
+		Die Idealgruppe eines Dedekindschen Bereiches ist eine freie abelsche
+		Gruppe, welche durch die nicht verschwindenden Primideale von \(A\)
+		erzeugt wird.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Idealklassengruppe eines Dedekindschen Bereiches}
+	Sei \(A\) ein Dedekindscher Bereich mit Quotientenkörper \(K\), dessen
+	Idealgruppe \(\IdealG(A)\) sei.
+	\\
+	Wir haben einen Gruppenhomomorphismus \(K^\units \to \IdealG(A),
+	u \mapsto (u)\), dessen Bild die gebrochenen Hauptideale sind.
+	\begin{definition}<+->
+		Die Faktorgruppe \(\ClassG(A) \coloneqq \IdealG(A)/K^\units\) heißt die
+		\emph{Idealklassengruppe von \(A\)}.
+	\end{definition}
+	\begin{remark}<+->
+		Im Kern von \(K^\units \to \IdealG(A)\) liegen genau die \(u \in K^\units\) mit
+		\((u) = (1)\), also die Einheiten \(u \in A^\units\). Wir erhalten damit
+		eine exakte Sequenz
+		\[1 \to A^\units \to K^\units \to \IdealG(A) \to \ClassG(A) \to 1\]
+		(multiplikativ geschriebener) abelscher Gruppen.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Idealklassengruppe von Ringen ganzer Zahlen}
+	Seien \(K\) ein Zahlkörper und \(A\) sein Ring ganzer Zahlen, ein
+	Dedekindscher Bereich.
+	\begin{remark}<+->
+		In der algebraischen Zahlentheorie wird gezeigt, daß \(\ClassG(A)\)
+		eine endliche Gruppe ist, ihre Ordnung heißt die \emph{Klassenzahl von
+		\(K\)}.
+		\\
+		Es ist genau dann \([\ClassG(A) : 1] = 1\), wenn jedes invertierbare
+		Ideal in \(A\) ein gebrochenes Hauptideal ist. Und dies ist genau dann
+		der Fall, wenn \(A\) ein faktorieller Ring ist.
+	\end{remark}
+	\begin{remark}<+->
+		Es ist \(A^\units\) eine endlich erzeugte abelsche Gruppe. Die Elemente
+		endlicher Ordnung sind gerade die Einheitswurzeln \(\rou(K)\) von \(K\).
+		Der Rang der freien abelschen Gruppe \(A^\units/\rou(K)\) ist \(r_1
+		+ r_2 - 1\), wobei \(r_1\) die Anzahl der reellen und
+		\(2 r_2\) die Anzahl der echt komplexen Einbettungen von \(K\) in \(\set C\)
+		ist.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Beispiele zu Ringen ganzer Zahlen}
+	\begin{example}<+->
+		Der Zahlkörper \(\set Q(\sqrt{-1})\) besitzt nur zwei echt komplexe Einbettungen.
+		Sein Ring \(\set Z[i]\) ganzer Zahlen besitzt damit nur endlich viele Einheiten,
+		nämlich alle Einheitswurzeln: \(\pm 1, \pm i\).
+	\end{example}
+	\begin{example}<+->
+		Der Zahlkörper \(\set Q(\sqrt{2})\) besitzt nur zwei reelle Einbettungen.
+		Sein Ring \(\set Z[\sqrt{2}]\) ganzer Zahlen hat damit unendlich viele
+		Einheiten, und zwar \(\pm (1 + \sqrt{2})^n\) mit \(n \in \set Z\).
+	\end{example}
+\end{frame}
+

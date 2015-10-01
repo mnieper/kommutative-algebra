@@ -1,0 +1,81 @@
+\subsection{Diskrete Bewertungsringe und Dedekindsche Bereiche}
+
+\begin{exercise}
+	Sei \(A\) ein Dedekindscher Bereich. Sei \(S \subset A\) multiplikativ
+	abgeschlossen. Zeige, daß \(S^{-1} A\) entweder ein Dedekindscher Bereich
+	oder der Quotientenkörper von \(A\) ist.
+	
+	Sei jetzt \(S \neq A \setminus \{0\}\). Ist \(\ideal r\) ein nicht
+	verschwindendes gebrochenes Ideal in \(A\) bzw.~\(S^{-1} A\) bezeichnen wir
+	mit \([\ideal r]\) sein Bild in der Idealklassengruppe von
+	\(A\) bzw.\ \(S^{-1} A\). Zeige, daß
+	\(\ClassG(A) \to \ClassG(S^{-1} A), [\ideal r] \mapsto [S^{-1} \ideal r]\)
+	ein surjektiver Gruppenhomomorphismus ist.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein Dedekindscher Bereich. Ist \(f = a_0 + a_1 x + \dotsb + a_n
+	x^n \in A[x]\) ein Polynom über \(A\), so heißt das Ideal \(\content(f)
+	\coloneqq (a_0, \dotsb, a_n)\) der \emph{Inhalt von \(f\)}. Zeige das
+	Gaußsche Lemma, nämlich daß \(\content(fg) = \content(f) \content(g)\) für
+	\(f, g \in A[x]\).
+	
+	(Tip: Lokalisiere an jedem maximalen Ideal.)
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein Bewertungsring, welcher kein Körper ist. Zeige, daß \(A\)
+	genau dann noethersch ist, wenn \(A\) ein diskreter Bewertungsring ist.
+\end{exercise}
+
+\begin{exercise}
+	Sei \((A, \ideal m)\) ein lokaler Integritätsbereich, welcher kein
+	Körper ist. Sei \(\ideal m\) ein Hauptideal, und sei \(\bigcap\limits_{n = 0}^\infty
+	\ideal m^n = 0\). Zeige, daß \(A\) ein diskreter Bewertungsring ist.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein Dedekindscher Bereich. Sei \(\ideal a\) ein Ideal in \(A\).
+	Zeige, jedes Ideal im Ring \(A/\ideal a\) ein Hauptideal ist.
+	
+	Folgere, daß jedes Ideal in \(A\) von höchstens zwei Elementen erzeugt werden
+	kann.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein Dedekindscher Bereich. Seien \(\ideal a, \ideal b, \ideal c\)
+	drei Ideale von \(A\). Zeige:
+	\begin{enumerate}
+	\item
+		\(\ideal a \cap (\ideal b + \ideal c) = (\ideal a \cap \ideal b)
+		+ (\ideal a \cap \ideal c)\).
+	\item
+		\(\ideal a + (\ideal b \cap \ideal c) = (\ideal a + \ideal b)
+		\cap (\ideal a + \ideal c)\).
+	\end{enumerate}
+	
+	(Tip: Lokalisiere.)
+\end{exercise}
+
+\begin{exercise}[Chinesischer Restsatz]
+	Sei \(A\) ein Dedekindscher Bereich. Seien \(\ideal a_1, \dotsc, \ideal a_n\)
+	Ideale in \(A\) und \(x_1, \dotsc, x_n \in A\). Zeige dann, daß das
+	System \(x = x_i \pmod{\ideal a_i}\) von Kongruenzen genau dann eine Lösung \(x \in A\)
+	in \(A\) besitzt, wenn \(x_i = x_j \pmod{\ideal a_i + \ideal a_j}\) für alle
+	\(i \neq j\).
+	
+	(Tip: Die Aussage ist äquivalent zur Exaktheit der \(A\)-Modulsequenz
+	\[
+		A \xrightarrow{\phi} \bigoplus\limits_i A/\ideal a_i
+		\xrightarrow{\psi} \bigoplus\limits_{i < j} A/(\ideal a_i + \ideal a_j),
+	\]
+	wobei die \(i\)-te Komponente von \(\phi(a)\) durch \(x + \ideal a_i\) und
+	die \((i, j)\)-te Komponente von \(\psi(x_1 + \ideal a_1, \dotsc,
+	x_n + \ideal a_n)\) durch \(x_i - x_j + \ideal a_i + \ideal a_j\) gegeben ist.
+	
+	Um zu zeigen, daß diese Sequenz exakt ist, reicht es zu zeigen, daß ihre
+	Lokalisierung an jedem Primideal \(\ideal p \neq (0)\) exakt ist. Mit anderen
+	Worten können wir also annehmen, daß \(A\) ein diskreter Bewertungsring ist.
+	Dann ist die Aussage einfach.)
+\end{exercise}
+

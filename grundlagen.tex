@@ -1,0 +1,209 @@
+\section{Grundlagen aus den Anfängervorlesungen}
+
+\subsection{Mengen}
+
+\begin{definition}
+	Sei \(X\) eine Menge. Eine Relation \(\sim\) auf \(X\) heißt
+	\begin{enumerate}
+	\item
+		\emph{transitiv}, falls aus \(x \sim y\) und \(y \sim z\) auch \(x \sim z\) für \(x, y, z \in X\) folgt,
+	\item
+		\emph{reflexiv}, falls \(x \sim x\) für \(x \in X\) gilt und
+	\item
+		\emph{antisymmetrisch}, falls auch \(x \sim y\) und \(y \sim x\) schon \(x = y\) für \(x, y \in X\) folgt.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Eine \emph{Halbordnung \(\le\) auf einer Menge \(X\)} ist eine transitive, reflexive und antisymmetrische Relation auf \(X\).
+	Eine Menge \((X, \le)\) zusammen mit einer Halbordnung heißt \emph{halbgeordnete Menge}.
+\end{definition}
+
+Anstelle von einer Halbordnung wird auch der Ausdruck "`teilweise Ordnung"' benutzt oder auch einfach nur "`Ordnung"'.
+
+\begin{example}
+	Sei \((X, \le)\) eine halbgeordnete Menge. Ist \(Z \subset X\) eine Teilmenge, so definiert die Einschränkung von
+	\(\le\) auf \(Z\) in kanonischer Weise eine Halbordnung auf \(Z\).
+\end{example}
+
+\begin{example}
+	Sei \(Y\) eine Menge. Sei \(\mathfrak X\) ein System von Teilmengen von \(Y\), also eine Teilmenge der Potenzmenge von
+	\(Y\). Dann ist die Inklusionsrelation \(\subset\) eine Halbordnung auf \(\mathfrak X\). Damit ist jedes System \(\mathfrak X\)
+	von Teilmengen in natürlicher Weise eine geordnete Menge.
+\end{example}
+
+\begin{definition}
+	Sei \((X, \le)\) eine halbgeordnete Menge.
+	\begin{enumerate}
+	\item
+		Ein \emph{größtes Element \(x \in X\)} ist ein Element, so daß \(y \le x\) für alle \(y \in X\).
+	\item
+		Ein \emph{maximales Element \(x \in X\)} ist ein Element, so daß aus \(x \le y\) schon \(x = y\) für alle \(y \in X\) folgt.
+	\item
+		Eine \emph{obere Schranke \(x \in X\) einer Teilmenge \(Z \subset X\)} ist ein Element mit \(z \le x\) für alle \(z \in Z\).
+	\end{enumerate}
+\end{definition}
+
+\begin{remark}
+	Größte Elemente sind immer eindeutig und auch maximal. Existiert ein größtes Element, so gibt es keine weiteren maximalen
+	Elemente.
+	
+	Ein größtes Element ist dasselbe wie eine obere Schranke der gesamten Menge.
+\end{remark}
+
+\begin{definition}
+	Sei \((X, \le)\) eine halbgeordnete Menge.
+	\begin{enumerate}
+	\item
+		Die Menge \(X\) heißt \emph{vollständig geordnet}, falls \(x \le y\) oder \(y \le x\) für alle \(x, y \in X\) gilt.
+	\item
+		Eine \emph{Kette \(Z\) in \(X\)} ist eine Teilmenge \(Z \subset X\), welche mit der induzierten Halbordnung vollständig
+		geordnet ist, das heißt \(x \le y\) oder \(y \le x\) für alle \(x, y \in Z\).
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}[Zornsches Lemma]
+	Sei \(X\) eine halbgeordnete Menge. Jede Kette in \(X\) besitze eine obere Schranke in \(X\). Dann besitzt \(X\) ein
+	maximales Element.
+\end{theorem}
+
+\subsection{Topologie}
+
+\begin{definition}
+		Sei \(X\) eine Menge. Eine \emph{Topologie auf \(X\)} ist eine Menge von
+		Teilmengen von \(X\), den \emph{offenen Mengen} der Topologie, so daß
+		\begin{enumerate}
+		\item
+			endliche Schnitte offener Mengen in \(X\) wieder offen sind (damit ist insbesondere die ganze Menge \(X\) als
+			leerer Schnitt offen) und
+		\item
+			beliebige Vereinigungen offener Mengen in \(X\) wieder offen sind (damit ist insbesondere die leere Menge
+			\(\emptyset\) als leere Vereinigung offen).
+		\end{enumerate}
+		Eine Teilmenge heißt \emph{abgeschlossene Menge} der Topologie, falls sie Komplement einer 
+		offenen Menge in \(X\) ist.
+\end{definition}
+
+\begin{definition}
+		Ein \emph{topologischer Raum} ist eine Menge \(X\) zusammen mit einer Topologie.
+		
+		Ist \(X\) ein topologischer Raum und ist \(x \in X\), so heißt eine offene Menge \(U\) von \(X\) mit \(x \in U\)
+		eine \emph{offene Umgebung von \(x\) in \(X\)}.
+		
+		Eine \emph{Umgebung von \(x\) in \(X\)} ist eine Teilmenge \(U\) von \(X\), so daß eine offene Umgebung
+		\(U'\) von \(x\) in \(X\) mit \(U' \subset U\) existiert. 
+\end{definition}
+
+\begin{example}
+	Sei \(X\) eine Menge. Die Potenzmenge von \(X\) ist eine Topologie auf \(X\), die \emph{diskrete Topologie
+	auf \(X\)}.
+\end{example}
+
+\begin{example}
+	Sei \(X\) ein topologischer Raum. Sei \(Y\) eine Teilmenge von \(X\). Die Menge der Schnitte von \(Y\) mit den
+	offenen Teilmengen von \(X\) ist eine Topologie auf \(Y\). Diese Topologie heißt die \emph{Teilraumtopologie
+	von \(Y\) in \(X\)}.
+	
+	In Zukunft versehen wir \(Y\) immer mit dieser Topologie.
+\end{example}
+
+\begin{definition}
+	Sei \(X\) eine Menge. Eine Menge \(\mathfrak U\) von Teilmengen von \(X\) heißt
+	\emph{Basis einer Topologie auf \(X\)}, falls \(\mathfrak U\) abgeschlossen unter endlichen
+	Schnitten ist.
+\end{definition}
+
+\begin{proposition}
+	Sei \(X\) eine Menge. Ist \(\mathfrak U\) die Basis einer Topologie auf \(X\), so
+	ist die Menge aller beliebigen Vereinigungen von Teilmengen in \(\mathfrak U\) in \(X\)
+	eine Topologie auf \(X\). Diese Topologie heißt die durch \(\mathfrak U\) erzeugte Topologie.
+    \qed
+\end{proposition}
+
+\begin{example}
+	Seien \(X, Y\) zwei topologische Räumen. Dann ist die Menge aller Teilmengen der Form
+	\(U \times V\) von \(X \times Y\), wobei \(U\) offen in \(X\) und \(V\) offen in \(Y\) ist,
+	eine Basis einer Topologie auf \(X \times Y\). Die davon erzeugte Topologie auf \(X \times Y\)
+	heißt die \emph{Produkttopologie}.
+	
+	In Zukunft versehen wir \(X \times Y\) immer mit dieser Topologie.
+\end{example}
+
+In Verallgemeinerung des vorherigen Beispiels wird definiert:
+\begin{example}
+	Sei \((X_i)_{i \in I}\) eine Familie topologischer. Dann ist die Menge aller Teilmengen von \(X \coloneqq
+	\prod_{i \in I} X_i\) der Form
+	\(\prod_{i \in I} U_i\) mit \(U_i \subset X_i\) offen für alle \(i \in I\) und \(U_i = X_i\) für fast alle
+	\(i \in I\) die Basis einer Topologie auf \(X \times Y\). Die davon erzeugte Topologie auf \(X\) heißt die
+	\emph{Produkttopologie}.
+	
+	In Zukunft versehen wir \(X\) immer mit dieser Topologie.
+\end{example}
+
+\begin{definition}
+	Sei \(X\) ein topologischer Raum. Sei \(x \in X\). Eine Familie \(\mathfrak U\) von Teilmengen \(U\) von \(X\)
+	mit \(U \ni x\) heißt \emph{Umgebungsbasis von \(x\)}, falls für alle Umgebungen \(V\) von \(x\) in \(X\)
+	ein \(U \in \mathfrak U\) mit \(U \subset V\) existiert.
+	
+	Wir sagen, \(X\) \emph{erfülle das erste Abzählbarkeitsaxiom}, falls jeder Punkt von \(X\) eine abzählbare
+	Umgebungsbasis besitzt.
+\end{definition}
+
+\begin{definition}
+	Ein topologischer Raum \(X\) heißt \emph{hausdorffsch}, falls die Diagonale
+	\(\{(x, x) \in X \times X \mid x \in X\}\) in \(X \times X\) abgeschlossen ist.
+\end{definition}
+
+\begin{definition}
+	Sei \(X\) ein topologischer Raum. Sei \((x_n)_{n \in \set N_0}\) eine Folge in \(X\). Wir sagen, daß
+	ein Element \(x \in X\) ein \emph{Grenzwert von \((x_n)\) ist}, geschrieben \(\varinjlim_{n \to \infty}\limits x_n = x\),
+	falls für jede Umgebung \(U\) von \(x\) in \(X\) gilt, daß \(x_n \in U\) für \(n \gg 0\).
+\end{definition}
+Offensichtlich reicht es aus, sich auf Umgebungen einer Umgebungsbasis von \(x\) zu beschränken.
+
+\begin{proposition}
+	Sei \(X\) ein Hausdorffraum. Dann besitzt eine Folge höchstens einen Grenzwert.
+	\qed
+\end{proposition}
+
+\begin{definition}
+	Seien \(X, Y\) zwei topologische Räume. Eine Abbildung \(f\colon X \to Y\) heißt \emph{stetig}, falls
+	für alle offenen Teilmengen \(V\) von \(Y\) das Urbild \(f^{-1}(U)\) in \(X\) offen ist.
+	
+	Eine bijektive stetige Abbildung zwischen topologischen Räumen, deren Umkehrung auch stetig ist, heißt
+	\emph{Homöomorphismus}.
+\end{definition}
+
+\begin{example}
+	Sei \(X\) eine Menge. Sei \(Y\) ein topologischer Raum. Versehen wir \(X\) mit der
+	diskreten Topologie, so ist jede Abbildung \(f\colon X \to Y\) stetig.
+\end{example}
+
+\begin{example}
+	Sei \(Y\) ein topologischer Raum. Sei \(Z\) eine Teilmenge von \(Y\). Dann ist eine Abbildung \(f\colon X \to Z\)
+	von einem weiteren topologischen Raum \(X\) genau dann stetig, wenn \(f\) als Abbildung nach \(Y\) stetig ist.
+\end{example}
+
+\begin{definition}
+	Sei \(X\) ein topologischer Raum. Sei \(p\colon X \to Y\) eine surjektive Abbildung in eine Menge \(Y\). Die Menge
+	derjenigen Teilmengen \(V\) von \(Y\), so daß \(f^{-1}(V)\) offen in \(X\) ist, ist eine Topologie auf \(Y\), die
+	\emph{Quotiententopologie bezüglich \(p\)}.
+\end{definition}
+
+\begin{example}
+	Sei \(X\) ein topologischer Raum. Sei \(p\colon X \to Y\) eine surjektive Abbildung in eine Menge \(Y\), die wir
+	diesbezüglich mit der Quotiententopologie versehen. Dann ist eine Abbildung \(f\colon Y \to Z\) in
+	einen weiteren topologischen Raum \(Z\) genau dann stetig, wenn \(f \circ p\colon X \to Z\) stetig ist.
+\end{example}
+
+\begin{proposition}
+	Ist \(A\) eine beliebige Teilmenge eines topologischen Raumes \(X\), so existiert eine kleinste Teilmenge
+	\(\overline A \supset A\) von \(X\), welche abgeschlossen ist, der \emph{topologische Abschluß von \(A\)}.
+	\qed
+\end{proposition}
+
+\begin{definition}
+	Eine Teilmenge \(A\) eines topologischen Raumes \(X\) heißt \emph{dicht in \(X\)}, falls für den topologischen
+	Abschluß \(\overline A = X\) gilt.
+\end{definition}
+

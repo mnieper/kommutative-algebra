@@ -1,0 +1,131 @@
+\section{Endlich erzeugte Moduln}
+
+\subsection{Freie Moduln}
+
+\begin{frame}{Definition freier Moduln}
+	Sei \(A\) ein Ring.
+	\begin{definition}<+->
+		Ein \emph{freier \(A\)-Modul \(M\)} ist
+		ein zu einem \(A\)-Modul der Form \(\bigoplus\limits_{i \in I} M_i\) isomorpher
+		\(A\)-Modul, wobei \(M_i \cong A\) als \(A\)-Modul.
+	\end{definition}
+	\begin{visibleenv}<+->
+		Häufig wird für \(M\) auch die Notation \(A^{(I)}\) verwendet.
+	\end{visibleenv}
+	\begin{example}<+->
+		Ein endlich erzeugter freier Modul ist damit ein freier Modul isomorph zu
+		\(A^n = \underbrace{A \oplus \dotsb \oplus A}_n\).
+		\\
+		(Es ist \(A^0 = 0\) der Nullmodul.)
+	\end{example}
+\end{frame}
+
+\begin{frame}{Endlich erzeugte Moduln als Quotienten freier Moduln}
+	\begin{proposition}<+->
+		Sei \(A\) ein Ring. Sei \(M\) ein \(A\)-Modul. Dann ist \(M\)
+		genau dann ein endlich erzeugter \(A\)-Modul, wenn \(M\) ein
+		Quotient eines \(A\)-Moduls der Form \(A^n\) für ein \(n \in \set N_0\)
+		ist.
+	\end{proposition}
+	\begin{proof}<+->
+	\begin{enumerate}[<+->]
+	\item<.->
+		Sei \(M\) endlich erzeugt, etwa mit Erzeugern \(x_1, \dotsc, x_n\). Dann ist
+		\(\phi\colon A^n \to M, (a^1, \dotsc, a^n) \mapsto a^1 x_1 + \dotsb + a^n x_n\) ein
+		surjektiver Homomorphismus von \(A\)-Moduln. Nach dem Homomorphiesatz ist also
+		\(M \cong A^n/\ker \phi\).
+	\item
+		Sei \(M\) ein Quotient von \(A^n\). Dann existiert ein surjektiver Homomorphismus
+		\(\phi\colon A^n \to M\) von \(A\)-Moduln. Ist dann \(e_i \coloneqq (0, \dotsc, 1, \dotsc, 0) \in A^n\)
+		mit der Eins an Position \(i\), so erzeugen \(e_1, \dotsc, e_n\) den \(A\)-Modul \(A^n\).
+		Also erzeugen die \(\phi(e_i)\) den \(A\)-Modul \(M\).
+		\qedhere
+	\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Das Nakayamasche Lemma}
+
+\begin{frame}{Ganzheit eines Endomorphismus}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring.
+		Seien \(M\) ein endlich erzeugter \(A\)-Modul und \(\ideal a\) ein Ideal von \(A\).
+		Sei \(\phi\colon M \to M\) ein Endomorphismus von \(M\) mit \(\im \phi \subset \ideal a M\).
+		\\
+		Dann erfüllt \(\phi\) eine Gleichung der Form
+		\(\phi^n + a_1 \phi^{n - 1} + \dotsb + a_n = 0\) mit \(a_i \in \ideal a\).
+	\end{proposition}
+	\begin{proof}<+->
+	\begin{enumerate}[<+->]
+	\item<.->
+		Erzeugen \(x_1, \dotsc, x_n\) den \(A\)-Modul \(M\). Da \(\phi(x_i) \in \ideal a M\),
+		existieren \(a^i_j \in \ideal a\) mit \(\phi(x_j) = \sum\limits_i a^i_j x_i\), also
+		\(\sum\limits_i (\kron^i_j \phi - a^i_j) x_i = 0\) für alle \(j\).
+	\item
+		Multiplizieren wir die linke Seite mit der Adjunkten der Matrix \((\kron^i_j \phi - a^i_j)\)
+		erhalten wir, daß \(\det (\kron^i_j \phi - a^i_j)\) alle Erzeuger \(x_i\) auslöscht und damit
+		der Nullmorphismus ist. Ausmultiplizieren der Determinanten liefert eine Gleichung der
+		gesuchten Form.
+		\qedhere
+	\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Nakayamasches Lemma}
+	Sei \(A\) ein kommutativer Ring. Sei \(M\) ein endlich erzeugter \(A\)-Modul.
+	\begin{corollary}<+->
+		Sei \(\ideal a\) ein Ideal von \(A\) mit \(\ideal a M = M\). Dann existiert ein \(x \in A\) mit
+		\(x = 1\) modulo \(\ideal a\) und \(x M = 0\).
+	\end{corollary}
+	\begin{proof}<+->
+		Anwenden der Proposition auf \(\id_M\colon M \to M\) liefert einen Ausdruck der Form
+		\(x \coloneqq 1 + a_1 + \dotsb + a_n\) mit \(a_i \in \ideal a\) und \(x M = 0\).
+	\end{proof}
+	\begin{proposition}[Nakayamasches Lemma]<+->
+		Sei \(\ideal a\) ein Ideal von \(A\), welches im Jacobsonschen Radikal \(\ideal j\) von \(A\)
+		enthalten ist.
+		Dann folgt aus \(\ideal a M = M\) schon \(M = 0\).
+	\end{proposition}
+	\begin{proof}<+->
+		Nach der Folgerung existiert ein \(x = 1\) modulo \(\ideal a\)
+		mit \(x M = 0\). Da \(1 - x \in \ideal j\),
+		ist \(x \in A^\units\), also \(M = x^{-1} x M = 0\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Folgerung aus dem Nakayamaschen Lemma}
+	Sei \(A\) ein kommutativer Ring. Sei \(M\) ein endlich erzeugter \(A\)-Modul.
+	\begin{corollary}<+->
+		Seien \(N \subset M\) ein Untermodul und \(\ideal a\) ein Ideal von \(A\), welches im
+		Jacobsonschen Radikal von \(A\) enthalten ist. Dann folgt aus \(M = \ideal a M + N\) schon
+		\(M = N\).
+	\end{corollary}
+	\begin{proof}<+->
+		Wegen \(\ideal a (M/N) = (\ideal a M + N)/N\) reicht es, das Nakayamasche Lemma auf \(M/N\) 
+		anzuwenden.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Die spezielle Faser}
+	\begin{visibleenv}<+->
+		Sei \((A, \ideal m, F)\) ein lokaler Ring.
+		\\
+		Sei \(M\) ein endlich erzeugter \(A\)-Modul. Dann ist \(\ideal m \subset \ann (M/\ideal m M)\), also
+		ist \(M/\ideal m M\) in natürlicher Weise ein (endlich-dimensionaler) \(F = A/\ideal m\)-Vektorraum.
+		\\
+		Wir nennen den \(k\)-Vektorraum \(M(\ideal m) \coloneqq M/\ideal m M\) auch die \emph{spezielle Faser
+		von \(M\)}.
+		\\
+		Das Bild eines Elementes \(x \in M\) in \(M(\ideal m)\) heißt auch der \emph{Wert des Schnittes
+		\(x\) in der speziellen Faser}.
+	\end{visibleenv}
+	\begin{proposition}<+->
+		Seien \(x_1, \dotsc, x_n\) Schnitte von \(M\), deren Werte in \(M(\ideal m)\) eine Basis bilden.
+		Dann erzeugen \(x_1, \dotsc, x_n\) den \(A\)-Modul \(M\).
+	\end{proposition}
+	\begin{proof}<+->
+		Sei \(N\) der von den \(x_i\) erzeugte Untermodul von \(M\). Nach Voraussetzung ist die
+		Komposition \(N \to M \to M/\ideal m M\) surjektiv, also \(N + \ideal m M = M\).
+		Nach der letzten Folgerung ist daher \(M = N\).
+	\end{proof}
+\end{frame}

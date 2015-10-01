@@ -1,0 +1,272 @@
+\section{Nullteiler, nilpotente Elemente und Einheiten}
+
+\subsection{Integritätsbereiche}
+
+\begin{frame}{Reguläre Elemente und Nullteiler}
+    \begin{visibleenv}<+->
+        Sei \(x\) ein Element eines kommutativen Ringes \(A\).
+    \end{visibleenv}
+    \begin{definition}<.->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Das Element \(x\) heißt \emph{regulär}, falls für alle \(y \in A\)
+            aus \(x y = 0\) schon \(y = 0\) folgt.
+        \item
+            Ein Element \(x\) ist ein \emph{Nullteiler}, wenn es nicht regulär ist.
+        \item
+            Der Ring \(A\) heißt ein \emph{Integritätsbereich}, falls \{0\} der
+            einzige Nullteiler in \(A\) ist.
+        \end{enumerate}
+    \end{definition}
+    \begin{visibleenv}<+->
+        Das Element \(x\) ist also genau dann ein Nullteiler, falls ein
+        \(y \in A\) mit \(y \neq 0\), aber \(x y = 0\) existiert.
+    \end{visibleenv}
+    \\
+    \begin{visibleenv}<+->
+        Der Ring \(A\) ist weiter genau dann ein Integritätsbereich,\\
+        wenn \(0 \neq 1\)
+        in \(A\)\\ und aus \(x y = 0\) für \(x, y \in A\) schon \(x = 0\) oder
+        \(y = 0\) folgt.
+    \end{visibleenv}
+\end{frame}
+
+\begin{frame}{Unterringe von Integritätsbereichen}
+	\begin{proposition}<+->
+		Sei \(\phi\colon A \to B\) ein injektiver Homomorphismus kommutativer Ringe.
+		Ist dann \(B\) ein Integritätsbereich, so auch \(A\).
+	\end{proposition}
+	\begin{proof}<+->
+		Sei also \(B\) ein Integritätsbereich.
+		Da \(0 \neq 1\) in \(B\), muß wegen \(\phi(0) = 0\) und \(\phi(1) = 1\)
+		auch \(0 \neq 1\) in \(A\) gelten.
+		Seien weiter \(f, g \in A\) mit \(f g = 0\) gegeben. Es folgt
+		\(\phi(fg) = 0\) in \(B\). Damit ist \(\phi(f) = 0\) oder \(\phi(g) = 0\).
+		Da \(\phi\) injektiv ist, folgt dann \(f = 0\) oder \(g = 0\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Beispiele zu Integritätsbereichen}
+    \begin{example}<+->
+        Der Nullring ist kein Integritätsbereich, denn die Null ist im Nullring 
+        regulär.  
+    \end{example}
+    \begin{example}<+->
+        Der Ring \(\set Z\) der ganzen Zahlen ist ein Integritätsbereich.
+    \end{example}
+    \begin{visibleenv}<+->
+        Sei \(K\) ein Körper.
+    \end{visibleenv}
+    \begin{example}<.->
+        Der Polynomring \(K[x_1, \dotsc, x_n]\) in \(n\) Variablen über einem Körper
+        \(K\) ist ein Integritätsbereich.
+    \end{example}
+    \begin{example}<+->
+        Der Ring \(A \coloneqq K[x, y]/(x y)\) ist kein Integritätsbereich, da zum
+        Beispiel \(x\) und \(y\) Nullteiler in \(A\) sind.
+    \end{example}
+\end{frame}
+
+\begin{frame}{Hauptidealbereiche}
+    \begin{definition}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Ein Ideal \(\ideal a\) in einem kommutativen Ring \(A\) heißt
+            \emph{Hauptideal}, falls \(\ideal a = (a)\) für ein \(a \in A\).
+        \item
+            Ein Integritätsbereich \(A\) heißt \emph{Hauptidealbereich}, falls 
+            jedes Ideal in \(A\) ein Hauptideal ist.
+        \end{enumerate}
+    \end{definition}
+    \begin{visibleenv}<+->
+        Sei \(K\) ein Körper.
+    \end{visibleenv}
+    \begin{example}<+->
+        Die Ringe \(\set Z\) und \(K[x]\) sind Hauptidealbereiche.
+    \end{example}
+    \begin{remark}<+->
+        Für \(n \ge 2\) ist \(K[x_1, \dotsc, x_n]\) kein
+        Hauptidealbereich. Das Ideal \((x_1, \dotsc, x_n)\)
+        läßt sich nicht von weniger als \(n\) Elementen erzeugen.
+    \end{remark}
+\end{frame}
+
+\subsection{Nilpotente Elemente}
+
+\begin{frame}{Nilpotente Elemente}
+    \begin{definition}<+->
+        Ein Element \(x \in A\) eines kommutativen Ringes \(A\) heißt
+        \emph{nilpotent}, falls ein \(n \in \set N_0\)
+        mit \(x^n = 0\) existiert.
+    \end{definition}
+    \begin{example}<+->
+        In jedem kommutativen Ring ist \(0\) ein nilpotentes Element.
+    \end{example}
+    \begin{proposition}<+->
+        Ist \(A\) ein Integritätsbereich, so ist \(0\) das einzige nilpotente Element
+        von \(A\).
+    \end{proposition}
+    \begin{proof}<+->
+        Sei \(x \in A\) nilpotent und \(n \in \set N_0\) die kleinste natürliche Zahl
+        mit \(x^n = 0\). Dann ist \(n \ge 1\). Aus \(x \cdot x^{n - 1} = 0\)
+        und \(x^{n - 1} \neq 0\)
+        folgt dann \(x = 0\).
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Beispiele für nilpotente Elemente}
+    \begin{example}<+->
+        Sei \(K\) ein Körper. Im Ring \(K[x]/(x^2)\) ist \(x\) ein nilpotentes
+        Element.
+    \end{example}
+    \begin{example}<+->
+        Sei \(\phi\colon A \to B\) ein Homomorphismus von Ringen. Sei \(a\) ein
+        nilpotentes Element von \(A\). Dann ist \(\phi(a)\) ein nilpotentes Element
+        von \(B\).
+    \end{example}
+\end{frame}
+
+\subsection{Einheiten}
+
+\begin{frame}{Einheiten}
+    \begin{visibleenv}<+->
+        Sei \(x \in A\) ein Element eines Ringes.
+    \end{visibleenv}
+    \begin{definition}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Das Element \(x\) heißt \emph{Einheit in \(A\)}, falls \(x\) 
+            Einheit des multiplikativen Monoides von \(A\) ist.
+        \item<+->
+            Die Untergruppe \(A^\units\) im multiplikativen Monoid von \(A\), die
+            von den Einheiten in \(A\) gebildet wird, heißt die
+            \emph{Einheitengruppe von \(A\)}.
+        \item
+            Der Ring \(A\) heißt \emph{Schiefkörper}, falls \{0\} die einzige
+            Nichteinheit in \(A\) ist. Ein kommutativer Schiefkörper heißt
+            \emph{Körper}.
+        \end{enumerate}       
+    \end{definition}
+    \begin{visibleenv}<+->
+        Das Element \(x\) ist also genau dann eine Einheit, falls ein \(y \in A\) mit
+        \(x y = 1 = y x\) existiert, nämlich die \emph{Inverse} \(y = x^{-1}\)
+        von \(x\).
+    \end{visibleenv}
+    \begin{example}<+->
+        Der Nullring ist kein Körper, denn die Null ist im Nullring invertierbar.
+    \end{example}
+\end{frame}
+
+\begin{frame}{Beispiel für Einheiten und Einheitengruppen}
+    \begin{example}<+->
+        Die Einheitengruppe des Ringes \(\set Z\) der ganzen Zahlen ist
+        \(\set Z^\units = \{1, -1\}\). 
+        Insbesondere bilden die ganzen Zahlen keinen Körper.
+    \end{example}
+    \begin{example}<+->
+        Die Einheitengruppe des Ringes \(\set Q\) der rationalen Zahlen ist
+        \(\set Q^\units = \set Q \setminus \{0\}\). Damit ist \(\set Q\) ein
+        Körper.
+    \end{example}
+    \begin{example}<+->
+        Sei \(a \in A\) ein Element eines kommutativen Ringes. In \(A[x]/(xa - 1)\)
+        ist \(a\) eine Einheit mit Inverse \(x\).
+    \end{example}
+    \begin{example}<+->
+        Seien \(a, b \in A\) Elemente eines kommutativen Ringes, so daß \(ab\)
+        eine Einheit ist.
+        Dann ist auch \(a\) eine Einheit mit \(a^{-1} = b (ab)^{-1}\). 
+    \end{example}
+\end{frame}
+
+\begin{frame}{Beispiele und Propositionen über Einheiten}
+    \begin{visibleenv}<+->
+        Sei \(x \in A\) ein Element eines kommutativen Ringes \(A\).
+    \end{visibleenv}
+    \begin{proposition}<+->
+        Das Element \(x\) ist genau dann eine Einheit, falls
+        \((x) = (1)\).
+    \end{proposition}
+    \begin{proof}<+->
+        Es ist \(1 = x^{-1} \cdot x \in (x)\) und damit \((1) \subset (x)\), also \((1) = (x)\), falls \(x\) Einheit ist.
+        \\
+        Die umgekehrte Implikation ist ebenso klar.
+    \end{proof}
+    \begin{proposition}<+->
+        Ist \(x\) eine Einheit, ist \(x\) auch regulär.
+    \end{proposition}
+    \begin{proof}<+->
+        Sei \(x \cdot y = 0\) für ein \(y \in A\). Multiplizieren mit \(x^{-1}\) von
+        links liefert \(y = 0\).
+    \end{proof}
+\end{frame}
+
+\subsection{Charakterisierung von Körpern}
+
+\begin{frame}{Ein Lemma über Ideale in Körpern}
+    \begin{lemma}<+->
+        Sei \(A\) ein Körper. Dann besitzt \(A\) genau zwei Ideale (nämlich
+        \((0)\) und \((1)\)).
+    \end{lemma}
+    \begin{proof}<+->
+        Sei \(A\) ein Körper. Da \(0\) keine Einheit ist, ist \((0) \neq (1)\).
+        Sei jetzt \(\ideal a \neq (0)\) ein Ideal in \(A\). Dann existiert ein
+        \(x \in \ideal a\) mit \(x \neq 0\), also \(x \in A^\units\). Es folgt
+        \((1) = (x) \subset \ideal a\), also \(\ideal a = (1)\).
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Ein Lemma über Ringe mit genau zwei Idealen}
+    \begin{lemma}<+->
+        Sei \(\phi\colon A \to B\) ein Ringhomomorphismus kommutativer Ringe.
+        Besitze \(A\) genau zwei
+        Ideale. Dann ist \(\phi\) genau dann injektiv, wenn \(B\) nicht der Nullring
+        ist.
+    \end{lemma}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Sei \(\ker \phi = (0)\). Dann ist \(\phi\) injektiv. Weiter ist
+            \(1 = \phi(1) \neq 0 \in B\), da \(1 \notin (0) \subset A\), also ist
+            \(B\) nicht der Nullring.
+        \item
+            Sei \(\ker \phi = (1)\). Dann ist \(\phi\) nicht injektiv, da
+            \((1) \neq (0) \subset A\). Weiter ist \(1 = \phi(1) = 0 \in B\), also ist
+            \(B\) der Nullring.
+            \qedhere
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Ein Lemma über die Charakterisierung von Körpern}
+    \begin{lemma}<+->
+        Sei \(A\) ein kommutativer Ring, so daß jeder Ringhomomorphismus \(\phi\colon A \to B\)
+        in einen weiteren kommutativen Ring \(B\) genau dann injektiv ist, wenn \(B\) nicht der
+        Nullring ist. Dann ist \(A\) ein Körper.
+    \end{lemma}
+    \begin{proof}<+->
+        Sei \(x \in A\). Dann gilt:
+        \(x \in A^\units \iff A/(x) = 0 \iff \ker(A \surjto A/(x)) \neq 0
+        \iff x \neq 0\).
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Eine Proposition über die Charakterisierung von Körpern}
+    \begin{visibleenv}<+->
+        Zusammengefaßt haben wir also gezeigt:
+    \end{visibleenv}
+    \begin{proposition}<.->
+        Sei \(A\) ein kommutativer Ring. Dann sind die folgenden Aussagen äquivalent:
+        \begin{enumerate}
+        \item
+            \(A\) ist ein Körper.
+        \item
+            \(A\) besitzt genau zwei Ideale (nämlich \((0)\) und \((1)\)).
+        \item
+            Ein Ringhomomorphismus \(A \to B\) in einen kommutativen Ring \(B\) ist genau dann
+            injektiv, wenn \(B\) nicht der Nullring ist.
+            \qedhere
+        \end{enumerate}
+    \end{proposition}
+\end{frame}
+

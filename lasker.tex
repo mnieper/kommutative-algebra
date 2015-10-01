@@ -1,0 +1,152 @@
+\section{Primärzerlegung in noetherschen Ringen}
+
+\subsection{Irreduzible Ideale}
+
+\begin{frame}{Definition eines irreduziblen Ideals}
+	Sei \(A\) ein kommutativer Ring.
+	\begin{definition}<+->
+		Ein Ideal \(\ideal a \neq (1)\) in \(A\) heißt \emph{irreduzibel}, falls
+		für je zwei weitere Ideale \(\ideal b, \ideal c\) von \(A\) gilt:
+		\(\ideal a = \ideal b \cap \ideal c \implies (\ideal a = \ideal b
+		\lor \ideal a = \ideal c)\).
+	\end{definition}
+	\begin{lemma}<+->
+		\label{lem:lasker1}
+		Ist \(A\) noethersch, so ist jedes Ideal \(\ideal a\) ein endlicher Schnitt
+		irreduzibler Ideale.
+	\end{lemma}
+	\begin{proof}<+->
+		Angenommen, es gibt ein Ideal, welches sich nicht als endlicher Schnitt
+		irreduzibler Ideale schreiben läßt. Dann gibt es auch ein solches
+		maximales \(\ideal a\). Da \(\ideal a\) selbst nicht irreduzibel sein kann,
+		existieren Ideale \(\ideal b, \ideal c\) mit \(\ideal a = \ideal b \cap \ideal c\),
+		aber \(\ideal a \subsetneq \ideal b, \ideal c\). Damit sind \(\ideal b, \ideal c\)
+		jeweils Schnitte endlich vieler irreduzibler Ideale, also auch \(\ideal a\).
+		Widerspruch.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Irreduzible Ideale in noetherschen Ringen}
+	\begin{lemma}<+->
+		\label{lem:lasker2}
+		Sei \(\ideal a\) ein irreduzibles Ideal in einem noetherschen kommutativen
+		Ring \(A\). Dann ist \(\ideal a\) ein Primärideal.
+	\end{lemma}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Indem wir von \(A\) zu \(A/\ideal a\) übergehen, können wir uns auf den
+			Fall beschränken, daß das Nullideal primär ist, wenn es irreduzibel ist.
+		\item
+			Sei also \(xy = 0\) mit \(y \neq 0\). Die Kette \(\ann(x) \subset \ann(x^2)
+			\subset \dotsb\) ist stationär, also ist \(\ann(x^n) = \ann(x^{n + 1})\) für
+			ein \(n\).
+		\item
+			Sei \(a \in (x^n) \cap (y)\). Dann ist \(a = b x^n\) für ein \(b \in A\) und
+			\(a x = b x^{n + 1} = 0\). Insbesondere \(b \in \ann(x^{n + 1}) = \ann(x^{n})\),
+			also \(a = b x^n = 0\). Folglich \((x^n) \cap (y) = (0)\).
+		\item
+			Ist \((0)\) irreduzibel, so folgt wegen \((y) \neq (0)\) damit \((x^n) = 0\),
+			also \(x^n = 0\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Existenz der Primärzerlegung in noetherschen Ringen}
+
+\begin{frame}{Existenz der Primärzerlegung in noetherschen Ringen}
+	Sei \(A\) ein noetherscher kommutativer Ring.
+	\begin{theorem}<+->
+		In \(A\) ist jedes Ideal zerlegbar.
+		\qed
+	\end{theorem}
+	\begin{proposition}<+->
+		Jedes Ideal \(\ideal a\) in \(A\) enthält eine Potenz seines Wurzelideals.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Seien \(x_1, \dotsc, x_k\) Erzeuger von \(\sqrt{\ideal a}\). Dann gilt
+			\(x_i^{n_i} \in \ideal a\) für gewisse \(n_i\). Sei \(m \coloneqq
+			\sum\limits_i (n_i - 1) + 1\).
+		\item
+			Es wird \(\sqrt{\ideal a}^m\) von Produkten \(x_1^{r_1} \dotsm x_k^{r_k}\) mit
+			\(\sum\limits_i r_i = m\) erzeugt. Nach Definition von \(m\) gilt
+			\(r_i \ge n_i\) für mindestens ein \(i\) und damit
+			\(x_1^{r_1} \dotsm x_k^{r_k} \in \ideal a\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Das Nilradikal in noetherschen Ringen ist nilpotent}
+	Sei \(A\) ein noetherscher kommutativer Ring.
+	\begin{corollary}<+->
+		Das Nilradikal in \(A\) ist nilpotent.
+	\end{corollary}
+	\begin{proof}<+->
+		Eine Potenz von \(\sqrt{(0)}\) ist in \((0)\) enthalten.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Primäre Ideale zu maximalen Idealen in noetherschen Ringen}
+	\begin{corollary}<+->
+		Für ein maximales Ideal \(\ideal m\) und ein weiteres Ideal \(\ideal q\) eines
+		noetherschen kommutativen Ringes \(A\) sind
+		äquivalent:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es ist \(\ideal q\) ein \(\ideal m\)-primäres Ideal.
+		\item
+			Es ist \(\sqrt{\ideal q} = \ideal m\).
+		\item
+			Es ist \(\ideal m^n \subset \ideal q \subset \ideal m\) für \(n \gg 0\).
+		\end{enumerate}
+	\end{corollary}
+	\begin{proof}<+->
+		Die Äquivalenz der ersten beiden Aussagen gilt in beliebigen kommutativen Ringen. Daß aus der
+		zweiten die dritte folgt, ist die Aussage der Proposition. Die zweite folgt aus der dritten so:
+		\(\ideal m = \sqrt{\ideal m^n} \subset \sqrt{\ideal q} \subset \sqrt{\ideal m} = \ideal m\).
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Assoziierte Primideale in noetherschen Ringen}
+	\begin{proposition}<+->
+		Sei \(\ideal a\) ein Ideal in einem noetherschen kommutativen Ring \(A\). Dann sind die
+		zu \(\ideal a\) assoziierten Primideale genau die Primideale in \(A\) von der Form
+		\((\ideal a : x)\) mit \(x \in A\).
+	\end{proposition}
+	\begin{proof}<+->
+		Es reicht, die Aussage für \(A/\ideal a\) und das Nullideal zu beweisen, da die eigentliche
+		Aussage dann durch Kontraktion nach \(A\) folgt. Wir zeigen also, daß in einem noetherschen
+		Ring die zu \((0)\) assoziierten Primideale gerade die Primideale der Form \(\ann(x) = (0 : x)\)
+		mit \(x \in A\) sind.
+		\renewcommand{\qedsymbol}{}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Fortsetzung des Beweises zu assoziierten Primidealen}
+	\begin{proof}[Fortsetzung]<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(\bigcap\limits_{i = 1}^n \ideal q_i = (0)\) eine minimale Primärzerlegung. Sei \(\ideal p_i
+			\coloneqq \sqrt{\ideal q_i}\). Sei \(\ideal a_i = \bigcap\limits_{j \neq i} \ideal q_j \neq (0)\).
+			Wir hatten schon einmal \(\sqrt{\ann(x)} = \ideal p_i\) für alle \(x \in \ideal a_i \setminus \{0\}\)
+			gezeigt, also \(\ann(x) \subset \ideal p_i\).%
+			% XXX Das sollte vielleicht zu einem Hilfssatz werden
+		\item
+			Da \(\ideal p_i = \sqrt{\ideal q_i}\), ist \(\ideal p_i^m \subset \ideal q_i\) für \(m \gg 0\),
+			also \(\ideal a_i \ideal p_i^m \subset \ideal a_i \cap \ideal p_i^m \subset \ideal a_i \cap \ideal q_i = (0)\).
+			Sei \(m\) jetzt die kleinste natürliche Zahl mit \(\ideal a_i \ideal p_i^m = (0)\) und \(x \in \ideal a_i
+			\ideal p_i^{m - 1} \setminus \{0\}\).
+		\item
+			Dann ist \(\ideal p_i x = 0\), also \(\ann(x) \supset \ideal p_i \), also \(\ann(x) = \ideal p_i\).
+		\item
+			Ist umgekehrt \(\ann(x)\) ein Primideal, so haben wir schon gezeigt, daß \(\ann(x) = \sqrt{\ann(x)}\) ein
+			assoziiertes Primideal ist.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+

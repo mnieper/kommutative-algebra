@@ -1,0 +1,318 @@
+\section{Hilbertfunktionen}
+
+\subsection{Poincarésche Reihe}
+
+\begin{frame}{Endlich erzeugte gewichte Moduln}
+	\begin{visibleenv}<+->
+		Sei \(A = \bigoplus_{n \in \set N_0} A_n\) ein noetherscher gewichteter kommutativer Ring. Wir haben
+		gesehen, daß \(A_0\) dann ein noetherscher Ring ist und daß \(A\) als
+		\(A_0\)-Algebra endlich erzeugt ist.
+	\end{visibleenv}
+	\begin{proposition}
+		Sei
+		\(M = \bigoplus_{n \in \set N_0} M_n\) ein endlich erzeugter gewichteter \(A\)-Modul. Dann ist
+		\(M_n\) für alle \(n \in \set N_0\) ein endlich erzeugter \(A_0\)-Modul.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es existieren endlich
+			viele \(x_1, \dotsc, x_s \in A\), welche \(A\) als
+			\(A_0\)-Algebra erzeugen. Wir können annehmen, daß die \(x_i\)
+			homogen von Gewichten \(k_i\) sind.
+		\item
+			Es existieren homogene Erzeuger \(m_1, \dotsc, m_t \in M\) von \(M\) als
+			\(A\)-Modul. Seien die Gewichte der \(m_j\) durch \(r_j\) gegeben.
+		\item
+			Damit wird  \(M_n\) als \(A_0\)-Modul durch alle Terme der Form
+			\(g_j(x) m_j\) erzeugt, wobei \(g_j(x)\) ein Monom in den \(x_i\) vom
+			Totalgrad \(n - r_j\) ist.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Definition der Poincaréschen Reihe}
+	\begin{visibleenv}<+->
+		Sei \(A\) ein noetherscher gewichteter kommutativer Ring. Sei
+		\(\lambda\) eine (\(\set Z\)-wertige) additive Funktion auf der Klasse
+		aller endlich erzeugten \(A_0\)-Moduln.
+		\\
+		Mit den letzten Ergebnissen ist die Reihe
+		\[
+			\lambda(M, t) \coloneqq \sum\limits_{n = 0}^\infty \lambda(M_n) t^n
+			\in \ps{\set Z} t
+		\]
+		für jeden endlich erzeugten \(A\)-Modul \(M\)
+		wohldefiniert.
+	\end{visibleenv}
+	\begin{definition}<.->
+		Die Reihe \(\lambda(M, t)\) heißt die \emph{Poincarésche Reihe
+		von \(M\) (zu \(\lambda\))}.
+	\end{definition}
+\end{frame}
+
+\subsection{Der Hilbert--Serresche Satz}
+
+\begin{frame}{Der Hilbert--Serresche Satz}
+	\begin{theorem}[Hilbert--Serrescher Satz]<+->
+		\label{thm:hilbert_serre}
+		Sei \(A\) ein noetherscher gewichteter kommutativer Ring. Sei \(M\)
+		ein endlich erzeugter gewichteter \(A\)-Modul. Für jede additive Funktion
+		\(\lambda\) auf der Klasse der endlich erzeugten \(A_0\)-Moduln ist dann
+		\(\lambda(M, t)\) eine rationale Funktion der Form
+		\(f/\prod\limits_{i = 1}^s (1 - t^{k_i})\) mit \(f \in \set Z[t]\) und
+		\(k_i \in \set N\).
+	\end{theorem}
+	\begin{remark}<+->
+		Wir werden im Beweis sehen, daß wir alle \(k_i = 1\) wählen können,
+		wenn \(A\) als \(A_0\)-Algebra von \(A_1\) erzeugt wird.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Beweis des Hilbert--Serreschen Satzes}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Wir führen Induktion über die Anzahl \(s\) der Erzeuger von \(A\)
+			als \(A_0\)-Algebra. Im Falle von \(s = 0\) ist \(A = A_0\) und damit
+			ist \(M\) ein endlich erzeugter \(A_0\)-Modul. Folglich ist
+			\(M_n = 0\) für \(n \gg 0\), also ist \(\lambda(M, t)\) in diesem
+			Falle ein Polynom.
+		\item
+			Sei also \(s > 0\). Seien \(x_1, \dotsc, x_s\) homogene
+			Erzeuger von \(A\) als \(A_0\)-Modul mit Gewichten \(k_i\). Sei
+			\(\xi_s\colon M_n \to M_{n + k_s}, m \mapsto x_s m\).
+			Sei \(0 \to K_n \to M_n \xrightarrow{\xi_s} M_{n + k_s} \to L_{n + k_s}
+			\to 0\) eine exakte Sequenz von \(A_0\)-Moduln. Es sind \(K = \bigoplus\limits_n K_n\)
+			und \(L = \bigoplus\limits_n L_n\) endlich erzeugte \(A\)-Moduln.
+		\item
+			Aus der Additivität von \(\lambda\) folgt
+			\(\lambda(K_n) - \lambda(M_n) + \lambda(M_{n + k_s}) -
+			\lambda(L_{n + k_s}) = 0\), also
+			\((1 - t^{k_s}) \lambda(M, t) = \lambda(L, t) -
+			t^{k_s} \lambda(K, t) + g\) für ein \(g \in \set Z[t]\).
+		\item
+			Da \(x_s\) auf \(K\) und \(L\) trivial wirkt, können wir die
+			Induktionsvoraussetzung auf \(A_0[x_1, \dotsc, x_{s - 1}]\) anwenden.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Die Größe eines gewichteten Moduls}
+	Sei \(A\) ein noetherscher gewichteter kommutativer Ring.
+	Sei \(M\) ein endlich erzeugter gewichteter \(A\)-Modul. Sei
+	\(\lambda\) eine additive Funktion auf der Klasse der endlich erzeugten
+	\(A_0\)-Moduln.
+	\begin{definition}<+->
+		Die Polordnung von \(\lambda(M, t)\) an \(t = 1\) heißt die \emph{Größe \(\size_\lambda(M)\)
+		von \(M\) (zu \(\lambda\))}.
+	\end{definition}
+	\begin{example}<+->
+		Da \(A\) ein endlich erzeugter gewichteter Modul über sich selbst ist, ist inbesondere
+		die Größe \(\size_\lambda(A)\) von \(A\) definiert.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Polynomielles Verhalten}
+	\begin{proposition}<+->
+		Sei \(A\) ein noetherscher gewichteter kommutativer Ring, der als \(A_0\)-Algebra von \(A_1\) erzeugt wird.
+		Sei \(M\) ein endlich erzeugter gewichteter \(A\)-Modul.
+		Sei \(\lambda\) eine additive Funktion auf der Klasse der endlich erzeugten \(A\)-Moduln.
+		Dann existiert ein Polynom \(p \in \set Q[n]\) vom Grad \(\size_\lambda(M, t) - 1\) mit \(\lambda(M_n) = p(n)\)
+		für \(n \gg 0\).
+	\end{proposition}
+	\begin{visibleenv}<.->
+		Dem Nullpolynom sei hier der Grad \(-1\) zugeordnet.
+	\end{visibleenv}
+	\begin{visibleenv}<+->
+		Das Polynom \(p\) aus der Proposition heißt die
+		\emph{Hilbertfunktion von \(M\) (zu \(\lambda\))}. Diese ist durch
+		ihre Eigenschaften eindeutig bestimmt.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Beweis der Proposition über das polynomielle Verhalten}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Nach dem Hilbert--Serrschen Satz existiert ein
+			\(f = \sum\limits_{k = 0}^N a_k t^k \in \set Z[t]\), so daß \(\lambda(M_n)\)
+			der Koeffizient von \(t^n\) in \(f(t) \cdot (1 - t)^{-s}\) ist. Durch
+			Kürzen können wir erreichen, daß
+			\(s = \size_\lambda(M)\) und \(f(1) \neq 0\).
+		\item
+			Aus \((1 - t)^{-s} = \sum\limits_{k = 0}^\infty \binom{s + k - 1}{s - 1} t^k\) folgt
+			\(\lambda(M_n) = \sum\limits_{k = 0}^N a_k \binom{s + n - k - 1}{s - 1}\) für \(n \ge N\).
+		\item
+			Die rechte Seite ist ein Polynom in \(n\) mit führendem Term
+			\(f(1) n^{s - 1}/(s - 1)! \neq 0\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Numerische Polynome}
+	\begin{remark}<+->
+		Ein Polynom \(p \in \set Q[n]\), welches ganzzahlige Werte \(p(n)\) für
+		\(n \gg 0\) annimmt, heißt auch \emph{numerisches Polynom}.
+	\end{remark}
+	\begin{example}<+->
+		Es gibt Polynome \(p \in \set Q[n]\) mit \(p(n) \in \set Z\) für alle
+		\(n \in \set Z\), welche aber nicht in \(\set Z[n]\) liegen, etwa
+		\(p(n) = \frac 1 2 x(x + 1)\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Die Größe regulärer Quotienten}
+	\begin{proposition}<+->
+		Sei \(A\) ein noetherscher gewichteter kommutativer Ring. Sei
+		\(M\) ein endlich erzeugter gewichteter \(A\)-Modul. Sei \(\lambda\) eine additive
+		Funktion auf der Klasse der endlich erzeugten \(A_0\)-Moduln. Ist dann
+		\(x \in A_k\), \(k \in \set N_0\), regulär in \(M\), das heißt
+		\(x m = 0 \implies m = 0\) für alle \(m \in M\), so gilt
+		\(\size_\lambda(M/x M) = \size_\lambda(M) - 1\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es existieren exakte Sequenzen \(0 \to M_n \xrightarrow{\xi} 
+			M_{n + k} \to (M/x M)_{n + k} \to 0\) mit \(\xi\colon M_n \to M_{n + k},
+			m \mapsto x m\).
+		\item
+			Es folgt \(- \lambda(M_n) + \lambda(M_{m + k}) - \lambda((M/xM)_{n + k}) = 0\),
+			also \((1 - t^k) \lambda(M, t) = \lambda(M/xM, t) + g\) für ein \(g \in \set Z[t]\).
+		\item
+			Damit ist \(\size_\lambda(M/x M) = \size_\lambda(M) - 1\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Beispiel zu einer Poincaréschen Reihen}
+	\begin{example}<+->
+		Sei \(A_0\) ein artinscher Ring, z.B.\ ein Körper. Dann ist insbesondere die Länge \(\ell\) von
+		\(A_0\)-Moduln eine additive Funktion auf den endlich erzeugten \(A_0\)-Moduln.
+		\\
+		Sei \(A = A[X_1, \dotsb, X_s]\) der Polynomring mit der kanonischen Gewichtung.
+		Dann ist \(A_n\) ein freier \(A_0\)-Modul mit einer Basis bestehend
+		aus allen Monomen \(X_1^{m_1} \dotsm X_s^{m_s}\) vom Totalgrad \(n\).
+		\\
+		Von diesen gibt es genau \(\binom{s + n - 1}{s - 1}\), daher ist
+		\(\ell(A, t) = \frac{1}{(1 - t)^s}\).
+	\end{example}
+\end{frame}
+
+\subsection{Das charakterische Polynom primärer Ideale}
+
+\begin{frame}{Ein Hilfssatz über endliche Länge für Quotienten in einer stabilen Filtration}
+	\begin{lemma}<+->
+		Sei \((A, \ideal m)\) ein noetherscher lokaler Ring. Sei \(\ideal q\) ein \(\ideal m\)-primäres Ideal.
+		Sei \(M\) ein endlich erzeugter \(A\)-Modul und \(M_\bullet\) eine stabile \(\ideal q\)-Filtration.
+		Dann ist \(M/M_n\) für alle \(n \in \set N_0\) von endlicher Länge mit
+		\(\ell(M/M_n) = \sum\limits_{r = 0}^{n - 1} \ell(M_r/M_{r + 1})\).
+	\end{lemma}
+\end{frame}
+
+\begin{frame}{Beweis des Hilfssatzes über die endliche Länge}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Da \(A\) noethersch ist und \(M_\bullet\) eine stabile Filtration eines endlich erzeugten Moduls über \(A\),
+			ist \(\Graded_{\ideal q}(t) \cong \bigoplus\limits_n \ideal q^n/\ideal q^{n + 1} t^n\) noethersch und
+			\(\Graded(M_\bullet, t) \cong \bigoplus\limits_n M_n/M_{n + 1} t^n\) ist ein endlich erzeugter Modul über
+			\(\Graded_{\ideal q}(t)\).
+		\item
+			Es ist \(\Graded_{\ideal q}(t)_0 \cong A/\ideal q\) noethersch der Dimension \(0\) und damit artinsch.
+		\item
+			Die \(\Graded(M_\bullet, t)_n \cong M_n/M_{n + 1}\) sind noethersche \(A\)-Moduln, deren Annihilator \(\ideal q\)
+			umfaßt, also sogar noethersche \(A/\ideal q\)-Moduln und damit von endlicher Länge.
+		\item
+			Aus \(\ell(M/M_{r + 1}) - \ell(M/M_r) = \ell(M_r/M_{r + 1})\) folgt die Endlichkeit der Länge von
+			\(\ell(M/M_n)\) und die angegebene Formel in Termen von \(\ell(M_r/M_{r + 1})\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Die Länge von Quotienten in einer stabilen Filtration}
+	\begin{proposition}<+->
+		Sei \((A, \ideal m)\) ein noetherscher lokaler Ring. Sei \(\ideal q\) ein \(\ideal m\)-primäres Ideal, welches von
+		minimal \(s\) Elementen erzeugt wird.
+		Sei \(M\) ein endlich erzeugter \(A\)-Modul zusammen mit einer stabilen \(\ideal q\)-Filtration.
+		Dann existiert genau ein Polynom \(g \in \set Q[n]\) vom Grad höchstens \(s\)
+		mit \(\ell(M/M_n) = g(n)\) für \(n \gg 0\). Grad und Leitkoeffizient von \(g\) hängen nur von \(M\) und \(\ideal q\), aber
+		nicht von der gewählten Filtrierung ab.
+	\end{proposition}
+	\begin{proof}[Beweis der Existenz]<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Seien \(x_1, \dotsc, x_s\) Erzeuger von \(\ideal q\), deren Bilder in \(\ideal q/\ideal q^2\) mit \(\bar x_i\) bezeichnet
+			seien. Dann wird \(\Graded_{\ideal q}(t)\) von den \(s\) Elementen \(\bar x_i t\) im Gewicht \(1\)
+			als \(\Graded_{\ideal q}(t)_0\)-Algebra erzeugt, woraus \(\ell(M_n/M_{n + 1}) = f(n)\) für \(n \gg 0\) für ein
+			Polynom \(f(n) \in \set Q[n]\) vom Grad höchstens \(s - 1\) folgt.
+		\item
+			Wegen \(\ell(M/M_{n + 1}) - \ell(M/M_{n}) = f(n)\) für \(n \gg 0\) ist damit \(\ell(M/M_{n})\) für \(n \gg 0\)
+			ein Polynom in \(n\) vom Grad höchstens \(s\).
+			\renewcommand{\qedsymbol}{}
+			\qedhere	
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Beweis der Eindeutigkeit von Grad und Leitkoeffizient}
+	\begin{proof}[Beweis der Eindeutigkeit von Grad und Leitkoeffizient]<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(\tilde M_\bullet\) eine weitere stabile \(\ideal q\)-Filtration von \(M\), so sei \(\tilde g \in \set Q[n]\) mit
+			\(\tilde g(n) = \ell(M/\tilde M_n)\) für \(n \gg 0\). Da die Filtrationen beschränkte Differenz haben,
+			existiert ein \(n_0 \in \set N_0\) mit \(M_{n + n_0} \subset \tilde M_n\) und \(\tilde M_{n + n_0} \subset M_n\)
+			für alle \(n \ge 0\).
+		\item
+			Folglich ist \(g(n + n_0) \ge \tilde g(n)\) und \(\tilde g(n + n_0) \ge g(n)\) für \(n \gg 0\). Da \(g, \tilde g\) Polynome
+			sind, folgt \(\lim\limits_{n \to \infty} g(n)/\tilde g(n) = 1\), womit
+			\(g, \tilde g\) denselben Grad und Leitkoeffizient haben.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Das charakteristische Polynom}
+	Sei \((A, \ideal m)\) ein noetherscher lokaler Ring. Sei \(\ideal q\) ein \(\ideal m\)-primäres Ideal, welches von
+	minimal \(s\) Elementen erzeugt wird.
+	Sei \(M\) ein endlich erzeugter \(A\)-Modul zusammen mit einer stabilen \(\ideal q\)-Filtration.
+	Mit \(\charpoly_{\ideal q}^{M_\bullet} \in \set Q[n]\) bezeichnen wir dasjenige Polynom
+	mit \(\charpoly_{\ideal q}^M(n) = \ell(M/M_n)\) für
+	\(n \gg 0\).
+	\begin{definition}<+->
+		Das Polynom \(\chi_{\ideal q}^{M_\bullet}\) heißt das \emph{charakteristische Polynom von \(\ideal q\) über \(M_\bullet\)}.
+	\end{definition}
+	\begin{example}<+->
+		Im Falle von \(M = A\) zusammen mit der \(\ideal q\)-adischen Filtrierung schreiben
+		wir \(\charpoly_{\ideal q} = \charpoly_{\ideal q}^{M_\bullet}\) und nennen \(\charpoly_{\ideal q}\) das
+		\emph{charakteristische Polynom von \(\ideal q\)}. Nach der letzten Proposition ist \(\charpoly_{\ideal q}\) ein Polynom, dessen
+		Grad höchstens \(s\) ist, wobei \(s\) die minimale Anzahl von Erzeugern von \(\ideal q\) ist.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Grad des charakteristischen Polynome zu primären Idealen}
+	\begin{proposition}<+->
+		Sei \((A, \ideal m)\) ein noetherscher lokaler Ring. Sei \(\ideal q\) ein \(\ideal m\)-primäres Ideal. Dann ist
+		\(\deg \charpoly_{\ideal q} = \deg \charpoly_{\ideal m}\).
+	\end{proposition}
+	\begin{visibleenv}<+->
+		Der Grad \(\size(A)\) des charakteristischen Polynoms hängt also nicht vom gewählten \(\ideal m\)-primären Ideal ab. 
+	\end{visibleenv}
+	\begin{proof}<+->
+		Es ist \(\ideal m \supset \ideal q \supset \ideal m^r\) für ein \(r\), also \(\ideal m^n \supset \ideal q^n
+		\supset \ideal m^{rn}\)
+		für \(n \ge 0\), also \(\charpoly_{\ideal m}(n) \le \charpoly_{\ideal q}(n) \le \charpoly_{\ideal m}(rn)\) für alle \(n \gg 0\).
+		Es folgt \(\deg \charpoly_{\ideal m} \le \deg \charpoly_{\ideal q} \le \deg\charpoly_{\ideal m}\).
+	\end{proof}
+	\begin{remark}<+->
+		Es ist insbesondere \(\size(A) = \size_\ell(\Graded_{\ideal m}(A, t))\), die vorher definierte Größe eines noetherschen
+		gewichteten homogenen Ringes (zur additiven Funktion der Länge).
+	\end{remark}
+\end{frame}
+

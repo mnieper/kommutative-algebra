@@ -1,0 +1,207 @@
+\section{Primärzerlegung II}
+
+\subsection{Primärzerlegung und das Nullideal} 
+
+\begin{frame}{Vereinigung der zu einem Ideal assoziierten Primideale}
+	 \begin{proposition}<+->
+	 	\label{prop:union_of_assoc_primes}
+		Sei \(\ideal a\) ein zerlegbares Ideal eines kommutativen Ringes \(A\). Sei \(\ideal a = \bigcap\limits_{i = 1}^n
+		\ideal q_i\) eine minimale Primärzerlegung. Sei \(\ideal p_i \coloneqq \sqrt{\ideal q_i}\). Dann gilt
+		\(\bigcup\limits_{i = 1}^n \ideal p_i = \{x \in A \mid (\ideal a : x) \neq \ideal a\}\).
+	\end{proposition}
+	\begin{corollary}<+->
+		Ist das Nullideal in \(A\) zerlegbar, so ist die Menge \(D\) der Nullteiler von \(A\) die Vereinigung der zu \((0)\)
+		assoziierten Primideale.
+	\end{corollary}
+	\begin{proof}[Beweis der Proposition]<+->
+		Aus der Zerlegbarkeit von \(\ideal a\) folgt die Zerlegbarkeit von \((0) \subset A/\ideal a\), denn \((0) = \bigcap_{i \in I}
+		\bar{\ideal q}_i\), wobei \(\bar{\ideal q}_i\) das Bild von \(\ideal q_i\) in \(A/\ideal a\) ist, welches primär ist.
+		\\
+		Damit reicht es, die Folgerung zu beweisen.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Beweis der Folgerung}
+	\begin{proof}[Beweis der Folgerung]<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Zunächst ist \(D = \bigcup\limits_{x \neq 0} \sqrt{(0 : x)}\).
+			\\
+			Auf der anderen Seite wissen wir aus dem Beweis des ersten Eindeutigkeitssatzes, daß
+			\(\sqrt{(0 : x)} = \bigcap\limits_{\ideal q_j \not\ni x} \ideal p_j \subset \ideal p_i\) für ein \(i\). Damit
+			gilt \(D \subset \bigcup\limits_{i = 1}^n \ideal p_i\).
+		\item
+			Auf der anderen Seite ist jedes \(\ideal p_i\) von der Form \(\sqrt{(0 : x)}\) mit \(x \neq 0\), also
+			\(\bigcup\limits_{i = 1}^n \ideal p_i \subset D\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Die Menge der Nullteiler und die Menge der nilpotenten Elemente}
+	\begin{remark}<+->
+		Für einen kommutativen Ring \(A\), in dem das Nullideal zerlegbar ist, gilt also:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Die Menge der Nullteiler von \(A\) ist die Vereinigung aller Primideale, die assoziiert zu \((0)\) sind.
+		\item
+			Die Menge der nilpotenten Elemente ist der Schnitt aller (isolierten) Primideale, die zu \((0)\) assoziiert sind.
+		\end{enumerate}
+	\end{remark}
+\end{frame}
+
+\subsection{Primäre Ideale und Lokalisierung}
+
+\begin{frame}{Primäre Ideale in Lokalisierungen}
+	\begin{proposition}<+->
+		\label{prop:primaries_in_localisation}
+		Sei \(\ideal p\) ein Primideal in einem kommutativen Ring \(A\). Sei \(\ideal q\) ein \(\ideal p\)-primäres Ideal.
+		Sei \(S \subset A\) multiplikativ abgeschlossen. Dann gilt:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(S \cap \ideal p \neq \emptyset\), so folgt \(S^{-1} \ideal q = (1)\).
+		\item
+			Ist \(S \cap \ideal p = \emptyset\), so ist \(S^{-1} \ideal q\) ein \(S^{-1} \ideal p\)-primäres Ideal
+			und für seine Kontraktion gilt \(A \cap S^{-1} \ideal q = \ideal q\).
+		\end{enumerate}
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(s \in S \cap \ideal p\), so ist \(s^n \in S \cap \ideal q\) für ein \(n \in \set N_0\). Damit enthält
+			\(S^{-1} \ideal q\) das Element \(\frac{s^n} 1\), welches eine Einheit in \(S^{-1} A\) ist.
+		\item
+			Ist \(S \cap \ideal p = \emptyset\), so folgt aus \(s \in S\) und \(as \in \ideal q\) schon \(a \in \ideal q\).
+			Wegen \(A \cap S^{-1} \ideal q = \bigcup\limits_{s \in S} (\ideal q : s)\) folgt damit \(A \cap S^{-1} \ideal q
+			= \ideal q\).
+			Außerdem ist \(\sqrt{S^{-1} \ideal q} = S^{-1} \sqrt{\ideal q} = S^{-1} \ideal p\). Daß \(S^{-1} \ideal q\) primär ist,
+			ist schließlich einfach.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Korrespondenz zwischen primären Idealen in einer Lokalisierung}
+	\begin{corollary}<+->
+		\label{cor:correspondence_for_primaries}
+		Sei \(A\) ein kommutativer Ring. Sei \(S \subset A\) multiplikativ abgeschlossen.
+		Durch \(\ideal r = S^{-1} \ideal q\) ist eine bijektive, ordnungserhaltende Korrespondenz
+		zwischen den primären Idealen \(\ideal q\) von \(A\) mit \(\sqrt{\ideal q} \cap S = \emptyset\) und den
+		primären Idealen von \(S^{-1} A\) gegeben. 
+	\end{corollary}
+	\begin{proof}<+->
+		Folgt aus der letzten Proposition zusammen mit der Tatsache, daß die Kontraktion eines primären Ideals
+		ein primäres Ideal ist.
+	\end{proof}
+\end{frame}
+
+\subsection{Sättigung eines Ideals}
+
+\begin{frame}{Definition der Sättigung eines Ideals}
+	\begin{definition}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(S \subset A\) multiplikativ
+		abgeschlossen. Die \emph{Sättigung \(S(\ideal a)\) eines Ideals
+		\(\ideal a\) von \(A\) bezüglich \(S\)} ist das Ideal
+		\(S(\ideal a) \coloneqq A \cap S^{-1} \ideal a\), also die Kontraktion
+		der Erweiterung des Ideals bezüglich der Lokalisierung \(S^{-1} A\).
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Sättigung zerlegbarer Ideale}
+	\begin{proposition}<+->
+		\label{prop:sat_decomp}
+		Sei \(\ideal a\) ein zerlegbares Ideal in einem kommutativen Ring \(A\).
+		Sei \(S \subset A\) multiplikativ abgeschlossen. Sei
+		\(\ideal a = \ideal q_1 \cap \dotsb \cap \ideal q_n\) eine minimale
+		Primärzerlegung von \(\ideal a\). Sei \(\ideal p_i \coloneqq
+		\sqrt{\ideal q_i}\). Weiter seien die \(\ideal q_i\) so
+		numeriert, daß \(S \cap \ideal p_i = \emptyset \iff
+		i \leq m\) für ein \(0 \leq m \leq n\). Dann sind
+		\(S^{-1} \ideal a = \bigcap\limits_{i = 1}^m S^{-1} \ideal q_i\)
+		und \(S(\ideal a) = \bigcap\limits_{i = 1}^m \ideal q_i\)
+		minimale Primärzerlegungen.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(S^{-1} \ideal a = \bigcap\limits_{i = 1}^n S^{-1} \ideal q_i
+			= \bigcap\limits_{i = 1}^m S^{-1} \ideal q_i\), und
+			\(S^{-1} \ideal q_i\) ist ein
+			\(S^{-1} \ideal p_i\)-primäres Ideal für \(i \leq m\).
+		\item
+			Da die \(\ideal p_i\) paarweise verschieden sind, gilt dies auch
+			für die \(S^{-1} \ideal p_i\) für \(i \leq m\), so daß
+			\(\bigcap\limits_{i = 1}^m S^{-1} \ideal q_i\) minimal ist.
+		\item
+			Kontraktion liefert die entsprechende Aussage
+			für \(S(\ideal a)\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Isolierte Mengen assoziierter Primideale}
+	Sei \(\ideal a\) ein zerlegbares Ideal in einem kommutativen Ring \(A\).
+	\begin{definition}<+->
+		Eine Menge \(\mathfrak S\) von an \(\ideal a\) assoziierten Primidealen
+		heißt \emph{isoliert}, falls sich folgende Bedingung erfüllt: Ist
+		\(\ideal p'\) ein zu \(\ideal a\) assoziiertes Primideal und ist
+		\(\ideal p' \subset \ideal p\) für ein \(\ideal p \in \mathfrak S\),
+		so folgt \(\ideal p' \in \mathfrak S\).
+	\end{definition}
+	\begin{proposition}<+->
+		Sei \(\mathfrak S\) eine isolierte Menge von an \(\ideal a\)
+		assoziierten Primidealen. Dann ist \(S \coloneqq A \setminus
+		\bigcup\limits_{\ideal p \in \mathfrak S} \ideal p\) multiplikativ
+		abgeschlossen, und für jedes an \(\ideal a\) assoziierte Primideal
+		\(\ideal p'\) gilt:
+		\begin{enumerate}[<+->]
+		\item<.->
+			Ist \(\ideal p' \in \mathfrak S\), so gilt
+			\(\ideal p' \cap S = \emptyset\).
+		\item
+			Ist \(\ideal p' \notin \mathfrak S\), so ist
+			\(\ideal p' \cap S \neq \emptyset\).
+			\qed
+		\end{enumerate}
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Der zweite Eindeutigkeitssatz}
+	\begin{theorem}[Der zweite Eindeutigkeitssatz]<+->
+		\label{thm:second_uniqueness}
+		Sei \(\ideal a\) ein zerlegbares Ideal in einem kommutativen
+		Ring \(A\). Sei \(\ideal a = \bigcap\limits_{i = 1}^n \ideal q_i\)
+		eine minimale Primärzerlegung. Sei \(\ideal p_i \coloneqq
+		\sqrt{\ideal q_i}\). Ist dann \(\{\ideal p_1, \dots, \ideal p_m\}\)
+		eine isolierte Menge von an \(\ideal a\) assoziierten Primidealen,
+		so ist \(\bigcap\limits_{i = 1}^m \ideal q_i\) unabhängig von der
+		Zerlegung.
+	\end{theorem}
+	\begin{proof}<+->
+		Sei \(S \coloneqq A \setminus \bigcup\limits_{i = 1}^m \ideal p_i\).
+		Dann ist \(S(\ideal a) = \bigcap\limits_{i = 1}^m \ideal q_i\), also
+		unabhängig von der Zerlegung, da die \(\ideal p_i\) nur von
+		\(\ideal a\) abhängen.
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Eindeutigkeit der isolierten primären Komponenten}
+	\begin{corollary}<+->
+		\label{cor:second_uniqueness}
+		Sei \(\ideal a\) ein zerlegbares Ideal in einem kommutativen
+		Ring \(A\). Sei \(\ideal a = \bigcap\limits_{i = 1}^n \ideal q_i\)
+		eine minimale Primärzerlegung. Sei \(\ideal p_i \coloneqq
+		\sqrt{\ideal q_i}\). Dann sind die \(\ideal q_i\), für die \(\ideal p_i\)
+		ein isoliertes Primideal von \(\ideal a\) ist, die \alert{isolierten
+		primären Komponenten von \(\ideal a\)}, eindeutig bestimmt.
+	\end{corollary}
+	\begin{remark}<+->
+		Die eingebetteten primären Komponenten sind dagegen im allgemeinen nicht
+		eindeutig durch das Ideal bestimmt.
+		\\
+		Später werden wir Beispiele sehen, in denen es unendlich viele
+		Möglichkeiten für jede eingebettete Komponente gibt.
+	\end{remark}
+\end{frame}
+

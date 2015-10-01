@@ -1,0 +1,96 @@
+\section{Das Nil- und das Jacobsonsche Radikal}
+
+\subsection{Das Nilradikal}
+
+\begin{frame}{Definition des Nilradikals}
+    \begin{proposition}<+->
+        Sei \(A\) ein kommutativer Ring. Die Menge \(\ideal n\) der nilpotenten
+        Elemente von \(A\) ist ein Ideal, das \alert{Nilradikal von \(A\)}. Der Ring
+        \(A/\ideal n\) hat außer \(0\) keine nilpotenten Elemente.
+    \end{proposition}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Es ist \(0 \in \ideal n\). Ist \(x \in \ideal n\) und \(a \in A\), so
+            ist auch \(a x \in \ideal n\), denn \((a x)^n = a^n x^n = 0\) für
+            \(n \gg 0\).
+        \item   
+            Seien \(x, y \in \ideal n\), etwa \(x^m = 0\) und \(y^n = 0\) für
+            \(n, m \ge 0\). Nach dem in jedem kommutativen Ring gültigen Binomialsatz
+            ist dann
+            \((x + y)^{m + n - 1} = \sum\limits_{r + s = m + n - 1} \binom{m + n - 1} r
+            x^r y^s = 0\). Also folgt \(x + y \in \ideal n\).
+        \item
+            Sei \(x \in A\). Sei \(x\) nilpotent in \(A/\ideal n\), das heißt
+            \(x^n \in \ideal n\) für \(n \gg 0\). Nach Definition von \(\ideal n\)
+            ist \(x^{kn} = (x^n)^k = 0\) für \(k \gg 0\). Folglich ist auch
+            \(x \in \ideal n\). Damit ist \(x = 0\) in \(A/\ideal n\).
+            \qedhere
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Der Schnitt aller Primideale}
+    \begin{proposition}<+->
+        Das Nilradikal \(\ideal n\) eines kommutativen Ringes \(A\) ist der Schnitt
+        \(\bigcap \ideal p\) aller seiner Primideale.
+    \end{proposition}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Sei \(f \in \ideal n\), also \(f^n = 0\) für \(n \gg 0\). Ist \(\ideal p\)
+            ein Primideal, so folgt aus \(f^n = 0 \in \ideal p\) schon \(f \in \ideal p\),
+            also \(f \in \bigcap \ideal p\).
+        \item
+            Sei umgekehrt \(f \notin \ideal n\). Sei \(\mathfrak A\) die Menge der
+            Ideale \(\ideal a\) von \(A\) mit \(f^n \notin \ideal a\) für alle
+            \(n \ge 0\). Da \((0) \in \mathfrak A\), besitzt \(\mathfrak A\) nach dem 
+            Zornschen Lemma ein maximales Element \(\ideal p \neq (1)\). Insbesondere
+            \(f \notin \ideal p\).
+        \item
+            Es reicht dann zu zeigen, daß \(\ideal p\) prim ist. Dazu seien \(x, y
+            \in A \setminus \ideal p\) gegeben. Nach Maximalität von \(\ideal p\)
+            ist \(f^m\) im von \(\ideal p\) und \(x\) aufgespannten Ideal
+            \(\ideal p + (x)\) für ein
+            \(m \ge 0\). Analog ist \(f^n \in \ideal p + (y)\) für ein \(n \ge 0\).
+            Es folgt \(f^{m + n} \in \ideal p + (xy)\). Damit ist \(xy \notin \ideal p\).
+            \qedhere
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\subsection{Das Jacobsonsche Radikal}
+
+\begin{frame}{Das Jacobsonsche Radikal}
+    Sei \(A\) ein kommutativer Ring.
+    \begin{definition}<+->
+        Das \emph{Jacobsonsche Radikal von \(A\)} ist der Schnitt aller maximalen 
+        Ideale von \(A\).
+    \end{definition}
+    \begin{proposition}
+        Ein Element \(x\) von \(A\) ist genau dann im Jacobsonschen Radikal
+        \(\ideal j\), wenn \(1 - xy\) für alle \(y \in A\) eine Einheit ist.
+    \end{proposition}
+    \begin{proof}<+->
+        \begin{enumerate}[<+->]
+        \item<.->
+            Sei \(1 - xy\) keine Einheit. Dann ist \(1 - xy \in \ideal m\) für ein
+            maximales Ideal \(\ideal m\). Da \(1 \notin \ideal m\), folgt
+            \(xy \notin \ideal m\), also \(x \notin \ideal j\).
+        \item
+            Sei umgekehrt \(x \notin \ideal j\), also \(x \notin \ideal m\) für ein
+            maximales Ideal \(\ideal m\). Damit erzeugen \(x\) und \(\ideal m\) das
+            Einsideal, also existiert ein \(y \in A\), so daß \(1 - xy \in \ideal m\).
+            Damit ist \(1 - xy\) keine Einheit.
+            \qedhere
+        \end{enumerate}
+    \end{proof}
+\end{frame}
+
+\begin{frame}{Interpretation des Jacobsonschen Radikals}
+    \begin{visibleenv}<+->
+        Das Jacobsonsche Radikal besteht also aus allen Elementen eines kommutativen
+        Ringes, welche in einem gewissen Sinne "`nahe bei \(0\) sind"'.
+    \end{visibleenv}
+\end{frame}
+

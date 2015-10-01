@@ -1,0 +1,80 @@
+\subsection{Dimensionstheorie}
+
+\begin{exercise}
+	Sei \(K\) ein algebraisch abgeschlossener Körper. Sei \(f \in K[x_1, \dotsc, x_n]\) ein irreduzibles Polynom.
+	Wir sagen \(P = (a_1, \dotsc, a_n) \in K^n\) sei \emph{nicht singulär}, falls \((\frac{\partial f}{\partial x_1}(a_1),
+	\dotsc, \frac{\partial f}{\partial x_n}(a_n)) \in K^n\) nicht der Nullvektor ist.
+	
+	Sei \(A = K[x_1, \dotsc, x_n]/(f)\). 
+	Sei \(\ideal m\) das Bild des Ideals \((x_1 - a_1, \dotsc, x_n - a_n)\) in \(A\). Zeige, daß \(P\)
+	genau dann nicht singulär ist, wenn \(A_{\ideal m}\) ein regulärer lokaler Ring ist.
+	
+	(Tip: Nach \prettyref{cor:dim_of_reg_quot} ist \(\dim A_{\ideal m} = n - 1\). Weiter ist
+	\(\ideal m/\ideal m^2 = (x_1, \dotsc, x_n)/(x_1, \dotsc, x_n)^2 + (f)\). Dieser \(A/\ideal m\)-Vektorraum
+	hat Dimension \(n - 1\) genau dann, wenn \(f \notin (x_1, \dotsc, x_n)^2\).)
+\end{exercise}
+
+\begin{exercise}
+	Sei \((A, \ideal m)\) ein vollständiger lokaler Ring. Sei \(K \subset A\) ein Körper, welcher isomorph auf
+	\(A/\ideal m\) abgebildet wird. Sei \((x_1, \dotsc, x_d)\) ein Parametersystem für \(A\). Zeige, daß der
+	Homomorphismus
+	\(\ps K{t_1, \dotsc, t_d} \to A, t_i \mapsto x_i\) injektiv ist und daß \(A\) ein endlich erzeugter Modul über
+	\(\ps K{t_1, \dotsc, t_d}\) wird.
+	
+	(Tip: \prettyref{prop:weighted_mod_is_ft}.)
+\end{exercise}
+
+\begin{exercise}
+	Sei \(K\) ein Körper. Sei \(A \coloneqq K[x_1, x_2, \dotsc]\) der Polynomring über \(K\) in unendlich
+	vielen Variablen. Sei \(0 < m_1, m_2, \dotsc\) eine aufsteigende Folge natürlicher Zahlen mit \(m_{i + 1} - m_i
+	> m_{i} - m_{i - 1}\) für alle \(i > 1\). Sei \(\ideal p_i \coloneqq (x_{m_i + 1}, \dotsc, x_{m_{i + 1}})\) für
+	alle \(i\). Sei schließlich \(S \coloneqq A \setminus \bigcup\limits_{i = 1}^\infty \ideal p_i\).
+	Zeige dann folgende Behauptungen:
+	\begin{enumerate}
+	\item
+		Die Ideale \(\ideal p_i\) sind Primideale, und \(S\) ist damit multiplikativ abgeschlossen in \(A\).
+	\item
+		Der Ring \(S^{-1} A\) ist noethersch. (\prettyref{exer:stalks_are_noetherian}.)
+	\item
+		Die Höhe von \(S^{-1} \ideal p_i\) ist \(m_{i + 1} - m_i\).
+	\item
+		Es ist \(\dim S^{-1} A = \infty\).
+	\end{enumerate}
+	Es existieren damit Noethersche Integritätsbereiche unendlicher Dimension.
+\end{exercise}
+
+\begin{exercise}
+	Formuliere \prettyref{thm:hilbert_serre} in Termen der Grothendieckschen Gruppe \(\GrothK(A_0)\) (\prettyref{exer:groth_group}). 
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:poly_dim}
+	Sei \(A\) ein kommutativer Ring. Zeige, daß
+	\[
+		1 + \dim A \le \dim A[x] \le 1 + 2 \dim A.
+	\]
+	
+	(Tip: Sei \(\phi\colon A \to A[x]\) die Einbettung. Sei \(\ideal p\) ein Primideal in \(A\). Die Menge der Primideale
+	\(\ideal q\) in \(A[x]\) mit \(A \cap \ideal q = \ideal p\) steht in kanonischer bijektiver Korrespondenz zur Menge der
+	Primideale von \(F[X]\), wobei \(F = A_{\ideal p}/A_{\ideal p} \ideal p\). Weiter ist \(\dim F[X] = 1\). Dann
+	\prettyref{exer:primary_in_poly}.)
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein noetherscher kommutativer Ring. Zeige, daß
+	\[
+		\dim A[x] = 1 + \dim A
+	\]
+	und damit \(\dim A[x_1, \dotsc, x_n] = n + \dim A\).
+	
+	(Tip: Sei \(\ideal p\) ein Primideal der Höhe \(m\) in \(A\). Dann existieren \(a_1, \dotsc, a_m \in \ideal p\), so daß
+	\(\ideal p\) minimales Primideal zu \(\ideal a \coloneqq (a_1, \dotsc, a_m)\) ist. Nach \prettyref{exer:primary_in_poly}
+	ist \(\ideal p[x]\)	ein minimales Primideal zu \(\ideal a[x]\) und damit \(\height p[x] \leq m\).
+	
+	Auf der anderen Seite induziert jede Primidealkette \(\ideal p_0 \subsetneq \ideal p_1 \subsetneq \dotsb \subsetneq
+	\ideal p_m = \ideal p\) eine Primidealkette \(\ideal p_0[x] \subsetneq \ideal p_1[x] \subsetneq \dotsb \subsetneq
+	\ideal p_m[x] = \ideal p[x]\). Damit ist also \(\height p[x] \ge 0\).
+	
+	Schließlich nutze das Argument von \prettyref{exer:poly_dim}.)
+\end{exercise}
+

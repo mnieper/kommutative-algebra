@@ -1,0 +1,168 @@
+\section{Exakte Sequenzen}
+
+\subsection{Definition und erste Eigenschaften}
+
+\begin{frame}{Definition}
+	\begin{definition}<+->
+		Sei \(A\) ein Ring.
+		Eine Sequenz
+		\[
+			\dotsc \to M^{i - 1} \xrightarrow{\phi^{i - 1}} M^i \xrightarrow{\phi^i} M^{i + 1}
+			\to \dotsc
+		\]
+		von \(A\)-Moduln und \(A\)-Modulhomomorphismen heißt \emph{exakt bei \(M^i\)}, falls
+		\(\im \phi^{i - 1} = \ker \phi^i\).
+		\\
+		Die Sequenz heißt \emph{exakt}, falls sie exakt bei jedem \(M^i\) ist.
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Injektivität und Surjektivität und exakte Sequenzen}
+	Sei \(A\) ein Ring.
+	\begin{example}<+->
+		Eine Sequenz der Form \(0 \to M' \xrightarrow\phi M\) von \(A\)-Moduln ist genau dann exakt,
+		wenn \(\phi\) injektiv ist.
+	\end{example}	
+	\begin{example}<+->
+		Eine Sequenz der Form \(M \xrightarrow{\psi} M'' \to 0\) von \(A\)-Moduln ist genau dann exakt,
+		wenn \(\psi\) surjektiv ist.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Kurze exakte Seqenzen}
+	Sei \(A\) ein Ring.
+	\begin{definition}<+->
+		Eine \emph{kurze exakte Seqenz von \(A\)-Moduln} ist eine exakte Sequenz der Form
+		\(0 \to M' \to M \to M'' \to 0\).
+	\end{definition}
+	\begin{example}<+->
+		Eine Seqenz der Form \(0 \to M' \xrightarrow\phi M \xrightarrow\psi M'' \to 0\) ist genau dann
+		exakt, wenn \(\phi\) injektiv ist, \(\psi\) surjektiv ist und \(\psi\) einen Isomorphismus
+		\(\coker \phi = M/\im \phi \cong M''\) induziert.
+	\end{example}
+	\begin{example}<+->
+		Jede lange exakte Sequenz \(\dotsc \to M^{i - 1} \xrightarrow{\phi^{i - 1}} M^i
+		\xrightarrow{\phi^i} M^{i + 1}	\to \dotsc\) zerfällt in kurze exakte Sequenzen:
+		\\
+		Ist \(N^i = \im \phi^{i - 1} = \ker \phi^i\), haben wir kurze exakte Sequenzen
+		\(0 \to N^i \to M^i \to N^{i + 1} \to 0\) für alle \(i\).
+	\end{example}
+\end{frame}
+
+\begin{frame}{Rechtsexakte Sequenzen}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Eine Sequenz
+		\(E\colon M' \xrightarrow\phi M \xrightarrow\psi M'' \to 0\) von \(A\)-Moduln ist
+		genau dann exakt, wenn für alle \(A\)-Moduln \(N\) auch
+		\(\Hom(E, N)\colon 0 \to \Hom(M'', N) \xrightarrow{\psi^*} \Hom(M, N) \xrightarrow{\phi^*} \Hom(M', N)\)
+		exakt ist.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Wir zeigen eine Richtung: Sei die Hom-Sequenz exakt für alle \(N\). Wir wählen \(N = \coker \psi\).
+			Ist \(\pi\colon M'' \to N\) die kanonische Projektion, so ist
+			\(\pi \circ \psi = 0\). Da \(\psi^*\) injektiv ist, folgt \(\pi = 0\), also
+			\(N = 0\). Damit ist \(\psi\) surjektiv.
+		\item
+			Für \(N = M''\) ist \(\psi \circ \phi = \phi^* \psi^*(\id_{M''}) = 0\),
+			also \(\im \phi \subset \ker \psi\).
+		\item
+			Wir wählen \(N = \coker \phi\). Ist \(\pi\colon M \to N\) die kanonische Projektion,
+			so ist \(\pi \circ \phi = 0\), also \(\pi \in \ker \phi^*\). Damit existiert ein
+			\(\xi\colon M'' \to N\) mit \(\pi = \xi \circ \psi\), also \(\im \phi = \ker \pi \supset
+			\ker \psi\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Linksexakte Sequenzen}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Eine Sequenz
+		\(F\colon 0 \to N' \xrightarrow\phi N \xrightarrow\psi N''\) von \(A\)-Moduln ist
+		genau dann exakt, wenn für alle \(A\)-Moduln \(M\) die Sequenz
+		\(\Hom(M, F)\colon 0 \to \Hom(M, N') \xrightarrow{\phi_*} \Hom(M, N) \xrightarrow{\psi_*} \Hom(M, N'')\)
+		exakt ist.
+		\qed
+	\end{proposition}
+\end{frame}
+
+\subsection{Das Schlangenlemma}
+
+\begin{frame}{Das Schlangenlemmas}
+	\begin{proposition}[Schlangenlemma]<+->
+		Sei \(A\) ein Ring. Ist
+		\[
+			\begin{CD}
+				0 @>>> M' @>{\alpha}>> M @>{\beta}>> M'' @>>> 0 \\
+				& & @V{\phi'}VV @V{\phi}VV @V{\phi''}VV \\
+				0 @>>> N' @>{\alpha'}>> N @>{\beta'}>> N'' @>>> 0
+			\end{CD}
+		\]
+		ein kommutatives Diagramm von \(A\)-Moduln mit exakten Zeilen, so
+		existiert eine kanonische exakte Sequenz der Form
+		\(0 \to \ker \phi' \xrightarrow{\alpha_*} \ker \phi \xrightarrow{\beta_*} \ker \phi''
+			\xrightarrow{\delta}
+			\coker \phi' \xrightarrow{\alpha'_*} \coker \phi \xrightarrow{\beta'_*}
+			\coker \phi'' \to 0\).
+		\qed
+	\end{proposition}
+	\begin{visibleenv}<+->
+		Der \emph{(Ko-)Randhomomorphismus \(\delta\)} ist folgendermaßen definiert: Sei \(x'' \in \ker 
+		\phi''\). Dann ist \(x'' = \beta(x)\) für ein \(x \in M\).
+		\\
+		Da \(\beta'(\phi(x)) = \phi''(\beta(x)) = 0\), existiert ein \(y' \in N'\) mit \(\alpha'(y') =
+		\phi(x)\).
+		\\
+		Schließlich ist \(\delta(x'')\) das Bild von \(y'\) in \(\coker \phi'\).
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Die lange exakte Kohomologiesequenz}
+	\begin{remark}
+		Das Schlangenlemma ist ein Spezialfall der langen exakten Kohomologiesequenz der
+		homologischen Algebra.
+	\end{remark}
+\end{frame}
+
+\subsection{Additive Funktionen}
+
+\begin{frame}{Definition additiver Funktionen}
+	\begin{definition}<+->
+		Sei \(A\) ein Ring. Sei \(\mathfrak C\) eine Klasse von \(A\)-Moduln. Eine Abbildung
+		\(\lambda\colon \mathfrak C \to G\) in eine abelsche Gruppe heißt \emph{additive Funktion},
+		falls für alle kurzen exakten Sequenzen
+		\(0 \to C' \to C \to C'' \to 0\) von Moduln aus \(\mathfrak C\) gilt, daß \(\lambda(C) =
+		\lambda(C') + \lambda(C'')\).
+	\end{definition}
+	\begin{example}<+->
+		Seien \(K\) ein Körper und \(\mathfrak C\) die Klasse der endlich-dimensionalen \(K\)-Vektorräume.
+		Dann ist \(\dim\colon \mathfrak C \to \set Z\) eine additive Funktion.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Additive Funktionen und beschränkte Sequenzen}
+	\begin{proposition}<+->
+		Sei \(A\) ein Ring. Sei \(\mathfrak C\) eine Klasse von \(A\)-Moduln und \(\lambda\colon \mathfrak C
+		\to G\) eine additive Funktion. Sei
+		\(0 \to M^0 \xrightarrow{\phi^0} M^1 \xrightarrow{\phi^1} \dotsb \to M^n \to 0\) eine exakte Sequenz von Moduln in 
+		\(\mathfrak C\),
+		so daß auch die Kerne der \(\phi^i\) zu \(\mathfrak C\) gehören.
+		\\
+		Dann gilt \(\sum\limits_{i = 0}^n (-1)^i \lambda(M^i) = 0\).
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Die exakte Sequenz zerfällt in kurze exakte Sequenzen der Form
+			\(0 \to N^i \to M^i \to N^{i + 1} \to 0\) (mit \(N^0 = N^{n + 1} = 0\)),
+			wobei \(N^i \in \mathfrak C\).
+		\item
+			Daher gilt \(\lambda(M^i) = \lambda(N^i) + \lambda(N^{i + 1})\). Addieren wir diese Gleichungen
+			alternierend, hebt sich die rechte Seite weg.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+

@@ -1,0 +1,2 @@
+- Benenne Radikal in Wurzelideal um.
+- Schreibe nicht $A_f$ für die Lokalisierung. 

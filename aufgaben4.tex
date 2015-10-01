@@ -1,0 +1,362 @@
+\subsection{Primärzerlegung}
+
+\begin{exercise}
+	Sei \(\ideal a\) ein zerlegbares Ideal in einem kommutativen Ring
+	\(A\) mit \(\ideal a = \sqrt{\ideal a}\). Zeige, daß \(\ideal a\) keine
+	assoziierten eingebetteten Primideale besitzt.
+\end{exercise}
+
+\begin{exercise}
+	Zeige, daß in dem Polynomring \(\set Z[t]\) das Ideal \(\ideal m = (2, t)\)
+	maximal ist. Zeige weiter, daß das Ideal \(\ideal q = (4, t)\) ein
+	\(\ideal m\)-primäres Ideal ist, aber keine Potenz von \(\ideal m\).
+\end{exercise}
+
+\begin{exercise}
+	Sei \(K\) ein Körper. Seien \(\ideal p_1 \coloneqq (x, y),
+	\ideal p_2 \coloneqq (x, z),
+	\ideal m \coloneqq (x, y, z)\) drei Ideale im Polynomring \(K[x, y, z]\).
+	Zeige, daß \(\ideal p_1, \ideal p_2\) Primideale sind und daß \(\ideal m\)
+	ein maximales Ideal ist.
+	
+	Sei \(\ideal a = \ideal p_1 \ideal p_2\). Zeige, daß \(\ideal a = \ideal p_1
+	\cap \ideal p_2 \cap \ideal m^2\) eine minimale Primärzerlegung von
+	\(\ideal a\) ist. Welche Komponenten sind isoliert und welche eingebettet?
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:primary_in_poly}
+	Sei \(A\) ein kommutativer Ring. Zeige:
+	\begin{enumerate}
+	\item
+		Ist \(\ideal a\) ein Ideal in \(A\), so ist \(\ideal a[x]\)
+		(vergleiche~\prettyref{exer:poly_over_mod})
+		die Erweiterung von \(\ideal a\) nach \(A[x]\).
+	\item
+		Seien \(\ideal p\) ein Primideal in \(A\) und \(\ideal q\) ein
+		\(\ideal p\)-primäres Ideal. Dann ist \(\ideal q[x]\) ein
+		\(\ideal p[x]\)-primäres Ideal.
+		
+		(Tip: Nach~\prettyref{exer:poly_over_prime} ist \(\ideal p[x]\) ein
+		Primideal. Nutze~\prettyref{exer:polys}.)
+	\item
+		Ist \(\ideal a = \bigcap\limits_{i = 1}^n \ideal q_i\) eine minimale
+		Primärzerlegung eines Ideals \(\ideal a\) in \(A\), so ist \(\ideal a[x]
+		= \bigcap\limits_{i = 1}^n \ideal q_i[x]\) eine minimale Primärzerlegung
+		von \(\ideal a[x]\).
+	\item
+		Ist \(\ideal p\) ein zu einem zerlegbaren Ideal \(\ideal a\)
+		assoziiertes isoliertes Primideal, so ist \(\ideal p[x]\) ein zum Ideal
+		\(\ideal a[x]\) assoziiertes isoliertes Primideal.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Sei \(K\) ein Körper. Zeige, daß die Ideale \(\ideal p_i \coloneqq
+	(x_1, \dotsc, x_i)\) für \(1 \leq i \leq n\) alle Primideale sind und
+	daß ihre Potenzen alle Primärideale sind.
+	
+	(Tip:~\prettyref{exer:primary_in_poly}.)
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:assoc_primes_to_zero}
+	Sei \(A\) ein kommutativer Ring. Sei \(D(A)\) die Menge der Primideale
+	\(\ideal p\) von \(A\), für die ein \(a \in A\) existiert, so daß
+	\(\ideal p\) ein minimales Element in der Menge Primideale ist, die
+	\((0 : a)\) umfassen. Zeige:
+	\begin{enumerate}
+	\item
+		Ein Element \(x \in A\) ist genau dann ein Nullteiler,
+		wenn \(x \in \ideal p\) für ein \(\ideal p \in D(A)\).
+	\item
+		Sei \(S \subset A\) multiplikativ abgeschlossen. Dann ist
+		\(D(S^{-1} A) = \{S^{-1} \ideal p \mid \ideal p \cap S = \emptyset,
+			\ideal p \in D(A)\}\).
+	\item
+		Ist das Nullideal zerlegbar, so ist \(D(A)\) die Menge der assoziierten
+		Primideale von \(0\).
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:zero_germ}
+	Sei \(A\) ein kommutativer Ring. Für jedes Primideal \(\ideal p\) in \(A\)
+	sei \(S_{\ideal p}(0)\) der Kern des Strukturmorphismus' \(A \to A_\ideal p\).
+	Zeige:
+	\begin{enumerate}
+	\item
+		\(S_{\ideal p}(0) \subset \ideal p\).
+	\item
+		Es ist \(\sqrt{S_{\ideal p}(0)} = \ideal p\) genau dann, wenn
+		\(\ideal p\) ein minmales Primideal von \(A\) ist.
+	\item
+		Ist \(\ideal p'\) ein Primideal in \(A\) mit \(\ideal p' \subset
+		\ideal p\), so folgt \(S_{\ideal p}(0) \subset S_{\ideal p'}(0)\).
+	\item
+		Sei \(D(A)\) wie in~\prettyref{exer:assoc_primes_to_zero} definiert.
+		Dann ist \(\bigcap\limits_{\ideal p \in D(A)} S_{\ideal p}(0) = (0)\).
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:everywhere_zero_germ}
+	Sei \(\ideal p\) ein Primideal in einem kommutativen Ring \(A\).
+	Sei \(S_{\ideal p}(0)\) wie in~\prettyref{exer:zero_germ} definiert. Zeige:
+	\begin{enumerate}
+	\item
+		Ist \(\ideal p\) ein minimales Primideal, so ist
+		\(S_{\ideal p}(0)\) das kleinste \(\ideal p\)-primäre Ideal.
+	\item
+		Sei \(\ideal a\) der Schnitt aller \(S_{\ideal p}(0)\), wobei
+		\(\ideal p\) über alle minimalen Primideale von \(A\) läuft. Dann
+		ist \(\ideal a\) im Nilradikal von \(A\) enthalten.
+	\item
+		Das Nullideal von \(A\) sei zerlegbar. Dann ist \(\ideal a = 0\) genau
+		dann, falls jedes zu \((0)\) assoziierte Primideal \(\ideal a\) isoliert
+		ist.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:saturation}
+	Sei \(S\) eine multiplikativ abgeschlossene Teilmenge eines kommutativen
+	Ringes \(A\). Mit \(S(\ideal a)\) bezeichnen wir wie üblich die Sättigung
+	eines Ideales \(\ideal a\) nach \(S\).
+	Zeige:
+	\begin{enumerate}
+	\item
+		Für je zwei Ideale \(\ideal a, \ideal b\) von \(A\) gilt
+		\(S(\ideal a) \cap S(\ideal b) = S(\ideal a \cap \ideal b)\).
+	\item
+		Für ein Ideal \(\ideal a\) von \(A\) gilt \(S(\sqrt{\ideal a})
+		= \sqrt{S(\ideal a)}\).
+	\item
+		Für ein Ideal \(\ideal a\) von \(A\) gilt \(S(\ideal a) = (1)\) genau
+		dann, wenn \(\ideal a \cap S \neq \emptyset\).
+	\item
+		Seien \(S_1, S_2 \subset A\) multiplikativ abgeschlossen. Für ein
+		Ideal \(\ideal a\) gilt dann \(S_1(S_2(\ideal a))
+		= (S_1 S_2)(\ideal a)\).
+	\end{enumerate}
+	
+	Sei \(\ideal a\) zerlegbar. Zeige, daß die Menge aller \(S(\ideal a)\),
+	wobei \(S\) alle multiplikativ abgeschlossenen Teilmengen von \(A\)
+	durchläuft, endlich ist.
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:symbolic_power}
+	Sei \(\ideal p\) ein Primideal eines kommutativen Ringes \(A\). Sei
+	\(n \in \set N_0\). Die \emph{\(n\)-te symbolische Potenz von \(\ideal p\)}
+	ist die Sättigung \(\ideal p^{(n)} \coloneqq S_{\ideal p}(\ideal p^n)\),
+	wobei \(S_{\ideal p} \coloneqq A \setminus \ideal p\).
+	Zeige:
+	\begin{enumerate}
+	\item
+		Es ist \(\ideal p^{(n)}\) ein \(\ideal p\)-primäres Ideal.
+	\item
+		Ist \(\ideal p^n\) zerlegbar, so ist \(\ideal p^{(n)}\) seine
+		\(\ideal p\)-primäre Komponente.
+	\item
+		Ist \(\ideal p^{(m)} \ideal p^{(n)}\) zerlegbar, so ist
+		\(\ideal p^{(m + n)}\) seine \(\ideal p\)-primäre Komponente.
+	\item
+		Es ist \(\ideal p^{(n)} = \ideal p^n\) genau dann, wenn \(\ideal p^n\)
+		ein \(\ideal p\)-primäres Ideal ist.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Sei \(\ideal a\) ein zerlegbares Ideal in einem kommutativen Ring \(A\).
+	Sei \(\ideal p\) ein maximales Element unter allen Idealen der Form
+	\((\ideal a : x)\) mit \(x \in A\) und \(x \notin \ideal a\). Zeige, daß
+	\(\ideal p\) ein zu \(\ideal a\) assoziiertes Primideal ist.
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:component_to_isolated_set}
+	Sei \(\ideal a\) ein zerlegbares Ideal in einem kommutativen Ring \(A\).
+	Sei \(\mathfrak S\) eine isolierte Menge von zu \(\ideal a\)
+	assoziierten Primidealen. Sei \(\ideal q_{\mathfrak S}\) der Schnitt aller
+	\(\ideal p\)-primären Komponenten von \(\ideal a\) mit \(\ideal p \in
+	\mathfrak S\). Sei \(f \in A\), so daß für alle zu \(\ideal a\) assoziierten
+	Primideale gilt, daß \(f \in \ideal p \iff \ideal p \notin \mathfrak S\).
+	Wir setzen \(S_f \coloneqq \{f^n \mid n \in \set N_0\}\). Zeige, daß
+	\(\ideal q_{\mathfrak S} = S_f(\ideal a) = (\ideal a \colon f^n)\)
+	für alle \(n \gg 0\).
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring, in dem jedes Ideal zerlegbar ist. Zeige,
+	daß \(S^{-1} A\) dieselbe Eigenschaft hat, wenn \(S \subset A\)
+	multiplikativ abgeschlossen ist.
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:prop_l1}
+	Sei \(A\) ein kommutativer Ring mit der folgenden Eigenschaft (L1):
+	Zu jedem Ideal \(\ideal a \neq (1)\) und zu jedem Primideal \(\ideal p\)
+	in \(A\) existiert ein \(x \notin \ideal p\) mit \(S_{\ideal p}(\ideal a)
+	= (\ideal a : x)\), wobei \(S_{\ideal p} \coloneqq A \setminus \ideal p\).
+	
+	Zeige, daß dann jedes Ideal in \(A\) der Schnitt (möglicherweise unendlich
+	vieler) primärer Ideale ist.
+	
+	(Tip: Sei \(\ideal p_1\) ein minimales Element der Menge aller Primideale,
+	welche \(\ideal a\) umfassen. Nach~\prettyref{exer:everywhere_zero_germ}
+	ist \(\ideal q_1 = S_{\ideal p_1}\). Weiter ist \(\ideal q_1 = (\ideal a :
+	x)\) für ein \(x \notin \ideal p_1\). Folgere, daß \(\ideal a = \ideal q_1
+	\cap (\ideal a + (x))\).
+	
+	Sei sodann \(\ideal a_1\) ein maximales Element unter allen Idealen
+	\(\ideal b \supset \ideal a\) mit \(\ideal q_1 \cap \ideal b = \ideal a\)
+	und \(x \in \ideal a_1\), so daß \(\ideal a_1 \not\subset \ideal p_1\).
+	Wiederhole die Konstruktion diesmal mit \(\ideal a_1\) und so weiter.
+	
+	Im \(n\)-ten Schritt haben wir \(\ideal a = \ideal q_1 \cap \dotsb \cap
+	\ideal q_n \cap \ideal a_n\), wobei die \(\ideal q_i\) Primärideale sind
+	und \(\ideal a_n\) maximal unter allen Idealen \(\ideal b\) mit
+	\(\ideal b \supset \ideal a_{n - 1} = \ideal a_n \cap \ideal q_n\), so
+	daß \(\ideal a = \ideal q_1 \cap \dotsb \cap q_n \cap \ideal b\) und
+	\(\ideal a_n \not\subset \ideal p_n\).
+	
+	Sollte in irgendeinem Schnitt \(\ideal a_n = (1)\) gelten, hört die
+	Konstruktion auf und \(\ideal a\) ist folglich ein endlicher Schnitt
+	primärer Ideale. Im anderen Fall fahre mit transfiniter Induktion fort, und
+	zwar unter Beachtung der Tatsache, daß jedes \(\ideal a_n\) das Ideal
+	\(\ideal a_{n - 1}\) echt enthält.)
+\end{exercise}
+
+\begin{exercise}
+	Betrachte folgende Eigenschaft (L2) kommutativer Ringe \(A\): Ist
+	\(\ideal a\) ein Ideal von \(A\) und \(S_1 \supset S_2 \supset \dotsb\)
+	eine absteigende Kette multiplikativ abgeschlossener Teilmengen von \(A\),
+	so existiert ein \(n \in \set N_0\) mit
+	\(S_n(\ideal a) = S_{n + 1}(\ideal a) = \dotsb\).
+	
+	Zeige, daß folgende Aussagen für einen kommutativen Ring \(A\)
+	äquivalent sind:
+	\begin{enumerate}
+	\item
+		Jedes Ideal in \(A\) ist zerlegbar.
+	\item
+		Der Ring \(A\) erfüllt die Eigenschaften (L1)
+		(siehe~\prettyref{exer:prop_l1}) und (L2).
+	\end{enumerate}
+	
+	(Tip: Um aus der ersten die zweite Aussage zu folgern,
+	benutze~\prettyref{exer:saturation}
+	und~\prettyref{exer:component_to_isolated_set}.
+	
+	Um aus der zweiten die erste Aussage zu folgern, gehe folgendermaßen vor:
+	Gilt \(S_n = S_{\ideal p_1} \cap \dotsb \cap S_{\ideal p_n}\) in der
+	Notation von~\prettyref{exer:prop_l1}, so ist \(S_n \cap \ideal a_n \neq
+	\emptyset\), also \(S_n(\ideal a_n) = (1)\), also
+	\(S_n(\ideal a) = \ideal q_1 \cap \dotsb \cap \ideal q_n\).
+	Folgere mit (L2), daß die Kontruktion nach einer endlichen Anzahl von
+	Schritten aufhören muß.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(\ideal p\) ein Primideal eines kommutativen Ringes \(A\). Zeige, daß
+	jedes \(\ideal p\)-primäres Ideal das Ideal \(S_{\ideal p}(0) = \ker
+	(A \to A_{\ideal p})\) umfaßt.
+	
+	Erfülle \(A\) die folgende Bedingung: Für jedes Primideal sei der Schnitt
+	aller \(\ideal p\)-primären Ideale gerade \(S_{\ideal p}(0)\). (Wir
+	werden später sehen, daß alle sogenannten noetherschen Ringe diese Bedingung
+	erfüllen.) % FIXME Reference missing.
+	Seien weiter \(\ideal p_1, \dotsc, \ideal p_n\) paarweise verschiedene
+	Primideale von \(A\), welche nicht minimal sind. Zeige, daß dann ein Ideal
+	\(\ideal a\) existiert, dessen assoziierte Primideale gerade \(\ideal p_1,
+	\dotsc, \ideal p_n\) sind.
+	
+	(Tip: Beweis per Induktion über \(n\). Der Fall \(n = 1\) ist trivial, denn
+	wir können \(\ideal a = \ideal p_1\) setzen. Sei also \(n > 1\), und sei
+	\(\ideal p_n\) maximales Element der Menge \(\ideal p_1, \dotsc,
+	\ideal p_n\). Nach Induktionsvoraussetzung existiert ein Ideal \(\ideal b\)
+	und eine Primärzerlegung \(\ideal b = \ideal q_1 \cap \dotsb
+	\ideal q_{n - 1}\), wobei \(\ideal q_i\) ein \(\ideal p_i\)-primäres Ideal
+	ist.
+	
+	Angenommen, \(\ideal b \subset S_{\ideal p_n}(0)\). Sei dann \(\ideal p\)
+	ein minimales Primideal von \(A\) mit \(\ideal p \subset \ideal p_n\).
+	Dann ist \(S_{\ideal p_n}(0) \subset S_{\ideal p}(0)\), also
+	\(\ideal b \subset S_{\ideal p}(0)\). Ziehen der Wurzel liefert
+	nach~\prettyref{exer:zero_germ}, daß \(\ideal p_1 \cap \dotsb \cap \ideal
+	p_{n - 1} \subset \ideal p\), also \(\ideal p_i \subset \ideal p\) für ein
+	\(i < n\), also \(\ideal p_i = \ideal p\), da \(\ideal p\) minimal ist.
+	Widerspruch, da kein \(\ideal p_i\) minimal ist.
+	
+	Also ist \(\ideal b \not\subset S_{\ideal p_n}(0)\). Damit existiert ein
+	\(\ideal p_n\)-primäres Ideal \(\ideal q_n\) mit \(\ideal b
+	\not\subset \ideal q_n\). Zeige, daß \(\ideal a = \ideal q_1 \cap \dotsb
+	\cap \ideal q_n\) die gewünschten Eigenschaften hat.)
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Seien \(M\) ein \(A\)-Modul und
+	\(N \subset M\) ein Untermodul. Die \emph{Wurzel von \(N\) in \(M\)} ist
+	\[
+		\sqrt{N}_M \coloneqq \{x \in A \mid \exists q \in \set N_0\colon
+		x^q M \subset N\}.
+	\]
+	Zeige, daß \(\sqrt{N}_M = \sqrt{(N : M)} = \sqrt{\ann(M/N)}\). Insbesondere
+	ist \(\sqrt{N}_M\) ein Ideal von \(A\).
+	
+	Formuliere und beweise entsprechende Aussagen für \(\sqrt{}_M\) wie
+	in~\prettyref{prop:radical}.
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein kommutativer Ring. Sei \(M\) ein \(A\)-Modul. Jedes Element
+	\(x \in A\) definiert einen Endomorphismus \(\phi_x\colon M \to M,
+	m \mapsto x m\) von \(M\). Das Element \(x\) heißt
+	\emph{regulär in \(M\)}, falls \(\phi_x\) injektiv ist, und andernfalls
+	\emph{Nullteiler in \(M\)}. Weiter heißt \(x\) \emph{nilpotent in \(M\)},
+	falls \(\phi_x\) nilpotent ist, falls also \(\phi_x^n = 0\) für ein
+	\(n \in \set N_0\).
+	
+	Ein Untermodul \(Q\) von \(M\) heißt \emph{primär}, falls die Nullteiler
+	in \(M/Q\) genau die nilpotenten Elemente in \(M/Q\) sind.
+	
+	Zeige, daß für einen primären Untermodul \(Q\) von \(M\) das Ideal
+	\((Q : M)\) ein primäres Ideal ist und damit \(\ideal p \coloneqq
+	\sqrt{Q}_M\) ein Primideal. Wir sagen in diesem Falle, daß
+	\(Q\) ein \emph{\(\ideal p\)-primärer Untermodul von \(M\)} ist.
+	
+	Formuliere und beweise entsprechende Aussagen für \(Q\) wie
+	in~\prettyref{lem:primary1} und~\prettyref{lem:primary2}.
+\end{exercise}
+
+\begin{exercise}
+	\label{exer:primary_decomp_for_mod}
+	Sei \(A\) ein kommutativer Ring. Seien \(M\) ein \(A\)-Modul und
+	\(N\) ein Untermodul in \(M\). Eine \emph{Primärzerlegung von \(N\) in
+	\(M\)} ist eine Darstellung \(N = Q_1 \cap \dotsb \cap Q_n\) von \(N\)
+	als Schnitt primärer Untermoduln in \(M\). Sie heißt \emph{minimal},
+	falls alle \(\ideal p_i \coloneqq \sqrt{Q_i}_M\) paarweise verschieden sind
+	und falls \(Q_i \not\supset \bigcap\limits_{j \neq i} Q_j\) für alle \(i\).
+	
+	Beweise die Entsprechung des ersten
+	Eindeutigkeitssatzes~\ref{thm:first_uniqueness}, nämlich daß die
+	Primideale \(\ideal p_i\) nur von \(N\) und \(M\) abhängen. Diese heißen
+	die \emph{zu \(N\) in \(M\) assoziierten Primideale}. Zeige weiter, daß
+	diese auch die Primideale sind, welche zu \(0\) in \(M/N\) assoziiert sind.
+\end{exercise}
+
+\begin{exercise}
+	Formuliere und beweise entsprechende Aussagen für die Primärzerlegung von
+	Moduln wie
+	in~\prettyref{prop:isolated_prime},
+	\prettyref{prop:union_of_assoc_primes},
+	\prettyref{prop:primaries_in_localisation},
+	\prettyref{cor:correspondence_for_primaries},
+	\prettyref{prop:sat_decomp},
+	\prettyref{thm:second_uniqueness}
+	und~\prettyref{cor:second_uniqueness}.
+	
+	(Tip: Ohne Einschränkung kann davon ausgegangen werden, daß \(N = 0\).)
+\end{exercise}
+

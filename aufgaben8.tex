@@ -1,0 +1,46 @@
+\subsection{Artinsche Ringe}
+
+\begin{exercise}
+	Sei \(A\) ein noetherscher kommutativer Ring. Sei \((0) = \ideal q_1 \cap \dotsb \cap \ideal q_n\) eine
+	minimale Primärzerlegung des Nullideals. Sei \(\ideal p_i \coloneqq \sqrt{\ideal q_i}\). 
+	Mit \(\ideal p_i^{(r)}\) bezeichnen wir die \(r\)-te symbolische Potenz von \(\ideal p_i\) wie in
+	\prettyref{exer:symbolic_power}. Zeige, daß für alle \(i\) ein \(r_i \in \set N_0\) mit
+	\(\ideal p_i^{(r_i)} \subset \ideal q_i\) existiert.
+	
+	Im Falle, daß \(\ideal q_i\) eine isolierte Primärkomponente ist, ist \(A_{\ideal p_i}\) ein artinscher
+	lokaler Ring mit maximalem Ideal \(\ideal m_i\). Wir haben daher \(\ideal m_i^r = 0\) für \(r \gg 0\).
+	Daraus folgt \(\ideal q_i = \ideal p_i^{(r)}\) für \(r \gg 0\).
+	
+	Ist umgekehrt \(\ideal q_i\) eine eingebettete Primärkomponente, so ist \(A_{\ideal p_i}\) nicht artinsch,
+	die Potenzen \(\ideal m_i^r\) sind also alle unterschiedlich, so daß ebenfalls die \(\ideal p_i^{(r)}\) unterschiedlich
+	sind. Damit kann in der gegebenen Primärzerlegung \(\ideal q_i\) durch irgendeines der \(\ideal p_i\)-primären Ideale
+	\(\ideal p_i^{(r)}\) mit \(r \ge r_i\) ersetzt werden, so daß es unendlich viele verschiedene
+	minimale Primärzerlegungen des Nullideals gibt, welche sich nur in der \(\ideal p_i\)-Komponente
+	unterscheiden.	
+\end{exercise}
+
+\begin{exercise}
+	Seien \(F\) ein Körper und \(A\) eine endlich erzeugte kommutative \(F\)-Algebra. Zeige, daß die beiden
+	folgenden Aussagen äquivalent sind:
+	\begin{enumerate}
+	\item
+		Es ist \(A\) ein artinscher Ring.
+	\item
+		Es ist \(A\) eine endliche \(F\)-Algebra.
+	\end{enumerate}
+	
+	(Tip: Um aus der ersten die zweite Aussage zu folgern, benutze \prettyref{thm:artin_structure}, um sich
+	auf den Fall eines artinschen lokalen Ringes einschränken zu können. Nach \prettyref{cor:weak_hilbert1} ist
+	der Restklassenkörper von \(A\) eine endliche Erweiterung von \(F\). Dann nutze aus, daß \(A\) als \(A\)-Modul
+	endliche Länge hat.
+	
+	Um aus der zweiten die erste Aussage zu folgern, nutze aus, daß die Ideale in \(A\) unter anderem \(F\)-Vektorräume
+	sind und daher die absteigende Kettenbedingung erfüllen.)
+\end{exercise}
+
+\begin{exercise}
+	Sei \(A\) ein noetherscher kommutativer Ring. Seien \(\ideal p\) ein Primideal und \(\ideal q\) ein
+	\(\ideal p\)-primäres Ideal in \(A\). Betrachte Ketten von Primäridealen von \(\ideal q\) nach \(\ideal p\).
+	Zeige, daß die Länge dieser Ketten nach oben beschränkt ist und daß alle maximalen Ketten dieselbe Länge besitzen.
+\end{exercise}
+

@@ -1,0 +1,129 @@
+\section{Reguläre lokale Ringe}
+
+\subsection{Charakterisierung regulärer lokaler Ringe}
+
+\begin{frame}{Reguläre lokale Ringe}
+	\begin{theorem}<+->
+		Sei \((A, \ideal m, F)\) ein noetherscher lokaler Ring der Dimension \(d\). Dann sind äquivalent:
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(\Graded_{\ideal m}(A, t)\) und \(F[X_1, \dotsc, X_d]\) sind als gewichtete \(F\)-Algebren isomorph.
+		\item
+			Für die Dimension des Zariskischen Kotangentialraumes von \(A\) gilt \(\dim_F \ideal m/\ideal m^2 = d\).
+		\item
+			Es existiert ein Parametersystem \((x_1, \dotsc, x_d)\) von \(A\) mit \(\ideal m = (x_1, \dotsc, x_d)\).
+		\end{enumerate}
+	\end{theorem}
+	\begin{visibleenv}<+->
+		Ein \emph{regulärer lokaler Ring \(A\)} ist ein noetherscher lokaler Ring, welcher die Bedingungen
+		des Satzes erfüllt.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Beweis des Satzes über reguläre lokale Ringe}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Aus der ersten folgt sicherlich die zweite Aussage. Die dritte folgt aus der zweiten
+			mit dem Nakayamaschen Lemma.
+		\item
+			Sei also \(\ideal m = (x_1, \dotsc, x_m)\). Dann ist \(\alpha\colon F[X_1, \dotsc, X_d] \to
+			\Graded_{\ideal m}(t), X_i \mapsto \bar x_i t\) ein surjektiver Homomorphismus gewichteter
+			Algebren.
+		\item
+			Der Homomorphismus ist aufgrund der Unabhängigkeitseigenschaft eines Parametersystems injektiv.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Reguläre lokale Ringe sind Integritätsbereiche}
+	\begin{lemma}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(\ideal a\) ein Ideal in \(A\) mit \(\bigcap\limits_n \ideal a^n = (0)\).
+		Ist dann \(\Graded_{\ideal a}(A, t)\) ein Integritätsbereich, so auch \(A\).
+	\end{lemma}
+	\begin{proof}<+->
+		Seien \(x, y \in A \setminus \{0\}\). Dann existieren \(r, s \in \set N_0\) mit \(x \in \ideal a^r \setminus \ideal a^{r + 1}\)
+		und \(y \in \ideal a^s \setminus \ideal a^{s + 1}\). Dann sind \(\bar x t^r, \bar y t^s \neq 0 \in \Graded_{\ideal a}(t)\),
+		also \(\bar x \cdot \bar y t^{r + s} \neq 0\), also \(x y \neq 0 \in A\).
+	\end{proof}
+	\begin{corollary}<+->
+		Ein regulärer lokaler Ring ist ein Integritätsbereich.
+	\end{corollary}
+\end{frame}
+
+\begin{frame}{Bemerkungen zu regulären lokalen Ringen}
+	\begin{remark}<+->
+		Ein regulärer lokaler Ring \((A, \ideal m, F)\) der Dimension \(1\) ist ein Integritätsbereich mit \(\dim_F \ideal m/\ideal m^2
+		= 1\), also ein diskreter Bewertungsbereich.
+		\\
+		Umgekehrt ist ein diskreter Bewertungsbereich ein regulärer lokaler Ring der Dimension \(1\).
+	\end{remark}
+	\begin{remark}<+->
+		Sei \((A, \ideal m)\) ein lokaler Ring. Ist dann \(\Graded_{\ideal m}(A, t)\) ein ganz abgeschlossener Integritätsbereich,
+		so kann gezeigt werden, daß auch \(A\) ganz abgeschlossen ist. Jeder regulärer lokale Ring ist also ganz abgeschlossen.
+		\\
+		Es existieren aber ganz abgeschlossene lokale Integritätsbereiche mit Dimension größer als \(1\), welche nicht regulär sind.
+	\end{remark}
+\end{frame}
+
+\subsection{Regularität als analytische Eigenschaft}
+
+\begin{frame}{Regularität als analytische Eigenschaft}
+	\begin{proposition}<+->
+		Sei \((A, \ideal m)\) ein noetherscher lokaler Ring. Dann ist \(A\)
+		genau dann regulär, wenn seine \(\ideal m\)-adische Vervollständigung
+		\(\hat A\) ein regulärer noetherscher lokaler Ring ist.
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Wir haben schon gezeigt, daß \((\hat A, \hat{\ideal m})\) ein noetherscher 
+			lokaler Ring ist, wenn \((A, \ideal m)\) ein noetherscher lokaler Ring
+			ist.
+		\item
+			Da \(A\) noethersch ist, gilt außerdem
+			\(\Graded_{\ideal m}(A, t) \cong \Graded_{\hat{\ideal m}}(\hat A, t)\). 
+		\item
+			Schließlich ist \(\dim A = \dim{\hat A}\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Geometrische Interpretation}
+	\begin{remark}<+->
+		Sei \((A, \ideal m)\) ein lokaler Ring. Die \(\ideal m\)-adische
+		Vervollständigung \((\hat A, \hat{\ideal m})\) heißt auch der
+		\emph{analytische Halm vom \(A\)}. 
+		\\
+		Wir haben damit gezeigt, daß der analytische Halm eines regulären
+		lokalen Ringes \(A\) ein Integritätsbereich ist, was geometrisch so
+		ausgedrückt wird, daß \(A\) nur einen analytischen Zweig habe. 
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Analytischer Halm regulärer lokaler Ringe im geometrischen Fall}
+	\begin{example}<+->
+		Sei \(K\) ein Körper und \((A, \ideal m, F)\) eine reguläre lokale
+		\(K\)-Algebra, so daß \(K\) isomorph auf \(F\) abgebildet wird. 
+		Sei \(d \coloneqq \dim A\).
+		\\
+		Dann ist \(\Graded_{\ideal m}(A, t) \cong K[X_1, \dotsb, X_d]\),
+		woraus \(\hat A = \ps K{X_1, \dotsb, X_d}\) folgt.
+		\\
+		Damit hängt der analytische Halm in dieser Situation nur von der Dimension
+		ab.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Regularität des Polynomrings}
+	\begin{example}
+		Sei \(K\) ein Körper. Sei \(\ideal m = (X_1 - x_1, \dotsc, X_n - x_n)\) ein
+		maximales Ideal des Polynomringes \(A \coloneqq K[X_1, \dotsc, X_n]\).
+		Dann ist \(A_{\ideal m}\) ein regulärer lokaler Ring der
+		Dimension \(n\), denn
+		\(\Graded_{\ideal m}(A, t)\) ein Polynomring in \(n\) Variablen.
+	\end{example}
+\end{frame}
+

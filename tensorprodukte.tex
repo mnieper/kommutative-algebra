@@ -1,0 +1,331 @@
+\section{Tensorprodukte von Moduln}
+
+\subsection{Bilineare Abbildungen und das Tensorprodukt}
+
+\begin{frame}{Bilineare Abbildungen}
+	Sei \(A\) ein kommutativer Ring.
+	\begin{definition}<+->
+		Seien \(M, N, P\) drei \(A\)-Moduln. Eine Abbildung \(\beta\colon M \times N \to P\) heißt
+		\emph{\(A\)-bilinear}, falls für alle \(x \in M\) die Abbildung \(y \mapsto \beta(x, y)\) und für
+		alle \(y \in N\) die Abbildung \(x \mapsto \beta(x, y)\) Homomorphismen von \(A\)-Moduln sind.
+	\end{definition}
+	\begin{example}<+->
+		Fassen wir \(A\) als \(A\)-Modul auf, ist die Multiplikationsabbildung \(A \times A \to A,
+		(a, a') \mapsto a a'\) eine \(A\)-bilineare Abbildung.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Das Tensorprodukt}
+	Sei \(A\) ein kommutativer Ring.
+	\begin{proposition}<+->
+		Seien \(M, N\) zwei \(A\)-Moduln. 
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es existiert ein \(A\)-Modul \(T\) zusammen mit einer
+			\(A\)-bilinearen Abbildung \(\gamma\colon M \times N \to T\) mit der folgenden
+			(universellen) Eigenschaft:
+			\\	
+			Für jeden weiteren \(A\)-Modul \(P\) zusammen mit einer \(A\)-bilinearen Abbildung
+			\(\beta\colon M \times N \to P\) existiert genau eine \(A\)-lineare Abbildung
+			\(\underline\beta\colon 
+			T \to P\) mit \(\beta = \underline\beta \circ \gamma\).
+		\item	
+			Sind \((T, \gamma), (T', \gamma')\) zwei solcher Paare mit dieser Eigenschaft, so
+			existiert genau ein Isomorphismus \(\phi\colon T \to T'\) mit \(\phi\circ \gamma = \gamma'\). 
+		\end{enumerate}
+	\end{proposition}
+	\begin{visibleenv}<+->
+		Es faktorisiert also jede \(A\)-bilineare Abbildung auf \(M \times N\) über \(T\).
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Eindeutigkeit des Tensorproduktes}
+	\begin{proof}[Eindeutigkeit]<+->
+	\begin{enumerate}[<+->]
+		\item<.->
+			Aufgrund der universellen Eigenschaft für \((T, \gamma)\) existiert eine \(A\)-lineare Abbildung
+			\(\phi\colon T \to T'\) mit \(\gamma' = \phi \circ \gamma\).
+		\item
+			Vertauschen der Rollen von \(T\) und \(T'\) liefert weiter eine \(A\)-lineare Abbildung
+			\(\phi'\colon T' \to T\) mit \(\gamma = \phi' \circ \gamma'\).
+		\item
+			Es folgt, daß \(\gamma = (\phi' \circ \phi) \circ \gamma\). Nach der Eindeutigkeitsaussage der 
+			universellen Eigenschaft für \(T\) muß daher \(\phi' \circ \phi = \id_T\) gelten.
+		\item
+			Analog folgt \(\phi \circ \phi' = \id_{T'}\).
+			\renewcommand\qedsymbol{}
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Konstruktion des Tensorproduktes}
+	\begin{proof}[Konstruktion]<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Sei \(C\) der freie \(A\)-Modul \(A^{(M \times N)}\). Die Elemente von \(C\) können wir uns als
+			formale Linearkombinationen \(\sum\limits_{i = 1}^n a^i (x_i, y_i)\) mit \(a_i \in A, x_i \in M,
+			y_i \in N\) vorstellen.
+		\item
+			Sei \(D\) der von allen Elementen der Form
+			\begin{align*}
+				& (x + x', y) - (x, y) - (x', y),  \\
+				& (x, y + y') - (x, y) - (x, y'),  \\
+				& (ax, y) - a(x, y), \\
+				& (x, ay) - a(x, y)
+			\end{align*}
+			mit \(x, x' \in M\), \(y, y' \in N\) und \(a \in A\) erzeugte Untermodul von \(C\).
+		\item
+			Wir setzen \(T \coloneqq C/D\). Wir schreiben \(x \otimes y \in T\) für das Bild des Elementes 
+			\((x, y) \in C\) in \(T\).
+			\renewcommand\qedsymbol{}
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Universelle Eigenschaft des Tensorproduktes}
+	\begin{proof}[Beweis der universellen Eigenschaft]<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Damit ist \(T\) erzeugt von Elementen der Form \(x \otimes y\),
+			wobei folgende Gleichungen gelten:
+			\begin{align*}
+				& (x + x') \otimes y = x \otimes y + x' \otimes y, &
+				& x \otimes (y + y') = x \otimes y + x \otimes y', \\
+				& (ax) \otimes y = a (x \otimes y), &
+				& x \otimes (ay) = a (x \otimes y).
+			\end{align*}
+			\\
+			Also ist \(\gamma\colon M \times N
+			\to T, (x, y) \mapsto x \otimes y\) eine \(A\)-bilineare Abbildung.
+		\item
+			Jede Abbildung \(\beta\colon M \times N \to P\) induziert eine \(A\)-lineare Abbildung
+			\(\beta'\colon C \to P, (x, y) \mapsto \beta(x, y)\).
+			\\
+			Ist \(\beta\) eine
+			\(A\)-bilineare Abbildung verschwindet \(\beta'\) auf den Erzeugern von \(D\), induziert also
+			nach dem Homomorphiesatz eine \(A\)-lineare Abbildung \(\underline\beta\colon T \to P,
+			x \otimes y \mapsto \beta(x, y)\).
+		\item
+			Da \(T\) von Elementen der Form \(x \otimes y\) erzeugt wird, ist \(\underline\beta\) die einzige
+			Abbildung mit \(\beta = \underline\beta \circ \gamma\).
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Notation für das Tensorprodukt}
+	Sei \(A\) ein kommutativer Ring. Seien \(M\) und \(N\) zwei \(A\)-Moduln.
+	\\
+	Der in der letzten Proposition konstruierte \(A\)-Modul \(T\) heißt das \emph{Tensorprodukt von
+	\(M\) und \(N\)}.
+	\begin{notation}<+->
+		Wir schreiben
+		\(M \otimes_A N\) für das Tensorprodukt von \(M\) mit \(N\).
+	\end{notation}
+	\begin{visibleenv}<+->
+		Im Falle, daß der Ring \(A\) aus dem Kontext hervorgeht, schreiben wir auch \(M \otimes N\) anstelle
+		von \(M \otimes_A N\).
+	\end{visibleenv}
+	\begin{notation}<+->
+		Ist \(\beta\colon M \times N \to P\) eine bilineare Abbildung in einen weiteren \(A\)-Modul, so
+		schreiben wir \(M \otimes N \to P, x \otimes y \mapsto \beta(x, y)\) für diejenige \(A\)-lineare
+		Abbildung \(\underline\beta\) mit \(\underline\beta(x \otimes y) = \beta(x, y)\).
+	\end{notation}
+\end{frame}
+	
+\begin{frame}{Das Tensorprodukt endlich erzeugter Modul}
+	\begin{remark}<+->
+		Das Tensorprodukt \(M \otimes N\) ist als \(A\)-Modul durch die \emph{Produkte} \(x \otimes y\) mit
+		\(x \in M\) und  \(y \in N\) erzeugt.
+		\\
+		Sind \((x_i)_{i \in I}\) und \((y_j)_{j \in J}\) Familien von Erzeugern von \(M\) beziehungsweise
+		\(N\), so erzeugen die Elemente \(x_i \otimes y_j\) das Tensorprodukt \(M \otimes N\).
+		\\
+		Insbesondere ist \(M \otimes N\) ein endlich erzeugter \(A\)-Modul, falls \(M\) und \(N\) endlich
+		erzeugte \(A\)-Moduln sind.
+	\end{remark}
+\end{frame}
+
+\begin{frame}{Beispiele von Tensorprodukten}
+	\begin{example}<+->
+		Wir betrachten \(\set Z\) und \(\set Z/(2)\) als \(\set Z\)-Moduln. Sei \(x \in \set Z/(2)\) das
+		nicht verschwindende Element. Sei \(2 \set Z \subset \set Z\) der Untermodul der geraden ganzen
+		Zahlen.
+		\\
+		Im Tensorprodukt \(\set Z \otimes_{\set Z} \set Z/(2)\) verschwindet das Element \(2 \otimes x\), denn
+		\(2 \otimes x = 1 \otimes (2x) = 1 \otimes 0 = 0\).
+		\\
+		Auf der anderen Seite verschwindet das Element \(2 \otimes x\) nicht im Tensorprodukt
+		\(2 \set Z \otimes_{\set Z} \set Z/(2)\).
+	\end{example}
+	\begin{visibleenv}<+->
+		Damit ist die Notation \(x \otimes y\) mehrdeutig, solange das Tensorprodukt, in das Element enthalten
+		ist, nicht festgelegt worden ist.
+	\end{visibleenv}
+\end{frame}
+
+\begin{frame}{Verschwindende Tensorprodukte}
+	\begin{corollary}<+->
+		Sei \(A\) ein kommutativer Ring. Seien \(M, N\) zwei \(A\)-Moduln und \(x_i \in M\) und
+		\(y_i \in N\) mit \(\sum\limits_{i} x_i \otimes y_i = 0\) in \(M \otimes N\). Dann existieren endlich
+		erzeugte Untermoduln \(M_0 \subset M\) und \(N_0 \subset N\), so daß
+		\(\sum\limits_{i} x_i \otimes y_i = 0\) in \(M_0 \otimes N_0\).
+	\end{corollary}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Wir benutzen dieselbe Notation wie im Beweis der Existenz des Tensorproduktes, insbesondere also
+			\(M \otimes N = T = C/D\).
+		\item
+			Da \(\sum\limits_{i} x_i \otimes y_i = 0\) in \(M \otimes N\), folgt
+			\(\sum\limits_{i} (x_i, y_i) \in D\), ist also eine endliche Summe von Generatoren \(d_j\).
+		\item
+			Sei \(M_0\) der Untermodul von \(M\), welcher von allen \(x_i\) und allen Elementen von \(M\),
+			welche als
+			erste Komponenten in den \(d_j\) auftauchen, erzeugt wird.
+			Der Untermodul \(N_0\) von \(N\) wird auf analoge Weise definiert.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Bemerkung zur Konstruktion des Tensorproduktes}
+	\begin{remark}<+->
+		Ab jetzt spielt die genaue Konstruktion des Tensorproduktes für uns keine Rolle mehr. Wesentlich
+		ist seine universelle Eigenschaft.
+	\end{remark}
+\end{frame}
+
+\subsection{Multilineare Abbildungen und mehrfache Tensorprodukte}
+
+\begin{frame}{Multlineare Abbildungen}
+	In Verallgemeinerung des Begriffes der bilinearen Abbildung definieren wir:
+	\begin{definition}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(M_1, \dotsc, M_r, P\) eine Folge von \(A\)-Moduln.
+		\\
+		Eine Abbildung \(\mu\colon M_1 \times \dotsb \times M_r \to P\) heißt \emph{\(A\)-multilinear}, falls
+		sie linear in jedem Argument ist.
+	\end{definition}
+\end{frame}
+
+\begin{frame}{Mehrfache Tensorprodukte}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(M_1, \dotsc, M_r, P\) eine Folge von \(A\)-Moduln.
+		\begin{enumerate}[<+->]
+		\item<.->
+			Es existiert ein \(A\)-Modul \(T\) zusammen mit einer \(A\)-multilinearen Abbildung
+			\(\gamma\colon M_1 \times \dotsb \times M_r \to T\) mit der folgenden (universellen) Eigenschaft:
+			\\
+			Für jeden weiteren \(A\)-Modul \(P\) zusammen mit einer \(A\)-multilinearen Abbildungen
+			\(\mu\colon M_1 \times \dotsb \times M_r \to P\) existiert genau eine \(A\)-lineare Abbildung
+			\(\underline\mu\colon T \to P\) mit \(\mu = \underline\mu \circ \gamma\).
+		\item
+			Sind \((T, \gamma), (T', \gamma')\) zwei solcher Paare mit dieser Eigenschaft, so
+			existiert genau ein Isomorphismus \(\phi\colon T \to T'\) mit \(\phi \circ \gamma = \gamma'\).
+			\qed
+		\end{enumerate}
+	\end{proposition}
+	\begin{visibleenv}<+->
+		Wir schreiben \(M_1 \otimes \dotsb \otimes M_r\) für \(T\).
+	\end{visibleenv}
+\end{frame}
+
+\subsection{Kanonische Isomorphismen zwischen Tensorprodukten}
+
+\begin{frame}{Kanonische Isomorphismen zwischen Tensorprodukten}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Seien \(M, N, P\) drei \(A\)-Moduln. Dann existieren Isomorphismen
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(M \otimes N \isoto N \otimes M, x \otimes y \mapsto y \otimes x\),
+		\item
+			\((M \otimes N) \otimes P \isoto M \otimes (N \otimes P) \isoto  M \otimes N \otimes P,
+			(x \otimes y) \otimes z \mapsto x \otimes (y \otimes z) \mapsto x \otimes y \otimes z\),
+		\item
+			\((M \oplus N) \otimes P \isoto (M \otimes P) \oplus (N \otimes P),
+			(x, y) \otimes z \mapsto (x \otimes z, y \otimes z)\),
+		\item
+			\(A \otimes M \isoto M, a \otimes x \mapsto ax\).
+		\end{enumerate}
+	\end{proposition}
+\end{frame}
+
+\begin{frame}{Beweis der kanonischen Isomorphismen}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			In allen Fällen ist nachzuweisen, daß die so definierten Abbildungen wohldefiniert sind und 
+			Umkehrungen	besitzen.
+			\\
+			Wir beweisen dies exemplarisch am Beispiel \((M \otimes N) \otimes P
+			\isoto M \otimes N \otimes P, (x \otimes y) \otimes z \mapsto x \otimes y \otimes z\).
+		\item
+			Sei zunächst \(z \in P\). Die Abbildung \(M \times N \to M \otimes N \otimes P, (x, y) \mapsto x \otimes y
+			\otimes z\) ist bilinear in \(x, y\) und induziert damit einen Homomorphismus
+			\(M \otimes N \to M \otimes N \otimes P, x \otimes y \mapsto x \otimes
+			y \otimes z\).
+		\item
+			Die Abbildung \((M \otimes N) \times P \to M \otimes N \otimes P, (t, z) \mapsto t \otimes z\)
+			ist bilinear in \(t, z\) und induziert damit einen Homomorphismus \((M \otimes N) \otimes P
+			\to M \otimes N \otimes P, (x \otimes y) \otimes z \mapsto x \otimes y \otimes z\).
+		\item
+			Die Wohldefiniertheit von
+			\(M \otimes N \otimes P \to (M \otimes N) \otimes P, x \otimes y \otimes z \mapsto
+			(x \otimes y) \otimes z\) wird analog gezeigt. Dies ist die Umkehrung.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Verträglichkeit der Tensorprodukte über verschiedene Ringe}
+	Seien \(A, B\) zwei kommutative Ringe.
+	\begin{definition}<+->
+		Ein \((A, B)\)-Bimodul \(N\) ist eine abelsche Gruppe \(N\), welche zugleich ein \(A\)-Modul
+		und ein \(B\)-Modul ist, so daß die beiden Stukturen kompatibel sind, nämlich
+		\(a (b x) = b (a x)\) für alle \(a \in A\), \(b \in B\) und \(x \in N\).
+	\end{definition}
+	\begin{proposition}<+->
+		Sei \(M\) ein \(A\)-Modul, \(P\) ein \(B\)-Modul und \(N\) ein \((A, B)\)-Bimodul. Dann ist
+		\(M \otimes_A N\) durch Multiplikation im zweiten Faktor in natürlicher Weise ein \(B\)-Modul und
+		\(N \otimes_B P\) durch Multiplikation im ersten Faktor in natürlicher Weise ein \(A\)-Modul.
+		\\
+		Schließlich ist \((M \otimes_A N) \otimes_B P \isoto M \otimes_A (N \otimes_B P),
+		(x \otimes y) \otimes z \mapsto x \otimes (y \otimes z)\) ein Isomorphismus abelscher Gruppen.
+		\qed
+	\end{proposition}
+\end{frame}
+
+\subsection{Funktorialität des Tensorproduktes}
+
+\begin{frame}{Das Tensorprodukt zweier Abbildungen}
+	\begin{example}<+->
+		Sei \(A\) ein kommutativer Ring. Seien \(\phi\colon M \to M'\) und \(\psi\colon N \to N'\)
+		Homomorphismen von \(A\)-Moduln.
+		\\
+		Es ist \(M \times N \to M' \otimes N', (x, y) \mapsto \phi(x) \otimes \psi(y)\) eine \(A\)-bilineare
+		Abbildung und induziert daher einen Homomorphismus
+		\[
+			\phi \otimes \psi\colon M \otimes N \to M' \otimes N', x \otimes y \mapsto \phi(x) \otimes \psi(y)
+		\]
+		von \(A\)-Moduln.
+	\end{example}
+\end{frame}
+
+\begin{frame}{Verträglichkeit des Tensorproduktes mit Verknüpfungen}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Seien \(M \xrightarrow\phi M' \xrightarrow{\phi'} M''\) und
+		\(N \xrightarrow{\psi} N' \xrightarrow{\psi'} N''\) Homomorphismen von \(A\)-Moduln. Dann ist
+		\[
+			(\phi' \circ \phi) \otimes (\psi' \circ \psi) = (\phi' \otimes \psi') \circ
+			(\phi \otimes \psi)\colon M \otimes N \to M'' \otimes N''.
+		\]
+	\end{proposition}
+	\begin{proof}<+->
+		Die Homomorphismen \((\phi' \circ \phi) \otimes (\psi' \circ \psi)\) und \((\phi' \otimes \psi')
+		\circ (\phi \otimes \psi)\) stimmen auf allen Elementen der Form \(x \otimes y \in M \otimes N\)
+		überein. Da diese Elemente \(M \otimes N\) erzeugen, folgt die Gleichheit der Homomorphismen.
+	\end{proof}
+\end{frame}
+

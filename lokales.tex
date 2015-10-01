@@ -1,0 +1,122 @@
+\section{Lokale Eigenschaften}
+
+\subsection{Trivialität von Moduln}
+
+\begin{frame}{Lokale Eigenschaften}
+	Wir nennen eine Eigenschaft kommutativer Ringe (bzw.~Moduln über einem kommutativen Ring) \emph{lokal},
+	falls folgendes gilt:
+	
+	Ein kommutativer Ring \(A\) (bzw.~ein Modul \(M\) über einem kommutativen Ring) hat die Eigenschaft genau dann, wenn
+	alle seine Halme \(A_{\ideal p}\) (bzw.~\(M_{\ideal p}\)) an allen Primidealen \(\ideal p\) die Eigenschaft hat.
+\end{frame}
+
+\begin{frame}{Trivialität von Moduln}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(M\) ein \(A\)-Modul. Dann sind folgende Aussagen äquivalent:
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(M = 0\).
+		\item
+			\(M_{\ideal p} = 0\) für alle Primideale \(\ideal p\) von \(A\).
+		\item
+			\(M_{\ideal m} = 0\) für alle maximalen Ideale \(\ideal m\) von \(A\).
+		\end{enumerate}
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Aus der ersten folgt sicherlich die zweite Aussage und aus der zweiten die dritte. 
+		\item
+			Sei \(M_{\ideal m} = 0\) für alle maximalen Ideale \(\ideal m\) von \(A\). Sei \(x \in M\).
+			Angenommen \(x \neq 0\).
+			Dann ist das Ideal \(\ann(x)\) in einem maximalen Ideal \(\ideal m\) von
+			\(A\) enthalten.
+		\item
+			Es ist \(\frac x 1 = 0 \in M_{\ideal m}\), also \(t x = 0\) für ein \(t \in A \setminus \ideal m\).
+			Damit ist \(t \notin \ann(x)\), Widerspruch.
+		\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\subsection{Injektivität und Surjektivität}
+
+\begin{frame}{Injektivität ist eine lokale Eigenschaft}
+	\begin{proposition}<+->
+		\label{prop:inj_is_local}
+		Sei \(A\) ein kommutativer Ring. Sei \(\phi\colon M \to N\) ein
+		Homomorphismus von \(A\)-Moduln. Dann
+		sind folgende Aussagen äquivalent:
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(\phi\colon M \to N\) ist injektiv.
+		\item
+			\(\phi_{\ideal p}\colon M_{\ideal p} \to N_{\ideal p}\) ist injektiv für alle Primideale \(\ideal p\) von \(A\).
+		\item
+			\(\phi_{\ideal m}\colon M_{\ideal m} \to N_{\ideal m}\) ist injektiv für alle maximalen Ideale \(\ideal m\) von \(A\).
+		\end{enumerate}
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			Lokalisierung erhält Injektivität.
+		\item
+			Jedes maximale Ideal ist ein Primideal.
+		\item
+			Sei \(\phi_{\ideal m}\) für alle maximalen Ideale \(\ideal m\) injektiv. Sei \(M' = \ker \phi\).
+			Dann ist \(0 \to M' \to M \to N\) exakt, also auch \(0 \to M'_{\ideal m} \to M_{\ideal m} \to N_{\ideal m}\).
+			Damit ist \(M'_{\ideal m} = \ker \phi_{\ideal m} = 0\). Es folgt nach der letzten Aussage, daß \(M' = 0\).
+			Also ist \(\phi\) injektiv.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
+\begin{frame}{Surjektivität ist eine lokale Eigenschaft}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(\phi\colon M \to N\) ein Homomorphismus von \(A\)-Moduln. Dann
+		sind folgende Aussagen äquivalent:
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(\phi\colon M \to N\) ist surjektiv.
+		\item
+			\(\phi_{\ideal p}\colon M_{\ideal p} \to N_{\ideal p}\) ist surjektiv für alle Primideale \(\ideal p\) von \(A\).
+		\item
+			\(\phi_{\ideal m}\colon M_{\ideal m} \to N_{\ideal m}\) ist surjektiv für alle maximalen Ideale \(\ideal m\) von \(A\).
+			\qed
+		\end{enumerate}
+	\end{proposition}
+\end{frame}
+
+\subsection{Flachheit}
+
+\begin{frame}{Flachheit ist eine lokale Eigenschaft}
+	\begin{proposition}<+->
+		Sei \(A\) ein kommutativer Ring. Sei \(M\) ein \(A\)-Modul. Dann sind folgende Aussagen äquivalent:
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(M\) ist ein flacher \(A\)-Modul.
+		\item
+			\(M_{\ideal p}\) ist ein flacher \(A_{\ideal p}\)-Modul für alle Primideale \(\ideal p\) von \(A\).
+		\item
+			\(M_{\ideal m}\) ist ein flacher \(A_{\ideal m}\)-Modul für alle maximalen Ideale \(\ideal m\) von \(A\).
+		\end{enumerate}
+	\end{proposition}
+	\begin{proof}<+->
+		\begin{enumerate}[<+->]
+		\item<.->
+			\(M_{\ideal p} = A_{\ideal p} \otimes_A M\) und
+			Skalarerweiterung erhält Flachheit.
+		\item
+			Jedes maximale Ideal ist ein Primideal.
+		\item
+			Sei \(M_{\ideal m}\) flach über \(A_{\ideal m}\) für alle maximalen Ideale \(\ideal m\). Sei \(N \to P\) ein
+			injektiver Homomorphismus von \(A\)-Moduln. Es folgt, daß \(N_{\ideal m} \to P_{\ideal m}\) injektiv ist.
+			Nach Voraussetzung ist dann \((N \otimes_A M)_{\ideal m} = N_{\ideal m} \otimes_{A_{\ideal m}} M_{\ideal m} \to
+			P_{\ideal m} \otimes_{A_{\ideal m}} M_{\ideal m} = (P \otimes_A M)_{\ideal m}\) injektiv. 
+			Da \(\ideal m\) beliebig ist, folgt, daß \(N \otimes_A M \to P \otimes_A M\) injektiv ist.
+			\qedhere
+		\end{enumerate}
+	\end{proof}
+\end{frame}
+
