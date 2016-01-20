@@ -61,7 +61,7 @@
 \begin{frame}{Homogene Komponenten}
 	\begin{definition}<+->
 		Sei \(A\) ein gewichteter Ring. Sei \(M\) ein gewichteter \(A\)-Modul. 
-		Sei \(n \in \set N_0\). Ein	\(x \in M\) heißt \emph{homogen vom
+		Sei \(n \in \set N_0\). Ein Element \(x \in M\) heißt \emph{homogen vom
 		Gewicht \(n\)}, falls \(x \in M_n\).
 	\end{definition}
 	\begin{visibleenv}<+->
@@ -101,7 +101,7 @@
 			Sei umgekehrt \(A\) noethersch. Damit ist \(A_0 \cong A/A_+\) als
 			Quotient ebenfalls noethersch. Es bleibt, endlich viele Erzeuger
 			von \(A\) als \(A_0\)-Algebra zu finden. Zunächst ist
-			\(A_+\) als Ideal \(A\) endlich erzeugt, etwa von \(x_1, \dotsc,
+			\(A_+\) als Ideal von \(A\) endlich erzeugt, etwa von \(x_1, \dotsc,
 			x_r\). Ohne Einschränkung seien die \(x_i\) jeweils homogen von
 			den Gewichten \(d_i > 0\).
 		\item
@@ -121,7 +121,7 @@
 \subsection{Reessche Ringe und Moduln}
 
 \begin{frame}{Der Reessche Ring}
-	Sei \(\ideal a\) ein Ideal in einem kommutativer Ring \(A\). Mit
+	Sei \(\ideal a\) ein Ideal in einem kommutativen Ring \(A\). Mit
 	\(\Rees_{\ideal a}(t) = \Rees_{\ideal a}(A, t)\) bezeichnen wir die Teilmenge aller derjenigen Polynome
 	\(a_n t^n + a_{n - 1} t^{n - 1} + \dotsb + a_0 \in A[t]\) mit
 	\(a_i \in \ideal a^i\).
@@ -216,7 +216,7 @@
 		stabilen \(\ideal a\)-Filtration \(M_\bullet\). Für jeden Untermodul
 		\(M'\) von \(M\) ist dann \(M' \cap M_\bullet\colon M' = M' \cap M_0
 		\supset M' \cap M_1 \supset M' \cap M_2 \supset \dotsb\) eine
-		stabile \(\ideal a\)-Filtration von \(\ideal M\).
+		stabile \(\ideal a\)-Filtration von \(M'\).
 	\end{proposition}
 	\begin{proof}<+->
 		\begin{enumerate}[<+->]
@@ -226,9 +226,9 @@
 			\(\ideal a\)-Filtration.
 		\item
 			Der Reessche Modul \(Q^*\) zur Filtration \(M' \cap M_\bullet\)
-			von \(M'\) ist gewichteter \(\Rees_{\ideal a}(t)\)-Modul, und zwar
-			Untermodul des endlich erzeugten \(\Rees_{\ideal a}(t)\)-Moduls
-			\(\Rees(M_\bullet, t)\) ist.
+			von \(M'\) ist ein gewichteter \(\Rees_{\ideal a}(t)\)-Modul, und zwar
+			ein Untermodul des endlich erzeugten \(\Rees_{\ideal a}(t)\)-Moduls
+			\(\Rees(M_\bullet, t)\).
 		\item
 			Da \(\Rees_{\ideal a}(t)\) noethersch ist, ist damit auch
 			\(Q^*\) endlich erzeugt. Nach dem letzten Hilfssatz ist damit
